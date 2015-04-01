@@ -16,6 +16,7 @@
 @interface AMGTalkViewController ()
 
 @property (nonatomic, strong) AMGTalk *talk;
+@property (nonatomic, weak) NSLayoutConstraint *titleWidthConstraint;
 
 - (void)loadBarButtonItems;
 
@@ -36,7 +37,7 @@
 }
 
 - (void)loadView {
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 460)];
+    UIView *view = [[UIView alloc] initWithFrame:CGRectZero];
     view.backgroundColor  = [UIColor whiteColor];
     self.view = view;
 }
@@ -58,13 +59,12 @@
         label.font          = [UIFont boldSystemFontOfSize:22];
         label.numberOfLines = 0;
         label.text          = self.talk.title;
-        label.preferredMaxLayoutWidth = 280;
         label;
     });
     [scrollView addSubview:titleLabel];
 
     NSDateFormatter *dayDateFormatter = [[NSDateFormatter alloc] init];
-    dayDateFormatter.dateFormat = @"EE";
+    dayDateFormatter.dateFormat = @"EEEE";
 
     NSDateFormatter *timeDateFormatter = [[NSDateFormatter alloc] init];
     timeDateFormatter.timeStyle = NSDateFormatterShortStyle;
@@ -91,14 +91,13 @@
         imageView;
     });
     [scrollView addSubview:locationImageView];
-    
+
     UILabel *locationLabel = ({
         UILabel *label = [[UILabel alloc] init];
         label.translatesAutoresizingMaskIntoConstraints = NO;
         label.font          = [UIFont systemFontOfSize:18];
         label.numberOfLines = 0;
         label.text          = self.talk.room;
-        label.preferredMaxLayoutWidth = 280;
         label;
     });
     [scrollView addSubview:locationLabel];
@@ -119,10 +118,9 @@
         label.font          = [UIFont systemFontOfSize:18];
         label.numberOfLines = 0;
         label.text          = [NSString stringWithFormat:@"%@, %@ to %@",
-                               [dayDateFormatter  stringFromDate:self.talk.startDate],
+                               [dayDateFormatter  stringFromDate:self.talk.startDate].capitalizedString,
                                [timeDateFormatter stringFromDate:self.talk.startDate],
                                [timeDateFormatter stringFromDate:self.talk.endDate]];
-        label.preferredMaxLayoutWidth = 280;
         label;
     });
     [scrollView addSubview:timeLabel];
@@ -154,7 +152,6 @@
             [text appendAttributedString:[[NSAttributedString alloc] initWithString:speaker.company attributes:@{NSFontAttributeName: [UIFont italicSystemFontOfSize:16]}]];
         }
         label.attributedText = text;
-        label.preferredMaxLayoutWidth = 280;
         label;
     });
     [scrollView addSubview:speakerLabel];
@@ -167,7 +164,6 @@
         label.text          = [NSString stringWithFormat:@"%@ %@",
                                self.talk.emojiForLanguage,
                                self.talk.summary];
-        label.preferredMaxLayoutWidth = 280;
         label;
     });
     [scrollView addSubview:summaryLabel];
@@ -178,7 +174,6 @@
         label.font          = [UIFont systemFontOfSize:16];
         label.numberOfLines = 0;
         label.text          = self.talk.desc;
-        label.preferredMaxLayoutWidth = 280;
         label;
     });
     [scrollView addSubview:descLabel];
@@ -198,6 +193,11 @@
 
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[scrollView]|" options:0 metrics:0 views:views]];
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[scrollView]|" options:0 metrics:0 views:views]];
+
+    CGFloat screenWidth = CGRectGetWidth([UIScreen mainScreen].bounds);
+    NSLayoutConstraint *titleWidthConstraint = [NSLayoutConstraint constraintWithItem:titleLabel attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationLessThanOrEqual toItem:nil attribute:kNilOptions multiplier:1 constant:screenWidth - 2*15];
+    [self.view addConstraint:titleWidthConstraint];
+    self.titleWidthConstraint = titleWidthConstraint;
 
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-15-[titleLabel]-15-|"
                                                                       options:kNilOptions
@@ -246,6 +246,11 @@
     item.tintColor = [UIColor orangeColor];
 
     self.navigationItem.rightBarButtonItem = item;
+}
+
+- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
+    [super didRotateFromInterfaceOrientation:fromInterfaceOrientation];
+    self.titleWidthConstraint.constant = CGRectGetWidth(self.view.frame) - 2*15;
 }
 
 
