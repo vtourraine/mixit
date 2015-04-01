@@ -178,7 +178,7 @@ static NSString * const AMGTalkCellIdentifier = @"Cell";
     NSDateFormatter *dayFormatter = [[NSDateFormatter alloc] init];
     dayFormatter.dateFormat = @"EEEE";
 
-    return [[[dayFormatter stringFromDate:sectionInfo.date]
+    return [[[dayFormatter stringFromDate:sectionInfo.date].capitalizedString
              stringByAppendingString:@", "]
             stringByAppendingString:[formatter stringFromDate:sectionInfo.date]];
 }
@@ -205,7 +205,8 @@ static NSString * const AMGTalkCellIdentifier = @"Cell";
     AMGTalk *talk = sectionInfo.objects[indexPath.row];
 
     cell.textLabel.text       = talk.title;
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ %@, %@ to %@",
+    cell.detailTextLabel.text = [NSString stringWithFormat:
+                                 NSLocalizedString(@"%@ %@, %@ to %@", nil),
                                  talk.emojiForLanguage ?: @"",
                                  talk.room ?: @"",
                                  [timeDateFormatter stringFromDate:talk.startDate],

@@ -124,9 +124,14 @@ NS_ENUM(NSUInteger, AMGMapRows) {
     label.textColor = [UIColor lightGrayColor];
     label.textAlignment = NSTextAlignmentCenter;
     label.font = [UIFont systemFontOfSize:13];
+    label.userInteractionEnabled = YES;
     label.text = NSLocalizedString(@"This app isn’t affiliated with the Mix-IT team.\n"
                                    @"Made by @vtourraine.", nil);
     self.tableView.tableFooterView = label;
+
+    UITapGestureRecognizer *recognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(openVTourraine:)];
+    recognizer.numberOfTapsRequired = 1;
+    [label addGestureRecognizer:recognizer];
 }
 
 
@@ -143,6 +148,11 @@ NS_ENUM(NSUInteger, AMGMapRows) {
 - (IBAction)openInSafari:(id)sender {
     [[UIApplication sharedApplication] openURL:
      [NSURL URLWithString:@"http://www.mix-it.fr/"]];
+}
+
+- (IBAction)openVTourraine:(id)sender {
+    [[UIApplication sharedApplication] openURL:
+     [NSURL URLWithString:@"http://www.vtourraine.net?mixit"]];
 }
 
 - (IBAction)dismiss:(id)sender {

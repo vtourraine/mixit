@@ -117,7 +117,8 @@
         label.translatesAutoresizingMaskIntoConstraints = NO;
         label.font          = [UIFont systemFontOfSize:18];
         label.numberOfLines = 0;
-        label.text          = [NSString stringWithFormat:@"%@, %@ to %@",
+        label.text          = [NSString stringWithFormat:
+                               NSLocalizedString(@"%@, %@ to %@", nil),
                                [dayDateFormatter  stringFromDate:self.talk.startDate].capitalizedString,
                                [timeDateFormatter stringFromDate:self.talk.startDate],
                                [timeDateFormatter stringFromDate:self.talk.endDate]];

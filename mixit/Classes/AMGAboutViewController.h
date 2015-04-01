@@ -13,6 +13,7 @@
 - (IBAction)openInMaps:(id)sender;
 - (IBAction)openInSafari:(id)sender;
 
+- (IBAction)openVTourraine:(id)sender;
 - (IBAction)dismiss:(id)sender;
 
 @end

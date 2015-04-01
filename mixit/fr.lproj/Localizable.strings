@@ -1,0 +1,24 @@
+/* 
+  Localizable.strings
+  mixit
+
+  Created by Vincent Tourraine on 01/04/15.
+  Copyright (c) 2015 Studio AMANgA. All rights reserved.
+*/
+
+"Mix-IT" = "Mix-IT";
+
+"Mix-IT Schedule" = "Programme Mix-IT";
+"Refreshing Data" = "Mise à Jour des Données";
+"Sync Error" = "Erreur de Synchronisation";
+"OK" = "OK";
+"Session" = "Session";
+"%@, %@ to %@" = "%@, de %@ à %@";
+"%@ %@, %@ to %@" = "%@ %@, de %@ à %@";
+"About Mix-IT" = "À Propos de Mix-IT";
+"Close" = "Fermer";
+"April 16 and 17, 2015\nLyon, France" = "16 et 17 Avril 2015\nLyon, France";
+"CPE Lyon" = "CPE Lyon";
+"This app isn’t affiliated with the Mix-IT team.\nMade by @vtourraine." = "Cette app n’est pas affiliée à l’équipe de Mix-IT.\nDéveloppée par @vtourraine.";
+"Open in Maps" = "Ouvrir avec Maps";
+"Open Mix-IT website in Safari" = "Ouvrir le site Mix-IT avec Safari";
