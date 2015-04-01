@@ -20,5 +20,7 @@
 @interface AMGTalksSection : NSObject <NSFetchedResultsSectionInfo>
 
 @property (nonatomic, copy) NSArray *talks;
+@property (nonatomic, copy) NSDate *date;
+@property (nonatomic, assign) BOOL firstSectionForTheDay;
 
 @end

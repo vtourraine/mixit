@@ -108,10 +108,39 @@ static NSString * const AMGTalkCellIdentifier = @"Cell";
     request.sortDescriptors = @[startSort, roomSort, identifierSort];
 
     NSArray *talks = [self.syncManager.context executeFetchRequest:request error:nil];
-    AMGTalksSection *section = [AMGTalksSection new];
-    section.talks = talks;
-    self.sections = @[section];
+
+    NSDate *startForLastTalk = nil;
+    AMGTalksSection *currentSection;
+    NSMutableArray *talksForCurrentSection;
+    NSMutableArray *sections = [NSMutableArray array];
+
+    for (AMGTalk *talk in talks) {
+        if (!startForLastTalk || [talk.startDate timeIntervalSinceDate:startForLastTalk] > 1) {
+            if (currentSection) {
+                currentSection.talks = talksForCurrentSection;
+                [sections addObject:currentSection];
+            }
+
+            currentSection = [AMGTalksSection new];
+            currentSection.date = talk.startDate;
+            talksForCurrentSection = [NSMutableArray array];
+            if (!startForLastTalk || [talk.startDate timeIntervalSinceDate:startForLastTalk] > 60*60*5) {
+                currentSection.firstSectionForTheDay = YES;
+            }
+        }
+
+        [talksForCurrentSection addObject:talk];
+
+        startForLastTalk = talk.startDate;
+    }
+    if (currentSection) {
+        currentSection.talks = talksForCurrentSection;
+        [sections addObject:currentSection];
+    }
+
+    self.sections = sections;
 }
+
 
 #pragma mark - Actions
 
@@ -140,16 +169,18 @@ static NSString * const AMGTalkCellIdentifier = @"Cell";
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    id <NSFetchedResultsSectionInfo> sectionInfo = self.sections[section];
-    NSString *title = sectionInfo.name;
+    AMGTalksSection *sectionInfo = self.sections[section];
 
-    if (title.length > 16) {
-        // ex: 2014-04-29 07:15:00 +0000
-        title = [title substringWithRange:NSMakeRange(11, 5)];
-        title = [title stringByReplacingOccurrencesOfString:@":" withString:@"h "];
-    }
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    formatter.timeStyle = NSDateFormatterShortStyle;
+    formatter.doesRelativeDateFormatting = YES;
+    
+    NSDateFormatter *dayFormatter = [[NSDateFormatter alloc] init];
+    dayFormatter.dateFormat = @"EEEE";
 
-    return title;
+    return [[[dayFormatter stringFromDate:sectionInfo.date]
+             stringByAppendingString:@", "]
+            stringByAppendingString:[formatter stringFromDate:sectionInfo.date]];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -174,9 +205,8 @@ static NSString * const AMGTalkCellIdentifier = @"Cell";
     AMGTalk *talk = sectionInfo.objects[indexPath.row];
 
     cell.textLabel.text       = talk.title;
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ %@, %@, %@ to %@",
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ %@, %@ to %@",
                                  talk.emojiForLanguage ?: @"",
-                                 talk.format ?: @"",
                                  talk.room ?: @"",
                                  [timeDateFormatter stringFromDate:talk.startDate],
                                  [timeDateFormatter stringFromDate:talk.endDate]];
@@ -187,6 +217,15 @@ static NSString * const AMGTalkCellIdentifier = @"Cell";
     }
     else {
         cell.favoritedImageView.image = nil;
+    }
+
+    if ([talk.endDate timeIntervalSinceNow] > 0) {
+        cell.textLabel.textColor = [UIColor blackColor];
+        cell.detailTextLabel.textColor = [UIColor blackColor];
+    }
+    else {
+        cell.textLabel.textColor = [UIColor lightGrayColor];
+        cell.detailTextLabel.textColor = [UIColor lightGrayColor];
     }
 
     return cell;
@@ -241,8 +280,13 @@ static NSString * const AMGTalkCellIdentifier = @"Cell";
 
 @implementation AMGTalksSection
 
-@synthesize indexTitle;
-@synthesize name;
+- (NSString *)indexTitle {
+    return nil;
+}
+
+- (NSString *)name {
+    return [self.date description];
+}
 
 - (NSArray *)objects {
     return self.talks;

@@ -59,8 +59,8 @@
     self.textLabel.frame = CGRectMake(nameLabelOriginX,
                                       5,
                                       titleSize.size.width,
-                                      titleSize.size.height);
-    
+                                      44);
+
     self.detailTextLabel.frame = CGRectMake(nameLabelOriginX,
                                             CGRectGetMaxY(self.contentView.frame) - 24,
                                             //CGRectGetMaxY(self.textLabel.frame) + 2,
