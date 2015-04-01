@@ -8,6 +8,8 @@
 
 #import "AMGTalksViewController.h"
 
+#import <SVProgressHUD.h>
+
 #import "AMGTalk.h"
 #import "AMGMixITSyncManager.h"
 
@@ -21,7 +23,7 @@
 static NSString * const AMGTalkCellIdentifier = @"Cell";
 
 
-@interface AMGTalksViewController () <AMGMixITSyncManagerDelegate>
+@interface AMGTalksViewController () <AMGMixITSyncManagerDelegate, AMGTalkViewDelegate>
 
 @property (nonatomic, copy) NSArray *sections;
 
@@ -40,7 +42,7 @@ static NSString * const AMGTalkCellIdentifier = @"Cell";
     self = [super initWithStyle:UITableViewStylePlain];
 
     if (self) {
-        self.title = NSLocalizedString(@"Agenda", nil);
+        self.title = NSLocalizedString(@"Mix-IT Schedule", nil);
     }
 
     return self;
@@ -86,6 +88,11 @@ static NSString * const AMGTalkCellIdentifier = @"Cell";
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+
+    if (self.sections.count == 0) {
+        [SVProgressHUD showWithStatus:NSLocalizedString(@"Refreshing Data", nil)];
+        [self refresh:nil];
+    }
 
     if (self.tableView.indexPathForSelectedRow) {
         [self.tableView deselectRowAtIndexPath:self.tableView.indexPathForSelectedRow
@@ -189,7 +196,8 @@ static NSString * const AMGTalkCellIdentifier = @"Cell";
     id <NSFetchedResultsSectionInfo> sectionInfo = self.sections[indexPath.section];
     AMGTalk *talk = sectionInfo.objects[indexPath.row];
 
-    UIViewController *viewController = [[AMGTalkViewController alloc] initWithTalk:talk];
+    AMGTalkViewController *viewController = [[AMGTalkViewController alloc] initWithTalk:talk];
+    viewController.delegate = self;
     [self.navigationController pushViewController:viewController animated:YES];
 }
 
@@ -200,6 +208,9 @@ static NSString * const AMGTalkCellIdentifier = @"Cell";
 
 - (void)syncManager:(AMGMixITSyncManager *)syncManager didFailSyncWithError:(NSError *)error {
     [self.refreshControl endRefreshing];
+    if ([SVProgressHUD isVisible]) {
+        [SVProgressHUD dismiss];
+    }
 
     [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Sync Error", nil)
                                 message:error.localizedDescription
@@ -210,8 +221,18 @@ static NSString * const AMGTalkCellIdentifier = @"Cell";
 
 - (void)syncManagerDidFinishSync:(AMGMixITSyncManager *)syncManager {
     [self.refreshControl endRefreshing];
+    if ([SVProgressHUD isVisible]) {
+        [SVProgressHUD dismiss];
+    }
 
     [self reloadSections];
+    [self.tableView reloadData];
+}
+
+#pragma mark - AMGTalkViewDelegate
+
+- (void)talkViewControler:(AMGTalkViewController *)viewController didToggleTalk:(AMGTalk *)talk {
+//    [self reloadSections];
     [self.tableView reloadData];
 }
 

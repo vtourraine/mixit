@@ -9,11 +9,22 @@
 @import UIKit;
 
 @class AMGTalk;
+@protocol AMGTalkViewDelegate;
+
 
 @interface AMGTalkViewController : UIViewController
 
 @property (nonatomic, strong, readonly) AMGTalk *talk;
+@property (nonatomic, weak) id <AMGTalkViewDelegate> delegate;
 
 - (instancetype)initWithTalk:(AMGTalk *)talk;
+
+@end
+
+
+@protocol AMGTalkViewDelegate <NSObject>
+
+- (void)talkViewControler:(AMGTalkViewController *)viewController
+            didToggleTalk:(AMGTalk *)talk;
 
 @end

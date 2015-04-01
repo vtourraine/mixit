@@ -15,8 +15,8 @@
 
 - (BOOL)updateWithAttributes:(NSDictionary *)attributes {
     self.company        = attributes[@"company"];
-    self.firstName      = attributes[@"firstname"];
-    self.lastName       = attributes[@"lastname"];
+    self.firstName      = attributes[@"firstName"];
+    self.lastName       = attributes[@"lastName"];
     self.login          = attributes[@"login"];
     self.longDesc       = attributes[@"longdesc"];
     self.shortDesc      = attributes[@"shortdesc"];

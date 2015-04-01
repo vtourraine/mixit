@@ -140,7 +140,7 @@
         imageView;
     });
     [scrollView addSubview:speakerImageView];
-    
+
     UILabel *speakerLabel = ({
         UILabel *label = [[UILabel alloc] init];
         label.translatesAutoresizingMaskIntoConstraints = NO;
@@ -249,6 +249,8 @@
     [self.talk.managedObjectContext save:nil];
 
     [self loadBarButtonItems];
+
+    [self.delegate talkViewControler:self didToggleTalk:self.talk];
 }
 
 @end

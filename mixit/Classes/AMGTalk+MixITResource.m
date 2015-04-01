@@ -14,23 +14,24 @@
 @implementation AMGTalk (MixITResource)
 
 - (BOOL)updateWithAttributes:(NSDictionary *)attributes {
-    self.desc     = attributes[@"talk"][@"description"];
-    self.format   = attributes[@"talk"][@"format"];
-    self.language = attributes[@"talk"][@"language"];
-    self.level    = attributes[@"talk"][@"level"];
-    self.room     = attributes[@"talk"][@"room"];
-    self.summary  = attributes[@"talk"][@"summary"];
-    self.title    = attributes[@"talk"][@"title"];
+    self.desc     = attributes[@"description"];
+    // self.format   = attributes[@"format"];
+    self.language = attributes[@"language"];
+    // self.level    = attributes[@"level"];
+    self.room     = attributes[@"room"];
+    self.summary  = attributes[@"summary"];
+    self.title    = attributes[@"title"];
 
     ISO8601DateFormatter *dateFormatter = [[ISO8601DateFormatter alloc] init];
-    self.startDate = [dateFormatter dateFromString:attributes[@"talk"][@"start"]];
-    self.endDate   = [dateFormatter dateFromString:attributes[@"talk"][@"end"]];
+    self.startDate = [dateFormatter dateFromString:attributes[@"start"]];
+    self.endDate   = [dateFormatter dateFromString:attributes[@"end"]];
 
-    NSArray *identifiersNumbers = attributes[@"talk"][@"speakers"];
+    NSArray *identifiersNumbers = attributes[@"speakers"];
     NSMutableArray *identifiers = [NSMutableArray arrayWithCapacity:identifiersNumbers.count];
     for (NSNumber *number in identifiersNumbers) {
         [identifiers addObject:[NSString stringWithFormat:@"%@", number]];
     }
+
     [self setSpeakersIdentifiersFromArray:identifiers];
 
     return YES;
@@ -38,6 +39,7 @@
 
 + (NSURLSessionDataTask *)fetchTalksWithClient:(AMGMixITClient *)client
                                          block:(void (^)(NSArray *posts, NSError *error))block {
+    // parameters:@{@"details": @"true"}
     return [client GET:@"talks" parameters:nil success:^(NSURLSessionDataTask * __unused task, id JSON) {
         if (![JSON isKindOfClass:NSArray.class]) {
             if (block) {
