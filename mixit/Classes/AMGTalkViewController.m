@@ -148,7 +148,7 @@
         NSMutableAttributedString *text = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@ %@",
                                                                                              speaker.firstName ?: @"",
                                                                                              speaker.lastName  ?: @""]];
-        if (speaker.company) {
+        if (speaker.company.length > 0) {
             [text appendAttributedString:[[NSAttributedString alloc] initWithString:@"\n"]];
             [text appendAttributedString:[[NSAttributedString alloc] initWithString:speaker.company attributes:@{NSFontAttributeName: [UIFont italicSystemFontOfSize:16]}]];
         }
