@@ -11,6 +11,7 @@
 #import <SVProgressHUD.h>
 
 #import "AMGTalk.h"
+#import "AMGMember.h"
 #import "AMGMixITSyncManager.h"
 
 #import "AMGTalkViewController.h"
@@ -23,9 +24,13 @@
 static NSString * const AMGTalkCellIdentifier = @"Cell";
 
 
-@interface AMGTalksViewController () <AMGMixITSyncManagerDelegate, AMGTalkViewDelegate>
+@interface AMGTalksViewController () <AMGMixITSyncManagerDelegate, AMGTalkViewDelegate, UISearchDisplayDelegate>
 
 @property (nonatomic, copy) NSArray *sections;
+@property (nonatomic, copy) NSArray *searchResults;
+
+@property (nonatomic, strong) UISearchDisplayController *talksSearchDisplayController;
+
 
 - (void)reloadSections;
 - (void)loadBarButtonItems;
@@ -54,6 +59,16 @@ static NSString * const AMGTalkCellIdentifier = @"Cell";
     [self loadBarButtonItems];
 
     self.syncManager.delegate = self;
+
+    UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame), 44)];
+    self.tableView.tableHeaderView = searchBar;
+    self.talksSearchDisplayController = [[UISearchDisplayController alloc] initWithSearchBar:searchBar contentsController:self];
+    self.talksSearchDisplayController.delegate = self;
+    self.talksSearchDisplayController.searchResultsDelegate = self;
+    self.talksSearchDisplayController.searchResultsDataSource = self;
+    [self.talksSearchDisplayController.searchResultsTableView
+     registerClass:AMGTalkCell.class
+     forCellReuseIdentifier:AMGTalkCellIdentifier];
 
     [self.tableView registerClass:AMGTalkCell.class
            forCellReuseIdentifier:AMGTalkCellIdentifier];
@@ -160,21 +175,33 @@ static NSString * const AMGTalkCellIdentifier = @"Cell";
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    if (tableView == self.talksSearchDisplayController.searchResultsTableView) {
+        return 1;
+    }
+
     return self.sections.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    if (tableView == self.talksSearchDisplayController.searchResultsTableView) {
+        return self.searchResults.count;
+    }
+
     id <NSFetchedResultsSectionInfo> sectionInfo = self.sections[section];
     return sectionInfo.numberOfObjects;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    if (tableView == self.talksSearchDisplayController.searchResultsTableView) {
+        return nil;
+    }
+
     AMGTalksSection *sectionInfo = self.sections[section];
 
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     formatter.timeStyle = NSDateFormatterShortStyle;
     formatter.doesRelativeDateFormatting = YES;
-    
+
     NSDateFormatter *dayFormatter = [[NSDateFormatter alloc] init];
     dayFormatter.dateFormat = @"EEEE";
 
@@ -184,10 +211,14 @@ static NSString * const AMGTalkCellIdentifier = @"Cell";
 }
 
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 70;
+    return [AMGTalkCell heightWithTitle:nil];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (tableView == self.talksSearchDisplayController.searchResultsTableView) {
+        return [AMGTalkCell heightWithTitle:nil];
+    }
+
     id <NSFetchedResultsSectionInfo> sectionInfo = self.sections[indexPath.section];
     AMGTalk *talk = sectionInfo.objects[indexPath.row];
     return [AMGTalkCell heightWithTitle:talk.title];
@@ -201,8 +232,15 @@ static NSString * const AMGTalkCellIdentifier = @"Cell";
     NSDateFormatter *timeDateFormatter = [[NSDateFormatter alloc] init];
     timeDateFormatter.timeStyle = NSDateFormatterShortStyle;
 
-    id <NSFetchedResultsSectionInfo> sectionInfo = self.sections[indexPath.section];
-    AMGTalk *talk = sectionInfo.objects[indexPath.row];
+    AMGTalk *talk;
+
+    if (tableView == self.talksSearchDisplayController.searchResultsTableView) {
+        talk = self.searchResults[indexPath.row];
+    }
+    else {
+        id <NSFetchedResultsSectionInfo> sectionInfo = self.sections[indexPath.section];
+        talk = sectionInfo.objects[indexPath.row];
+    }
 
     cell.textLabel.text       = talk.title;
     cell.detailTextLabel.text = [NSString stringWithFormat:
@@ -233,8 +271,15 @@ static NSString * const AMGTalkCellIdentifier = @"Cell";
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    id <NSFetchedResultsSectionInfo> sectionInfo = self.sections[indexPath.section];
-    AMGTalk *talk = sectionInfo.objects[indexPath.row];
+    AMGTalk *talk;
+    
+    if (tableView == self.talksSearchDisplayController.searchResultsTableView) {
+        talk = self.searchResults[indexPath.row];
+    }
+    else {
+        id <NSFetchedResultsSectionInfo> sectionInfo = self.sections[indexPath.section];
+        talk = sectionInfo.objects[indexPath.row];
+    }
 
     AMGTalkViewController *viewController = [[AMGTalkViewController alloc] initWithTalk:talk];
     viewController.delegate = self;
@@ -269,11 +314,47 @@ static NSString * const AMGTalkCellIdentifier = @"Cell";
     [self.tableView reloadData];
 }
 
-#pragma mark - AMGTalkViewDelegate
+
+#pragma mark - Search display delegate
+
+- (BOOL) searchDisplayController:(UISearchDisplayController *)controller
+shouldReloadTableForSearchString:(NSString *)searchString {
+    NSFetchRequest *talksRequest = [NSFetchRequest fetchRequestWithEntityName:AMGTalk.entityName];
+
+    NSSortDescriptor *startSort      = [NSSortDescriptor sortDescriptorWithKey:@"startDate"  ascending:YES];
+    NSSortDescriptor *roomSort       = [NSSortDescriptor sortDescriptorWithKey:@"room"       ascending:YES];
+    NSSortDescriptor *identifierSort = [NSSortDescriptor sortDescriptorWithKey:@"identifier" ascending:YES];
+    talksRequest.sortDescriptors = @[startSort, roomSort, identifierSort];
+
+    talksRequest.predicate = [NSPredicate predicateWithFormat:
+                         @"title CONTAINS [cd] %@ OR summary CONTAINS [cd] %@",
+                         searchString, searchString];
+
+    self.searchResults = [self.syncManager.context executeFetchRequest:talksRequest error:nil];
+
+    NSFetchRequest *authorsRequest = [NSFetchRequest fetchRequestWithEntityName:AMGMember.entityName];
+    authorsRequest.predicate = [NSPredicate predicateWithFormat:
+                                @"firstName CONTAINS [cd] %@ OR lastName CONTAINS [cd] %@",
+                                searchString, searchString];
+    NSArray *authors = [self.syncManager.context executeFetchRequest:authorsRequest error:nil];
+    for (AMGMember *author in authors) {
+        talksRequest.predicate = [NSPredicate predicateWithFormat:@"speakersIdentifiers CONTAINS %@", author.identifier];
+        NSArray *authorTalks = [self.syncManager.context executeFetchRequest:talksRequest error:nil];
+        self.searchResults = [self.searchResults arrayByAddingObjectsFromArray:authorTalks];
+    }
+
+    return YES;
+}
+
+
+#pragma mark - Talk view delegate
 
 - (void)talkViewControler:(AMGTalkViewController *)viewController didToggleTalk:(AMGTalk *)talk {
-//    [self reloadSections];
     [self.tableView reloadData];
+
+    if (self.talksSearchDisplayController.isActive) {
+        [self.talksSearchDisplayController.searchResultsTableView reloadData];
+    }
 }
 
 @end

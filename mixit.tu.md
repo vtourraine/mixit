@@ -2,9 +2,8 @@
 
 ## Roadmap
 
-- Search talks
 
-## 1.0.1
+## 1.1
 
-- [ ] Fix layout for users with no company
-
+- [x] Search talks
+- [x] Fix layout for users with no company

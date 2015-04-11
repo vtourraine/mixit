@@ -62,6 +62,7 @@
 		1F4218A1191292FE001AC572 /* AMGMember.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = AMGMember.m; path = Classes/AMGMember.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		1F4218A419129578001AC572 /* AMGMember+MixITResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = "AMGMember+MixITResource.h"; path = "Classes/AMGMember+MixITResource.h"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		1F4218A519129578001AC572 /* AMGMember+MixITResource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = "AMGMember+MixITResource.m"; path = "Classes/AMGMember+MixITResource.m"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		1F5F2E201AD951660086ADFB /* mixit.tu.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = mixit.tu.md; sourceTree = SOURCE_ROOT; };
 		1FA55BC71911A5D2000260B3 /* mixit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mixit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FA55BD41911A5D3000260B3 /* mixit-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "mixit-Info.plist"; sourceTree = "<group>"; };
 		1FA55BD61911A5D3000260B3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -195,6 +196,7 @@
 		1FA55BD21911A5D3000260B3 /* mixit */ = {
 			isa = PBXGroup;
 			children = (
+				1F5F2E201AD951660086ADFB /* mixit.tu.md */,
 				1F42188B19123C9E001AC572 /* App Delegate */,
 				1F42188C19123CA9001AC572 /* Talks */,
 				1F4218A319129302001AC572 /* Member */,
