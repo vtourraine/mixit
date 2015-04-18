@@ -258,11 +258,12 @@ static NSString * const AMGTalkCellIdentifier = @"Cell";
         cell.favoritedImageView.image = nil;
     }
 
-    if ([talk.endDate timeIntervalSinceNow] > 0) {
+    if (1 || [talk.endDate timeIntervalSinceNow] > 0) {
         cell.textLabel.textColor = [UIColor blackColor];
         cell.detailTextLabel.textColor = [UIColor blackColor];
     }
     else {
+#warning Disabled now that the 2015 edition is done
         cell.textLabel.textColor = [UIColor lightGrayColor];
         cell.detailTextLabel.textColor = [UIColor lightGrayColor];
     }
@@ -272,7 +273,7 @@ static NSString * const AMGTalkCellIdentifier = @"Cell";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     AMGTalk *talk;
-    
+
     if (tableView == self.talksSearchDisplayController.searchResultsTableView) {
         talk = self.searchResults[indexPath.row];
     }
