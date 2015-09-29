@@ -24,7 +24,7 @@
 static NSString * const AMGTalkCellIdentifier = @"Cell";
 
 
-@interface AMGTalksViewController () <AMGMixITSyncManagerDelegate, AMGTalkViewDelegate, UISearchDisplayDelegate>
+@interface AMGTalksViewController () <AMGMixITSyncManagerDelegate, AMGTalkViewDelegate, UISearchDisplayDelegate, UIViewControllerPreviewingDelegate>
 
 @property (nonatomic, copy) NSArray *sections;
 @property (nonatomic, copy) NSArray *searchResults;
@@ -76,6 +76,12 @@ static NSString * const AMGTalkCellIdentifier = @"Cell";
     [self reloadSections];
 
     [self loadRefreshControl];
+
+    if ([self respondsToSelector:@selector(traitCollection)] &&
+        [self.traitCollection respondsToSelector:@selector(forceTouchCapability)] &&
+        self.traitCollection.forceTouchCapability == UIForceTouchCapabilityAvailable) {
+        [self registerForPreviewingWithDelegate:self sourceView:self.view];
+    }
 }
 
 - (void)loadBarButtonItems {
@@ -356,6 +362,48 @@ shouldReloadTableForSearchString:(NSString *)searchString {
     if (self.talksSearchDisplayController.isActive) {
         [self.talksSearchDisplayController.searchResultsTableView reloadData];
     }
+}
+
+
+#pragma mark - View controller previewing delegate
+
+- (UIViewController *)previewingContext:(id<UIViewControllerPreviewing>)previewingContext viewControllerForLocation:(CGPoint)location {
+    UITableView *tableView = self.tableView;
+    if (self.searchDisplayController.isActive) {
+#warning Not working correctly with search results table view; need UISearchController?
+        tableView = self.searchDisplayController.searchResultsTableView;
+    }
+
+    NSIndexPath *indexPath = [tableView indexPathForRowAtPoint:location];
+    if (!indexPath) {
+        return nil;
+    }
+
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    if (!cell) {
+        return nil;
+    }
+
+    AMGTalk *talk;
+
+    if (tableView == self.talksSearchDisplayController.searchResultsTableView) {
+        talk = self.searchResults[indexPath.row];
+    }
+    else {
+        id <NSFetchedResultsSectionInfo> sectionInfo = self.sections[indexPath.section];
+        talk = sectionInfo.objects[indexPath.row];
+    }
+
+    AMGTalkViewController *talkViewController = [[AMGTalkViewController alloc] initWithTalk:talk];
+    talkViewController.delegate = self;
+
+    previewingContext.sourceRect = cell.frame;
+
+    return talkViewController;
+}
+
+- (void)previewingContext:(id<UIViewControllerPreviewing>)previewingContext commitViewController:(UIViewController *)viewControllerToCommit {
+    [self showViewController:viewControllerToCommit sender:self];
 }
 
 @end
