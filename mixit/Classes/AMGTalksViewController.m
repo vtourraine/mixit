@@ -324,6 +324,24 @@ static NSString * const AMGTalkCellIdentifier = @"Cell";
 
 #pragma mark - Search display delegate
 
+- (void)searchDisplayController:(UISearchDisplayController *)controller
+  didShowSearchResultsTableView:(UITableView *)tableView {
+    if ([self respondsToSelector:@selector(traitCollection)] &&
+        [self.traitCollection respondsToSelector:@selector(forceTouchCapability)] &&
+        self.traitCollection.forceTouchCapability == UIForceTouchCapabilityAvailable) {
+        [self registerForPreviewingWithDelegate:self sourceView:tableView];
+    }
+}
+
+- (void)searchDisplayController:(UISearchDisplayController *)controller
+  didHideSearchResultsTableView:(UITableView *)tableView {
+    if ([self respondsToSelector:@selector(traitCollection)] &&
+        [self.traitCollection respondsToSelector:@selector(forceTouchCapability)] &&
+        self.traitCollection.forceTouchCapability == UIForceTouchCapabilityAvailable) {
+        [self registerForPreviewingWithDelegate:self sourceView:self.view];
+    }
+}
+
 - (BOOL) searchDisplayController:(UISearchDisplayController *)controller
 shouldReloadTableForSearchString:(NSString *)searchString {
     NSFetchRequest *talksRequest = [NSFetchRequest fetchRequestWithEntityName:AMGTalk.entityName];
@@ -367,10 +385,10 @@ shouldReloadTableForSearchString:(NSString *)searchString {
 
 #pragma mark - View controller previewing delegate
 
-- (UIViewController *)previewingContext:(id<UIViewControllerPreviewing>)previewingContext viewControllerForLocation:(CGPoint)location {
+- (UIViewController *)previewingContext:(id<UIViewControllerPreviewing>)previewingContext
+              viewControllerForLocation:(CGPoint)location {
     UITableView *tableView = self.tableView;
-    if (self.searchDisplayController.isActive) {
-#warning Not working correctly with search results table view; need UISearchController?
+    if (previewingContext.sourceView == self.searchDisplayController.searchResultsTableView) {
         tableView = self.searchDisplayController.searchResultsTableView;
     }
 
