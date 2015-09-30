@@ -31,6 +31,8 @@ static NSString * const AMGTalkCellIdentifier = @"Cell";
 
 @property (nonatomic, strong) UISearchDisplayController *talksSearchDisplayController;
 
+@property (nonatomic, weak) id <UIViewControllerPreviewing> previewingContext;
+
 
 - (void)reloadSections;
 - (void)loadBarButtonItems;
@@ -80,7 +82,7 @@ static NSString * const AMGTalkCellIdentifier = @"Cell";
     if ([self respondsToSelector:@selector(traitCollection)] &&
         [self.traitCollection respondsToSelector:@selector(forceTouchCapability)] &&
         self.traitCollection.forceTouchCapability == UIForceTouchCapabilityAvailable) {
-        [self registerForPreviewingWithDelegate:self sourceView:self.view];
+        self.previewingContext = [self registerForPreviewingWithDelegate:self sourceView:self.view];
     }
 }
 
@@ -329,7 +331,8 @@ static NSString * const AMGTalkCellIdentifier = @"Cell";
     if ([self respondsToSelector:@selector(traitCollection)] &&
         [self.traitCollection respondsToSelector:@selector(forceTouchCapability)] &&
         self.traitCollection.forceTouchCapability == UIForceTouchCapabilityAvailable) {
-        [self registerForPreviewingWithDelegate:self sourceView:tableView];
+        [self unregisterForPreviewingWithContext:self.previewingContext];
+        self.previewingContext = [self registerForPreviewingWithDelegate:self sourceView:tableView];
     }
 }
 
@@ -338,7 +341,8 @@ static NSString * const AMGTalkCellIdentifier = @"Cell";
     if ([self respondsToSelector:@selector(traitCollection)] &&
         [self.traitCollection respondsToSelector:@selector(forceTouchCapability)] &&
         self.traitCollection.forceTouchCapability == UIForceTouchCapabilityAvailable) {
-        [self registerForPreviewingWithDelegate:self sourceView:self.view];
+        [self unregisterForPreviewingWithContext:self.previewingContext];
+        self.previewingContext = [self registerForPreviewingWithDelegate:self sourceView:self.view];
     }
 }
 
