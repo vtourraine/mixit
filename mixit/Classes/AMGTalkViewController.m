@@ -17,6 +17,7 @@
 
 @property (nonatomic, strong) AMGTalk *talk;
 @property (nonatomic, weak) NSLayoutConstraint *titleWidthConstraint;
+@property (nonatomic, strong) UIPreviewAction *toggleFavoritesPreviewAction;
 
 - (void)loadBarButtonItems;
 
@@ -264,6 +265,23 @@
     [self loadBarButtonItems];
 
     [self.delegate talkViewControler:self didToggleTalk:self.talk];
+}
+
+
+#pragma mark - 3D Touch preview actions
+
+- (NSArray <id <UIPreviewActionItem>> *)previewActionItems {
+    if (!self.toggleFavoritesPreviewAction) {
+        self.toggleFavoritesPreviewAction =
+        [UIPreviewAction
+         actionWithTitle:(self.talk.isFavorited) ? NSLocalizedString(@"Remove from Favorites", nil) : NSLocalizedString(@"Add to Favorites", nil)
+         style:UIPreviewActionStyleDefault
+         handler:^(UIPreviewAction * _Nonnull action, UIViewController * _Nonnull previewViewController) {
+             [self toggleFavorited:nil];
+         }];
+    }
+
+    return @[self.toggleFavoritesPreviewAction];
 }
 
 @end
