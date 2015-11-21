@@ -89,7 +89,7 @@ NS_ENUM(NSUInteger, AMGMapRows) {
     UILabel *dateLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(logoView.frame) + 8, CGRectGetWidth(headerView.frame), 80)];
     dateLabel.font = [UIFont boldSystemFontOfSize:20];
     dateLabel.numberOfLines = 2;
-    dateLabel.text = NSLocalizedString(@"April 16 and 17, 2015\nLyon, France", nil);
+    dateLabel.text = NSLocalizedString(@"April 21 and 22, 2016\nLyon, France", nil);
     dateLabel.textAlignment = NSTextAlignmentCenter;
     dateLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     [headerView addSubview:dateLabel];

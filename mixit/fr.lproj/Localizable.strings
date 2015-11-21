@@ -17,7 +17,10 @@
 "%@ %@, %@ to %@" = "%@ %@, de %@ à %@";
 "About Mix-IT" = "À Propos de Mix-IT";
 "Close" = "Fermer";
+
+"April 21 and 22, 2016\nLyon, France" = "21 et 22 Avril 2016\nLyon, France";
 "April 16 and 17, 2015\nLyon, France" = "16 et 17 Avril 2015\nLyon, France";
+
 "CPE Lyon" = "CPE Lyon";
 "This app isn’t affiliated with the Mix-IT team.\nMade by @vtourraine." = "Cette app n’est pas affiliée à l’équipe de Mix-IT.\nDéveloppée par @vtourraine.";
 "Open in Maps" = "Ouvrir avec Maps";
