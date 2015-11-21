@@ -17,9 +17,10 @@
 #import "AMGTalkViewController.h"
 #import "AMGTalkCell.h"
 
-#import "AMGAboutViewController.h"
-
 #import "UIViewController+AMGTwitterManager.h"
+
+#import "mixit-swift.h"
+
 
 static NSString * const AMGTalkCellIdentifier = @"Cell";
 
@@ -172,7 +173,7 @@ static NSString * const AMGTalkCellIdentifier = @"Cell";
 }
 
 - (void)presentInfoViewController:(id)sender {
-    AMGAboutViewController *viewController = [[AMGAboutViewController alloc] init];
+    AboutViewController *viewController = [[AboutViewController alloc] init];
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:viewController];
     navigationController.modalPresentationStyle = UIModalPresentationFormSheet;
 

@@ -17,6 +17,7 @@
 		1F42189F191271AD001AC572 /* AMGTalkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F42189E191271AD001AC572 /* AMGTalkViewController.m */; };
 		1F4218A2191292FE001AC572 /* AMGMember.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F4218A1191292FE001AC572 /* AMGMember.m */; };
 		1F4218A619129578001AC572 /* AMGMember+MixITResource.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F4218A519129578001AC572 /* AMGMember+MixITResource.m */; };
+		1F790C6B1C00D64A00E5E5A0 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F790C6A1C00D64A00E5E5A0 /* AboutViewController.swift */; };
 		1FA55BD71911A5D3000260B3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1FA55BD51911A5D3000260B3 /* InfoPlist.strings */; };
 		1FA55BD91911A5D3000260B3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FA55BD81911A5D3000260B3 /* main.m */; };
 		1FA55BDD1911A5D3000260B3 /* AMGAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FA55BDC1911A5D3000260B3 /* AMGAppDelegate.m */; };
@@ -25,7 +26,6 @@
 		1FA55BF41911A5D4000260B3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1FA55BF21911A5D4000260B3 /* InfoPlist.strings */; };
 		1FA55BF61911A5D4000260B3 /* mixitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FA55BF51911A5D4000260B3 /* mixitTests.m */; };
 		1FB1E0371ACC829200D0FCB3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1FB1E0351ACC829200D0FCB3 /* Localizable.strings */; };
-		1FF320FB1AC4A0B000D1D4F6 /* AMGAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FF320FA1AC4A0B000D1D4F6 /* AMGAboutViewController.m */; };
 		1FF320FE1AC4A74400D1D4F6 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FF320FD1AC4A74400D1D4F6 /* MapKit.framework */; };
 		251D1684F12441908166DC98 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1488B010259C4E9DA5A1B372 /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -63,6 +63,8 @@
 		1F4218A419129578001AC572 /* AMGMember+MixITResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = "AMGMember+MixITResource.h"; path = "Classes/AMGMember+MixITResource.h"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		1F4218A519129578001AC572 /* AMGMember+MixITResource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = "AMGMember+MixITResource.m"; path = "Classes/AMGMember+MixITResource.m"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		1F5F2E201AD951660086ADFB /* mixit.tu.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = mixit.tu.md; sourceTree = SOURCE_ROOT; };
+		1F790C691C00D64900E5E5A0 /* mixit-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "mixit-Bridging-Header.h"; sourceTree = "<group>"; };
+		1F790C6A1C00D64A00E5E5A0 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AboutViewController.swift; path = Classes/AboutViewController.swift; sourceTree = "<group>"; };
 		1FA55BC71911A5D2000260B3 /* mixit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mixit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FA55BD41911A5D3000260B3 /* mixit-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "mixit-Info.plist"; sourceTree = "<group>"; };
 		1FA55BD61911A5D3000260B3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -80,8 +82,6 @@
 		1FB1E0341ACC827200D0FCB3 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1FB1E0361ACC829200D0FCB3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1FB1E0381ACC829500D0FCB3 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
-		1FF320F91AC4A0B000D1D4F6 /* AMGAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMGAboutViewController.h; path = Classes/AMGAboutViewController.h; sourceTree = "<group>"; };
-		1FF320FA1AC4A0B000D1D4F6 /* AMGAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMGAboutViewController.m; path = Classes/AMGAboutViewController.m; sourceTree = "<group>"; };
 		1FF320FD1AC4A74400D1D4F6 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		67F73FF17228CDB5B839717F /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		ED0469B1D97DF2FA1C03992D /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -213,6 +213,7 @@
 		1FA55BD31911A5D3000260B3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				1F790C691C00D64900E5E5A0 /* mixit-Bridging-Header.h */,
 				1FA55BD41911A5D3000260B3 /* mixit-Info.plist */,
 				1FA55BD51911A5D3000260B3 /* InfoPlist.strings */,
 				1FA55BD81911A5D3000260B3 /* main.m */,
@@ -243,8 +244,7 @@
 		1FF320FC1AC4A0B900D1D4F6 /* About */ = {
 			isa = PBXGroup;
 			children = (
-				1FF320F91AC4A0B000D1D4F6 /* AMGAboutViewController.h */,
-				1FF320FA1AC4A0B000D1D4F6 /* AMGAboutViewController.m */,
+				1F790C6A1C00D64A00E5E5A0 /* AboutViewController.swift */,
 			);
 			name = About;
 			sourceTree = "<group>";
@@ -306,6 +306,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = AMG;
+				LastSwiftUpdateCheck = 0710;
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Studio AMANgA";
 				TargetAttributes = {
@@ -418,10 +419,10 @@
 				1F42189919124227001AC572 /* AMGMixITSyncManager.m in Sources */,
 				1F421896191240F6001AC572 /* AMGTalk+MixITResource.m in Sources */,
 				1F42188F19123CEC001AC572 /* AMGTalk.m in Sources */,
+				1F790C6B1C00D64A00E5E5A0 /* AboutViewController.swift in Sources */,
 				1F4218A2191292FE001AC572 /* AMGMember.m in Sources */,
 				1F42189C19124EF0001AC572 /* AMGTalkCell.m in Sources */,
 				1F2D96C31912E015007CAE4C /* UIViewController+AMGTwitterManager.m in Sources */,
-				1FF320FB1AC4A0B000D1D4F6 /* AMGAboutViewController.m in Sources */,
 				1FA55BE01911A5D3000260B3 /* mixit.xcdatamodeld in Sources */,
 				1F42189219123DCD001AC572 /* AMGMixITClient.m in Sources */,
 				1F42189F191271AD001AC572 /* AMGTalkViewController.m in Sources */,
@@ -560,13 +561,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "mixit/mixit-Prefix.pch";
 				INFOPLIST_FILE = "mixit/mixit-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.studioamanga.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "mixit/mixit-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
@@ -578,13 +584,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "mixit/mixit-Prefix.pch";
 				INFOPLIST_FILE = "mixit/mixit-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.studioamanga.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "mixit/mixit-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
