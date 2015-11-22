@@ -13,11 +13,11 @@
 		1F42189219123DCD001AC572 /* AMGMixITClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F42189119123DCD001AC572 /* AMGMixITClient.m */; };
 		1F421896191240F6001AC572 /* AMGTalk+MixITResource.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F421895191240F6001AC572 /* AMGTalk+MixITResource.m */; };
 		1F42189919124227001AC572 /* AMGMixITSyncManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F42189819124227001AC572 /* AMGMixITSyncManager.m */; };
-		1F42189C19124EF0001AC572 /* AMGTalkCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F42189B19124EF0001AC572 /* AMGTalkCell.m */; };
 		1F42189F191271AD001AC572 /* AMGTalkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F42189E191271AD001AC572 /* AMGTalkViewController.m */; };
 		1F4218A2191292FE001AC572 /* AMGMember.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F4218A1191292FE001AC572 /* AMGMember.m */; };
 		1F4218A619129578001AC572 /* AMGMember+MixITResource.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F4218A519129578001AC572 /* AMGMember+MixITResource.m */; };
 		1F790C6B1C00D64A00E5E5A0 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F790C6A1C00D64A00E5E5A0 /* AboutViewController.swift */; };
+		1F790C6D1C01BD3D00E5E5A0 /* TalkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F790C6C1C01BD3D00E5E5A0 /* TalkCell.swift */; };
 		1FA55BD71911A5D3000260B3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1FA55BD51911A5D3000260B3 /* InfoPlist.strings */; };
 		1FA55BD91911A5D3000260B3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FA55BD81911A5D3000260B3 /* main.m */; };
 		1FA55BDD1911A5D3000260B3 /* AMGAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FA55BDC1911A5D3000260B3 /* AMGAppDelegate.m */; };
@@ -54,8 +54,6 @@
 		1F421895191240F6001AC572 /* AMGTalk+MixITResource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = "AMGTalk+MixITResource.m"; path = "Classes/AMGTalk+MixITResource.m"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		1F42189719124227001AC572 /* AMGMixITSyncManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = AMGMixITSyncManager.h; path = Classes/AMGMixITSyncManager.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		1F42189819124227001AC572 /* AMGMixITSyncManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = AMGMixITSyncManager.m; path = Classes/AMGMixITSyncManager.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		1F42189A19124EF0001AC572 /* AMGTalkCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = AMGTalkCell.h; path = Classes/AMGTalkCell.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		1F42189B19124EF0001AC572 /* AMGTalkCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = AMGTalkCell.m; path = Classes/AMGTalkCell.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		1F42189D191271AD001AC572 /* AMGTalkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = AMGTalkViewController.h; path = Classes/AMGTalkViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		1F42189E191271AD001AC572 /* AMGTalkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = AMGTalkViewController.m; path = Classes/AMGTalkViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		1F4218A0191292FE001AC572 /* AMGMember.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = AMGMember.h; path = Classes/AMGMember.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
@@ -65,6 +63,7 @@
 		1F5F2E201AD951660086ADFB /* mixit.tu.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = mixit.tu.md; sourceTree = SOURCE_ROOT; };
 		1F790C691C00D64900E5E5A0 /* mixit-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "mixit-Bridging-Header.h"; sourceTree = "<group>"; };
 		1F790C6A1C00D64A00E5E5A0 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AboutViewController.swift; path = Classes/AboutViewController.swift; sourceTree = "<group>"; };
+		1F790C6C1C01BD3D00E5E5A0 /* TalkCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TalkCell.swift; path = Classes/TalkCell.swift; sourceTree = "<group>"; };
 		1FA55BC71911A5D2000260B3 /* mixit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mixit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FA55BD41911A5D3000260B3 /* mixit-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "mixit-Info.plist"; sourceTree = "<group>"; };
 		1FA55BD61911A5D3000260B3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -130,8 +129,7 @@
 			children = (
 				1F42188819123C6C001AC572 /* AMGTalksViewController.h */,
 				1F42188919123C6C001AC572 /* AMGTalksViewController.m */,
-				1F42189A19124EF0001AC572 /* AMGTalkCell.h */,
-				1F42189B19124EF0001AC572 /* AMGTalkCell.m */,
+				1F790C6C1C01BD3D00E5E5A0 /* TalkCell.swift */,
 				1F42189D191271AD001AC572 /* AMGTalkViewController.h */,
 				1F42189E191271AD001AC572 /* AMGTalkViewController.m */,
 				1F42188D19123CEC001AC572 /* AMGTalk.h */,
@@ -421,10 +419,10 @@
 				1F42188F19123CEC001AC572 /* AMGTalk.m in Sources */,
 				1F790C6B1C00D64A00E5E5A0 /* AboutViewController.swift in Sources */,
 				1F4218A2191292FE001AC572 /* AMGMember.m in Sources */,
-				1F42189C19124EF0001AC572 /* AMGTalkCell.m in Sources */,
 				1F2D96C31912E015007CAE4C /* UIViewController+AMGTwitterManager.m in Sources */,
 				1FA55BE01911A5D3000260B3 /* mixit.xcdatamodeld in Sources */,
 				1F42189219123DCD001AC572 /* AMGMixITClient.m in Sources */,
+				1F790C6D1C01BD3D00E5E5A0 /* TalkCell.swift in Sources */,
 				1F42189F191271AD001AC572 /* AMGTalkViewController.m in Sources */,
 				1FA55BDD1911A5D3000260B3 /* AMGAppDelegate.m in Sources */,
 				1F42188A19123C6C001AC572 /* AMGTalksViewController.m in Sources */,

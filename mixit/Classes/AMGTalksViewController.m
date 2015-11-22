@@ -15,7 +15,6 @@
 #import "AMGMixITSyncManager.h"
 
 #import "AMGTalkViewController.h"
-#import "AMGTalkCell.h"
 
 #import "UIViewController+AMGTwitterManager.h"
 
@@ -70,10 +69,10 @@ static NSString * const AMGTalkCellIdentifier = @"Cell";
     self.talksSearchDisplayController.searchResultsDelegate = self;
     self.talksSearchDisplayController.searchResultsDataSource = self;
     [self.talksSearchDisplayController.searchResultsTableView
-     registerClass:AMGTalkCell.class
+     registerClass:TalkCell.class
      forCellReuseIdentifier:AMGTalkCellIdentifier];
 
-    [self.tableView registerClass:AMGTalkCell.class
+    [self.tableView registerClass:TalkCell.class
            forCellReuseIdentifier:AMGTalkCellIdentifier];
 
     [self reloadSections];
@@ -220,24 +219,18 @@ static NSString * const AMGTalkCellIdentifier = @"Cell";
 }
 
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return [AMGTalkCell heightWithTitle:nil];
+    return TalkCell.height;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (tableView == self.talksSearchDisplayController.searchResultsTableView) {
-        return [AMGTalkCell heightWithTitle:nil];
-    }
-
-    id <NSFetchedResultsSectionInfo> sectionInfo = self.sections[indexPath.section];
-    AMGTalk *talk = sectionInfo.objects[indexPath.row];
-    return [AMGTalkCell heightWithTitle:talk.title];
+    return TalkCell.height;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    AMGTalkCell *cell = [tableView dequeueReusableCellWithIdentifier:AMGTalkCellIdentifier
-                                                        forIndexPath:indexPath];
-    
+    TalkCell *cell = [tableView dequeueReusableCellWithIdentifier:AMGTalkCellIdentifier
+                                                     forIndexPath:indexPath];
+
     NSDateFormatter *timeDateFormatter = [[NSDateFormatter alloc] init];
     timeDateFormatter.timeStyle = NSDateFormatterShortStyle;
 
