@@ -8,13 +8,13 @@
 
 #import "AMGMember.h"
 
-@class AMGMixITClient;
+@class MixITClient;
 
 @interface AMGMember (MixITResource)
 
 - (BOOL)updateWithAttributes:(NSDictionary *)attributes;
 
-+ (NSURLSessionDataTask *)fetchSpeakersWithClient:(AMGMixITClient *)client
++ (NSURLSessionDataTask *)fetchSpeakersWithClient:(MixITClient *)client
                                             block:(void (^)(NSArray *speakers, NSError *error))block;
 
 + (void)mergeResponseObjects:(NSArray *)objects

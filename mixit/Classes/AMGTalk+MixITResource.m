@@ -8,7 +8,8 @@
 
 #import "AMGTalk+MixITResource.h"
 
-#import "AMGMixITClient.h"
+#import "mixit-swift.h"
+
 #import <ISO8601DateFormatter.h>
 
 @implementation AMGTalk (MixITResource)
@@ -37,7 +38,7 @@
     return YES;
 }
 
-+ (NSURLSessionDataTask *)fetchTalksWithClient:(AMGMixITClient *)client
++ (NSURLSessionDataTask *)fetchTalksWithClient:(MixITClient *)client
                                          block:(void (^)(NSArray *posts, NSError *error))block {
     // parameters:@{@"details": @"true"}
     return [client GET:@"talks" parameters:nil success:^(NSURLSessionDataTask * __unused task, id JSON) {

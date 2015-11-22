@@ -9,7 +9,9 @@
 #import "AMGMember+MixITResource.h"
 
 #import "AMGMixITSyncManager.h"
-#import "AMGMixITClient.h"
+
+#import "mixit-swift.h"
+
 
 @implementation AMGMember (MixITResource)
 
@@ -25,7 +27,7 @@
     return YES;
 }
 
-+ (NSURLSessionDataTask *)fetchSpeakersWithClient:(AMGMixITClient *)client
++ (NSURLSessionDataTask *)fetchSpeakersWithClient:(MixITClient *)client
                                             block:(void (^)(NSArray *speakers, NSError *error))block {
     NSString *path = @"members/speakers";
 

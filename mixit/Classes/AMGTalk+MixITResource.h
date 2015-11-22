@@ -9,13 +9,13 @@
 #import "AMGTalk.h"
 
 @class NSURLSessionDataTask;
-@class AMGMixITClient;
+@class MixITClient;
 
 @interface AMGTalk (MixITResource)
 
 - (BOOL)updateWithAttributes:(NSDictionary *)attributes;
 
-+ (NSURLSessionDataTask *)fetchTalksWithClient:(AMGMixITClient *)client
++ (NSURLSessionDataTask *)fetchTalksWithClient:(MixITClient *)client
                                          block:(void (^)(NSArray *talks, NSError *error))block;
 
 + (void)mergeResponseObjects:(NSArray *)objects

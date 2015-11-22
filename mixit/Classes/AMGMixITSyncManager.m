@@ -8,7 +8,7 @@
 
 #import "AMGMixITSyncManager.h"
 
-#import "AMGMixITClient.h"
+#import "mixit-swift.h"
 
 #import "AMGTalk.h"
 #import "AMGTalk+MixITResource.h"
@@ -20,7 +20,7 @@
 
 @property (nonatomic, assign, getter = isSyncing) BOOL syncing;
 @property (nonatomic, strong) NSManagedObjectContext *context;
-@property (nonatomic, strong) AMGMixITClient *client;
+@property (nonatomic, strong) MixITClient *client;
 
 - (void)syncSpeakers;
 
@@ -34,7 +34,7 @@
 
     manager.context = context;
     manager.syncing = NO;
-    manager.client  = [AMGMixITClient MixITClient];
+    manager.client  = [[MixITClient alloc] init];
 
     return manager;
 }
