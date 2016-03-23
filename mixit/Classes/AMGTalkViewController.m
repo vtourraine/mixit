@@ -96,9 +96,9 @@
     UILabel *locationLabel = ({
         UILabel *label = [[UILabel alloc] init];
         label.translatesAutoresizingMaskIntoConstraints = NO;
-        label.font          = [UIFont systemFontOfSize:18];
         label.numberOfLines = 0;
-        label.text          = self.talk.room;
+        label.font = [UIFont systemFontOfSize:18];
+        label.text = self.talk.room ?: NSLocalizedString(@"?", nil);
         label;
     });
     [scrollView addSubview:locationLabel];
@@ -118,11 +118,16 @@
         label.translatesAutoresizingMaskIntoConstraints = NO;
         label.font          = [UIFont systemFontOfSize:18];
         label.numberOfLines = 0;
-        label.text          = [NSString stringWithFormat:
-                               NSLocalizedString(@"%@, %@ to %@", nil),
-                               [dayDateFormatter  stringFromDate:self.talk.startDate].capitalizedString,
-                               [timeDateFormatter stringFromDate:self.talk.startDate],
-                               [timeDateFormatter stringFromDate:self.talk.endDate]];
+        if (self.talk.startDate && self.talk.endDate) {
+            label.text = [NSString stringWithFormat:
+                          NSLocalizedString(@"%@, %@ to %@", nil),
+                          [dayDateFormatter  stringFromDate:self.talk.startDate].capitalizedString,
+                          [timeDateFormatter stringFromDate:self.talk.startDate],
+                          [timeDateFormatter stringFromDate:self.talk.endDate]];
+        }
+        else {
+            label.text = NSLocalizedString(@"?", nil);
+        }
         label;
     });
     [scrollView addSubview:timeLabel];
@@ -164,7 +169,7 @@
         label.font          = [UIFont italicSystemFontOfSize:18];
         label.numberOfLines = 0;
         label.text          = [NSString stringWithFormat:@"%@ %@",
-                               self.talk.emojiForLanguage,
+                               self.talk.emojiForLanguage ?: @"",
                                self.talk.summary];
         label;
     });

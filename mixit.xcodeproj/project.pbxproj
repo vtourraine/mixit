@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1F2D96C31912E015007CAE4C /* UIViewController+AMGTwitterManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F2D96C21912E015007CAE4C /* UIViewController+AMGTwitterManager.m */; };
+		1F4217511CA339E30070C6F9 /* NSObject+AMGParsing.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F4217501CA339E30070C6F9 /* NSObject+AMGParsing.m */; };
 		1F42188A19123C6C001AC572 /* AMGTalksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F42188919123C6C001AC572 /* AMGTalksViewController.m */; };
 		1F42188F19123CEC001AC572 /* AMGTalk.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F42188E19123CEC001AC572 /* AMGTalk.m */; };
 		1F42189219123DCD001AC572 /* AMGMixITClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F42189119123DCD001AC572 /* AMGMixITClient.m */; };
@@ -44,6 +45,8 @@
 		1488B010259C4E9DA5A1B372 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F2D96C11912E015007CAE4C /* UIViewController+AMGTwitterManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = "UIViewController+AMGTwitterManager.h"; path = "Classes/UIViewController+AMGTwitterManager.h"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		1F2D96C21912E015007CAE4C /* UIViewController+AMGTwitterManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = "UIViewController+AMGTwitterManager.m"; path = "Classes/UIViewController+AMGTwitterManager.m"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		1F42174F1CA339E30070C6F9 /* NSObject+AMGParsing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+AMGParsing.h"; path = "Classes/NSObject+AMGParsing.h"; sourceTree = "<group>"; };
+		1F4217501CA339E30070C6F9 /* NSObject+AMGParsing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+AMGParsing.m"; path = "Classes/NSObject+AMGParsing.m"; sourceTree = "<group>"; };
 		1F42188819123C6C001AC572 /* AMGTalksViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = AMGTalksViewController.h; path = Classes/AMGTalksViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		1F42188919123C6C001AC572 /* AMGTalksViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = AMGTalksViewController.m; path = Classes/AMGTalksViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		1F42188D19123CEC001AC572 /* AMGTalk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = AMGTalk.h; path = Classes/AMGTalk.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
@@ -149,6 +152,8 @@
 				1F42189119123DCD001AC572 /* AMGMixITClient.m */,
 				1F42189719124227001AC572 /* AMGMixITSyncManager.h */,
 				1F42189819124227001AC572 /* AMGMixITSyncManager.m */,
+				1F42174F1CA339E30070C6F9 /* NSObject+AMGParsing.h */,
+				1F4217501CA339E30070C6F9 /* NSObject+AMGParsing.m */,
 			);
 			name = Sync;
 			sourceTree = "<group>";
@@ -423,6 +428,7 @@
 				1F2D96C31912E015007CAE4C /* UIViewController+AMGTwitterManager.m in Sources */,
 				1FF320FB1AC4A0B000D1D4F6 /* AMGAboutViewController.m in Sources */,
 				1FA55BE01911A5D3000260B3 /* mixit.xcdatamodeld in Sources */,
+				1F4217511CA339E30070C6F9 /* NSObject+AMGParsing.m in Sources */,
 				1F42189219123DCD001AC572 /* AMGMixITClient.m in Sources */,
 				1F42189F191271AD001AC572 /* AMGTalkViewController.m in Sources */,
 				1FA55BDD1911A5D3000260B3 /* AMGAppDelegate.m in Sources */,
@@ -561,12 +567,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "mixit/mixit-Prefix.pch";
 				INFOPLIST_FILE = "mixit/mixit-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.studioamanga.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
@@ -578,13 +586,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "mixit/mixit-Prefix.pch";
 				INFOPLIST_FILE = "mixit/mixit-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.studioamanga.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};

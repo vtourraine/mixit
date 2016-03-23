@@ -10,24 +10,25 @@
 
 #import "AMGMixITSyncManager.h"
 #import "AMGMixITClient.h"
+#import "NSObject+AMGParsing.h"
 
 @implementation AMGMember (MixITResource)
 
 - (BOOL)updateWithAttributes:(NSDictionary *)attributes {
-    self.company        = attributes[@"company"];
-    self.firstName      = attributes[@"firstName"];
-    self.lastName       = attributes[@"lastName"];
-    self.login          = attributes[@"login"];
-    self.longDesc       = attributes[@"longdesc"];
-    self.shortDesc      = attributes[@"shortdesc"];
-    self.imageURLString = attributes[@"urlimage"];
+    self.company        = [attributes valueForKey:@"company"   ifKindOf:NSString.class];
+    self.firstName      = [attributes valueForKey:@"firstname" ifKindOf:NSString.class];
+    self.lastName       = [attributes valueForKey:@"lastname"  ifKindOf:NSString.class];
+    self.login          = [attributes valueForKey:@"login"     ifKindOf:NSString.class];
+    self.longDesc       = [attributes valueForKey:@"longDescription"  ifKindOf:NSString.class];
+    self.shortDesc      = [attributes valueForKey:@"shortDescription" ifKindOf:NSString.class];
+    // self.imageURLString = [attributes valueForKey:@"urlimage"  ifKindOf:NSString.class];
 
     return YES;
 }
 
 + (NSURLSessionDataTask *)fetchSpeakersWithClient:(AMGMixITClient *)client
                                             block:(void (^)(NSArray *speakers, NSError *error))block {
-    NSString *path = @"members/speakers";
+    NSString *path = @"member/speaker";
 
     return [client GET:path parameters:nil success:^(NSURLSessionDataTask * __unused task, id JSON) {
         if (![JSON isKindOfClass:NSArray.class]) {
@@ -57,7 +58,7 @@
             continue;
         }
 
-        NSString    *identifier = [NSString stringWithFormat:@"%@", object[@"id"]];
+        NSString    *identifier = [NSString stringWithFormat:@"%@", object[@"idMember"]];
         NSPredicate *predicate  = [NSPredicate predicateWithFormat:@"identifier == %@", identifier];
         AMGMember   *speaker    = [existingMembers filteredArrayUsingPredicate:predicate].lastObject;
 

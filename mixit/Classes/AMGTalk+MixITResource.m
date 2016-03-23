@@ -9,27 +9,37 @@
 #import "AMGTalk+MixITResource.h"
 
 #import "AMGMixITClient.h"
+#import "NSObject+AMGParsing.h"
+
 #import <ISO8601DateFormatter.h>
 
 @implementation AMGTalk (MixITResource)
 
 - (BOOL)updateWithAttributes:(NSDictionary *)attributes {
-    self.desc     = attributes[@"description"];
+    self.desc     = [attributes valueForKey:@"description" ifKindOf:NSString.class];
     // self.format   = attributes[@"format"];
-    self.language = attributes[@"language"];
+    self.language = [attributes valueForKey:@"lang"        ifKindOf:NSString.class];
     // self.level    = attributes[@"level"];
-    self.room     = attributes[@"room"];
-    self.summary  = attributes[@"summary"];
-    self.title    = attributes[@"title"];
+    self.room     = [attributes valueForKey:@"room"        ifKindOf:NSString.class];
+    self.summary  = [attributes valueForKey:@"summary"     ifKindOf:NSString.class];
+    self.title    = [attributes valueForKey:@"title"       ifKindOf:NSString.class];
 
     ISO8601DateFormatter *dateFormatter = [[ISO8601DateFormatter alloc] init];
-    self.startDate = [dateFormatter dateFromString:attributes[@"start"]];
-    self.endDate   = [dateFormatter dateFromString:attributes[@"end"]];
+    self.startDate = [dateFormatter dateFromString:[attributes valueForKey:@"start" ifKindOf:NSString.class]];
+    self.endDate   = [dateFormatter dateFromString:[attributes valueForKey:@"end"   ifKindOf:NSString.class]];
 
-    NSArray *identifiersNumbers = attributes[@"speakers"];
-    NSMutableArray *identifiers = [NSMutableArray arrayWithCapacity:identifiersNumbers.count];
-    for (NSNumber *number in identifiersNumbers) {
-        [identifiers addObject:[NSString stringWithFormat:@"%@", number]];
+    NSArray <NSDictionary *> *links = attributes[@"links"];
+    NSMutableArray *identifiers = [NSMutableArray array];
+    for (NSDictionary *link in links) {
+        NSString *rel = link[@"rel"];
+        NSString *href = link[@"href"];
+
+        if ([rel isEqualToString:@"speaker"]) {
+            NSString *identifier = [href lastPathComponent];
+            if (identifier) {
+                [identifiers addObject:identifier];
+            }
+        }
     }
 
     [self setSpeakersIdentifiersFromArray:identifiers];
@@ -40,7 +50,7 @@
 + (NSURLSessionDataTask *)fetchTalksWithClient:(AMGMixITClient *)client
                                          block:(void (^)(NSArray *posts, NSError *error))block {
     // parameters:@{@"details": @"true"}
-    return [client GET:@"talks" parameters:nil success:^(NSURLSessionDataTask * __unused task, id JSON) {
+    return [client GET:@"session" parameters:nil success:^(NSURLSessionDataTask * __unused task, id JSON) {
         if (![JSON isKindOfClass:NSArray.class]) {
             if (block) {
                 block(@[], nil);
@@ -68,7 +78,7 @@
             continue;
         }
 
-        NSString    *identifier = [NSString stringWithFormat:@"%@", object[@"id"]];
+        NSString    *identifier = [NSString stringWithFormat:@"%@", object[@"idSession"]];
         NSPredicate *predicate  = [NSPredicate predicateWithFormat:@"identifier == %@", identifier];
         AMGTalk     *talk       = [existingTalks filteredArrayUsingPredicate:predicate].lastObject;
 

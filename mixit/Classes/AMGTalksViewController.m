@@ -251,12 +251,21 @@ static NSString * const AMGTalkCellIdentifier = @"Cell";
     }
 
     cell.textLabel.text       = talk.title;
-    cell.detailTextLabel.text = [NSString stringWithFormat:
-                                 NSLocalizedString(@"%@ %@, %@ to %@", nil),
-                                 talk.emojiForLanguage ?: @"",
-                                 talk.room ?: @"",
-                                 [timeDateFormatter stringFromDate:talk.startDate],
-                                 [timeDateFormatter stringFromDate:talk.endDate]];
+    cell.detailTextLabel.text = ({
+        NSString *text = talk.emojiForLanguage ?: @"";
+
+        if (talk.room) {
+            text = [text stringByAppendingFormat:NSLocalizedString(@" %@", nil), talk.room];
+        }
+
+        if (talk.startDate && talk.endDate) {
+            text = [text stringByAppendingFormat:
+                    NSLocalizedString(@", %@ to %@", nil),
+                    [timeDateFormatter stringFromDate:talk.startDate],
+                    [timeDateFormatter stringFromDate:talk.endDate]];
+        }
+        text;
+    });
 
     if (talk.isFavorited) {
         cell.favoritedImageView.image = [[UIImage imageNamed:@"IconStarSelected"]

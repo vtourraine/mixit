@@ -8,7 +8,7 @@
 
 #import "AMGMixITClient.h"
 
-static NSString * const AMGMixITAPIBaseURLString = @"http://www.mix-it.fr/api/";
+static NSString * const AMGMixITAPIBaseURLString = @"https://www.mix-it.fr/api/";
 
 @implementation AMGMixITClient
 
