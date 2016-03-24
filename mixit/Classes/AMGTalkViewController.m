@@ -70,19 +70,6 @@
     NSDateFormatter *timeDateFormatter = [[NSDateFormatter alloc] init];
     timeDateFormatter.timeStyle = NSDateFormatterShortStyle;
 
-//    UILabel *formatLabel = ({
-//        UILabel *label = [[UILabel alloc] init];
-//        label.translatesAutoresizingMaskIntoConstraints = NO;
-//        label.font          = [UIFont systemFontOfSize:18];
-//        label.numberOfLines = 0;
-//        label.text          = [NSString stringWithFormat:@"%@ %@",
-//                               self.talk.emojiForLanguage ?: @"",
-//                               self.talk.format ?: @""];
-//        label.preferredMaxLayoutWidth = 280;
-//        label;
-//    });
-//    [scrollView addSubview:formatLabel];
-    
     UIImageView *locationImageView = ({
         UIImage     *image     = [[UIImage imageNamed:@"IconMapLocation"]
                                   imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
@@ -189,7 +176,6 @@
     NSDictionary *views = NSDictionaryOfVariableBindings(self.view,
                                                          scrollView,
                                                          titleLabel,
-                                                         // formatLabel,
                                                          locationImageView,
                                                          locationLabel,
                                                          timeImageView,
@@ -210,10 +196,6 @@
                                                                       options:kNilOptions
                                                                       metrics:@{}
                                                                         views:views]];
-//    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-15-[formatLabel]-15-|"
-//                                                                      options:kNilOptions
-//                                                                      metrics:@{}
-//                                                                        views:views]];
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-15-[locationImageView(==20)]-[locationLabel]-15-|"
                                                                       options:NSLayoutFormatAlignAllCenterY
                                                                       metrics:@{}
