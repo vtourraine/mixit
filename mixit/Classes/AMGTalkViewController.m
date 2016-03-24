@@ -147,22 +147,10 @@
 
     AMGMember *speaker = self.talk.fetchSpeakers.firstObject;
 
-    UIImageView *speakerImageView = ({
-        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 60, 60)];
-        imageView.translatesAutoresizingMaskIntoConstraints = NO;
-        imageView.layer.cornerRadius = 30;
-        imageView.clipsToBounds = YES;
-        if (speaker.imageURLString) {
-            [imageView setImageWithURL:[NSURL URLWithString:speaker.imageURLString]];
-        }
-        imageView;
-    });
-    [scrollView addSubview:speakerImageView];
-
     UILabel *speakerLabel = ({
         UILabel *label = [[UILabel alloc] init];
         label.translatesAutoresizingMaskIntoConstraints = NO;
-        label.font          = [UIFont systemFontOfSize:18];
+        label.font = [UIFont systemFontOfSize:infoLabelFontSize];
         label.numberOfLines = 0;
         NSMutableAttributedString *text = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@ %@",
                                                                                              speaker.firstName ?: @"",
@@ -179,7 +167,7 @@
     UILabel *summaryLabel = ({
         UILabel *label = [[UILabel alloc] init];
         label.translatesAutoresizingMaskIntoConstraints = NO;
-        label.font          = [UIFont italicSystemFontOfSize:18];
+        label.font          = [UIFont italicSystemFontOfSize:infoLabelFontSize];
         label.numberOfLines = 0;
         label.text          = [NSString stringWithFormat:@"%@ %@",
                                self.talk.emojiForLanguage ?: @"",
@@ -206,7 +194,6 @@
                                                          locationLabel,
                                                          timeImageView,
                                                          timeLabel,
-                                                         speakerImageView,
                                                          speakerLabel,
                                                          summaryLabel,
                                                          descLabel);
@@ -235,8 +222,8 @@
                                                                       options:NSLayoutFormatAlignAllCenterY
                                                                       metrics:@{}
                                                                         views:views]];
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-15-[speakerImageView(==60)]-[speakerLabel]-15-|"
-                                                                      options:NSLayoutFormatAlignAllCenterY
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-15-[speakerLabel]-15-|"
+                                                                      options:kNilOptions
                                                                       metrics:@{}
                                                                         views:views]];
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-15-[summaryLabel]-15-|"
@@ -247,7 +234,7 @@
                                                                       options:kNilOptions
                                                                       metrics:@{}
                                                                         views:views]];
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-12-[titleLabel]-8-[locationImageView]-2-[timeImageView]-20-[speakerImageView(==60)]-40-[summaryLabel]-20-[descLabel]-40-|"
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-20-[titleLabel]-20-[locationImageView]-2-[timeImageView]-40-[speakerLabel]-40-[summaryLabel]-20-[descLabel]-40-|"
                                                                       options:kNilOptions
                                                                       metrics:@{}
                                                                         views:views]];
