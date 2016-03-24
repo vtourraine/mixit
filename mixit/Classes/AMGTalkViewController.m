@@ -93,12 +93,22 @@
     });
     [scrollView addSubview:locationImageView];
 
+    const CGFloat infoLabelFontSize = 18;
+
     UILabel *locationLabel = ({
         UILabel *label = [[UILabel alloc] init];
         label.translatesAutoresizingMaskIntoConstraints = NO;
         label.numberOfLines = 0;
-        label.font = [UIFont systemFontOfSize:18];
-        label.text = self.talk.room ?: NSLocalizedString(@"?", nil);
+        if (self.talk.room) {
+            label.textColor = [UIColor blackColor];
+            label.font = [UIFont systemFontOfSize:infoLabelFontSize];
+            label.text = self.talk.room ?: NSLocalizedString(@"?", nil);
+        }
+        else {
+            label.textColor = [UIColor lightGrayColor];
+            label.font = [UIFont italicSystemFontOfSize:infoLabelFontSize];
+            label.text = NSLocalizedString(@"Not determined", nil);
+        }
         label;
     });
     [scrollView addSubview:locationLabel];
@@ -116,9 +126,10 @@
     UILabel *timeLabel = ({
         UILabel *label = [[UILabel alloc] init];
         label.translatesAutoresizingMaskIntoConstraints = NO;
-        label.font          = [UIFont systemFontOfSize:18];
         label.numberOfLines = 0;
         if (self.talk.startDate && self.talk.endDate) {
+            label.textColor = [UIColor blackColor];
+            label.font = [UIFont systemFontOfSize:infoLabelFontSize];
             label.text = [NSString stringWithFormat:
                           NSLocalizedString(@"%@, %@ to %@", nil),
                           [dayDateFormatter  stringFromDate:self.talk.startDate].capitalizedString,
@@ -126,7 +137,9 @@
                           [timeDateFormatter stringFromDate:self.talk.endDate]];
         }
         else {
-            label.text = NSLocalizedString(@"?", nil);
+            label.textColor = [UIColor lightGrayColor];
+            label.font = [UIFont italicSystemFontOfSize:infoLabelFontSize];
+            label.text = NSLocalizedString(@"Not determined", nil);
         }
         label;
     });
