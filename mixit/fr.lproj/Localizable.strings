@@ -3,7 +3,7 @@
   mixit
 
   Created by Vincent Tourraine on 01/04/15.
-  Copyright (c) 2015 Studio AMANgA. All rights reserved.
+  Copyright (c) 2015-2016 Studio AMANgA. All rights reserved.
 */
 
 "Mix-IT" = "Mix-IT";
@@ -24,4 +24,4 @@
 "CPE Lyon" = "CPE Lyon";
 "This app isn’t affiliated with the Mix-IT team.\nMade by @vtourraine." = "Cette app n’est pas affiliée à l’équipe de Mix-IT.\nDéveloppée par @vtourraine.";
 "Open in Maps" = "Ouvrir avec Maps";
-"Open Mix-IT website in Safari" = "Ouvrir le site Mix-IT avec Safari";
+"Open Mix-IT website" = "Ouvrir le site web Mix-IT";
