@@ -300,20 +300,42 @@ static NSString * const AMGTalkCellIdentifier = @"Cell";
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    AMGTalk *talk;
-
+- (AMGTalk *)talkForTableView:(nonnull UITableView *)tableView
+                  atIndexPath:(nonnull NSIndexPath *)indexPath {
     if (tableView == self.talksSearchDisplayController.searchResultsTableView) {
-        talk = self.searchResults[indexPath.row];
+        return self.searchResults[indexPath.row];
     }
     else {
         id <NSFetchedResultsSectionInfo> sectionInfo = self.sections[indexPath.section];
-        talk = sectionInfo.objects[indexPath.row];
+        return sectionInfo.objects[indexPath.row];
     }
+}
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    AMGTalk *talk = [self talkForTableView:tableView atIndexPath:indexPath];
     AMGTalkViewController *viewController = [[AMGTalkViewController alloc] initWithTalk:talk];
     viewController.delegate = self;
     [self.navigationController pushViewController:viewController animated:YES];
+}
+
+- (nullable NSArray<UITableViewRowAction *> *)tableView:(UITableView *)tableView
+                           editActionsForRowAtIndexPath:(NSIndexPath *)indexPath {
+    AMGTalk *talk = [self talkForTableView:tableView atIndexPath:indexPath];
+
+    UITableViewRowAction *action =
+    [UITableViewRowAction
+     rowActionWithStyle:UITableViewRowActionStyleNormal
+     title:talk.isFavorited ? NSLocalizedString(@"Remove from Favorites", nil) : NSLocalizedString(@"Add to Favorites", nil)
+     handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
+         talk.favorited = @(!talk.isFavorited);
+         [talk.managedObjectContext save:nil];
+
+         [tableView reloadRowsAtIndexPaths:@[indexPath]
+                          withRowAnimation:UITableViewRowAnimationAutomatic];
+    }];
+    action.backgroundColor = [UIColor orangeColor];
+
+    return @[action];
 }
 
 
