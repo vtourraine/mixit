@@ -94,7 +94,7 @@
         else {
             label.textColor = [UIColor lightGrayColor];
             label.font = [UIFont italicSystemFontOfSize:infoLabelFontSize];
-            label.text = NSLocalizedString(@"Not determined", nil);
+            label.text = NSLocalizedString(@"Not announced yet", nil);
         }
         label;
     });
@@ -126,7 +126,7 @@
         else {
             label.textColor = [UIColor lightGrayColor];
             label.font = [UIFont italicSystemFontOfSize:infoLabelFontSize];
-            label.text = NSLocalizedString(@"Not determined", nil);
+            label.text = NSLocalizedString(@"Not announced yet", nil);
         }
         label;
     });

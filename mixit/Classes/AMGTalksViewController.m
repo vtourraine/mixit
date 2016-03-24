@@ -250,9 +250,31 @@ static NSString * const AMGTalkCellIdentifier = @"Cell";
         talk = sectionInfo.objects[indexPath.row];
     }
 
+    if (1 || [talk.endDate timeIntervalSinceNow] > 0) {
+        cell.textLabel.textColor = [UIColor blackColor];
+        cell.detailTextLabel.textColor = [UIColor blackColor];
+    }
+    else {
+#warning Disabled now that the 2015 edition is done
+        cell.textLabel.textColor = [UIColor lightGrayColor];
+        cell.detailTextLabel.textColor = [UIColor lightGrayColor];
+    }
+
+    if (talk.room == nil && (talk.startDate == nil || talk.endDate == nil)) {
+        cell.detailTextLabel.textColor = [UIColor lightGrayColor];
+        cell.detailTextLabel.font = [UIFont italicSystemFontOfSize:cell.detailTextLabel.font.pointSize];
+    }
+    else {
+        cell.detailTextLabel.font = [UIFont systemFontOfSize:cell.detailTextLabel.font.pointSize];
+    }
+
     cell.textLabel.text       = talk.title;
     cell.detailTextLabel.text = ({
         NSString *text = talk.emojiForLanguage ?: @"";
+
+        if (talk.room == nil && (talk.startDate == nil || talk.endDate == nil)) {
+            text = [text stringByAppendingFormat:NSLocalizedString(@" Time and place not announced yet", nil), talk.room];
+        }
 
         if (talk.room) {
             text = [text stringByAppendingFormat:NSLocalizedString(@" %@", nil), talk.room];
@@ -273,16 +295,6 @@ static NSString * const AMGTalkCellIdentifier = @"Cell";
     }
     else {
         cell.favoritedImageView.image = nil;
-    }
-
-    if (1 || [talk.endDate timeIntervalSinceNow] > 0) {
-        cell.textLabel.textColor = [UIColor blackColor];
-        cell.detailTextLabel.textColor = [UIColor blackColor];
-    }
-    else {
-#warning Disabled now that the 2015 edition is done
-        cell.textLabel.textColor = [UIColor lightGrayColor];
-        cell.detailTextLabel.textColor = [UIColor lightGrayColor];
     }
 
     return cell;
