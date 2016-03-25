@@ -270,14 +270,17 @@ static NSString * const AMGTalkCellIdentifier = @"Cell";
 
     cell.textLabel.text       = talk.title;
     cell.detailTextLabel.text = ({
-        NSString *text = talk.emojiForLanguage ?: @"";
+        NSString *text = [NSString stringWithFormat:NSLocalizedString(@"%@%@%@, ", nil),
+                          talk.emojiForLanguage,
+                          talk.emojiForLanguage ? @" " : @"",
+                          talk.format];
 
         if (talk.room == nil && (talk.startDate == nil || talk.endDate == nil)) {
-            text = [text stringByAppendingFormat:NSLocalizedString(@" Time and place not announced yet", nil), talk.room];
+            text = [text stringByAppendingFormat:NSLocalizedString(@"Time and place not announced yet", nil), talk.room];
         }
 
         if (talk.room) {
-            text = [text stringByAppendingFormat:NSLocalizedString(@" %@", nil), talk.room];
+            text = [text stringByAppendingString:talk.room];
         }
 
         if (talk.startDate && talk.endDate) {
@@ -399,8 +402,8 @@ shouldReloadTableForSearchString:(NSString *)searchString {
     talksRequest.sortDescriptors = @[startSort, roomSort, identifierSort];
 
     talksRequest.predicate = [NSPredicate predicateWithFormat:
-                         @"title CONTAINS [cd] %@ OR summary CONTAINS [cd] %@",
-                         searchString, searchString];
+                         @"title CONTAINS [cd] %@ OR summary CONTAINS [cd] %@ OR format CONTAINS [cd] %@",
+                         searchString, searchString, searchString];
 
     self.searchResults = [self.syncManager.context executeFetchRequest:talksRequest error:nil];
 

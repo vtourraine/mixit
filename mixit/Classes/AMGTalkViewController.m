@@ -70,6 +70,19 @@
     NSDateFormatter *timeDateFormatter = [[NSDateFormatter alloc] init];
     timeDateFormatter.timeStyle = NSDateFormatterShortStyle;
 
+    UILabel *formatLabel = ({
+        UILabel *label = [[UILabel alloc] init];
+        label.translatesAutoresizingMaskIntoConstraints = NO;
+        label.font          = [UIFont systemFontOfSize:18];
+        label.numberOfLines = 0;
+        label.text          = [NSString stringWithFormat:@"%@ %@",
+                                self.talk.emojiForLanguage ?: @"",
+                                self.talk.format ?: @""];
+        label.preferredMaxLayoutWidth = 280;
+        label;
+    });
+    [scrollView addSubview:formatLabel];
+
     UIImageView *locationImageView = ({
         UIImage     *image     = [[UIImage imageNamed:@"IconMapLocation"]
                                   imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
@@ -156,9 +169,7 @@
         label.translatesAutoresizingMaskIntoConstraints = NO;
         label.font          = [UIFont italicSystemFontOfSize:infoLabelFontSize];
         label.numberOfLines = 0;
-        label.text          = [NSString stringWithFormat:@"%@ %@",
-                               self.talk.emojiForLanguage ?: @"",
-                               self.talk.summary];
+        label.text          = self.talk.summary;
         label;
     });
     [scrollView addSubview:summaryLabel];
@@ -176,6 +187,7 @@
     NSDictionary *views = NSDictionaryOfVariableBindings(self.view,
                                                          scrollView,
                                                          titleLabel,
+                                                         formatLabel,
                                                          locationImageView,
                                                          locationLabel,
                                                          timeImageView,
@@ -193,6 +205,10 @@
     self.titleWidthConstraint = titleWidthConstraint;
 
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-15-[titleLabel]-15-|"
+                                                                      options:kNilOptions
+                                                                      metrics:@{}
+                                                                        views:views]];
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-15-[formatLabel]-15-|"
                                                                       options:kNilOptions
                                                                       metrics:@{}
                                                                         views:views]];
@@ -216,7 +232,7 @@
                                                                       options:kNilOptions
                                                                       metrics:@{}
                                                                         views:views]];
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-20-[titleLabel]-20-[locationImageView]-2-[timeImageView]-40-[speakerLabel]-40-[summaryLabel]-20-[descLabel]-40-|"
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-20-[titleLabel]-20-[formatLabel]-5-[locationImageView]-2-[timeImageView]-40-[speakerLabel]-40-[summaryLabel]-20-[descLabel]-40-|"
                                                                       options:kNilOptions
                                                                       metrics:@{}
                                                                         views:views]];
