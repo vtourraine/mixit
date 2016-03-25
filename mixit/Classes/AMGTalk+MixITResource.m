@@ -17,7 +17,7 @@
 
 - (BOOL)updateWithAttributes:(NSDictionary *)attributes {
     self.desc     = [attributes valueForKey:@"description" ifKindOf:NSString.class];
-    // self.format   = attributes[@"format"];
+    self.format   = attributes[@"format"];
     self.language = [attributes valueForKey:@"lang"        ifKindOf:NSString.class];
     // self.level    = attributes[@"level"];
     self.room     = [attributes valueForKey:@"room"        ifKindOf:NSString.class];
