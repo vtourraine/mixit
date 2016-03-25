@@ -250,17 +250,16 @@ static NSString * const AMGTalkCellIdentifier = @"Cell";
         talk = sectionInfo.objects[indexPath.row];
     }
 
-    if (1 || [talk.endDate timeIntervalSinceNow] > 0) {
+    if (talk.endDate == nil || [talk.endDate timeIntervalSinceNow] > 0) {
         cell.textLabel.textColor = [UIColor blackColor];
         cell.detailTextLabel.textColor = [UIColor blackColor];
     }
     else {
-#warning Disabled now that the 2015 edition is done
         cell.textLabel.textColor = [UIColor lightGrayColor];
         cell.detailTextLabel.textColor = [UIColor lightGrayColor];
     }
 
-    if (talk.room == nil && (talk.startDate == nil || talk.endDate == nil)) {
+    if (talk.room == nil) {
         cell.detailTextLabel.textColor = [UIColor lightGrayColor];
         cell.detailTextLabel.font = [UIFont italicSystemFontOfSize:cell.detailTextLabel.font.pointSize];
     }
