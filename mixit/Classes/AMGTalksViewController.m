@@ -411,11 +411,18 @@ shouldReloadTableForSearchString:(NSString *)searchString {
     authorsRequest.predicate = [NSPredicate predicateWithFormat:
                                 @"firstName CONTAINS [cd] %@ OR lastName CONTAINS [cd] %@",
                                 searchString, searchString];
-    NSArray *authors = [self.syncManager.context executeFetchRequest:authorsRequest error:nil];
+    NSArray <AMGMember *> *authors = [self.syncManager.context executeFetchRequest:authorsRequest error:nil];
     for (AMGMember *author in authors) {
+        // This request doesn’t give an exact identifier match...
         talksRequest.predicate = [NSPredicate predicateWithFormat:@"speakersIdentifiers CONTAINS %@", author.identifier];
-        NSArray *authorTalks = [self.syncManager.context executeFetchRequest:talksRequest error:nil];
-        self.searchResults = [self.searchResults arrayByAddingObjectsFromArray:authorTalks];
+
+        // ... so we need filter the results to keep only matching talks.
+        NSArray <AMGTalk *> *authorTalks = [self.syncManager.context executeFetchRequest:talksRequest error:nil];
+        for (AMGTalk *talk in authorTalks) {
+            if ([talk.speakersIdentifiersArray containsObject:author.identifier]) {
+                self.searchResults = [self.searchResults arrayByAddingObject:talk];
+            }
+        }
     }
 
     return YES;
