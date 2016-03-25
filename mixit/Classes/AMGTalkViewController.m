@@ -147,6 +147,15 @@
 
     AMGMember *speaker = self.talk.fetchSpeakers.firstObject;
 
+    UIImageView *speakerImageView = ({
+        UIImage     *image     = [UIImage imageNamed:@"IconPerson"];
+        UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
+        imageView.translatesAutoresizingMaskIntoConstraints = NO;
+        imageView.contentMode = UIViewContentModeScaleAspectFit;
+        imageView;
+    });
+    [scrollView addSubview:speakerImageView];
+
     UILabel *speakerLabel = ({
         UILabel *label = [[UILabel alloc] init];
         label.translatesAutoresizingMaskIntoConstraints = NO;
@@ -192,6 +201,7 @@
                                                          locationLabel,
                                                          timeImageView,
                                                          timeLabel,
+                                                         speakerImageView,
                                                          speakerLabel,
                                                          summaryLabel,
                                                          descLabel);
@@ -220,8 +230,8 @@
                                                                       options:NSLayoutFormatAlignAllCenterY
                                                                       metrics:@{}
                                                                         views:views]];
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-15-[speakerLabel]-15-|"
-                                                                      options:kNilOptions
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-15-[speakerImageView(==20)]-[speakerLabel]-15-|"
+                                                                      options:NSLayoutFormatAlignAllCenterY
                                                                       metrics:@{}
                                                                         views:views]];
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-15-[summaryLabel]-15-|"
@@ -232,7 +242,7 @@
                                                                       options:kNilOptions
                                                                       metrics:@{}
                                                                         views:views]];
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-20-[titleLabel]-20-[formatLabel]-5-[locationImageView]-2-[timeImageView]-40-[speakerLabel]-40-[summaryLabel]-20-[descLabel]-40-|"
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-20-[titleLabel]-20-[speakerImageView]-40-[formatLabel]-5-[locationImageView]-2-[timeImageView]-40-[summaryLabel]-20-[descLabel]-40-|"
                                                                       options:kNilOptions
                                                                       metrics:@{}
                                                                         views:views]];
