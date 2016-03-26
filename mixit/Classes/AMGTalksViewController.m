@@ -58,6 +58,8 @@ static NSString * const AMGTalkCellIdentifier = @"Cell";
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    [SVProgressHUD setForegroundColor:self.view.tintColor];
+
     [self loadBarButtonItems];
 
     self.syncManager.delegate = self;
