@@ -3,7 +3,7 @@
 //  mixit
 //
 //  Created by Vincent Tourraine on 01/05/14.
-//  Copyright (c) 2014-2015 Studio AMANgA. All rights reserved.
+//  Copyright (c) 2014-2016 Studio AMANgA. All rights reserved.
 //
 
 #import "AMGTalk.h"
@@ -51,11 +51,11 @@ static NSString * const AMGTalkSeparator = @";";
     self.speakersIdentifiers = [identifiers componentsJoinedByString:AMGTalkSeparator];
 }
 
-- (NSArray *)speakersIdentifiersArray {
+- (NSArray <NSString *> *)speakersIdentifiersArray {
     return [self.speakersIdentifiers componentsSeparatedByString:AMGTalkSeparator];
 }
 
-- (NSArray *)fetchSpeakers {
+- (NSArray <AMGMember *> *)fetchSpeakers {
     NSArray *identifiers = self.speakersIdentifiersArray;
     NSMutableArray *speakers = [NSMutableArray arrayWithCapacity:identifiers.count];
 

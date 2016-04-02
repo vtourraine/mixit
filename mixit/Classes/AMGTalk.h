@@ -3,11 +3,13 @@
 //  mixit
 //
 //  Created by Vincent Tourraine on 01/05/14.
-//  Copyright (c) 2014-2015 Studio AMANgA. All rights reserved.
+//  Copyright (c) 2014-2016 Studio AMANgA. All rights reserved.
 //
 
 @import Foundation;
 @import CoreData;
+
+@class AMGMember;
 
 
 @interface AMGTalk : NSManagedObject
@@ -30,9 +32,9 @@
 - (BOOL)isFavorited;
 
 - (NSString *)emojiForLanguage;
-- (NSArray *)speakersIdentifiersArray;
+- (NSArray <NSString *> *)speakersIdentifiersArray;
 - (void)setSpeakersIdentifiersFromArray:(NSArray *)identifiers;
 
-- (NSArray *)fetchSpeakers;
+- (NSArray <AMGMember *> *)fetchSpeakers;
 
 @end
