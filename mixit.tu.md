@@ -2,7 +2,10 @@
 
 ## Roadmap
 
-- iPad multitasking support
+
+## 2.1
+
+- [x] iPad multitasking support
 
 
 ## 2.0
@@ -31,3 +34,4 @@
 2015-04-03
 
 - Initial release
+

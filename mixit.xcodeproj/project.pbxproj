@@ -18,6 +18,7 @@
 		1F42189F191271AD001AC572 /* AMGTalkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F42189E191271AD001AC572 /* AMGTalkViewController.m */; };
 		1F4218A2191292FE001AC572 /* AMGMember.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F4218A1191292FE001AC572 /* AMGMember.m */; };
 		1F4218A619129578001AC572 /* AMGMember+MixITResource.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F4218A519129578001AC572 /* AMGMember+MixITResource.m */; };
+		1F7F929E1CAFBD45009FA028 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F7F929C1CAFBD45009FA028 /* LaunchScreen.storyboard */; };
 		1FA55BD71911A5D3000260B3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1FA55BD51911A5D3000260B3 /* InfoPlist.strings */; };
 		1FA55BD91911A5D3000260B3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FA55BD81911A5D3000260B3 /* main.m */; };
 		1FA55BDD1911A5D3000260B3 /* AMGAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FA55BDC1911A5D3000260B3 /* AMGAppDelegate.m */; };
@@ -66,6 +67,7 @@
 		1F4218A419129578001AC572 /* AMGMember+MixITResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = "AMGMember+MixITResource.h"; path = "Classes/AMGMember+MixITResource.h"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		1F4218A519129578001AC572 /* AMGMember+MixITResource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = "AMGMember+MixITResource.m"; path = "Classes/AMGMember+MixITResource.m"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		1F5F2E201AD951660086ADFB /* mixit.tu.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = mixit.tu.md; sourceTree = SOURCE_ROOT; };
+		1F7F929D1CAFBD45009FA028 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1FA55BC71911A5D2000260B3 /* mixit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mixit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FA55BD41911A5D3000260B3 /* mixit-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "mixit-Info.plist"; sourceTree = "<group>"; };
 		1FA55BD61911A5D3000260B3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -210,6 +212,7 @@
 				1F2D96C41912E021007CAE4C /* Twitter */,
 				1FA55BE11911A5D3000260B3 /* Images.xcassets */,
 				1FA55BDE1911A5D3000260B3 /* mixit.xcdatamodeld */,
+				1F7F929C1CAFBD45009FA028 /* LaunchScreen.storyboard */,
 				1FA55BD31911A5D3000260B3 /* Supporting Files */,
 			);
 			path = mixit;
@@ -352,6 +355,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1FA55BD71911A5D3000260B3 /* InfoPlist.strings in Resources */,
+				1F7F929E1CAFBD45009FA028 /* LaunchScreen.storyboard in Resources */,
 				1FB1E0371ACC829200D0FCB3 /* Localizable.strings in Resources */,
 				1FA55BE21911A5D3000260B3 /* Images.xcassets in Resources */,
 			);
@@ -457,6 +461,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		1F7F929C1CAFBD45009FA028 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1F7F929D1CAFBD45009FA028 /* en */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
 		1FA55BD51911A5D3000260B3 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
