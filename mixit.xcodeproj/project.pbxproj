@@ -68,6 +68,7 @@
 		1F4218A519129578001AC572 /* AMGMember+MixITResource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = "AMGMember+MixITResource.m"; path = "Classes/AMGMember+MixITResource.m"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		1F5F2E201AD951660086ADFB /* mixit.tu.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = mixit.tu.md; sourceTree = SOURCE_ROOT; };
 		1F7F929D1CAFBD45009FA028 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		1F7F929F1CB01DFF009FA028 /* mixit-2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "mixit-2.xcdatamodel"; sourceTree = "<group>"; };
 		1FA55BC71911A5D2000260B3 /* mixit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mixit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FA55BD41911A5D3000260B3 /* mixit-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "mixit-Info.plist"; sourceTree = "<group>"; };
 		1FA55BD61911A5D3000260B3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -688,9 +689,10 @@
 		1FA55BDE1911A5D3000260B3 /* mixit.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				1F7F929F1CB01DFF009FA028 /* mixit-2.xcdatamodel */,
 				1FA55BDF1911A5D3000260B3 /* mixit.xcdatamodel */,
 			);
-			currentVersion = 1FA55BDF1911A5D3000260B3 /* mixit.xcdatamodel */;
+			currentVersion = 1F7F929F1CB01DFF009FA028 /* mixit-2.xcdatamodel */;
 			path = mixit.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

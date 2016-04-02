@@ -14,18 +14,20 @@ static NSString * const AMGTalkSeparator = @";";
 
 @implementation AMGTalk
 
-@dynamic title;
-@dynamic summary;
-@dynamic startDate;
-@dynamic room;
-@dynamic level;
-@dynamic language;
-@dynamic identifier;
+@dynamic desc;
 @dynamic endDate;
 @dynamic favorited;
 @dynamic format;
-@dynamic desc;
+@dynamic ideaForNow;
+@dynamic identifier;
+@dynamic language;
+@dynamic level;
+@dynamic room;
 @dynamic speakersIdentifiers;
+@dynamic startDate;
+@dynamic summary;
+@dynamic title;
+@dynamic year;
 
 + (NSString *)entityName {
     return @"Talk";

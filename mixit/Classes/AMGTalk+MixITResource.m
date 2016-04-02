@@ -3,7 +3,7 @@
 //  mixit
 //
 //  Created by Vincent Tourraine on 01/05/14.
-//  Copyright (c) 2014-2015 Studio AMANgA. All rights reserved.
+//  Copyright (c) 2014-2016 Studio AMANgA. All rights reserved.
 //
 
 #import "AMGTalk+MixITResource.h"
@@ -16,17 +16,23 @@
 @implementation AMGTalk (MixITResource)
 
 - (BOOL)updateWithAttributes:(NSDictionary *)attributes {
-    self.desc     = [attributes valueForKey:@"description" ifKindOf:NSString.class];
-    self.format   = attributes[@"format"];
-    self.language = [attributes valueForKey:@"lang"        ifKindOf:NSString.class];
-    // self.level    = attributes[@"level"];
-    self.room     = [attributes valueForKey:@"room"        ifKindOf:NSString.class];
-    self.summary  = [attributes valueForKey:@"summary"     ifKindOf:NSString.class];
-    self.title    = [attributes valueForKey:@"title"       ifKindOf:NSString.class];
+    self.desc       = [attributes valueForKey:@"description" ifKindOf:NSString.class];
+    self.format     = [attributes valueForKey:@"format"      ifKindOf:NSString.class];
+    self.ideaForNow = [attributes valueForKey:@"ideaForNow"  ifKindOf:NSString.class];
+    self.language   = [attributes valueForKey:@"lang"        ifKindOf:NSString.class];
+    self.room       = [attributes valueForKey:@"room"        ifKindOf:NSString.class];
+    self.summary    = [attributes valueForKey:@"summary"     ifKindOf:NSString.class];
+    self.title      = [attributes valueForKey:@"title"       ifKindOf:NSString.class];
 
     ISO8601DateFormatter *dateFormatter = [[ISO8601DateFormatter alloc] init];
     self.startDate = [dateFormatter dateFromString:[attributes valueForKey:@"start" ifKindOf:NSString.class]];
     self.endDate   = [dateFormatter dateFromString:[attributes valueForKey:@"end"   ifKindOf:NSString.class]];
+
+    NSString *yearString = [attributes valueForKey:@"year" ifKindOf:NSString.class];
+    NSInteger yearInteger = [yearString integerValue];
+    if (yearInteger > 0) {
+        self.year = @(yearInteger);
+    }
 
     NSArray <NSDictionary *> *links = attributes[@"links"];
     NSMutableArray *identifiers = [NSMutableArray array];
