@@ -124,17 +124,14 @@ static NSString * const AMGTalkCellIdentifier = @"Cell";
     }
 }
 
+
+#pragma mark - Data
+
 - (void)reloadSections {
     NSFetchRequest *request = [NSFetchRequest   fetchRequestWithEntityName:AMGTalk.entityName];
 
-    request.predicate = [NSPredicate predicateWithFormat:@"%K = %@",
-                         NSStringFromSelector(@selector(year)),
-                         self.year ?: [AMGMixITClient currentYear]];
-
-    NSSortDescriptor *startSort      = [NSSortDescriptor sortDescriptorWithKey:@"startDate"  ascending:YES];
-    NSSortDescriptor *roomSort       = [NSSortDescriptor sortDescriptorWithKey:@"room"       ascending:YES];
-    NSSortDescriptor *identifierSort = [NSSortDescriptor sortDescriptorWithKey:@"identifier" ascending:YES];
-    request.sortDescriptors = @[startSort, roomSort, identifierSort];
+    request.predicate = [self yearPredicate];
+    request.sortDescriptors = [self talksSortDescriptors];
 
     NSArray *talks = [self.syncManager.context executeFetchRequest:request error:nil];
 
@@ -168,6 +165,24 @@ static NSString * const AMGTalkCellIdentifier = @"Cell";
     }
 
     self.sections = sections;
+}
+
+- (nonnull NSPredicate *)yearPredicate {
+    return [NSPredicate predicateWithFormat:@"%K = %@",
+            NSStringFromSelector(@selector(year)),
+            self.year ?: [AMGMixITClient currentYear]];
+}
+
+- (nonnull NSPredicate *)searchPredicateWithQuery:(nonnull NSString *)query {
+    return [NSPredicate predicateWithFormat:
+            @"title CONTAINS [cd] %@ OR summary CONTAINS [cd] %@ OR format CONTAINS [cd] %@",
+            query, query, query];
+}
+
+- (nonnull NSArray <NSSortDescriptor *> *)talksSortDescriptors {
+    return @[[NSSortDescriptor sortDescriptorWithKey:@"startDate"  ascending:YES],
+             [NSSortDescriptor sortDescriptorWithKey:@"room"       ascending:YES],
+             [NSSortDescriptor sortDescriptorWithKey:@"identifier" ascending:YES]];
 }
 
 
@@ -403,16 +418,10 @@ static NSString * const AMGTalkCellIdentifier = @"Cell";
 shouldReloadTableForSearchString:(NSString *)searchString {
     NSFetchRequest *talksRequest = [NSFetchRequest fetchRequestWithEntityName:AMGTalk.entityName];
 
-    NSSortDescriptor *startSort      = [NSSortDescriptor sortDescriptorWithKey:@"startDate"  ascending:YES];
-    NSSortDescriptor *roomSort       = [NSSortDescriptor sortDescriptorWithKey:@"room"       ascending:YES];
-    NSSortDescriptor *identifierSort = [NSSortDescriptor sortDescriptorWithKey:@"identifier" ascending:YES];
-    talksRequest.sortDescriptors = @[startSort, roomSort, identifierSort];
+    talksRequest.sortDescriptors = [self talksSortDescriptors];
 
-    talksRequest.predicate = [NSPredicate predicateWithFormat:
-                              @"%K = %@ AND (title CONTAINS [cd] %@ OR summary CONTAINS [cd] %@ OR format CONTAINS [cd] %@)",
-                              NSStringFromSelector(@selector(year)),
-                              self.year ?: [AMGMixITClient currentYear],
-                              searchString, searchString, searchString];
+    NSArray *predicates = @[[self searchPredicateWithQuery:searchString], [self yearPredicate]];
+    talksRequest.predicate = [NSCompoundPredicate andPredicateWithSubpredicates:predicates];
 
     self.searchResults = [self.syncManager.context executeFetchRequest:talksRequest error:nil];
 
