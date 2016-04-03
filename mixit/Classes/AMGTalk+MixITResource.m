@@ -15,7 +15,7 @@
 
 @implementation AMGTalk (MixITResource)
 
-- (BOOL)updateWithAttributes:(NSDictionary *)attributes {
+- (BOOL)updateWithAttributes:(nonnull NSDictionary *)attributes {
     self.desc       = [attributes valueForKey:@"description" ifKindOf:NSString.class];
     self.format     = [attributes valueForKey:@"format"      ifKindOf:NSString.class];
     self.ideaForNow = [attributes valueForKey:@"ideaForNow"  ifKindOf:NSString.class];
@@ -53,8 +53,8 @@
     return YES;
 }
 
-+ (NSURLSessionDataTask *)fetchTalksWithClient:(AMGMixITClient *)client
-                                         block:(void (^)(NSArray *posts, NSError *error))block {
++ (nullable NSURLSessionDataTask *)fetchTalksWithClient:(nonnull AMGMixITClient *)client
+                                                  block:(nullable void (^)(NSArray * __nonnull talks, NSError * __nullable error))block {
     // parameters:@{@"details": @"true"}
     return [client GET:@"session" parameters:nil success:^(NSURLSessionDataTask * __unused task, id JSON) {
         if (![JSON isKindOfClass:NSArray.class]) {
@@ -74,8 +74,8 @@
     }];
 }
 
-+ (void)mergeResponseObjects:(NSArray *)objects
-                 intoContext:(NSManagedObjectContext *)context {
++ (void)mergeResponseObjects:(nonnull NSArray *)objects
+                 intoContext:(nonnull NSManagedObjectContext *)context {
     NSFetchRequest *request       = [NSFetchRequest fetchRequestWithEntityName:AMGTalk.entityName];
     NSArray        *existingTalks = [context executeFetchRequest:request error:nil];
 

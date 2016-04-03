@@ -11,14 +11,15 @@
 @class NSURLSessionDataTask;
 @class AMGMixITClient;
 
+
 @interface AMGTalk (MixITResource)
 
-- (BOOL)updateWithAttributes:(NSDictionary *)attributes;
+- (BOOL)updateWithAttributes:(nonnull NSDictionary *)attributes;
 
-+ (NSURLSessionDataTask *)fetchTalksWithClient:(AMGMixITClient *)client
-                                         block:(void (^)(NSArray *talks, NSError *error))block;
++ (nullable NSURLSessionDataTask *)fetchTalksWithClient:(nonnull AMGMixITClient *)client
+                                                  block:(nullable void (^)(NSArray * __nonnull talks, NSError * __nullable error))block;
 
-+ (void)mergeResponseObjects:(NSArray *)objects
-                 intoContext:(NSManagedObjectContext *)context;
++ (void)mergeResponseObjects:(nonnull NSArray *)objects
+                 intoContext:(nonnull NSManagedObjectContext *)context;
 
 @end
