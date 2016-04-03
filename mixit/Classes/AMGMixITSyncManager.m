@@ -22,8 +22,6 @@
 @property (nonatomic, strong) NSManagedObjectContext *context;
 @property (nonatomic, strong) AMGMixITClient *client;
 
-- (void)syncSpeakers;
-
 @end
 
 
@@ -39,7 +37,7 @@
     return manager;
 }
 
-- (BOOL)startSync {
+- (BOOL)startSyncForYear:(nullable NSNumber *)year {
     if (self.isSyncing) {
         return NO;
     }
@@ -50,6 +48,7 @@
 
     [AMGTalk
      fetchTalksWithClient:self.client
+     forYear:year
      block:^(NSArray *posts, NSError *error) {
          if (error) {
              self.syncing = NO;
@@ -61,14 +60,15 @@
          [AMGTalk mergeResponseObjects:posts
                            intoContext:self.context];
 
-         [self syncSpeakers];
+         [self syncSpeakersForYear:year];
      }];
     return YES;
 }
 
-- (void)syncSpeakers {
+- (void)syncSpeakersForYear:(nullable NSNumber *)year {
     [AMGMember
      fetchSpeakersWithClient:self.client
+     forYear:year
      block:^(NSArray *speakers, NSError *error) {
          if (error) {
              self.syncing = NO;

@@ -13,6 +13,7 @@
 #import "AMGTalk.h"
 #import "AMGMember.h"
 #import "AMGMixITSyncManager.h"
+#import "AMGMixITClient.h"
 
 #import "AMGTalkViewController.h"
 #import "AMGTalkCell.h"
@@ -33,13 +34,6 @@ static NSString * const AMGTalkCellIdentifier = @"Cell";
 
 @property (nonatomic, weak) id <UIViewControllerPreviewing> previewingContext;
 
-
-- (void)reloadSections;
-- (void)loadBarButtonItems;
-- (void)loadRefreshControl;
-
-- (void)presentInfoViewController:(id)sender;
-
 @end
 
 
@@ -58,6 +52,9 @@ static NSString * const AMGTalkCellIdentifier = @"Cell";
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    [SVProgressHUD setDefaultStyle:SVProgressHUDStyleCustom];
+    [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
+    [SVProgressHUD setBackgroundColor:[UIColor whiteColor]];
     [SVProgressHUD setForegroundColor:self.view.tintColor];
 
     [self loadBarButtonItems];
@@ -96,11 +93,13 @@ static NSString * const AMGTalkCellIdentifier = @"Cell";
         self.navigationItem.rightBarButtonItem = item;
     }
 
-    UIBarButtonItem *infoItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"IconInfo"]
-                                                                 style:UIBarButtonItemStyleBordered
-                                                                target:self
-                                                                action:@selector(presentInfoViewController:)];
-    self.navigationItem.leftBarButtonItem = infoItem;
+    if (self.year == nil) {
+        UIBarButtonItem *infoItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"IconInfo"]
+                                                                     style:UIBarButtonItemStyleBordered
+                                                                    target:self
+                                                                    action:@selector(presentInfoViewController:)];
+        self.navigationItem.leftBarButtonItem = infoItem;
+    }
 }
 
 - (void)loadRefreshControl {
@@ -126,7 +125,12 @@ static NSString * const AMGTalkCellIdentifier = @"Cell";
 }
 
 - (void)reloadSections {
-    NSFetchRequest   *request        = [NSFetchRequest   fetchRequestWithEntityName:AMGTalk.entityName];
+    NSFetchRequest *request = [NSFetchRequest   fetchRequestWithEntityName:AMGTalk.entityName];
+
+    request.predicate = [NSPredicate predicateWithFormat:@"%K = %@",
+                         NSStringFromSelector(@selector(year)),
+                         self.year ?: [AMGMixITClient currentYear]];
+
     NSSortDescriptor *startSort      = [NSSortDescriptor sortDescriptorWithKey:@"startDate"  ascending:YES];
     NSSortDescriptor *roomSort       = [NSSortDescriptor sortDescriptorWithKey:@"room"       ascending:YES];
     NSSortDescriptor *identifierSort = [NSSortDescriptor sortDescriptorWithKey:@"identifier" ascending:YES];
@@ -170,11 +174,13 @@ static NSString * const AMGTalkCellIdentifier = @"Cell";
 #pragma mark - Actions
 
 - (void)refresh:(id)sender {
-    [self.syncManager startSync];
+    [self.syncManager startSyncForYear:self.year];
 }
 
 - (void)presentInfoViewController:(id)sender {
     AMGAboutViewController *viewController = [[AMGAboutViewController alloc] init];
+    viewController.syncManager = self.syncManager;
+
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:viewController];
     navigationController.modalPresentationStyle = UIModalPresentationFormSheet;
 
@@ -403,8 +409,10 @@ shouldReloadTableForSearchString:(NSString *)searchString {
     talksRequest.sortDescriptors = @[startSort, roomSort, identifierSort];
 
     talksRequest.predicate = [NSPredicate predicateWithFormat:
-                         @"title CONTAINS [cd] %@ OR summary CONTAINS [cd] %@ OR format CONTAINS [cd] %@",
-                         searchString, searchString, searchString];
+                              @"%K = %@ AND (title CONTAINS [cd] %@ OR summary CONTAINS [cd] %@ OR format CONTAINS [cd] %@)",
+                              NSStringFromSelector(@selector(year)),
+                              self.year ?: [AMGMixITClient currentYear],
+                              searchString, searchString, searchString];
 
     self.searchResults = [self.syncManager.context executeFetchRequest:talksRequest error:nil];
 
@@ -415,7 +423,11 @@ shouldReloadTableForSearchString:(NSString *)searchString {
     NSArray <AMGMember *> *authors = [self.syncManager.context executeFetchRequest:authorsRequest error:nil];
     for (AMGMember *author in authors) {
         // This request doesn’t give an exact identifier match...
-        talksRequest.predicate = [NSPredicate predicateWithFormat:@"speakersIdentifiers CONTAINS %@", author.identifier];
+        talksRequest.predicate = [NSPredicate predicateWithFormat:@"%K = %@ AND %K CONTAINS %@",
+                                  NSStringFromSelector(@selector(year)),
+                                  self.year ?: [AMGMixITClient currentYear],
+                                  NSStringFromSelector(@selector(speakersIdentifiers)),
+                                  author.identifier];
 
         // ... so we need filter the results to keep only matching talks.
         NSArray <AMGTalk *> *authorTalks = [self.syncManager.context executeFetchRequest:talksRequest error:nil];

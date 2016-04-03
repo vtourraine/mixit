@@ -54,9 +54,14 @@
 }
 
 + (nullable NSURLSessionDataTask *)fetchTalksWithClient:(nonnull AMGMixITClient *)client
+                                                forYear:(nullable NSNumber *)year
                                                   block:(nullable void (^)(NSArray * __nonnull talks, NSError * __nullable error))block {
-    // parameters:@{@"details": @"true"}
-    return [client GET:@"session" parameters:nil success:^(NSURLSessionDataTask * __unused task, id JSON) {
+    NSDictionary *parameters = nil;
+    if (year) {
+        parameters = @{@"year": year};
+    }
+
+    return [client GET:@"session" parameters:parameters success:^(NSURLSessionDataTask * __unused task, id JSON) {
         if (![JSON isKindOfClass:NSArray.class]) {
             if (block) {
                 block(@[], nil);

@@ -8,19 +8,20 @@
 
 @import UIKit;
 
-@class AMGMixITSyncManager;
+@class AMGMixITSyncManager, AMGTalk;
 
 @interface AMGTalksViewController : UITableViewController
 
-@property (nonatomic, strong) AMGMixITSyncManager *syncManager;
+@property (nonatomic, strong, nullable) AMGMixITSyncManager *syncManager;
+@property (nonatomic, copy, nullable) NSNumber *year;
 
 @end
 
 
 @interface AMGTalksSection : NSObject <NSFetchedResultsSectionInfo>
 
-@property (nonatomic, copy) NSArray *talks;
-@property (nonatomic, copy) NSDate *date;
+@property (nonatomic, copy, nullable) NSArray <AMGTalk *> *talks;
+@property (nonatomic, copy, nullable) NSDate *date;
 @property (nonatomic, assign) BOOL firstSectionForTheDay;
 
 @end

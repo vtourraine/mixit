@@ -8,12 +8,18 @@
 
 @import UIKit;
 
+@class AMGMixITSyncManager;
+
+
 @interface AMGAboutViewController : UITableViewController
 
-- (IBAction)openInMaps:(id)sender;
-- (IBAction)openInSafari:(id)sender;
+@property (nonatomic, strong, nullable) AMGMixITSyncManager *syncManager;
 
-- (IBAction)openVTourraine:(id)sender;
-- (IBAction)dismiss:(id)sender;
+
+- (IBAction)openInMaps:(nullable id)sender;
+- (IBAction)openInSafari:(nullable id)sender;
+
+- (IBAction)openVTourraine:(nullable id)sender;
+- (IBAction)dismiss:(nullable id)sender;
 
 @end

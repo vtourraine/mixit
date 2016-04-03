@@ -3,31 +3,32 @@
 //  mixit
 //
 //  Created by Vincent Tourraine on 01/05/14.
-//  Copyright (c) 2014-2015 Studio AMANgA. All rights reserved.
+//  Copyright (c) 2014-2016 Studio AMANgA. All rights reserved.
 //
 
 @import Foundation;
 
 @protocol AMGMixITSyncManagerDelegate;
 
+
 @interface AMGMixITSyncManager : NSObject
 
 @property (nonatomic, assign, getter = isSyncing, readonly) BOOL syncing;
-@property (nonatomic, strong, readonly) NSManagedObjectContext *context;
+@property (nonatomic, strong, nonnull ,readonly) NSManagedObjectContext *context;
 
-@property (nonatomic, weak) id <AMGMixITSyncManagerDelegate> delegate;
+@property (nonatomic, weak, nullable) id <AMGMixITSyncManagerDelegate> delegate;
 
-+ (instancetype)MixITSyncManagerWithContext:(NSManagedObjectContext *)context;
++ (nonnull instancetype)MixITSyncManagerWithContext:(nonnull NSManagedObjectContext *)context;
 
-- (BOOL)startSync;
+- (BOOL)startSyncForYear:(nullable NSNumber *)year;
 
 @end
 
 
 @protocol AMGMixITSyncManagerDelegate <NSObject>
 
-- (void)syncManagerDidStartSync:(AMGMixITSyncManager *)syncManager;
-- (void)syncManager:(AMGMixITSyncManager *)syncManager didFailSyncWithError:(NSError *)error;
-- (void)syncManagerDidFinishSync:(AMGMixITSyncManager *)syncManager;
+- (void)syncManagerDidStartSync:(nonnull AMGMixITSyncManager *)syncManager;
+- (void)syncManager:(nonnull AMGMixITSyncManager *)syncManager didFailSyncWithError:(nullable NSError *)error;
+- (void)syncManagerDidFinishSync:(nonnull AMGMixITSyncManager *)syncManager;
 
 @end

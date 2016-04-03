@@ -8,6 +8,9 @@
 
 #import "AMGAboutViewController.h"
 
+#import "AMGMixITClient.h"
+#import "AMGTalksViewController.h"
+
 @import MapKit;
 @import CoreLocation;
 @import SafariServices;
@@ -18,6 +21,7 @@
 @property (nonatomic, assign) CLLocationCoordinate2D coordinates;
 @property (nonatomic, strong) MKMapView *mapView;
 @property (nonatomic, strong) CLLocationManager *locationManager;
+@property (nonatomic, strong, nullable) NSArray <NSNumber *> * pastYears;
 
 - (void)loadNavigationItems;
 - (void)loadHeaderView;
@@ -30,7 +34,8 @@ static NSString * const AMGButtonCellIdentifier = @"Cell";
 
 NS_ENUM(NSUInteger, AMGAboutSections) {
     AMGAboutMapSection,
-    AMGAboutLinksSection
+    AMGAboutLinksSection,
+    AMGAboutPastYearsSection
 };
 
 NS_ENUM(NSUInteger, AMGMapRows) {
@@ -52,6 +57,8 @@ NS_ENUM(NSUInteger, AMGMapRows) {
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+    self.pastYears = [AMGMixITClient pastYears];
 
     [self loadNavigationItems];
     [self loadHeaderView];
@@ -175,18 +182,41 @@ NS_ENUM(NSUInteger, AMGMapRows) {
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 2;
+    return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 1;
+    switch (section) {
+        case AMGAboutMapSection:
+        case AMGAboutLinksSection:
+            return 1;
+
+        case AMGAboutPastYearsSection:
+            return self.pastYears.count;
+    }
+
+    return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:AMGButtonCellIdentifier forIndexPath:indexPath];
-    cell.textLabel.textAlignment = NSTextAlignmentCenter;
-    cell.textLabel.font = [UIFont systemFontOfSize:17];
-    cell.textLabel.textColor = self.view.tintColor;
+    
+    switch (indexPath.section) {
+        case AMGAboutMapSection:
+        case AMGAboutLinksSection:
+            cell.textLabel.textAlignment = NSTextAlignmentCenter;
+            cell.textLabel.font = [UIFont systemFontOfSize:17];
+            cell.textLabel.textColor = self.view.tintColor;
+            cell.accessoryType = UITableViewCellAccessoryNone;
+            break;
+
+        case AMGAboutPastYearsSection:
+            cell.textLabel.textAlignment = NSTextAlignmentLeft;
+            cell.textLabel.font = [UIFont systemFontOfSize:17];
+            cell.textLabel.textColor = [UIColor darkTextColor];
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+            break;
+    }
 
     switch (indexPath.section) {
         case AMGAboutMapSection:
@@ -195,6 +225,11 @@ NS_ENUM(NSUInteger, AMGMapRows) {
 
         case AMGAboutLinksSection:
             cell.textLabel.text = NSLocalizedString(@"Open Mix-IT website", nil);
+            break;
+
+        case AMGAboutPastYearsSection:
+            cell.textLabel.text = [NSString stringWithFormat:NSLocalizedString(@"Mix-IT %@", nil),
+                                   self.pastYears[indexPath.row]];
             break;
     }
 
@@ -213,9 +248,21 @@ NS_ENUM(NSUInteger, AMGMapRows) {
         case AMGAboutLinksSection:
             [self openInSafari:nil];
             break;
+
+        case AMGAboutPastYearsSection:
+            [self presentTalksViewControllerForYear:self.pastYears[indexPath.row]];
+            break;
     }
 
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+- (void)presentTalksViewControllerForYear:(nonnull NSNumber *)year {
+    AMGTalksViewController *viewController = [[AMGTalksViewController alloc] init];
+    viewController.syncManager = self.syncManager;
+    viewController.year = year;
+
+    [self.navigationController pushViewController:viewController animated:YES];
 }
 
 

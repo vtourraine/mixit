@@ -14,7 +14,7 @@
 
 @implementation AMGMember (MixITResource)
 
-- (BOOL)updateWithAttributes:(NSDictionary *)attributes {
+- (BOOL)updateWithAttributes:(nonnull NSDictionary *)attributes {
     self.company        = [attributes valueForKey:@"company"   ifKindOf:NSString.class];
     self.firstName      = [attributes valueForKey:@"firstname" ifKindOf:NSString.class];
     self.lastName       = [attributes valueForKey:@"lastname"  ifKindOf:NSString.class];
@@ -25,11 +25,15 @@
     return YES;
 }
 
-+ (NSURLSessionDataTask *)fetchSpeakersWithClient:(AMGMixITClient *)client
-                                            block:(void (^)(NSArray *speakers, NSError *error))block {
-    NSString *path = @"member/speaker";
++ (nullable NSURLSessionDataTask *)fetchSpeakersWithClient:(nonnull AMGMixITClient *)client
+                                                   forYear:(nullable NSNumber *)year
+                                                     block:(nullable void (^)(NSArray * __nonnull speakers, NSError * __nullable error))block {
+    NSDictionary *parameters = nil;
+    if (year) {
+        parameters = @{@"year": year};
+    }
 
-    return [client GET:path parameters:nil success:^(NSURLSessionDataTask * __unused task, id JSON) {
+    return [client GET:@"member/speaker" parameters:parameters success:^(NSURLSessionDataTask * __unused task, id JSON) {
         if (![JSON isKindOfClass:NSArray.class]) {
             if (block) {
                 block(@[], nil);
@@ -47,8 +51,8 @@
     }];
 }
 
-+ (void)mergeResponseObjects:(NSArray *)objects
-                 intoContext:(NSManagedObjectContext *)context {
++ (void)mergeResponseObjects:(nonnull NSArray *)objects
+                 intoContext:(nonnull NSManagedObjectContext *)context {
     NSFetchRequest *request         = [NSFetchRequest fetchRequestWithEntityName:AMGMember.entityName];
     NSArray        *existingMembers = [context executeFetchRequest:request error:nil];
 

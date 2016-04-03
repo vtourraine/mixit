@@ -12,12 +12,13 @@
 
 @interface AMGMember (MixITResource)
 
-- (BOOL)updateWithAttributes:(NSDictionary *)attributes;
+- (BOOL)updateWithAttributes:(nonnull NSDictionary *)attributes;
 
-+ (NSURLSessionDataTask *)fetchSpeakersWithClient:(AMGMixITClient *)client
-                                            block:(void (^)(NSArray *speakers, NSError *error))block;
++ (nullable NSURLSessionDataTask *)fetchSpeakersWithClient:(nonnull AMGMixITClient *)client
+                                                   forYear:(nullable NSNumber *)year
+                                                     block:(nullable void (^)(NSArray * __nonnull speakers, NSError * __nullable error))block;
 
-+ (void)mergeResponseObjects:(NSArray *)objects
-                 intoContext:(NSManagedObjectContext *)context;
++ (void)mergeResponseObjects:(nonnull NSArray *)objects
+                 intoContext:(nonnull NSManagedObjectContext *)context;
 
 @end
