@@ -3,13 +3,15 @@
 //  mixit
 //
 //  Created by Vincent Tourraine on 01/05/14.
-//  Copyright (c) 2014-2015 Studio AMANgA. All rights reserved.
+//  Copyright (c) 2014-2016 Studio AMANgA. All rights reserved.
 //
 
 #import "AMGTalkViewController.h"
 
 #import "AMGTalk.h"
 #import "AMGMember.h"
+
+#import "AMGPlansViewController.h"
 
 #import <AFNetworking/UIImageView+AFNetworking.h>
 
@@ -18,10 +20,6 @@
 @property (nonatomic, strong) AMGTalk *talk;
 @property (nonatomic, weak) NSLayoutConstraint *titleWidthConstraint;
 @property (nonatomic, strong) UIPreviewAction *toggleFavoritesPreviewAction;
-
-- (void)loadBarButtonItems;
-
-- (void)toggleFavorited:(id)sender;
 
 @end
 
@@ -112,6 +110,10 @@
         label;
     });
     [scrollView addSubview:locationLabel];
+
+    UITapGestureRecognizer *recognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(presentPlansViewController:)];
+    locationLabel.userInteractionEnabled = YES;
+    [locationLabel addGestureRecognizer:recognizer];
 
     UIImageView *timeImageView = ({
         UIImage     *image     = [[UIImage imageNamed:@"IconClock2"]
@@ -278,6 +280,11 @@
     [self loadBarButtonItems];
 
     [self.delegate talkViewControler:self didToggleTalk:self.talk];
+}
+
+- (IBAction)presentPlansViewController:(nullable id)sender {
+    AMGPlansViewController *viewController = [[AMGPlansViewController alloc] init];
+    [self.navigationController pushViewController:viewController animated:YES];
 }
 
 
