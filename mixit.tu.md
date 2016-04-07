@@ -5,6 +5,7 @@
 
 ## 2.1
 
+- [x] Add floor maps in info controller
 - [x] iPad multitasking support
 - [x] Sync and browse past editions
 

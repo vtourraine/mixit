@@ -22,6 +22,7 @@
 @property (nonatomic, strong) MKMapView *mapView;
 @property (nonatomic, strong) CLLocationManager *locationManager;
 @property (nonatomic, strong, nullable) NSArray <NSNumber *> * pastYears;
+@property (nonatomic, strong, nullable) NSArray <UIImage *> * floorMapImages;
 
 - (void)loadNavigationItems;
 - (void)loadHeaderView;
@@ -31,9 +32,11 @@
 
 
 static NSString * const AMGButtonCellIdentifier = @"Cell";
+static NSString * const AMGImageCellIdentifier = @"CellImage";
 
 NS_ENUM(NSUInteger, AMGAboutSections) {
     AMGAboutMapSection,
+    AMGAboutFloorMapSection,
     AMGAboutLinksSection,
     AMGAboutPastYearsSection
 };
@@ -55,16 +58,26 @@ NS_ENUM(NSUInteger, AMGMapRows) {
     return self;
 }
 
+- (UIImage *)floorMapImageNamed:(nonnull NSString *)imageName {
+    NSString *path = [[NSBundle mainBundle] pathForResource:imageName ofType:@"jpg"];
+    return [UIImage imageWithContentsOfFile:path];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
 
     self.pastYears = [AMGMixITClient pastYears];
+    self.floorMapImages = @[[self floorMapImageNamed:@"MapGeneral"],
+                            [self floorMapImageNamed:@"MapGeneral1"],
+                            [self floorMapImageNamed:@"MapGeneral0"],
+                            [self floorMapImageNamed:@"MapGeneral-1"]];
 
     [self loadNavigationItems];
     [self loadHeaderView];
     [self loadFooterView];
 
     [self.tableView registerClass:UITableViewCell.class forCellReuseIdentifier:AMGButtonCellIdentifier];
+    [self.tableView registerClass:UITableViewCell.class forCellReuseIdentifier:AMGImageCellIdentifier];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -182,7 +195,7 @@ NS_ENUM(NSUInteger, AMGMapRows) {
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 3;
+    return 4;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -193,14 +206,38 @@ NS_ENUM(NSUInteger, AMGMapRows) {
 
         case AMGAboutPastYearsSection:
             return self.pastYears.count;
+
+        case AMGAboutFloorMapSection:
+            return self.floorMapImages.count;
     }
 
     return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == AMGAboutFloorMapSection) {
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:AMGImageCellIdentifier forIndexPath:indexPath];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+
+        UIImageView *imageView = cell.contentView.subviews.firstObject;
+        UIImage *image = self.floorMapImages[indexPath.row];
+
+        if (imageView == nil) {
+            imageView = [[UIImageView alloc] initWithImage:image];
+            imageView.frame = CGRectInset(cell.contentView.bounds, 0, 4);
+            imageView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+            imageView.contentMode = UIViewContentModeScaleAspectFit;
+            [cell.contentView addSubview:imageView];
+        }
+        else {
+            imageView.image = image;
+        }
+
+        return cell;
+    }
+
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:AMGButtonCellIdentifier forIndexPath:indexPath];
-    
+
     switch (indexPath.section) {
         case AMGAboutMapSection:
         case AMGAboutLinksSection:
@@ -221,19 +258,31 @@ NS_ENUM(NSUInteger, AMGMapRows) {
     switch (indexPath.section) {
         case AMGAboutMapSection:
             cell.textLabel.text = NSLocalizedString(@"Open in Maps", nil);
+            cell.imageView.image = nil;
             break;
 
         case AMGAboutLinksSection:
             cell.textLabel.text = NSLocalizedString(@"Open Mix-IT website", nil);
+            cell.imageView.image = nil;
             break;
 
         case AMGAboutPastYearsSection:
             cell.textLabel.text = [NSString stringWithFormat:NSLocalizedString(@"Mix-IT %@", nil),
                                    self.pastYears[indexPath.row]];
+            cell.imageView.image = nil;
             break;
     }
 
     return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == AMGAboutFloorMapSection) {
+        return 230;
+    }
+    else {
+        return UITableViewAutomaticDimension;
+    }
 }
 
 
