@@ -10,10 +10,13 @@
 
 #import "AMGMixITClient.h"
 #import "AMGTalksViewController.h"
+#import "AMGPlansViewController.h"
 
 @import MapKit;
 @import CoreLocation;
 @import SafariServices;
+
+static NSString * const AMGButtonCellIdentifier = @"Cell";
 
 
 @interface AMGAboutViewController () <CLLocationManagerDelegate>
@@ -22,31 +25,25 @@
 @property (nonatomic, strong) MKMapView *mapView;
 @property (nonatomic, strong) CLLocationManager *locationManager;
 @property (nonatomic, strong, nullable) NSArray <NSNumber *> * pastYears;
-@property (nonatomic, strong, nullable) NSArray <UIImage *> * floorMapImages;
-
-- (void)loadNavigationItems;
-- (void)loadHeaderView;
-- (void)loadFooterView;
 
 @end
 
 
-static NSString * const AMGButtonCellIdentifier = @"Cell";
-static NSString * const AMGImageCellIdentifier = @"CellImage";
-
 NS_ENUM(NSUInteger, AMGAboutSections) {
     AMGAboutMapSection,
-    AMGAboutFloorMapSection,
     AMGAboutLinksSection,
     AMGAboutPastYearsSection
 };
 
 NS_ENUM(NSUInteger, AMGMapRows) {
-    AMGMapOpenInMapsRow
+    AMGMapOpenInMapsRow,
+    AMGMapPlansRow
 };
 
 
 @implementation AMGAboutViewController
+
+#pragma mark - View life cycle
 
 - (instancetype)init {
     self = [super initWithStyle:UITableViewStyleGrouped];
@@ -58,26 +55,16 @@ NS_ENUM(NSUInteger, AMGMapRows) {
     return self;
 }
 
-- (UIImage *)floorMapImageNamed:(nonnull NSString *)imageName {
-    NSString *path = [[NSBundle mainBundle] pathForResource:imageName ofType:@"jpg"];
-    return [UIImage imageWithContentsOfFile:path];
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
 
     self.pastYears = [AMGMixITClient pastYears];
-    self.floorMapImages = @[[self floorMapImageNamed:@"MapGeneral"],
-                            [self floorMapImageNamed:@"MapGeneral1"],
-                            [self floorMapImageNamed:@"MapGeneral0"],
-                            [self floorMapImageNamed:@"MapGeneral-1"]];
 
     [self loadNavigationItems];
     [self loadHeaderView];
     [self loadFooterView];
 
     [self.tableView registerClass:UITableViewCell.class forCellReuseIdentifier:AMGButtonCellIdentifier];
-    [self.tableView registerClass:UITableViewCell.class forCellReuseIdentifier:AMGImageCellIdentifier];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -159,7 +146,7 @@ NS_ENUM(NSUInteger, AMGMapRows) {
 
 #pragma mark - Actions
 
-- (IBAction)openInMaps:(id)sender {
+- (IBAction)openInMaps:(nullable id)sender {
     MKPlacemark *placemark = [[MKPlacemark alloc] initWithCoordinate:self.coordinates addressDictionary:nil];
     MKMapItem *item = [[MKMapItem alloc] initWithPlacemark:placemark];
     item.name = NSLocalizedString(@"Mix-IT", nil);
@@ -167,15 +154,20 @@ NS_ENUM(NSUInteger, AMGMapRows) {
     [item openInMapsWithLaunchOptions:@{MKLaunchOptionsMapCenterKey: [NSValue valueWithMKCoordinate:self.coordinates]}];
 }
 
-- (IBAction)openInSafari:(id)sender {
+- (IBAction)presentPlansViewController:(nullable id)sender {
+    AMGPlansViewController *viewController = [[AMGPlansViewController alloc] init];
+    [self.navigationController pushViewController:viewController animated:YES];
+}
+
+- (IBAction)openInSafari:(nullable id)sender {
     [self openURLString:@"http://www.mix-it.fr/"];
 }
 
-- (IBAction)openVTourraine:(id)sender {
+- (IBAction)openVTourraine:(nullable id)sender {
     [self openURLString:@"http://www.vtourraine.net?mixit"];
 }
 
-- (IBAction)dismiss:(id)sender {
+- (IBAction)dismiss:(nullable id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -195,94 +187,70 @@ NS_ENUM(NSUInteger, AMGMapRows) {
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 4;
+    return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     switch (section) {
         case AMGAboutMapSection:
+            return 2;
+
         case AMGAboutLinksSection:
             return 1;
 
         case AMGAboutPastYearsSection:
             return self.pastYears.count;
-
-        case AMGAboutFloorMapSection:
-            return self.floorMapImages.count;
     }
 
     return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section == AMGAboutFloorMapSection) {
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:AMGImageCellIdentifier forIndexPath:indexPath];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-
-        UIImageView *imageView = cell.contentView.subviews.firstObject;
-        UIImage *image = self.floorMapImages[indexPath.row];
-
-        if (imageView == nil) {
-            imageView = [[UIImageView alloc] initWithImage:image];
-            imageView.frame = CGRectInset(cell.contentView.bounds, 0, 4);
-            imageView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-            imageView.contentMode = UIViewContentModeScaleAspectFit;
-            [cell.contentView addSubview:imageView];
-        }
-        else {
-            imageView.image = image;
-        }
-
-        return cell;
-    }
-
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:AMGButtonCellIdentifier forIndexPath:indexPath];
 
     switch (indexPath.section) {
-        case AMGAboutMapSection:
+        case AMGAboutMapSection: {
+            switch (indexPath.row) {
+                case AMGMapOpenInMapsRow:
+                    [self configureCell:cell forActionWithTitle:NSLocalizedString(@"Open in Maps", nil)];
+                    break;
+
+                case AMGMapPlansRow:
+                    [self configureCell:cell forActionWithTitle:NSLocalizedString(@"Plans", nil)];
+                    break;
+            }
+            break;
+        }
+
         case AMGAboutLinksSection:
-            cell.textLabel.textAlignment = NSTextAlignmentCenter;
-            cell.textLabel.font = [UIFont systemFontOfSize:17];
-            cell.textLabel.textColor = self.view.tintColor;
-            cell.accessoryType = UITableViewCellAccessoryNone;
+            [self configureCell:cell forActionWithTitle:NSLocalizedString(@"Open Mix-IT website", nil)];
             break;
 
         case AMGAboutPastYearsSection:
-            cell.textLabel.textAlignment = NSTextAlignmentLeft;
-            cell.textLabel.font = [UIFont systemFontOfSize:17];
-            cell.textLabel.textColor = [UIColor darkTextColor];
-            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-            break;
-    }
-
-    switch (indexPath.section) {
-        case AMGAboutMapSection:
-            cell.textLabel.text = NSLocalizedString(@"Open in Maps", nil);
-            cell.imageView.image = nil;
-            break;
-
-        case AMGAboutLinksSection:
-            cell.textLabel.text = NSLocalizedString(@"Open Mix-IT website", nil);
-            cell.imageView.image = nil;
-            break;
-
-        case AMGAboutPastYearsSection:
-            cell.textLabel.text = [NSString stringWithFormat:NSLocalizedString(@"Mix-IT %@", nil),
-                                   self.pastYears[indexPath.row]];
-            cell.imageView.image = nil;
+            [self configureCell:cell forPastYearAtRow:indexPath.row];
             break;
     }
 
     return cell;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section == AMGAboutFloorMapSection) {
-        return 230;
-    }
-    else {
-        return UITableViewAutomaticDimension;
-    }
+- (void)configureCell:(nonnull UITableViewCell *)cell forPastYearAtRow:(NSInteger)row {
+    cell.textLabel.textAlignment = NSTextAlignmentLeft;
+    cell.textLabel.font = [UIFont systemFontOfSize:17];
+    cell.textLabel.textColor = [UIColor darkTextColor];
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+
+    cell.textLabel.text = [NSString stringWithFormat:NSLocalizedString(@"Mix-IT %@", nil),
+                           self.pastYears[row]];
+}
+
+- (void)configureCell:(nonnull UITableViewCell *)cell forActionWithTitle:(nonnull NSString *)title {
+    cell.textLabel.textAlignment = NSTextAlignmentCenter;
+    cell.textLabel.font = [UIFont systemFontOfSize:17];
+    cell.textLabel.textColor = self.view.tintColor;
+    cell.accessoryType = UITableViewCellAccessoryNone;
+
+    cell.textLabel.text = title;
 }
 
 
@@ -291,7 +259,15 @@ NS_ENUM(NSUInteger, AMGMapRows) {
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.section) {
         case AMGAboutMapSection:
-            [self openInMaps:nil];
+            switch (indexPath.row) {
+                case AMGMapOpenInMapsRow:
+                    [self openInMaps:nil];
+                    break;
+
+                case AMGMapPlansRow:
+                    [self presentPlansViewController:nil];
+                    break;
+            }
             break;
 
         case AMGAboutLinksSection:

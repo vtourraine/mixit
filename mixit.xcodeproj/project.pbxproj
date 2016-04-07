@@ -31,6 +31,7 @@
 		1FA55BF41911A5D4000260B3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1FA55BF21911A5D4000260B3 /* InfoPlist.strings */; };
 		1FA55BF61911A5D4000260B3 /* mixitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FA55BF51911A5D4000260B3 /* mixitTests.m */; };
 		1FB1E0371ACC829200D0FCB3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1FB1E0351ACC829200D0FCB3 /* Localizable.strings */; };
+		1FB9FE471CB6D88D0091374B /* AMGPlansViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FB9FE461CB6D88D0091374B /* AMGPlansViewController.m */; };
 		1FF320FB1AC4A0B000D1D4F6 /* AMGAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FF320FA1AC4A0B000D1D4F6 /* AMGAboutViewController.m */; };
 		1FF320FE1AC4A74400D1D4F6 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FF320FD1AC4A74400D1D4F6 /* MapKit.framework */; };
 		251D1684F12441908166DC98 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1488B010259C4E9DA5A1B372 /* libPods.a */; };
@@ -94,6 +95,8 @@
 		1FB1E0341ACC827200D0FCB3 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1FB1E0361ACC829200D0FCB3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1FB1E0381ACC829500D0FCB3 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		1FB9FE451CB6D88D0091374B /* AMGPlansViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMGPlansViewController.h; path = Classes/AMGPlansViewController.h; sourceTree = "<group>"; };
+		1FB9FE461CB6D88D0091374B /* AMGPlansViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMGPlansViewController.m; path = Classes/AMGPlansViewController.m; sourceTree = "<group>"; };
 		1FF320F91AC4A0B000D1D4F6 /* AMGAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMGAboutViewController.h; path = Classes/AMGAboutViewController.h; sourceTree = "<group>"; };
 		1FF320FA1AC4A0B000D1D4F6 /* AMGAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMGAboutViewController.m; path = Classes/AMGAboutViewController.m; sourceTree = "<group>"; };
 		1FF320FD1AC4A74400D1D4F6 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -274,6 +277,8 @@
 			children = (
 				1FF320F91AC4A0B000D1D4F6 /* AMGAboutViewController.h */,
 				1FF320FA1AC4A0B000D1D4F6 /* AMGAboutViewController.m */,
+				1FB9FE451CB6D88D0091374B /* AMGPlansViewController.h */,
+				1FB9FE461CB6D88D0091374B /* AMGPlansViewController.m */,
 			);
 			name = About;
 			sourceTree = "<group>";
@@ -454,6 +459,7 @@
 				1F42188F19123CEC001AC572 /* AMGTalk.m in Sources */,
 				1F4218A2191292FE001AC572 /* AMGMember.m in Sources */,
 				1F42189C19124EF0001AC572 /* AMGTalkCell.m in Sources */,
+				1FB9FE471CB6D88D0091374B /* AMGPlansViewController.m in Sources */,
 				1F2D96C31912E015007CAE4C /* UIViewController+AMGTwitterManager.m in Sources */,
 				1FF320FB1AC4A0B000D1D4F6 /* AMGAboutViewController.m in Sources */,
 				1FA55BE01911A5D3000260B3 /* mixit.xcdatamodeld in Sources */,

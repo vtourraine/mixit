@@ -370,6 +370,7 @@ static NSString * const AMGTalkCellIdentifier = @"Cell";
 
 - (void)syncManager:(AMGMixITSyncManager *)syncManager didFailSyncWithError:(NSError *)error {
     [self.refreshControl endRefreshing];
+
     if ([SVProgressHUD isVisible]) {
         [SVProgressHUD dismiss];
     }
@@ -383,6 +384,7 @@ static NSString * const AMGTalkCellIdentifier = @"Cell";
 
 - (void)syncManagerDidFinishSync:(AMGMixITSyncManager *)syncManager {
     [self.refreshControl endRefreshing];
+
     if ([SVProgressHUD isVisible]) {
         [SVProgressHUD dismiss];
     }
