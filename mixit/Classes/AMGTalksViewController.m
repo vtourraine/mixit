@@ -27,6 +27,8 @@ static NSString * const AMGTalkCellIdentifier = @"Cell";
 
 @interface AMGTalksViewController () <AMGMixITSyncManagerDelegate, AMGTalkViewDelegate, UISearchDisplayDelegate, UIViewControllerPreviewingDelegate>
 
+@property (nonatomic, assign, getter=isPastYear) BOOL pastYear;
+
 @property (nonatomic, copy) NSArray <AMGTalksSection *> *sections;
 @property (nonatomic, copy) NSArray <AMGTalk *> *searchResults;
 
@@ -60,6 +62,7 @@ static NSString * const AMGTalkCellIdentifier = @"Cell";
     [self loadBarButtonItems];
 
     self.syncManager.delegate = self;
+    self.pastYear = (self.year != nil && [[AMGMixITClient currentYear] isEqualToNumber:self.year] == NO);
 
     UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame), 44)];
     self.tableView.tableHeaderView = searchBar;
@@ -273,44 +276,51 @@ static NSString * const AMGTalkCellIdentifier = @"Cell";
         talk = sectionInfo.objects[indexPath.row];
     }
 
-    if (talk.endDate == nil || [talk.endDate timeIntervalSinceNow] > 0) {
-        cell.textLabel.textColor = [UIColor blackColor];
-        cell.detailTextLabel.textColor = [UIColor blackColor];
+    BOOL isUpcomingTalk = (talk.endDate != nil && [talk.endDate timeIntervalSinceNow] > 0);
+    BOOL isMissingDetails = (talk.room == nil && talk.startDate == nil && talk.endDate == nil);
+
+    if (self.isPastYear == NO && isMissingDetails == NO && isUpcomingTalk == NO) {
+        cell.textLabel.textColor = [UIColor lightGrayColor];
     }
     else {
-        cell.textLabel.textColor = [UIColor lightGrayColor];
-        cell.detailTextLabel.textColor = [UIColor lightGrayColor];
+        cell.textLabel.textColor = [UIColor blackColor];
     }
 
-    if (talk.room == nil) {
+    if (self.isPastYear == NO && (isUpcomingTalk == NO || isMissingDetails)) {
         cell.detailTextLabel.textColor = [UIColor lightGrayColor];
         cell.detailTextLabel.font = [UIFont italicSystemFontOfSize:cell.detailTextLabel.font.pointSize];
     }
     else {
+        cell.detailTextLabel.textColor = [UIColor blackColor];
         cell.detailTextLabel.font = [UIFont systemFontOfSize:cell.detailTextLabel.font.pointSize];
     }
 
     cell.textLabel.text       = talk.title;
     cell.detailTextLabel.text = ({
-        NSString *text = [NSString stringWithFormat:NSLocalizedString(@"%@%@%@, ", nil),
+        NSString *text = [NSString stringWithFormat:NSLocalizedString(@"%@%@%@", nil),
                           talk.emojiForLanguage,
                           talk.emojiForLanguage ? @" " : @"",
                           talk.format];
 
-        if (talk.room == nil && (talk.startDate == nil || talk.endDate == nil)) {
-            text = [text stringByAppendingFormat:NSLocalizedString(@"Time and place not announced yet", nil), talk.room];
+        if (self.isPastYear == NO) {
+            text = [text stringByAppendingString:NSLocalizedString(@", ", nil)];
+
+            if (talk.room == nil && (talk.startDate == nil || talk.endDate == nil)) {
+                text = [text stringByAppendingFormat:NSLocalizedString(@"Time and place not announced yet", nil), talk.room];
+            }
+
+            if (talk.room) {
+                text = [text stringByAppendingString:talk.room];
+            }
+
+            if (talk.startDate && talk.endDate) {
+                text = [text stringByAppendingFormat:
+                        NSLocalizedString(@", %@ to %@", nil),
+                        [timeDateFormatter stringFromDate:talk.startDate],
+                        [timeDateFormatter stringFromDate:talk.endDate]];
+            }
         }
 
-        if (talk.room) {
-            text = [text stringByAppendingString:talk.room];
-        }
-
-        if (talk.startDate && talk.endDate) {
-            text = [text stringByAppendingFormat:
-                    NSLocalizedString(@", %@ to %@", nil),
-                    [timeDateFormatter stringFromDate:talk.startDate],
-                    [timeDateFormatter stringFromDate:talk.endDate]];
-        }
         text;
     });
 
