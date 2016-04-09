@@ -286,6 +286,7 @@ NS_ENUM(NSUInteger, AMGMapRows) {
     AMGTalksViewController *viewController = [[AMGTalksViewController alloc] init];
     viewController.syncManager = self.syncManager;
     viewController.year = year;
+    viewController.title = [NSString stringWithFormat:NSLocalizedString(@"Mix-IT %@", nil), year];
 
     [self.navigationController pushViewController:viewController animated:YES];
 }

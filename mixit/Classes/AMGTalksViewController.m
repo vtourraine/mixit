@@ -295,7 +295,7 @@ static NSString * const AMGTalkCellIdentifier = @"Cell";
         cell.detailTextLabel.font = [UIFont systemFontOfSize:cell.detailTextLabel.font.pointSize];
     }
 
-    cell.textLabel.text       = talk.title;
+    cell.textLabel.text = talk.title;
     cell.detailTextLabel.text = ({
         NSString *text = [NSString stringWithFormat:NSLocalizedString(@"%@%@%@", nil),
                           talk.emojiForLanguage,

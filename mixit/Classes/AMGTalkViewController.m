@@ -10,6 +10,7 @@
 
 #import "AMGTalk.h"
 #import "AMGMember.h"
+#import "AMGMixITClient.h"
 
 #import "AMGPlansViewController.h"
 
@@ -45,6 +46,8 @@
     [super viewDidLoad];
 
     [self loadBarButtonItems];
+
+    BOOL isPastYear = (self.talk.year != nil && [[AMGMixITClient currentYear] isEqualToNumber:self.talk.year] == NO);
 
     UIScrollView *scrollView = [[UIScrollView alloc] init];
     scrollView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
@@ -89,7 +92,10 @@
         imageView.contentMode = UIViewContentModeScaleAspectFit;
         imageView;
     });
-    [scrollView addSubview:locationImageView];
+
+    if (isPastYear == NO) {
+        [scrollView addSubview:locationImageView];
+    }
 
     const CGFloat infoLabelFontSize = 18;
 
@@ -109,11 +115,14 @@
         }
         label;
     });
-    [scrollView addSubview:locationLabel];
 
-    UITapGestureRecognizer *recognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(presentPlansViewController:)];
-    locationLabel.userInteractionEnabled = YES;
-    [locationLabel addGestureRecognizer:recognizer];
+    if (isPastYear == NO) {
+        [scrollView addSubview:locationLabel];
+
+        UITapGestureRecognizer *recognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(presentPlansViewController:)];
+        locationLabel.userInteractionEnabled = YES;
+        [locationLabel addGestureRecognizer:recognizer];
+    }
 
     UIImageView *timeImageView = ({
         UIImage     *image     = [[UIImage imageNamed:@"IconClock2"]
@@ -123,7 +132,10 @@
         imageView.contentMode = UIViewContentModeScaleAspectFit;
         imageView;
     });
-    [scrollView addSubview:timeImageView];
+
+    if (isPastYear == NO) {
+        [scrollView addSubview:timeImageView];
+    }
 
     UILabel *timeLabel = ({
         UILabel *label = [[UILabel alloc] init];
@@ -145,7 +157,10 @@
         }
         label;
     });
-    [scrollView addSubview:timeLabel];
+
+    if (isPastYear == NO) {
+        [scrollView addSubview:timeLabel];
+    }
 
     AMGMember *speaker = self.talk.fetchSpeakers.firstObject;
 
@@ -224,14 +239,18 @@
                                                                       options:kNilOptions
                                                                       metrics:@{}
                                                                         views:views]];
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-15-[locationImageView(==20)]-[locationLabel]-15-|"
-                                                                      options:NSLayoutFormatAlignAllCenterY
-                                                                      metrics:@{}
-                                                                        views:views]];
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-15-[timeImageView(==20)]-[timeLabel]-15-|"
-                                                                      options:NSLayoutFormatAlignAllCenterY
-                                                                      metrics:@{}
-                                                                        views:views]];
+
+    if (isPastYear == NO) {
+        [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-15-[locationImageView(==20)]-[locationLabel]-15-|"
+                                                                          options:NSLayoutFormatAlignAllCenterY
+                                                                          metrics:@{}
+                                                                            views:views]];
+        [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-15-[timeImageView(==20)]-[timeLabel]-15-|"
+                                                                          options:NSLayoutFormatAlignAllCenterY
+                                                                          metrics:@{}
+                                                                            views:views]];
+    }
+
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-15-[speakerImageView(==20)]-[speakerLabel]-15-|"
                                                                       options:NSLayoutFormatAlignAllCenterY
                                                                       metrics:@{}
@@ -244,7 +263,16 @@
                                                                       options:kNilOptions
                                                                       metrics:@{}
                                                                         views:views]];
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-20-[titleLabel]-20-[speakerImageView]-40-[formatLabel]-5-[locationImageView]-2-[timeImageView]-40-[summaryLabel]-20-[descLabel]-40-|"
+
+    NSString *verticalFormat = nil;
+    if (isPastYear == NO) {
+        verticalFormat = @"V:|-20-[titleLabel]-20-[speakerImageView]-40-[formatLabel]-5-[locationImageView]-2-[timeImageView]-40-[summaryLabel]-20-[descLabel]-40-|";
+    }
+    else {
+        verticalFormat = @"V:|-20-[titleLabel]-20-[speakerImageView]-40-[formatLabel]-40-[summaryLabel]-20-[descLabel]-40-|";
+    }
+
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:verticalFormat
                                                                       options:kNilOptions
                                                                       metrics:@{}
                                                                         views:views]];
