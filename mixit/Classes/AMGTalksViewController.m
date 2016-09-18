@@ -91,14 +91,14 @@ static NSString * const AMGTalkCellIdentifier = @"Cell";
 - (void)loadBarButtonItems {
     if (self.canTweet) {
         UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"IconTwitter"]
-                                                                 style:UIBarButtonItemStyleBordered
+                                                                 style:UIBarButtonItemStylePlain
                                                                 target:self action:@selector(presentTweetComposer)];
         self.navigationItem.rightBarButtonItem = item;
     }
 
     if (self.year == nil) {
         UIBarButtonItem *infoItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"IconInfo"]
-                                                                     style:UIBarButtonItemStyleBordered
+                                                                     style:UIBarButtonItemStylePlain
                                                                     target:self
                                                                     action:@selector(presentInfoViewController:)];
         self.navigationItem.leftBarButtonItem = infoItem;

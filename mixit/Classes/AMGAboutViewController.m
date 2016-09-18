@@ -81,7 +81,7 @@ NS_ENUM(NSUInteger, AMGMapRows) {
 - (void)loadNavigationItems {
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]
                                              initWithTitle:NSLocalizedString(@"Close", nil)
-                                             style:UIBarButtonItemStyleBordered
+                                             style:UIBarButtonItemStylePlain
                                              target:self
                                              action:@selector(dismiss:)];
 }

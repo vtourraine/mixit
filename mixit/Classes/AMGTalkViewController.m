@@ -285,7 +285,7 @@
     }
 
     UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:iconName]
-                                                             style:UIBarButtonItemStyleBordered
+                                                             style:UIBarButtonItemStylePlain
                                                             target:self
                                                             action:@selector(toggleFavorited:)];
     item.tintColor = [UIColor orangeColor];
