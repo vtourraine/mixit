@@ -14,17 +14,17 @@
 
 @interface AMGTalkViewController : UIViewController
 
-@property (nonatomic, strong, readonly) AMGTalk *talk;
-@property (nonatomic, weak) id <AMGTalkViewDelegate> delegate;
+@property (nonatomic, strong, nullable, readonly) AMGTalk *talk;
+@property (nonatomic, weak, nullable) id <AMGTalkViewDelegate> delegate;
 
-- (instancetype)initWithTalk:(AMGTalk *)talk;
+- (instancetype)initWithTalk:(nonnull AMGTalk *)talk;
 
 @end
 
 
 @protocol AMGTalkViewDelegate <NSObject>
 
-- (void)talkViewControler:(AMGTalkViewController *)viewController
-            didToggleTalk:(AMGTalk *)talk;
+- (void)talkViewControler:(nonnull AMGTalkViewController *)viewController
+            didToggleTalk:(nonnull AMGTalk *)talk;
 
 @end

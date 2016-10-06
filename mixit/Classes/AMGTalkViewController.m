@@ -18,9 +18,9 @@
 
 @interface AMGTalkViewController ()
 
-@property (nonatomic, strong) AMGTalk *talk;
-@property (nonatomic, weak) NSLayoutConstraint *titleWidthConstraint;
-@property (nonatomic, strong) UIPreviewAction *toggleFavoritesPreviewAction;
+@property (nonatomic, strong, nullable) AMGTalk *talk;
+@property (nonatomic, weak, nullable) NSLayoutConstraint *titleWidthConstraint;
+@property (nonatomic, strong, nullable) UIPreviewAction *toggleFavoritesPreviewAction;
 
 @end
 
@@ -29,10 +29,12 @@
 
 - (instancetype)initWithTalk:(AMGTalk *)talk {
     self = [super init];
+
     if (self) {
         self.talk  = talk;
         self.title = NSLocalizedString(@"Session", nil);
     }
+
     return self;
 }
 
@@ -58,9 +60,9 @@
     UILabel *titleLabel = ({
         UILabel *label = [[UILabel alloc] init];
         label.translatesAutoresizingMaskIntoConstraints = NO;
-        label.font          = [UIFont boldSystemFontOfSize:22];
+        label.font = [UIFont boldSystemFontOfSize:22];
         label.numberOfLines = 0;
-        label.text          = self.talk.title;
+        label.text = self.talk.title;
         label;
     });
     [scrollView addSubview:titleLabel];
@@ -74,19 +76,16 @@
     UILabel *formatLabel = ({
         UILabel *label = [[UILabel alloc] init];
         label.translatesAutoresizingMaskIntoConstraints = NO;
-        label.font          = [UIFont systemFontOfSize:18];
+        label.font = [UIFont systemFontOfSize:18];
         label.numberOfLines = 0;
-        label.text          = [NSString stringWithFormat:@"%@ %@",
-                                self.talk.emojiForLanguage ?: @"",
-                                self.talk.format ?: @""];
+        label.text = [NSString stringWithFormat:@"%@ %@", self.talk.emojiForLanguage ?: @"", self.talk.format ?: @""];
         label.preferredMaxLayoutWidth = 280;
         label;
     });
     [scrollView addSubview:formatLabel];
 
     UIImageView *locationImageView = ({
-        UIImage     *image     = [[UIImage imageNamed:@"IconMapLocation"]
-                                  imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+        UIImage *image = [[UIImage imageNamed:@"IconMapLocation"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
         UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
         imageView.translatesAutoresizingMaskIntoConstraints = NO;
         imageView.contentMode = UIViewContentModeScaleAspectFit;
@@ -125,8 +124,7 @@
     }
 
     UIImageView *timeImageView = ({
-        UIImage     *image     = [[UIImage imageNamed:@"IconClock2"]
-                                  imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+        UIImage *image = [[UIImage imageNamed:@"IconClock2"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
         UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
         imageView.translatesAutoresizingMaskIntoConstraints = NO;
         imageView.contentMode = UIViewContentModeScaleAspectFit;
@@ -165,7 +163,7 @@
     AMGMember *speaker = self.talk.fetchSpeakers.firstObject;
 
     UIImageView *speakerImageView = ({
-        UIImage     *image     = [UIImage imageNamed:@"IconPerson"];
+        UIImage *image = [UIImage imageNamed:@"IconPerson"];
         UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
         imageView.translatesAutoresizingMaskIntoConstraints = NO;
         imageView.contentMode = UIViewContentModeScaleAspectFit;
@@ -193,9 +191,9 @@
     UILabel *summaryLabel = ({
         UILabel *label = [[UILabel alloc] init];
         label.translatesAutoresizingMaskIntoConstraints = NO;
-        label.font          = [UIFont italicSystemFontOfSize:infoLabelFontSize];
+        label.font = [UIFont italicSystemFontOfSize:infoLabelFontSize];
         label.numberOfLines = 0;
-        label.text          = self.talk.summary;
+        label.text = self.talk.summary;
         label;
     });
     [scrollView addSubview:summaryLabel];
@@ -203,9 +201,9 @@
     UILabel *descLabel = ({
         UILabel *label = [[UILabel alloc] init];
         label.translatesAutoresizingMaskIntoConstraints = NO;
-        label.font          = [UIFont systemFontOfSize:16];
+        label.font = [UIFont systemFontOfSize:16];
         label.numberOfLines = 0;
-        label.text          = self.talk.desc;
+        label.text = self.talk.desc;
         label;
     });
     [scrollView addSubview:descLabel];
@@ -284,10 +282,7 @@
         iconName = @"IconStarSelected";
     }
 
-    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:iconName]
-                                                             style:UIBarButtonItemStylePlain
-                                                            target:self
-                                                            action:@selector(toggleFavorited:)];
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:iconName] style:UIBarButtonItemStylePlain target:self action:@selector(toggleFavorited:)];
     item.tintColor = [UIColor orangeColor];
 
     self.navigationItem.rightBarButtonItem = item;
@@ -295,7 +290,7 @@
 
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
     [super didRotateFromInterfaceOrientation:fromInterfaceOrientation];
-    self.titleWidthConstraint.constant = CGRectGetWidth(self.view.frame) - 2*15;
+    self.titleWidthConstraint.constant = CGRectGetWidth(self.view.frame) - (2 * 15);
 }
 
 
