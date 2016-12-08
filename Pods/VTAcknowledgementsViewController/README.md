@@ -8,8 +8,8 @@ _Ready to use “Acknowledgements”/“Licenses”/“Credits” view controlle
 [![CocoaPods documentation](https://img.shields.io/cocoapods/metrics/doc-percent/VTAcknowledgementsViewController.svg)](http://cocoadocs.org/docsets/VTAcknowledgementsViewController)
 [![MIT license](http://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/vtourraine/VTAcknowledgementsViewController/raw/master/LICENSE)
 
-![iPhone screenshot 1](http://vtourraine.github.io/VTAcknowledgementsViewController/screenshots/iPhone-300-01.png)
-![iPhone screenshot 2](http://vtourraine.github.io/VTAcknowledgementsViewController/screenshots/iPhone-300-02.png)
+<img alt="iPhone screenshot 1" src="http://vtourraine.github.io/VTAcknowledgementsViewController/screenshots/iPhone-6s-01.png" width="300px">
+<img alt="iPhone screenshot 2" src="http://vtourraine.github.io/VTAcknowledgementsViewController/screenshots/iPhone-6s-02.png" width="300px">
 
 
 ## How to Install
@@ -71,6 +71,12 @@ The controller title is a localized value for “acknowledgements” (12 languag
 ```
 
 If you need to further customize the appearance or behavior of this pod, feel free to subclass its classes.
+
+
+## Also compatible with tvOS
+
+<img alt="Apple TV screenshot 1" src="http://vtourraine.github.io/VTAcknowledgementsViewController/screenshots/Apple-TV-600px-01.png" width="300px">
+<img alt="Apple TV screenshot 2" src="http://vtourraine.github.io/VTAcknowledgementsViewController/screenshots/Apple-TV-600px-02.png" width="300px">
 
 
 ## Requirements
