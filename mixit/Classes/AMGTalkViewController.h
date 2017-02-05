@@ -17,7 +17,7 @@
 @property (nonatomic, strong, nullable, readonly) AMGTalk *talk;
 @property (nonatomic, weak, nullable) id <AMGTalkViewDelegate> delegate;
 
-- (instancetype)initWithTalk:(nonnull AMGTalk *)talk;
+- (nonnull instancetype)initWithTalk:(nonnull AMGTalk *)talk;
 
 @end
 

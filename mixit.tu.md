@@ -2,12 +2,18 @@
 
 ## Roadmap
 
+## 3.0
+
+- Updated for 2017 edition
+
 
 ## 2.1
 
-- [x] Add floor maps in info controller
-- [x] iPad multitasking support
-- [x] Sync and browse past editions
+2016-04-12
+
+- Add floor maps in info controller
+- iPad multitasking support
+- Sync and browse past editions
 
 
 ## 2.0
