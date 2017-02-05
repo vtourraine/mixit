@@ -10,7 +10,7 @@
 
 @import Social;
 
-static NSString * const AMGMixITHashtag = @"#mixit16";
+static NSString * const AMGMixITHashtag = @"#mixit17";
 
 @implementation UIViewController (AMGTwitterManager)
 

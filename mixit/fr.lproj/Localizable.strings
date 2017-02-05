@@ -3,7 +3,7 @@
   mixit
 
   Created by Vincent Tourraine on 01/04/15.
-  Copyright (c) 2015-2016 Studio AMANgA. All rights reserved.
+  Copyright (c) 2015-2017 Studio AMANgA. All rights reserved.
 */
 
 "Mix-IT" = "Mix-IT";
@@ -23,6 +23,7 @@
 
 "April 21 and 22, 2016\nLyon, France" = "21 et 22 Avril 2016\nLyon, France";
 "April 16 and 17, 2015\nLyon, France" = "16 et 17 Avril 2015\nLyon, France";
+"April 20 and 21, 2017\nLyon, France" = "20 et 21 Avril, 2017\nLyon, France";
 
 "CPE Lyon" = "CPE Lyon";
 "This app isn’t affiliated with the Mix-IT team.\nMade by @vtourraine." = "Cette app n’est pas affiliée à l’équipe de Mix-IT.\nDéveloppée par @vtourraine.";

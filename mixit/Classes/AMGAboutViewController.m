@@ -3,7 +3,7 @@
 //  mixit
 //
 //  Created by Vincent Tourraine on 26/03/15.
-//  Copyright (c) 2015-2016 Studio AMANgA. All rights reserved.
+//  Copyright (c) 2015-2017 Studio AMANgA. All rights reserved.
 //
 
 #import "AMGAboutViewController.h"
@@ -24,7 +24,7 @@ static NSString * const AMGButtonCellIdentifier = @"Cell";
 @property (nonatomic, assign) CLLocationCoordinate2D coordinates;
 @property (nonatomic, strong) MKMapView *mapView;
 @property (nonatomic, strong) CLLocationManager *locationManager;
-@property (nonatomic, strong, nullable) NSArray <NSNumber *> * pastYears;
+@property (nonatomic, strong, nullable) NSArray <NSNumber *> *pastYears;
 
 @end
 
@@ -98,7 +98,7 @@ NS_ENUM(NSUInteger, AMGMapRows) {
     UILabel *dateLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(logoView.frame) + 8, CGRectGetWidth(headerView.frame), 80)];
     dateLabel.font = [UIFont boldSystemFontOfSize:20];
     dateLabel.numberOfLines = 2;
-    dateLabel.text = NSLocalizedString(@"April 21 and 22, 2016\nLyon, France", nil);
+    dateLabel.text = NSLocalizedString(@"April 20 and 21, 2017\nLyon, France", nil);
     dateLabel.textAlignment = NSTextAlignmentCenter;
     dateLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     [headerView addSubview:dateLabel];
