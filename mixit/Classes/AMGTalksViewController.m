@@ -45,7 +45,7 @@ static NSString * const AMGTalkCellIdentifier = @"Cell";
     self = [super initWithStyle:UITableViewStylePlain];
 
     if (self) {
-        self.title = NSLocalizedString(@"Mix-IT Schedule", nil);
+        self.title = NSLocalizedString(@"MiXiT Schedule", nil);
     }
 
     return self;
@@ -90,26 +90,19 @@ static NSString * const AMGTalkCellIdentifier = @"Cell";
 
 - (void)loadBarButtonItems {
     if (self.canTweet) {
-        UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"IconTwitter"]
-                                                                 style:UIBarButtonItemStylePlain
-                                                                target:self action:@selector(presentTweetComposer)];
+        UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"IconTwitter"] style:UIBarButtonItemStylePlain target:self action:@selector(presentTweetComposer)];
         self.navigationItem.rightBarButtonItem = item;
     }
 
     if (self.year == nil) {
-        UIBarButtonItem *infoItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"IconInfo"]
-                                                                     style:UIBarButtonItemStylePlain
-                                                                    target:self
-                                                                    action:@selector(presentInfoViewController:)];
+        UIBarButtonItem *infoItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"IconInfo"] style:UIBarButtonItemStylePlain target:self action:@selector(presentInfoViewController:)];
         self.navigationItem.leftBarButtonItem = infoItem;
     }
 }
 
 - (void)loadRefreshControl {
     UIRefreshControl *control = [[UIRefreshControl alloc] init];
-    [control addTarget:self
-                action:@selector(refresh:)
-      forControlEvents:UIControlEventValueChanged];
+    [control addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
     self.refreshControl = control;
 }
 
@@ -122,8 +115,7 @@ static NSString * const AMGTalkCellIdentifier = @"Cell";
     }
 
     if (self.tableView.indexPathForSelectedRow) {
-        [self.tableView deselectRowAtIndexPath:self.tableView.indexPathForSelectedRow
-                                      animated:animated];
+        [self.tableView deselectRowAtIndexPath:self.tableView.indexPathForSelectedRow animated:animated];
     }
 }
 
@@ -131,7 +123,7 @@ static NSString * const AMGTalkCellIdentifier = @"Cell";
 #pragma mark - Data
 
 - (void)reloadSections {
-    NSFetchRequest *request = [NSFetchRequest   fetchRequestWithEntityName:AMGTalk.entityName];
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:AMGTalk.entityName];
 
     request.predicate = [self yearPredicate];
     request.sortDescriptors = [self talksSortDescriptors];
@@ -367,7 +359,7 @@ static NSString * const AMGTalkCellIdentifier = @"Cell";
 }
 
 
-#pragma mark - Mix-IT sync manager delegate
+#pragma mark - MiXiT sync manager delegate
 
 - (void)syncManagerDidStartSync:(AMGMixITSyncManager *)syncManager {}
 

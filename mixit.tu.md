@@ -1,10 +1,15 @@
-# Mix-IT
+# MiXiT
 
 ## Roadmap
 
 ## 3.0
 
-- Updated for 2017 edition
+- [ ] Updated for 2017 edition
+- [ ] New visual identity
+    - [ ] New logo
+    - [ ] New colors
+    - [ ] New icon
+    - [ ] Updated iTunes Connect assets
 
 
 ## 2.1

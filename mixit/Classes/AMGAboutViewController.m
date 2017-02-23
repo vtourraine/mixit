@@ -49,7 +49,7 @@ NS_ENUM(NSUInteger, AMGMapRows) {
     self = [super initWithStyle:UITableViewStyleGrouped];
 
     if (self) {
-        self.title = NSLocalizedString(@"About Mix-IT", nil);
+        self.title = NSLocalizedString(@"About MiXiT", nil);
     }
 
     return self;
@@ -110,7 +110,7 @@ NS_ENUM(NSUInteger, AMGMapRows) {
     mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
     annotation.coordinate = self.coordinates;
-    annotation.title      = NSLocalizedString(@"Mix-IT", nil);
+    annotation.title      = NSLocalizedString(@"MiXiT", nil);
     annotation.subtitle   = NSLocalizedString(@"CPE Lyon", nil);
     [mapView addAnnotation:annotation];
     mapView.region = MKCoordinateRegionMake(self.coordinates, MKCoordinateSpanMake(0.05, 0.05));
@@ -134,7 +134,7 @@ NS_ENUM(NSUInteger, AMGMapRows) {
     label.textAlignment = NSTextAlignmentCenter;
     label.font = [UIFont systemFontOfSize:13];
     label.userInteractionEnabled = YES;
-    label.text = NSLocalizedString(@"This app isn’t affiliated with the Mix-IT team.\n"
+    label.text = NSLocalizedString(@"This app isn’t affiliated with the MiXiT team.\n"
                                    @"Made by @vtourraine.", nil);
     self.tableView.tableFooterView = label;
 
@@ -149,7 +149,7 @@ NS_ENUM(NSUInteger, AMGMapRows) {
 - (IBAction)openInMaps:(nullable id)sender {
     MKPlacemark *placemark = [[MKPlacemark alloc] initWithCoordinate:self.coordinates addressDictionary:nil];
     MKMapItem *item = [[MKMapItem alloc] initWithPlacemark:placemark];
-    item.name = NSLocalizedString(@"Mix-IT", nil);
+    item.name = NSLocalizedString(@"MiXiT", nil);
 
     [item openInMapsWithLaunchOptions:@{MKLaunchOptionsMapCenterKey: [NSValue valueWithMKCoordinate:self.coordinates]}];
 }
@@ -223,7 +223,7 @@ NS_ENUM(NSUInteger, AMGMapRows) {
         }
 
         case AMGAboutLinksSection:
-            [self configureCell:cell forActionWithTitle:NSLocalizedString(@"Open Mix-IT website", nil)];
+            [self configureCell:cell forActionWithTitle:NSLocalizedString(@"Open MiXiT website", nil)];
             break;
 
         case AMGAboutPastYearsSection:
@@ -240,8 +240,12 @@ NS_ENUM(NSUInteger, AMGMapRows) {
     cell.textLabel.textColor = [UIColor darkTextColor];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 
-    cell.textLabel.text = [NSString stringWithFormat:NSLocalizedString(@"Mix-IT %@", nil),
-                           self.pastYears[row]];
+    if ([self.pastYears[row] integerValue] < 2017) {
+        cell.textLabel.text = [NSString stringWithFormat:NSLocalizedString(@"Mix-IT %@", nil), self.pastYears[row]];
+    }
+    else {
+        cell.textLabel.text = [NSString stringWithFormat:NSLocalizedString(@"MiXiT %@", nil), self.pastYears[row]];
+    }
 }
 
 - (void)configureCell:(nonnull UITableViewCell *)cell forActionWithTitle:(nonnull NSString *)title {
@@ -286,7 +290,12 @@ NS_ENUM(NSUInteger, AMGMapRows) {
     AMGTalksViewController *viewController = [[AMGTalksViewController alloc] init];
     viewController.syncManager = self.syncManager;
     viewController.year = year;
-    viewController.title = [NSString stringWithFormat:NSLocalizedString(@"Mix-IT %@", nil), year];
+    if ([year integerValue] < 2017) {
+        viewController.title = [NSString stringWithFormat:NSLocalizedString(@"Mix-IT %@", nil), year];
+    }
+    else {
+        viewController.title = [NSString stringWithFormat:NSLocalizedString(@"MiXiT %@", nil), year];
+    }
 
     [self.navigationController pushViewController:viewController animated:YES];
 }
