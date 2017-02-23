@@ -9,6 +9,7 @@
     - [ ] New logo
     - [ ] New colors
     - [ ] New icon
+    - [ ] New URL
     - [ ] Updated iTunes Connect assets
 
 
