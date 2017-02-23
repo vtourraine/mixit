@@ -28,14 +28,21 @@
 	<dict>
 		<key>NSExceptionDomains</key>
 		<dict>
-			<key>www.gravatar.com</key>
+			<key>gravatar.com</key>
 			<dict>
 				<key>NSExceptionAllowsInsecureHTTPLoads</key>
 				<true/>
 				<key>NSIncludesSubdomains</key>
 				<true/>
 			</dict>
-			<key>www.mix-it.fr</key>
+			<key>mix-it.fr</key>
+			<dict>
+				<key>NSExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+				<key>NSIncludesSubdomains</key>
+				<true/>
+			</dict>
+			<key>mixitconf.org</key>
 			<dict>
 				<key>NSExceptionAllowsInsecureHTTPLoads</key>
 				<true/>
