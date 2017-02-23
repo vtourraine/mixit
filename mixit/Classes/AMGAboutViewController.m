@@ -8,6 +8,8 @@
 
 #import "AMGAboutViewController.h"
 
+#import "UIColor+MiXiT.h"
+
 #import "AMGMixITClient.h"
 #import "AMGTalksViewController.h"
 #import "AMGPlansViewController.h"
@@ -79,11 +81,7 @@ NS_ENUM(NSUInteger, AMGMapRows) {
 }
 
 - (void)loadNavigationItems {
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]
-                                             initWithTitle:NSLocalizedString(@"Close", nil)
-                                             style:UIBarButtonItemStylePlain
-                                             target:self
-                                             action:@selector(dismiss:)];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Close", nil) style:UIBarButtonItemStylePlain target:self action:@selector(dismiss:)];
 }
 
 - (void)loadHeaderView {
@@ -100,6 +98,7 @@ NS_ENUM(NSUInteger, AMGMapRows) {
     dateLabel.numberOfLines = 2;
     dateLabel.text = NSLocalizedString(@"April 20 and 21, 2017\nLyon, France", nil);
     dateLabel.textAlignment = NSTextAlignmentCenter;
+    dateLabel.textColor = [UIColor mixitPurple];
     dateLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     [headerView addSubview:dateLabel];
 
@@ -250,11 +249,11 @@ NS_ENUM(NSUInteger, AMGMapRows) {
 
 - (void)configureCell:(nonnull UITableViewCell *)cell forActionWithTitle:(nonnull NSString *)title {
     cell.textLabel.textAlignment = NSTextAlignmentCenter;
-    cell.textLabel.font = [UIFont systemFontOfSize:17];
-    cell.textLabel.textColor = self.view.tintColor;
-    cell.accessoryType = UITableViewCellAccessoryNone;
-
+    cell.textLabel.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
+    cell.textLabel.textColor = [UIColor mixitPurple];
     cell.textLabel.text = title;
+
+    cell.accessoryType = UITableViewCellAccessoryNone;
 }
 
 

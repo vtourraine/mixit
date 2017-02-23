@@ -3,12 +3,14 @@
 //  mixit
 //
 //  Created by Vincent Tourraine on 30/04/14.
-//  Copyright (c) 2014-2016 Studio AMANgA. All rights reserved.
+//  Copyright (c) 2014-2017 Studio AMANgA. All rights reserved.
 //
 
 #import "AMGAppDelegate.h"
 
 #import <AFNetworkActivityIndicatorManager.h>
+
+#import "UIColor+MiXiT.h"
 
 #import "AMGMixITSyncManager.h"
 #import "AMGTalksViewController.h"
@@ -22,6 +24,15 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
+
+    UIColor *purple = [UIColor mixitPurple];
+    UIColor *orange = [UIColor mixitOrange];
+
+    [[UINavigationBar appearance] setTintColor:orange];
+    [[UINavigationBar appearance] setBarTintColor:purple];
+    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor]}];
+    [[UINavigationBar appearance] setBarStyle:UIBarStyleBlack];
+    self.window.tintColor = purple;
 
     [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
 
