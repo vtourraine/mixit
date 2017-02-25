@@ -49,10 +49,7 @@
     NSStringDrawingOptions drawingOptions = (NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading);
     NSDictionary *titleAttributes = @{NSFontAttributeName: self.textLabel.font};
 
-    CGRect titleSize   = [self.textLabel.text boundingRectWithSize:labelsMaxSize
-                                                           options:drawingOptions
-                                                        attributes:titleAttributes
-                                                           context:nil];
+    CGRect titleSize   = [self.textLabel.text boundingRectWithSize:labelsMaxSize options:drawingOptions attributes:titleAttributes context:nil];
 
     self.textLabel.frame = CGRectMake(nameLabelOriginX, 5, titleSize.size.width, 44);
     self.detailTextLabel.frame = CGRectMake(nameLabelOriginX, CGRectGetMaxY(self.contentView.frame) - 24, labelMaxWidth, 20);
