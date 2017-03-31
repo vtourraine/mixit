@@ -8,17 +8,17 @@
 
 #import "AMGMixITClient.h"
 
-static NSString * const AMGMixITAPIBaseURLString = @"https://www.mix-it.fr/api/";
+static NSString * const AMGMixITAPIBaseURLString = @"https://mixitconf.org/api/";
 
 
 @implementation AMGMixITClient
 
 + (nonnull NSArray <NSNumber *> *)pastYears {
-    return @[@2012, @2013, @2014, @2015];
+    return @[@2012, @2013, @2014, @2015, @2016];
 }
 
 + (nonnull NSNumber *)currentYear {
-    return @2016;
+    return @2017;
 }
 
 + (instancetype)MixITClient {

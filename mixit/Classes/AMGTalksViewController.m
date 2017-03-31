@@ -184,7 +184,7 @@ static NSString * const AMGTalkCellIdentifier = @"Cell";
 #pragma mark - Actions
 
 - (void)refresh:(id)sender {
-    [self.syncManager startSyncForYear:self.year];
+    [self.syncManager startSyncForYear:self.year ?: [AMGMixITClient currentYear]];
 }
 
 - (void)presentInfoViewController:(id)sender {
@@ -285,7 +285,7 @@ static NSString * const AMGTalkCellIdentifier = @"Cell";
         NSString *text = [NSString stringWithFormat:NSLocalizedString(@"%@%@%@", nil),
                           talk.emojiForLanguage,
                           talk.emojiForLanguage ? @" " : @"",
-                          talk.format];
+                          [talk.format capitalizedStringWithLocale:[NSLocale currentLocale]]];
 
         if (self.isPastYear == NO) {
             text = [text stringByAppendingString:NSLocalizedString(@", ", nil)];
@@ -295,14 +295,11 @@ static NSString * const AMGTalkCellIdentifier = @"Cell";
             }
 
             if (talk.room) {
-                text = [text stringByAppendingString:talk.room];
+                text = [text stringByAppendingString:[talk.room capitalizedStringWithLocale:[NSLocale currentLocale]]];
             }
 
             if (talk.startDate && talk.endDate) {
-                text = [text stringByAppendingFormat:
-                        NSLocalizedString(@", %@ to %@", nil),
-                        [timeDateFormatter stringFromDate:talk.startDate],
-                        [timeDateFormatter stringFromDate:talk.endDate]];
+                text = [text stringByAppendingFormat:NSLocalizedString(@", %@ to %@", nil), [timeDateFormatter stringFromDate:talk.startDate], [timeDateFormatter stringFromDate:talk.endDate]];
             }
         }
 
@@ -310,8 +307,7 @@ static NSString * const AMGTalkCellIdentifier = @"Cell";
     });
 
     if (talk.isFavorited) {
-        cell.favoritedImageView.image = [[UIImage imageNamed:@"IconStarSelected"]
-                                         imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+        cell.favoritedImageView.image = [[UIImage imageNamed:@"IconStarSelected"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     }
     else {
         cell.favoritedImageView.image = nil;
@@ -350,8 +346,7 @@ static NSString * const AMGTalkCellIdentifier = @"Cell";
          talk.favorited = @(!talk.isFavorited);
          [talk.managedObjectContext save:nil];
 
-         [tableView reloadRowsAtIndexPaths:@[indexPath]
-                          withRowAnimation:UITableViewRowAnimationAutomatic];
+         [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
     }];
     action.backgroundColor = [UIColor orangeColor];
 
@@ -370,11 +365,7 @@ static NSString * const AMGTalkCellIdentifier = @"Cell";
         [SVProgressHUD dismiss];
     }
 
-    [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Sync Error", nil)
-                                message:error.localizedDescription
-                               delegate:nil
-                      cancelButtonTitle:NSLocalizedString(@"OK", nil)
-                      otherButtonTitles:nil] show];
+    [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Sync Error", nil) message:error.localizedDescription delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles:nil] show];
 }
 
 - (void)syncManagerDidFinishSync:(AMGMixITSyncManager *)syncManager {

@@ -38,10 +38,10 @@ static NSString * const AMGTalkSeparator = @";";
 }
 
 - (NSString *)emojiForLanguage {
-    if ([self.language isEqualToString:@"fr"]) {
+    if ([self.language isEqualToString:@"fr"] || [self.language isEqualToString:@"FRENCH"]) {
         return @"🇫🇷";
     }
-    else if ([self.language isEqualToString:@"en"]) {
+    else if ([self.language isEqualToString:@"en"] || [self.language isEqualToString:@"ENGLISH"]) {
         return @"🇺🇸";
     }
     else {

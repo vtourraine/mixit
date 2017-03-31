@@ -3,7 +3,7 @@
 //  mixit
 //
 //  Created by Vincent Tourraine on 01/05/14.
-//  Copyright (c) 2014-2016 Studio AMANgA. All rights reserved.
+//  Copyright (c) 2014-2017 Studio AMANgA. All rights reserved.
 //
 
 #import "AMGTalkViewController.h"
@@ -78,7 +78,7 @@
         label.translatesAutoresizingMaskIntoConstraints = NO;
         label.font = [UIFont systemFontOfSize:18];
         label.numberOfLines = 0;
-        label.text = [NSString stringWithFormat:@"%@ %@", self.talk.emojiForLanguage ?: @"", self.talk.format ?: @""];
+        label.text = [NSString stringWithFormat:@"%@ %@", self.talk.emojiForLanguage ?: @"", [self.talk.format capitalizedStringWithLocale:[NSLocale currentLocale]] ?: @""];
         label.preferredMaxLayoutWidth = 280;
         label;
     });
@@ -105,7 +105,7 @@
         if (self.talk.room) {
             label.textColor = [UIColor blackColor];
             label.font = [UIFont systemFontOfSize:infoLabelFontSize];
-            label.text = self.talk.room ?: NSLocalizedString(@"?", nil);
+            label.text = [self.talk.room capitalizedStringWithLocale:[NSLocale currentLocale]] ?: NSLocalizedString(@"?", nil);
         }
         else {
             label.textColor = [UIColor lightGrayColor];

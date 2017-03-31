@@ -3,7 +3,7 @@
 //  mixit
 //
 //  Created by Vincent Tourraine on 01/05/14.
-//  Copyright (c) 2014-2015 Studio AMANgA. All rights reserved.
+//  Copyright (c) 2014-2017 Studio AMANgA. All rights reserved.
 //
 
 #import "AMGMixITSyncManager.h"
@@ -32,12 +32,12 @@
 
     manager.context = context;
     manager.syncing = NO;
-    manager.client  = [AMGMixITClient MixITClient];
+    manager.client = [AMGMixITClient MixITClient];
 
     return manager;
 }
 
-- (BOOL)startSyncForYear:(nullable NSNumber *)year {
+- (BOOL)startSyncForYear:(nonnull NSNumber *)year {
     if (self.isSyncing) {
         return NO;
     }
@@ -52,15 +52,18 @@
      block:^(NSArray *posts, NSError *error) {
          if (error) {
              self.syncing = NO;
-             [self.delegate syncManager:self
-                   didFailSyncWithError:error];
+             [self.delegate syncManager:self didFailSyncWithError:error];
              return;
          }
 
-         [AMGTalk mergeResponseObjects:posts
-                           intoContext:self.context];
+         [AMGTalk mergeResponseObjects:posts intoContext:self.context];
 
-         [self syncSpeakersForYear:year];
+         // [self syncSpeakersForYear:year];
+         
+         [self.context save:nil];
+         
+         self.syncing = NO;
+         [self.delegate syncManagerDidFinishSync:self];
      }];
     return YES;
 }
@@ -72,13 +75,11 @@
      block:^(NSArray *speakers, NSError *error) {
          if (error) {
              self.syncing = NO;
-             [self.delegate syncManager:self
-                   didFailSyncWithError:error];
+             [self.delegate syncManager:self didFailSyncWithError:error];
              return;
          }
 
-         [AMGMember mergeResponseObjects:speakers
-                             intoContext:self.context];
+         [AMGMember mergeResponseObjects:speakers intoContext:self.context];
 
          [self.context save:nil];
 
