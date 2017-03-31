@@ -58,28 +58,22 @@
 
          [AMGTalk mergeResponseObjects:posts intoContext:self.context];
 
-         // [self syncSpeakersForYear:year];
-         
-         [self.context save:nil];
-         
-         self.syncing = NO;
-         [self.delegate syncManagerDidFinishSync:self];
+         [self syncSpeakers];
      }];
     return YES;
 }
 
-- (void)syncSpeakersForYear:(nullable NSNumber *)year {
+- (void)syncSpeakers {
     [AMGMember
-     fetchSpeakersWithClient:self.client
-     forYear:year
-     block:^(NSArray *speakers, NSError *error) {
+     fetchUsersWithClient:self.client
+     block:^(NSArray *users, NSError *error) {
          if (error) {
              self.syncing = NO;
              [self.delegate syncManager:self didFailSyncWithError:error];
              return;
          }
 
-         [AMGMember mergeResponseObjects:speakers intoContext:self.context];
+         [AMGMember mergeResponseObjects:users intoContext:self.context];
 
          [self.context save:nil];
 

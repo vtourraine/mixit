@@ -46,6 +46,7 @@ static NSString * const AMGTalkCellIdentifier = @"Cell";
 
     if (self) {
         self.title = NSLocalizedString(@"MiXiT Schedule", nil);
+        self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Schedule", nil) style:UIBarButtonItemStylePlain target:nil action:nil];
     }
 
     return self;
@@ -70,12 +71,9 @@ static NSString * const AMGTalkCellIdentifier = @"Cell";
     self.talksSearchDisplayController.delegate = self;
     self.talksSearchDisplayController.searchResultsDelegate = self;
     self.talksSearchDisplayController.searchResultsDataSource = self;
-    [self.talksSearchDisplayController.searchResultsTableView
-     registerClass:AMGTalkCell.class
-     forCellReuseIdentifier:AMGTalkCellIdentifier];
+    [self.talksSearchDisplayController.searchResultsTableView registerClass:AMGTalkCell.class forCellReuseIdentifier:AMGTalkCellIdentifier];
 
-    [self.tableView registerClass:AMGTalkCell.class
-           forCellReuseIdentifier:AMGTalkCellIdentifier];
+    [self.tableView registerClass:AMGTalkCell.class forCellReuseIdentifier:AMGTalkCellIdentifier];
 
     [self reloadSections];
 

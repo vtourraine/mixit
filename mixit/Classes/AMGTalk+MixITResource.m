@@ -29,21 +29,26 @@
     self.endDate = [AMGTalk dateFromRawComponents:[attributes valueForKey:@"end" ifKindOf:NSArray.class]];
     self.year = startComponents.firstObject;
 
-    NSArray <NSDictionary *> *links = attributes[@"links"];
-    NSMutableArray *identifiers = [NSMutableArray array];
-    for (NSDictionary *link in links) {
-        NSString *rel = link[@"rel"];
-        NSString *href = link[@"href"];
+//    NSArray <NSDictionary *> *links = attributes[@"links"];
+//    NSMutableArray *identifiers = [NSMutableArray array];
+//    for (NSDictionary *link in links) {
+//        NSString *rel = link[@"rel"];
+//        NSString *href = link[@"href"];
+//
+//        if ([rel isEqualToString:@"speaker"]) {
+//            NSString *identifier = [href lastPathComponent];
+//            if (identifier) {
+//                [identifiers addObject:identifier];
+//            }
+//        }
+//    }
 
-        if ([rel isEqualToString:@"speaker"]) {
-            NSString *identifier = [href lastPathComponent];
-            if (identifier) {
-                [identifiers addObject:identifier];
-            }
-        }
+    NSArray *speakersIds =[attributes valueForKey:@"speakerIds" ifKindOf:NSArray.class];
+    [self setSpeakersIdentifiersFromArray:speakersIds];
+
+    if ([self.title containsString:@"Gonette"]) {
+        NSLog(@"%@", attributes);
     }
-
-    [self setSpeakersIdentifiersFromArray:identifiers];
 
     return YES;
 }

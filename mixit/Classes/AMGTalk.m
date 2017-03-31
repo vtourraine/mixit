@@ -63,7 +63,7 @@ static NSString * const AMGTalkSeparator = @";";
 
     for (NSString *identifier in identifiers) {
         NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:AMGMember.entityName];
-        request.predicate = [NSPredicate predicateWithFormat:@"identifier == %@", identifier];
+        request.predicate = [NSPredicate predicateWithFormat:@"login == %@", identifier];
         AMGMember *member = [self.managedObjectContext executeFetchRequest:request error:nil].lastObject;
 
         if (member) {
