@@ -223,9 +223,19 @@
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[scrollView]|" options:0 metrics:0 views:views]];
 
     CGFloat screenWidth = CGRectGetWidth([UIScreen mainScreen].bounds);
+    if (self.navigationController) {
+        screenWidth = CGRectGetWidth(self.navigationController.view.frame);
+    }
+
     NSLayoutConstraint *titleWidthConstraint = [NSLayoutConstraint constraintWithItem:titleLabel attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationLessThanOrEqual toItem:nil attribute:kNilOptions multiplier:1 constant:screenWidth - 2*15];
     [self.view addConstraint:titleWidthConstraint];
     self.titleWidthConstraint = titleWidthConstraint;
+
+    NSArray <NSLayoutConstraint *> *equalWidthConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@"H:[scrollView(==titleLabel)]" options:0 metrics:0 views:views];
+    for (NSLayoutConstraint *constraint in equalWidthConstraints) {
+        constraint.priority = UILayoutPriorityDefaultHigh;
+    }
+    [self.view addConstraints:equalWidthConstraints];
 
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-15-[titleLabel]-15-|"
                                                                       options:kNilOptions
@@ -283,11 +293,11 @@
     self.navigationItem.rightBarButtonItem = item;
 }
 
-- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
-    [super didRotateFromInterfaceOrientation:fromInterfaceOrientation];
-    self.titleWidthConstraint.constant = CGRectGetWidth(self.view.frame) - (2 * 15);
+- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
+    [coordinator animateAlongsideTransition:nil completion:^(id<UIViewControllerTransitionCoordinatorContext>  _Nonnull context) {
+        self.titleWidthConstraint.constant = size.width - (2 * 15);
+    }];
 }
-
 
 #pragma mark - Actions
 
