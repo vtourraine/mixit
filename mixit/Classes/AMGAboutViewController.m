@@ -159,7 +159,7 @@ NS_ENUM(NSUInteger, AMGMapRows) {
 }
 
 - (IBAction)openInSafari:(nullable id)sender {
-    [self openURLString:@"http://www.mix-it.fr/"];
+    [self openURLString:@"https://mixitconf.org"];
 }
 
 - (IBAction)openVTourraine:(nullable id)sender {

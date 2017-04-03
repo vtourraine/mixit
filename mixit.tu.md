@@ -4,13 +4,15 @@
 
 ## 3.0
 
-- [ ] Updated for 2017 edition
+- [x] Update for 2017 edition
+- [x] Update API client for new API
 - [ ] New visual identity
-    - [ ] New logo
-    - [ ] New colors
-    - [ ] New icon
-    - [ ] New URL
+    - [x] New logo
+    - [x] New colors
+    - [x] New icon
+    - [x] New URL
     - [ ] Updated iTunes Connect assets
+- [x] Fix Talk view resizing
 
 
 ## 2.1
@@ -26,21 +28,21 @@
 
 2016-03-30
 
-- Added Peek/Pop support for talks with preview action
-- Added talks edit actions
-- Added app icon for iPad Pro
-- Updated API client for 2016
-- Updated talk details visualization
-- Updated about controller with 2016 info
-- Updated about controller to present links with Safari view controller if available
+- Add Peek/Pop support for talks with preview action
+- Add talks edit actions
+- Add app icon for iPad Pro
+- Update API client for 2016
+- Update talk details visualization
+- Update about controller with 2016 info
+- Update about controller to present links with Safari view controller if available
 
 
 ## 1.1
 
 2015-04-27
 
-- Added search field for talks and speakers
-- Fixed layout for users with no company
+- Add search field for talks and speakers
+- Fix layout for users with no company
 
 
 ## 1.0
