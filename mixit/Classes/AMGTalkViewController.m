@@ -105,7 +105,7 @@
         if (self.talk.room) {
             label.textColor = [UIColor blackColor];
             label.font = [UIFont systemFontOfSize:infoLabelFontSize];
-            label.text = [self.talk.room capitalizedStringWithLocale:[NSLocale currentLocale]] ?: NSLocalizedString(@"?", nil);
+            label.text = NSLocalizedStringFromTable([self.talk.room lowercaseString], @"Rooms", nil);
         }
         else {
             label.textColor = [UIColor lightGrayColor];

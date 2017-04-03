@@ -34,12 +34,12 @@ static NSString * const AMGButtonCellIdentifier = @"Cell";
 NS_ENUM(NSUInteger, AMGAboutSections) {
     AMGAboutMapSection,
     AMGAboutLinksSection,
-    AMGAboutPastYearsSection
+    AMGAboutPastYearsSection // Hidden
 };
 
 NS_ENUM(NSUInteger, AMGMapRows) {
     AMGMapOpenInMapsRow,
-    AMGMapPlansRow
+    AMGMapPlansRow // Hidden
 };
 
 
@@ -186,7 +186,7 @@ NS_ENUM(NSUInteger, AMGMapRows) {
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 3;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

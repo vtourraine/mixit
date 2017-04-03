@@ -1,0 +1,21 @@
+/* 
+  Rooms.strings
+  mixit
+
+  Created by Vincent Tourraine on 03/04/2017.
+  Copyright © 2017 Studio AMANgA. All rights reserved.
+*/
+
+// Source:
+// https://github.com/mixitconf/mixit/blob/master/src/main/resources/messages_en.properties
+
+"amphi1" = "Lovelace Amphitheatre";
+"amphi2" = "Hamilton Amphitheatre";
+"room1" = "Room Gosling";
+"room2" = "Room Eich";
+"room3" = "Room Nonaka";
+"room4" = "Room Dijkstra";
+"room5" = "Room Turing";
+"room6" = "Room Lovelace";
+"room7" = "Mezzanine";
+"unknown" = "Unknown room";

@@ -288,7 +288,7 @@ static NSString * const AMGTalkCellIdentifier = @"Cell";
             }
 
             if (talk.room) {
-                text = [text stringByAppendingString:[talk.room capitalizedStringWithLocale:[NSLocale currentLocale]]];
+                text = [text stringByAppendingString:NSLocalizedStringFromTable([talk.room lowercaseString], @"Rooms", nil)];
             }
 
             if (talk.startDate && talk.endDate) {

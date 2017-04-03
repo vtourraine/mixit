@@ -36,6 +36,7 @@
 		1FF320FE1AC4A74400D1D4F6 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FF320FD1AC4A74400D1D4F6 /* MapKit.framework */; };
 		ABD106F7A55ADA9C8B5B2639 /* libPods-mixit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ABD96DC4BBE3A313840B8470 /* libPods-mixit.a */; };
 		D72DB4571E5F451A0036EBEC /* UIColor+MiXiT.m in Sources */ = {isa = PBXBuildFile; fileRef = D72DB4561E5F451A0036EBEC /* UIColor+MiXiT.m */; };
+		D7F583F81E926BB800834740 /* Rooms.strings in Resources */ = {isa = PBXBuildFile; fileRef = D7F583FA1E926BB800834740 /* Rooms.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +106,8 @@
 		ABD96DC4BBE3A313840B8470 /* libPods-mixit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-mixit.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D72DB4551E5F451A0036EBEC /* UIColor+MiXiT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+MiXiT.h"; path = "Classes/UIColor+MiXiT.h"; sourceTree = "<group>"; };
 		D72DB4561E5F451A0036EBEC /* UIColor+MiXiT.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+MiXiT.m"; path = "Classes/UIColor+MiXiT.m"; sourceTree = "<group>"; };
+		D7F583F91E926BB800834740 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Rooms.strings; sourceTree = "<group>"; };
+		D7F583FB1E926C2500834740 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Rooms.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -255,6 +258,7 @@
 				1FA55BD81911A5D3000260B3 /* main.m */,
 				1FA55BDA1911A5D3000260B3 /* mixit-Prefix.pch */,
 				1FB1E0351ACC829200D0FCB3 /* Localizable.strings */,
+				D7F583FA1E926BB800834740 /* Rooms.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -388,6 +392,7 @@
 				1FA55BD71911A5D3000260B3 /* InfoPlist.strings in Resources */,
 				1F7F929E1CAFBD45009FA028 /* LaunchScreen.storyboard in Resources */,
 				14727F441CB6B04700C799E0 /* MapGeneral0.jpg in Resources */,
+				D7F583F81E926BB800834740 /* Rooms.strings in Resources */,
 				14727F421CB6B02D00C799E0 /* MapGeneral1.jpg in Resources */,
 				14727F401CB6B02D00C799E0 /* MapGeneral-1.jpg in Resources */,
 				1FB1E0371ACC829200D0FCB3 /* Localizable.strings in Resources */,
@@ -531,6 +536,15 @@
 				1FB1E0381ACC829500D0FCB3 /* fr */,
 			);
 			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		D7F583FA1E926BB800834740 /* Rooms.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D7F583F91E926BB800834740 /* en */,
+				D7F583FB1E926C2500834740 /* fr */,
+			);
+			name = Rooms.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
