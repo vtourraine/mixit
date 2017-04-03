@@ -3,7 +3,7 @@
 //  mixit
 //
 //  Created by Vincent Tourraine on 01/05/14.
-//  Copyright (c) 2014-2016 Studio AMANgA. All rights reserved.
+//  Copyright (c) 2014-2017 Studio AMANgA. All rights reserved.
 //
 
 #import "AMGTalksViewController.h"
@@ -161,20 +161,16 @@ static NSString * const AMGTalkCellIdentifier = @"Cell";
 }
 
 - (nonnull NSPredicate *)yearPredicate {
-    return [NSPredicate predicateWithFormat:@"%K = %@",
-            NSStringFromSelector(@selector(year)),
-            self.year ?: [AMGMixITClient currentYear]];
+    return [NSPredicate predicateWithFormat:@"%K = %@", NSStringFromSelector(@selector(year)), self.year ?: [AMGMixITClient currentYear]];
 }
 
 - (nonnull NSPredicate *)searchPredicateWithQuery:(nonnull NSString *)query {
-    return [NSPredicate predicateWithFormat:
-            @"title CONTAINS [cd] %@ OR summary CONTAINS [cd] %@ OR format CONTAINS [cd] %@",
-            query, query, query];
+    return [NSPredicate predicateWithFormat:@"title CONTAINS [cd] %@ OR summary CONTAINS [cd] %@ OR format CONTAINS [cd] %@", query, query, query];
 }
 
 - (nonnull NSArray <NSSortDescriptor *> *)talksSortDescriptors {
-    return @[[NSSortDescriptor sortDescriptorWithKey:@"startDate"  ascending:YES],
-             [NSSortDescriptor sortDescriptorWithKey:@"room"       ascending:YES],
+    return @[[NSSortDescriptor sortDescriptorWithKey:@"startDate" ascending:YES],
+             [NSSortDescriptor sortDescriptorWithKey:@"room" ascending:YES],
              [NSSortDescriptor sortDescriptorWithKey:@"identifier" ascending:YES]];
 }
 
@@ -242,8 +238,7 @@ static NSString * const AMGTalkCellIdentifier = @"Cell";
     return [AMGTalkCell defaultHeight];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView
-         cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     AMGTalkCell *cell = [tableView dequeueReusableCellWithIdentifier:AMGTalkCellIdentifier forIndexPath:indexPath];
     
     NSDateFormatter *timeDateFormatter = [[NSDateFormatter alloc] init];
@@ -314,8 +309,7 @@ static NSString * const AMGTalkCellIdentifier = @"Cell";
     return cell;
 }
 
-- (AMGTalk *)talkForTableView:(nonnull UITableView *)tableView
-                  atIndexPath:(nonnull NSIndexPath *)indexPath {
+- (AMGTalk *)talkForTableView:(nonnull UITableView *)tableView atIndexPath:(nonnull NSIndexPath *)indexPath {
     if (tableView == self.talksSearchDisplayController.searchResultsTableView) {
         return self.searchResults[indexPath.row];
     }
@@ -332,8 +326,7 @@ static NSString * const AMGTalkCellIdentifier = @"Cell";
     [self.navigationController pushViewController:viewController animated:YES];
 }
 
-- (nullable NSArray<UITableViewRowAction *> *)tableView:(UITableView *)tableView
-                           editActionsForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (nullable NSArray<UITableViewRowAction *> *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath {
     AMGTalk *talk = [self talkForTableView:tableView atIndexPath:indexPath];
 
     UITableViewRowAction *action =

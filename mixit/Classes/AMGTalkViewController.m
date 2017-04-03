@@ -31,7 +31,7 @@
     self = [super init];
 
     if (self) {
-        self.talk  = talk;
+        self.talk = talk;
         self.title = NSLocalizedString(@"Session", nil);
     }
 
@@ -40,7 +40,7 @@
 
 - (void)loadView {
     UIView *view = [[UIView alloc] initWithFrame:CGRectZero];
-    view.backgroundColor  = [UIColor whiteColor];
+    view.backgroundColor = [UIColor whiteColor];
     self.view = view;
 }
 
@@ -176,9 +176,7 @@
         label.translatesAutoresizingMaskIntoConstraints = NO;
         label.font = [UIFont systemFontOfSize:infoLabelFontSize];
         label.numberOfLines = 0;
-        NSMutableAttributedString *text = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@ %@",
-                                                                                             speaker.firstName ?: @"",
-                                                                                             speaker.lastName  ?: @""]];
+        NSMutableAttributedString *text = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@ %@", speaker.firstName ?: @"", speaker.lastName ?: @""]];
         if (speaker.company.length > 0) {
             [text appendAttributedString:[[NSAttributedString alloc] initWithString:@"\n"]];
             [text appendAttributedString:[[NSAttributedString alloc] initWithString:speaker.company attributes:@{NSFontAttributeName: [UIFont italicSystemFontOfSize:16]}]];
@@ -270,10 +268,7 @@
         verticalFormat = @"V:|-20-[titleLabel]-20-[speakerImageView]-40-[formatLabel]-40-[summaryLabel]-20-[descLabel]-40-|";
     }
 
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:verticalFormat
-                                                                      options:kNilOptions
-                                                                      metrics:@{}
-                                                                        views:views]];
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:verticalFormat options:kNilOptions metrics:@{} views:views]];
 }
 
 - (void)loadBarButtonItems {
