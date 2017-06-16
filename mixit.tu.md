@@ -2,17 +2,22 @@
 
 ## Roadmap
 
+## 3.1
+
+- [ ] Update for iOS 11
+
+
 ## 3.0
 
-- [x] Update for 2017 edition
-- [x] Update API client for new API
-- [ ] New visual identity
-    - [x] New logo
-    - [x] New colors
-    - [x] New icon
-    - [x] New URL
-    - [ ] Updated iTunes Connect assets
-- [x] Fix Talk view resizing
+- Update for 2017 edition
+- Update API client for new API
+- New visual identity
+    - New logo
+    - New colors
+    - New icon
+    - New URL
+    - Updated iTunes Connect assets
+- Fix Talk view resizing
 
 
 ## 2.1
