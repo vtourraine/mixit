@@ -187,6 +187,9 @@ static NSString * const AMGTalkCellIdentifier = @"Cell";
 
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:viewController];
     navigationController.modalPresentationStyle = UIModalPresentationFormSheet;
+    if (@available(iOS 11.0, *)) {
+        navigationController.navigationBar.prefersLargeTitles = YES;
+    }
 
     [self presentViewController:navigationController animated:YES completion:nil];
 }
@@ -254,7 +257,8 @@ static NSString * const AMGTalkCellIdentifier = @"Cell";
         talk = sectionInfo.objects[indexPath.row];
     }
 
-    BOOL isUpcomingTalk = (talk.endDate != nil && [talk.endDate timeIntervalSinceNow] > 0);
+    // BOOL isUpcomingTalk = (talk.endDate != nil && [talk.endDate timeIntervalSinceNow] > 0);
+    BOOL isUpcomingTalk = YES; // Next year schedule isn’t available yet, so we keep all talks “active”
     BOOL isMissingDetails = (talk.room == nil && talk.startDate == nil && talk.endDate == nil);
 
     if (self.isPastYear == NO && isMissingDetails == NO && isUpcomingTalk == NO) {
@@ -344,6 +348,28 @@ static NSString * const AMGTalkCellIdentifier = @"Cell";
     return @[action];
 }
 
+- (UISwipeActionsConfiguration *)tableView:(UITableView *)tableView trailingSwipeActionsConfigurationForRowAtIndexPath:(NSIndexPath *)indexPath {
+    AMGTalk *talk = [self talkForTableView:tableView atIndexPath:indexPath];
+    
+    UIContextualAction *action = [UIContextualAction contextualActionWithStyle:UIContextualActionStyleNormal title:talk.isFavorited ? NSLocalizedString(@"Remove from Favorites", nil) : NSLocalizedString(@"Add to Favorites", nil) handler:^(UIContextualAction * _Nonnull action, __kindof UIView * _Nonnull sourceView, void (^ _Nonnull completionHandler)(BOOL)) {
+        talk.favorited = @(!talk.isFavorited);
+        [talk.managedObjectContext save:nil];
+        
+        [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+        
+        completionHandler(YES);
+    }];
+    //action.image = [UIImage imageNamed:talk.isFavorited ? @"IconStar" : @"IconStarSelected"];
+    action.backgroundColor = [UIColor orangeColor];
+
+    if (@available(iOS 11.0, *)) {
+        UISwipeActionsConfiguration *configuration = [UISwipeActionsConfiguration configurationWithActions:@[action]];
+        configuration.performsFirstActionWithFullSwipe = NO;
+        return configuration;
+    } else {
+        return nil;
+    }
+}
 
 #pragma mark - MiXiT sync manager delegate
 

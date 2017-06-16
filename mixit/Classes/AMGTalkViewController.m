@@ -47,6 +47,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    if (@available(iOS 11.0, *)) {
+        self.navigationItem.largeTitleDisplayMode = UINavigationItemLargeTitleDisplayModeNever;
+    }
+    
     [self loadBarButtonItems];
 
     BOOL isPastYear = (self.talk.year != nil && [[AMGMixITClient currentYear] isEqualToNumber:self.talk.year] == NO);

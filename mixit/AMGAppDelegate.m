@@ -42,6 +42,9 @@
     viewController.syncManager = syncManager;
 
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:viewController];
+    if (@available(iOS 11.0, *)) {
+        navigationController.navigationBar.prefersLargeTitles = YES;
+    }
     self.window.rootViewController = navigationController;
 
     [self.window makeKeyAndVisible];
