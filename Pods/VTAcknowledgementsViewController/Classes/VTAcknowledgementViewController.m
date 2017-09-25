@@ -32,9 +32,9 @@
 
 @implementation VTAcknowledgementViewController
 
-- (instancetype)initWithTitle:(NSString *)title text:(NSString *)text
-{
+- (instancetype)initWithTitle:(NSString *)title text:(NSString *)text {
     self = [super init];
+
     if (self) {
         self.title = title;
         self.text  = text;
@@ -43,43 +43,54 @@
     return self;
 }
 
-- (void)loadView
-{
-    UITextView *textView = [[UITextView alloc] initWithFrame:CGRectZero];
+- (void)viewDidLoad {
+    [super viewDidLoad];
+
+    UITextView *textView = [[UITextView alloc] initWithFrame:self.view.bounds];
     if ([UIFont respondsToSelector:@selector(preferredFontForTextStyle:)]) {
         textView.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
     }
     else {
         textView.font = [UIFont systemFontOfSize:17];
     }
+    textView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     textView.alwaysBounceVertical = YES;
-    textView.text                 = self.text;
 #if !TARGET_OS_TV
-    textView.editable             = NO;
-    textView.dataDetectorTypes    = UIDataDetectorTypeLink;
+    textView.editable = NO;
+    textView.dataDetectorTypes = UIDataDetectorTypeLink;
 #else
     // Allow scrolling on tvOS
     textView.userInteractionEnabled = YES;
-    textView.selectable             = YES;
+    textView.selectable = YES;
     textView.panGestureRecognizer.allowedTouchTypes = @[@(UITouchTypeIndirect)];
 #endif
-    if ([textView respondsToSelector:@selector(setTextContainerInset:)]) {
-#if !TARGET_OS_TV
-        textView.textContainerInset = UIEdgeInsetsMake(12, 10, 12, 10);
-#else
-        textView.textContainerInset = UIEdgeInsetsMake(0.0, 60.0, 90.0, 60.0); // Margins from tvOS HIG
-#endif
-    }
-    textView.contentOffset = CGPointZero;
 
-    self.view = textView;
+    self.view.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:textView];
 
     self.textView = textView;
+
+    if ([self.view respondsToSelector:@selector(readableContentGuide)]) {
+        textView.translatesAutoresizingMaskIntoConstraints = NO;
+
+        UILayoutGuide *marginsGuide = self.view.readableContentGuide;
+        [NSLayoutConstraint activateConstraints:@[[textView.topAnchor constraintEqualToAnchor:marginsGuide.topAnchor], [textView.bottomAnchor constraintEqualToAnchor:marginsGuide.bottomAnchor], [textView.leadingAnchor constraintEqualToAnchor:marginsGuide.leadingAnchor], [textView.trailingAnchor constraintEqualToAnchor:marginsGuide.trailingAnchor]]];
+    }
+    else if ([textView respondsToSelector:@selector(setTextContainerInset:)]) {
+        // For iOS 7 and iOS 8
+        textView.textContainerInset = UIEdgeInsetsMake(12, 10, 12, 10);
+    }
+}
+
+- (void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
+
+    // Need to set the textView text after the layout is completed, so that the content inset and offset properties can be adjusted automatically.
+    self.textView.text = self.text;
 }
 
 #if TARGET_OS_TV
-- (UIView *)preferredFocusedView
-{
+- (UIView *)preferredFocusedView {
     return self.textView;
 }
 #endif
