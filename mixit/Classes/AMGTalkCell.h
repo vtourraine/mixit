@@ -8,11 +8,20 @@
 
 @import UIKit;
 
+@class AMGTalk;
+
 
 @interface AMGTalkCell : UITableViewCell
 
 @property (nonatomic, weak, nullable, readonly) UIImageView *favoritedImageView;
 
 + (CGFloat)defaultHeight;
+
+@end
+
+
+@interface AMGTalkCell (Configuration)
+
+- (void)configureWithTalk:(nonnull AMGTalk *)talk  isPastYear:(BOOL)isPastYear;
 
 @end

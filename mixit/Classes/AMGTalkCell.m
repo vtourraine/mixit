@@ -61,3 +61,65 @@
 }
 
 @end
+
+
+#import "AMGTalk.h"
+
+@implementation AMGTalkCell (Configuration)
+
+- (void)configureWithTalk:(nonnull AMGTalk *)talk  isPastYear:(BOOL)isPastYear {
+    NSDateFormatter *timeDateFormatter = [[NSDateFormatter alloc] init];
+    timeDateFormatter.timeStyle = NSDateFormatterShortStyle;
+
+    // BOOL isUpcomingTalk = (talk.endDate != nil && [talk.endDate timeIntervalSinceNow] > 0);
+    BOOL isUpcomingTalk = YES; // Next year schedule isn’t available yet, so we keep all talks “active”
+    BOOL isMissingDetails = (talk.room == nil && talk.startDate == nil && talk.endDate == nil);
+
+    if (isPastYear == NO && isMissingDetails == NO && isUpcomingTalk == NO) {
+        self.textLabel.textColor = [UIColor lightGrayColor];
+    }
+    else {
+        self.textLabel.textColor = [UIColor blackColor];
+    }
+
+    if (isPastYear == NO && (isUpcomingTalk == NO || isMissingDetails)) {
+        self.detailTextLabel.textColor = [UIColor lightGrayColor];
+        self.detailTextLabel.font = [UIFont italicSystemFontOfSize:self.detailTextLabel.font.pointSize];
+    }
+    else {
+        self.detailTextLabel.textColor = [UIColor blackColor];
+        self.detailTextLabel.font = [UIFont systemFontOfSize:self.detailTextLabel.font.pointSize];
+    }
+
+    self.textLabel.text = talk.title;
+    self.detailTextLabel.text = ({
+        NSString *text = [NSString stringWithFormat:NSLocalizedString(@"%@%@%@", nil), talk.emojiForLanguage, talk.emojiForLanguage ? @" " : @"", [talk.format capitalizedStringWithLocale:[NSLocale currentLocale]]];
+
+        if (isPastYear == NO) {
+            text = [text stringByAppendingString:NSLocalizedString(@", ", nil)];
+
+            if (talk.room == nil && (talk.startDate == nil || talk.endDate == nil)) {
+                text = [text stringByAppendingFormat:NSLocalizedString(@"Time and place not announced yet", nil), talk.room];
+            }
+
+            if (talk.room) {
+                text = [text stringByAppendingString:NSLocalizedStringFromTable([talk.room lowercaseString], @"Rooms", nil)];
+            }
+
+            if (talk.startDate && talk.endDate) {
+                text = [text stringByAppendingFormat:NSLocalizedString(@", %@ to %@", nil), [timeDateFormatter stringFromDate:talk.startDate], [timeDateFormatter stringFromDate:talk.endDate]];
+            }
+        }
+
+        text;
+    });
+
+    if (talk.isFavorited) {
+        self.favoritedImageView.image = [[UIImage imageNamed:@"IconStarSelected"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    }
+    else {
+        self.favoritedImageView.image = nil;
+    }
+}
+
+@end

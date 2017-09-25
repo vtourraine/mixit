@@ -10,7 +10,7 @@
 
 @class AMGMixITSyncManager, AMGTalk;
 
-@interface AMGTalksViewController : UITableViewController
+@interface AMGTalksViewController : UITableViewController <UISearchResultsUpdating>
 
 @property (nonatomic, strong, nullable) AMGMixITSyncManager *syncManager;
 @property (nonatomic, copy, nullable) NSNumber *year;

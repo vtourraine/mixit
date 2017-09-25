@@ -61,11 +61,10 @@
     NSManagedObjectContext *managedObjectContext = self.managedObjectContext;
     if (managedObjectContext != nil) {
         if ([managedObjectContext hasChanges] && ![managedObjectContext save:&error]) {
-            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+            NSLog(@"Unresolved error %@, %@", error, error.userInfo);
         } 
     }
 }
-
 
 #pragma mark - Core Data stack
 
@@ -112,7 +111,6 @@
 
     return _persistentStoreCoordinator;
 }
-
 
 #pragma mark - Application's Documents directory
 

@@ -35,6 +35,7 @@
 		1FF320FB1AC4A0B000D1D4F6 /* AMGAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FF320FA1AC4A0B000D1D4F6 /* AMGAboutViewController.m */; };
 		1FF320FE1AC4A74400D1D4F6 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FF320FD1AC4A74400D1D4F6 /* MapKit.framework */; };
 		ABD106F7A55ADA9C8B5B2639 /* libPods-mixit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ABD96DC4BBE3A313840B8470 /* libPods-mixit.a */; };
+		D72338DA1F78F099006877C5 /* AMGTalksSearchResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D72338D91F78F099006877C5 /* AMGTalksSearchResultsViewController.m */; };
 		D72DB4571E5F451A0036EBEC /* UIColor+MiXiT.m in Sources */ = {isa = PBXBuildFile; fileRef = D72DB4561E5F451A0036EBEC /* UIColor+MiXiT.m */; };
 		D7F583F81E926BB800834740 /* Rooms.strings in Resources */ = {isa = PBXBuildFile; fileRef = D7F583FA1E926BB800834740 /* Rooms.strings */; };
 /* End PBXBuildFile section */
@@ -104,6 +105,8 @@
 		4B0AAF2D1FF122ED6BB98169 /* Pods-mixit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mixit.release.xcconfig"; path = "Pods/Target Support Files/Pods-mixit/Pods-mixit.release.xcconfig"; sourceTree = "<group>"; };
 		7F3F4EF32F91A53795BFC335 /* Pods-mixit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mixit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-mixit/Pods-mixit.debug.xcconfig"; sourceTree = "<group>"; };
 		ABD96DC4BBE3A313840B8470 /* libPods-mixit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-mixit.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D72338D81F78F099006877C5 /* AMGTalksSearchResultsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AMGTalksSearchResultsViewController.h; path = Classes/AMGTalksSearchResultsViewController.h; sourceTree = "<group>"; };
+		D72338D91F78F099006877C5 /* AMGTalksSearchResultsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AMGTalksSearchResultsViewController.m; path = Classes/AMGTalksSearchResultsViewController.m; sourceTree = "<group>"; };
 		D72DB4551E5F451A0036EBEC /* UIColor+MiXiT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+MiXiT.h"; path = "Classes/UIColor+MiXiT.h"; sourceTree = "<group>"; };
 		D72DB4561E5F451A0036EBEC /* UIColor+MiXiT.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+MiXiT.m"; path = "Classes/UIColor+MiXiT.m"; sourceTree = "<group>"; };
 		D7F583F91E926BB800834740 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Rooms.strings; sourceTree = "<group>"; };
@@ -166,6 +169,8 @@
 			children = (
 				1F42188819123C6C001AC572 /* AMGTalksViewController.h */,
 				1F42188919123C6C001AC572 /* AMGTalksViewController.m */,
+				D72338D81F78F099006877C5 /* AMGTalksSearchResultsViewController.h */,
+				D72338D91F78F099006877C5 /* AMGTalksSearchResultsViewController.m */,
 				1F42189A19124EF0001AC572 /* AMGTalkCell.h */,
 				1F42189B19124EF0001AC572 /* AMGTalkCell.m */,
 				1F42189D191271AD001AC572 /* AMGTalkViewController.h */,
@@ -478,6 +483,7 @@
 				1F42189C19124EF0001AC572 /* AMGTalkCell.m in Sources */,
 				1FB9FE471CB6D88D0091374B /* AMGPlansViewController.m in Sources */,
 				D72DB4571E5F451A0036EBEC /* UIColor+MiXiT.m in Sources */,
+				D72338DA1F78F099006877C5 /* AMGTalksSearchResultsViewController.m in Sources */,
 				1F2D96C31912E015007CAE4C /* UIViewController+AMGTwitterManager.m in Sources */,
 				1FF320FB1AC4A0B000D1D4F6 /* AMGAboutViewController.m in Sources */,
 				1FA55BE01911A5D3000260B3 /* mixit.xcdatamodeld in Sources */,
