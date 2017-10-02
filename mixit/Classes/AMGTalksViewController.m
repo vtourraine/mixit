@@ -104,6 +104,7 @@ static NSString * const AMGTalkCellIdentifier = @"Cell";
     if (@available(iOS 11.0, *)) {
         self.searchController.searchBar.barTintColor = [UIColor mixitOrange];
         self.searchController.searchBar.tintColor = [UIColor mixitOrange];
+        self.searchController.searchBar.barStyle = UIBarStyleBlack;
         self.navigationItem.searchController = self.searchController;
     }
     else {
