@@ -1,7 +1,7 @@
 //
 // VTAcknowledgementViewController.m
 //
-// Copyright (c) 2013-2017 Vincent Tourraine (http://www.vtourraine.net)
+// Copyright (c) 2013-2018 Vincent Tourraine (http://www.vtourraine.net)
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -70,14 +70,13 @@
 
     self.textView = textView;
 
-    if ([self.view respondsToSelector:@selector(readableContentGuide)]) {
+    if (@available(iOS 9.0, *)) {
         textView.translatesAutoresizingMaskIntoConstraints = NO;
 
         UILayoutGuide *marginsGuide = self.view.readableContentGuide;
         [NSLayoutConstraint activateConstraints:@[[textView.topAnchor constraintEqualToAnchor:marginsGuide.topAnchor], [textView.bottomAnchor constraintEqualToAnchor:marginsGuide.bottomAnchor], [textView.leadingAnchor constraintEqualToAnchor:marginsGuide.leadingAnchor], [textView.trailingAnchor constraintEqualToAnchor:marginsGuide.trailingAnchor]]];
     }
-    else if ([textView respondsToSelector:@selector(setTextContainerInset:)]) {
-        // For iOS 7 and iOS 8
+    else {
         textView.textContainerInset = UIEdgeInsetsMake(12, 10, 12, 10);
     }
 }
