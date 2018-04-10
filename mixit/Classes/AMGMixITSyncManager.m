@@ -3,7 +3,7 @@
 //  mixit
 //
 //  Created by Vincent Tourraine on 01/05/14.
-//  Copyright (c) 2014-2017 Studio AMANgA. All rights reserved.
+//  Copyright (c) 2014-2018 Studio AMANgA. All rights reserved.
 //
 
 #import "AMGMixITSyncManager.h"
@@ -46,40 +46,36 @@
 
     [self.delegate syncManagerDidStartSync:self];
 
-    [AMGTalk
-     fetchTalksWithClient:self.client
-     forYear:year
-     block:^(NSArray *posts, NSError *error) {
-         if (error) {
-             self.syncing = NO;
-             [self.delegate syncManager:self didFailSyncWithError:error];
-             return;
-         }
+    [AMGTalk fetchTalksWithClient:self.client forYear:year block:^(NSArray *posts, NSError *error) {
+        if (error) {
+            self.syncing = NO;
+            [self.delegate syncManager:self didFailSyncWithError:error];
+            return;
+        }
 
-         [AMGTalk mergeResponseObjects:posts intoContext:self.context];
+        [AMGTalk mergeResponseObjects:posts intoContext:self.context];
 
-         [self syncSpeakers];
-     }];
+        [self syncSpeakers];
+    }];
+
     return YES;
 }
 
 - (void)syncSpeakers {
-    [AMGMember
-     fetchUsersWithClient:self.client
-     block:^(NSArray *users, NSError *error) {
-         if (error) {
-             self.syncing = NO;
-             [self.delegate syncManager:self didFailSyncWithError:error];
-             return;
-         }
+    [AMGMember fetchUsersWithClient:self.client block:^(NSArray *users, NSError *error) {
+        if (error) {
+            self.syncing = NO;
+            [self.delegate syncManager:self didFailSyncWithError:error];
+            return;
+        }
 
-         [AMGMember mergeResponseObjects:users intoContext:self.context];
+        [AMGMember mergeResponseObjects:users intoContext:self.context];
 
-         [self.context save:nil];
+        [self.context save:nil];
 
-         self.syncing = NO;
-         [self.delegate syncManagerDidFinishSync:self];
-     }];
+        self.syncing = NO;
+        [self.delegate syncManagerDidFinishSync:self];
+    }];
 }
 
 @end

@@ -122,9 +122,9 @@
     if (isPastYear == NO) {
         [scrollView addSubview:locationLabel];
 
-        UITapGestureRecognizer *recognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(presentPlansViewController:)];
-        locationLabel.userInteractionEnabled = YES;
-        [locationLabel addGestureRecognizer:recognizer];
+        // UITapGestureRecognizer *recognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(presentPlansViewController:)];
+        // locationLabel.userInteractionEnabled = YES;
+        // [locationLabel addGestureRecognizer:recognizer];
     }
 
     UIImageView *timeImageView = ({

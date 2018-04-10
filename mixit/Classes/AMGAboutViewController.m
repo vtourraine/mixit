@@ -96,7 +96,7 @@ NS_ENUM(NSUInteger, AMGMapRows) {
     UILabel *dateLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(logoView.frame) + 8, CGRectGetWidth(headerView.frame), 80)];
     dateLabel.font = [UIFont boldSystemFontOfSize:20];
     dateLabel.numberOfLines = 2;
-    dateLabel.text = NSLocalizedString(@"April 20 and 21, 2017\nLyon, France", nil);
+    dateLabel.text = NSLocalizedString(@"April 19 and 20, 2018\nLyon, France", nil);
     dateLabel.textAlignment = NSTextAlignmentCenter;
     dateLabel.textColor = [UIColor mixitPurple];
     dateLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth;
@@ -109,8 +109,8 @@ NS_ENUM(NSUInteger, AMGMapRows) {
     mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
     annotation.coordinate = self.coordinates;
-    annotation.title      = NSLocalizedString(@"MiXiT", nil);
-    annotation.subtitle   = NSLocalizedString(@"CPE Lyon", nil);
+    annotation.title = NSLocalizedString(@"MiXiT", nil);
+    annotation.subtitle = NSLocalizedString(@"CPE Lyon", nil);
     [mapView addAnnotation:annotation];
     mapView.region = MKCoordinateRegionMake(self.coordinates, MKCoordinateSpanMake(0.05, 0.05));
     [headerView addSubview:mapView];
@@ -192,7 +192,7 @@ NS_ENUM(NSUInteger, AMGMapRows) {
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     switch (section) {
         case AMGAboutMapSection:
-            return 2;
+            return 1;
 
         case AMGAboutLinksSection:
             return 1;
