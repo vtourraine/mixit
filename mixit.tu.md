@@ -2,9 +2,19 @@
 
 ## Roadmap
 
+- Support Readable Layout Constraints
+
+
+## 4.0
+
+- Update for 2018 edition
+- Update API client for new API
+- Disable Plans
+
+
 ## 3.1
 
-- [ ] Update for iOS 11
+- Update for iOS 11
 
 
 ## 3.0
