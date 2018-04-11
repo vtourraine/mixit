@@ -241,38 +241,7 @@
     }
     [self.view addConstraints:equalWidthConstraints];
 
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-15-[titleLabel]-15-|"
-                                                                      options:kNilOptions
-                                                                      metrics:@{}
-                                                                        views:views]];
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-15-[formatLabel]-15-|"
-                                                                      options:kNilOptions
-                                                                      metrics:@{}
-                                                                        views:views]];
-
-    if (isPastYear == NO) {
-        [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-15-[locationImageView(==20)]-[locationLabel]-15-|"
-                                                                          options:NSLayoutFormatAlignAllCenterY
-                                                                          metrics:@{}
-                                                                            views:views]];
-        [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-15-[timeImageView(==20)]-[timeLabel]-15-|"
-                                                                          options:NSLayoutFormatAlignAllCenterY
-                                                                          metrics:@{}
-                                                                            views:views]];
-    }
-
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-15-[speakerImageView(==20)]-[speakerLabel]-15-|"
-                                                                      options:NSLayoutFormatAlignAllCenterY
-                                                                      metrics:@{}
-                                                                        views:views]];
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-15-[summaryLabel]-15-|"
-                                                                      options:kNilOptions
-                                                                      metrics:@{}
-                                                                        views:views]];
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-15-[descLabel]-15-|"
-                                                                      options:kNilOptions
-                                                                      metrics:@{}
-                                                                        views:views]];
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"[speakerImageView(==20)]-[speakerLabel]" options:NSLayoutFormatAlignAllCenterY metrics:@{} views:views]];
 
     NSString *verticalFormat = nil;
     if (isPastYear == NO) {
@@ -283,6 +252,28 @@
     }
 
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:verticalFormat options:kNilOptions metrics:@{} views:views]];
+
+    UILayoutGuide *layoutGuide = self.view.readableContentGuide;
+    [[layoutGuide.leadingAnchor constraintEqualToAnchor:titleLabel.leadingAnchor] setActive:YES];
+    [[layoutGuide.trailingAnchor constraintEqualToAnchor:titleLabel.trailingAnchor] setActive:YES];
+    [[layoutGuide.leadingAnchor constraintEqualToAnchor:formatLabel.leadingAnchor] setActive:YES];
+    [[layoutGuide.trailingAnchor constraintEqualToAnchor:formatLabel.trailingAnchor] setActive:YES];
+    [[layoutGuide.leadingAnchor constraintEqualToAnchor:summaryLabel.leadingAnchor] setActive:YES];
+    [[layoutGuide.trailingAnchor constraintEqualToAnchor:summaryLabel.trailingAnchor] setActive:YES];
+    [[layoutGuide.leadingAnchor constraintEqualToAnchor:descLabel.leadingAnchor] setActive:YES];
+    [[layoutGuide.trailingAnchor constraintEqualToAnchor:descLabel.trailingAnchor] setActive:YES];
+    [[layoutGuide.leadingAnchor constraintEqualToAnchor:speakerImageView.leadingAnchor] setActive:YES];
+    [[layoutGuide.trailingAnchor constraintEqualToAnchor:speakerLabel.trailingAnchor] setActive:YES];
+
+    if (isPastYear == NO) {
+        [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[locationImageView(==20)]-[locationLabel]" options:NSLayoutFormatAlignAllCenterY metrics:@{} views:views]];
+        [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[timeImageView(==20)]-[timeLabel]" options:NSLayoutFormatAlignAllCenterY metrics:@{} views:views]];
+
+        [[layoutGuide.leadingAnchor constraintEqualToAnchor:locationImageView.leadingAnchor] setActive:YES];
+        [[layoutGuide.trailingAnchor constraintEqualToAnchor:locationLabel.trailingAnchor] setActive:YES];
+        [[layoutGuide.leadingAnchor constraintEqualToAnchor:timeImageView.leadingAnchor] setActive:YES];
+        [[layoutGuide.trailingAnchor constraintEqualToAnchor:timeLabel.trailingAnchor] setActive:YES];
+    }
 }
 
 - (void)loadBarButtonItems {

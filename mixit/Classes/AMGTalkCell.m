@@ -44,7 +44,11 @@
     [super layoutSubviews];
 
     CGFloat nameLabelOriginX = 15;
-    CGFloat labelMaxWidth = CGRectGetWidth(self.contentView.frame) - nameLabelOriginX - 30;
+    if ([self respondsToSelector:@selector(readableContentGuide)]) {
+        nameLabelOriginX = self.readableContentGuide.layoutFrame.origin.x;
+    }
+
+    CGFloat labelMaxWidth = CGRectGetWidth(self.contentView.frame) - (nameLabelOriginX * 2) - 15;
     CGSize labelsMaxSize = CGSizeMake(labelMaxWidth, CGFLOAT_MAX);
     NSStringDrawingOptions drawingOptions = (NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading);
     NSDictionary *titleAttributes = @{NSFontAttributeName: self.textLabel.font};
