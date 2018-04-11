@@ -6,6 +6,7 @@
 ## 4.1
 
 - Support Readable Layout Constraints
+- Requires iOS 9
 
 
 ## 4.0
