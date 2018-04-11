@@ -3,7 +3,7 @@
 //  mixit
 //
 //  Created by Vincent Tourraine on 01/05/14.
-//  Copyright (c) 2014-2017 Studio AMANgA. All rights reserved.
+//  Copyright (c) 2014-2018 Studio AMANgA. All rights reserved.
 //
 
 #import "AMGTalksViewController.h"
@@ -56,7 +56,7 @@ static NSString * const AMGTalkCellIdentifier = @"Cell";
     [SVProgressHUD setDefaultStyle:SVProgressHUDStyleCustom];
     [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
     [SVProgressHUD setBackgroundColor:[UIColor whiteColor]];
-    [SVProgressHUD setForegroundColor:self.view.tintColor];
+    [SVProgressHUD setForegroundColor:[UIColor mixitPurple]];
 
     [self loadBarButtonItems];
 
@@ -319,7 +319,9 @@ static NSString * const AMGTalkCellIdentifier = @"Cell";
         [SVProgressHUD dismiss];
     }
 
-    [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Sync Error", nil) message:error.localizedDescription delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles:nil] show];
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Sync Error", nil) message:error.localizedDescription preferredStyle:UIAlertControllerStyleAlert];
+    [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"OK", nil) style:UIAlertActionStyleCancel handler:nil]];
+    [self presentViewController:alertController animated:YES completion:nil];
 }
 
 - (void)syncManagerDidFinishSync:(AMGMixITSyncManager *)syncManager {
