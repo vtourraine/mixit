@@ -3,7 +3,7 @@
 //  mixit
 //
 //  Created by Vincent Tourraine on 01/05/14.
-//  Copyright (c) 2014-2017 Studio AMANgA. All rights reserved.
+//  Copyright (c) 2014-2018 Studio AMANgA. All rights reserved.
 //
 
 #import "AMGMember+MixITResource.h"
@@ -15,13 +15,16 @@
 @implementation AMGMember (MixITResource)
 
 - (BOOL)updateWithAttributes:(nonnull NSDictionary *)attributes {
-    self.identifier = [attributes valueForKey:@"legacyId"  ifKindOf:NSString.class];
-    self.company    = [attributes valueForKey:@"company"   ifKindOf:NSString.class];
-    self.firstName  = [attributes valueForKey:@"firstname" ifKindOf:NSString.class];
-    self.lastName   = [attributes valueForKey:@"lastname"  ifKindOf:NSString.class];
-    self.login      = [attributes valueForKey:@"login"     ifKindOf:NSString.class];
-    self.longDesc   = [attributes valueForKey:@"description" ifKindOf:NSString.class];
-    // self.shortDesc = [attributes valueForKey:@"shortDescription" ifKindOf:NSString.class];
+    self.identifier = [attributes valueForKey:@"legacyId" ifKindOf:NSString.class];
+    self.company = [attributes valueForKey:@"company" ifKindOf:NSString.class];
+    self.firstName = [attributes valueForKey:@"firstname" ifKindOf:NSString.class];
+    self.lastName = [attributes valueForKey:@"lastname" ifKindOf:NSString.class];
+    self.login = [attributes valueForKey:@"login" ifKindOf:NSString.class];
+    self.longDesc = [attributes valueForKey:@"description" ifKindOf:NSString.class];
+    self.photoURLString = [attributes valueForKey:@"photoUrl" ifKindOf:NSString.class];
+    if ([self.photoURLString hasPrefix:@"/images"]) {
+        self.photoURLString = [@"https://mixitconf.org" stringByAppendingString:self.photoURLString];
+    }
 
     if (self.identifier == nil) {
         self.identifier = self.login;

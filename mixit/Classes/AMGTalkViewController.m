@@ -173,6 +173,11 @@
         imageView.contentMode = UIViewContentModeScaleAspectFit;
         imageView;
     });
+
+    if (speaker.photoURLString) {
+        [speakerImageView setImageWithURL:[NSURL URLWithString:speaker.photoURLString]];
+    }
+
     [scrollView addSubview:speakerImageView];
 
     UILabel *speakerLabel = ({
@@ -241,14 +246,20 @@
     }
     [self.view addConstraints:equalWidthConstraints];
 
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"[speakerImageView(==20)]-[speakerLabel]" options:NSLayoutFormatAlignAllCenterY metrics:@{} views:views]];
+    const CGFloat speakerImageSize = 60;
+    speakerImageView.layer.cornerRadius = speakerImageSize / 2;
+    speakerImageView.clipsToBounds = YES;
+    [[speakerImageView.widthAnchor constraintEqualToConstant:speakerImageSize] setActive:YES];
+    [[speakerImageView.heightAnchor constraintEqualToConstant:speakerImageSize] setActive:YES];
+
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"[speakerImageView]-[speakerLabel]" options:NSLayoutFormatAlignAllCenterY metrics:@{} views:views]];
 
     NSString *verticalFormat = nil;
     if (isPastYear == NO) {
-        verticalFormat = @"V:|-20-[titleLabel]-20-[speakerImageView]-40-[formatLabel]-5-[locationImageView]-2-[timeImageView]-40-[summaryLabel]-20-[descLabel]-40-|";
+        verticalFormat = @"V:|-20-[titleLabel]-20-[speakerImageView]-20-[formatLabel]-5-[locationImageView]-2-[timeImageView]-40-[summaryLabel]-20-[descLabel]-40-|";
     }
     else {
-        verticalFormat = @"V:|-20-[titleLabel]-20-[speakerImageView]-40-[formatLabel]-40-[summaryLabel]-20-[descLabel]-40-|";
+        verticalFormat = @"V:|-20-[titleLabel]-20-[speakerImageView]-20-[formatLabel]-40-[summaryLabel]-20-[descLabel]-40-|";
     }
 
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:verticalFormat options:kNilOptions metrics:@{} views:views]];

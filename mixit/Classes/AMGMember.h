@@ -3,7 +3,7 @@
 //  mixit
 //
 //  Created by Vincent Tourraine on 01/05/14.
-//  Copyright (c) 2014-2016 Studio AMANgA. All rights reserved.
+//  Copyright (c) 2014-2018 Studio AMANgA. All rights reserved.
 //
 
 @import Foundation;
@@ -19,6 +19,7 @@
 @property (nonatomic, strong) NSString *login;
 @property (nonatomic, strong) NSString *longDesc;
 @property (nonatomic, strong) NSString *shortDesc;
+@property (nonatomic, strong) NSString *photoURLString;
 
 + (NSString *)entityName;
 

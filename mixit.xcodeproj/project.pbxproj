@@ -109,6 +109,7 @@
 		D72338D91F78F099006877C5 /* AMGTalksSearchResultsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AMGTalksSearchResultsViewController.m; path = Classes/AMGTalksSearchResultsViewController.m; sourceTree = "<group>"; };
 		D72DB4551E5F451A0036EBEC /* UIColor+MiXiT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+MiXiT.h"; path = "Classes/UIColor+MiXiT.h"; sourceTree = "<group>"; };
 		D72DB4561E5F451A0036EBEC /* UIColor+MiXiT.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+MiXiT.m"; path = "Classes/UIColor+MiXiT.m"; sourceTree = "<group>"; };
+		D759305720809B22007CFAFF /* mixit-3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "mixit-3.xcdatamodel"; sourceTree = "<group>"; };
 		D7F583F91E926BB800834740 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Rooms.strings; sourceTree = "<group>"; };
 		D7F583FB1E926C2500834740 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Rooms.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -777,10 +778,11 @@
 		1FA55BDE1911A5D3000260B3 /* mixit.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				D759305720809B22007CFAFF /* mixit-3.xcdatamodel */,
 				1F7F929F1CB01DFF009FA028 /* mixit-2.xcdatamodel */,
 				1FA55BDF1911A5D3000260B3 /* mixit.xcdatamodel */,
 			);
-			currentVersion = 1F7F929F1CB01DFF009FA028 /* mixit-2.xcdatamodel */;
+			currentVersion = D759305720809B22007CFAFF /* mixit-3.xcdatamodel */;
 			path = mixit.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

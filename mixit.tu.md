@@ -5,6 +5,7 @@
 ## 4.2 (wip)
 
 - Re-enable past editions
+- Re-enable speakers photos
 
 
 ## 4.1
