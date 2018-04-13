@@ -3,7 +3,7 @@
 //  mixit
 //
 //  Created by Vincent Tourraine on 26/03/15.
-//  Copyright (c) 2015-2017 Studio AMANgA. All rights reserved.
+//  Copyright (c) 2015-2018 Studio AMANgA. All rights reserved.
 //
 
 #import "AMGAboutViewController.h"
@@ -142,7 +142,6 @@ NS_ENUM(NSUInteger, AMGMapRows) {
     [label addGestureRecognizer:recognizer];
 }
 
-
 #pragma mark - Actions
 
 - (IBAction)openInMaps:(nullable id)sender {
@@ -182,11 +181,10 @@ NS_ENUM(NSUInteger, AMGMapRows) {
     }
 }
 
-
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 2;
+    return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -256,7 +254,6 @@ NS_ENUM(NSUInteger, AMGMapRows) {
     cell.accessoryType = UITableViewCellAccessoryNone;
 }
 
-
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -298,7 +295,6 @@ NS_ENUM(NSUInteger, AMGMapRows) {
 
     [self.navigationController pushViewController:viewController animated:YES];
 }
-
 
 #pragma mark - Location manager delegate
 

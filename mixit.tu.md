@@ -2,6 +2,10 @@
 
 ## Roadmap
 
+## 4.2 (wip)
+
+- Re-enable past editions
+
 
 ## 4.1
 

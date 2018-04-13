@@ -3,7 +3,7 @@
 //  mixit
 //
 //  Created by Vincent Tourraine on 26/03/15.
-//  Copyright (c) 2015-2017 Studio AMANgA. All rights reserved.
+//  Copyright (c) 2015-2018 Studio AMANgA. All rights reserved.
 //
 
 @import UIKit;
