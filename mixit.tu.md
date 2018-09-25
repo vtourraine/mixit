@@ -2,7 +2,12 @@
 
 ## Roadmap
 
-## 4.2 (wip)
+## 4.2.1 (work in progress)
+
+- Update for iOS 12
+
+
+## 4.2
 
 - Re-enable past editions
 - Re-enable speakers photos
