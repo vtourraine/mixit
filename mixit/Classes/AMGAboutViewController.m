@@ -3,7 +3,7 @@
 //  mixit
 //
 //  Created by Vincent Tourraine on 26/03/15.
-//  Copyright (c) 2015-2018 Studio AMANgA. All rights reserved.
+//  Copyright (c) 2015-2019 Studio AMANgA. All rights reserved.
 //
 
 #import "AMGAboutViewController.h"
@@ -96,21 +96,22 @@ NS_ENUM(NSUInteger, AMGMapRows) {
     UILabel *dateLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(logoView.frame) + 8, CGRectGetWidth(headerView.frame), 80)];
     dateLabel.font = [UIFont boldSystemFontOfSize:20];
     dateLabel.numberOfLines = 2;
-    dateLabel.text = NSLocalizedString(@"April 19 and 20, 2018\nLyon, France", nil);
+    dateLabel.text = NSLocalizedString(@"May 23 and 24, 2019\nLyon, France", nil);
     dateLabel.textAlignment = NSTextAlignmentCenter;
     dateLabel.textColor = [UIColor mixitPurple];
     dateLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     [headerView addSubview:dateLabel];
 
-    self.coordinates = CLLocationCoordinate2DMake(45.78392, 4.869014);
+    // CPE coordinates : 45.78392, 4.869014
+    // Manufacture des Tabacs coordinates: 45.7481118, 4.8602011
+    self.coordinates = CLLocationCoordinate2DMake(45.7481118, 4.8602011);
 
-    MKMapView *mapView = [[MKMapView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(dateLabel.frame) + 20,
-                                                                     CGRectGetWidth(headerView.frame), 200)];
+    MKMapView *mapView = [[MKMapView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(dateLabel.frame) + 20, CGRectGetWidth(headerView.frame), 200)];
     mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
     annotation.coordinate = self.coordinates;
     annotation.title = NSLocalizedString(@"MiXiT", nil);
-    annotation.subtitle = NSLocalizedString(@"CPE Lyon", nil);
+    annotation.subtitle = NSLocalizedString(@"Manufacture des Tabacs", nil);
     [mapView addAnnotation:annotation];
     mapView.region = MKCoordinateRegionMake(self.coordinates, MKCoordinateSpanMake(0.05, 0.05));
     [headerView addSubview:mapView];

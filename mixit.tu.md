@@ -2,8 +2,9 @@
 
 ## Roadmap
 
-## 4.2.1 (work in progress)
+## 5.0 (work in progress)
 
+- Update for 2019 edition
 - Update for iOS 12
 
 
