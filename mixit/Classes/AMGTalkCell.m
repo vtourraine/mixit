@@ -75,8 +75,8 @@
     NSDateFormatter *timeDateFormatter = [[NSDateFormatter alloc] init];
     timeDateFormatter.timeStyle = NSDateFormatterShortStyle;
 
-    // BOOL isUpcomingTalk = (talk.endDate != nil && [talk.endDate timeIntervalSinceNow] > 0);
-    BOOL isUpcomingTalk = YES; // Next year schedule isn’t available yet, so we keep all talks “active”
+    BOOL isUpcomingTalk = (talk.endDate != nil && [talk.endDate timeIntervalSinceNow] > 0);
+    // BOOL isUpcomingTalk = YES; // Next year schedule isn’t available yet, so we keep all talks “active”
     BOOL isMissingDetails = (talk.room == nil && talk.startDate == nil && talk.endDate == nil);
 
     if (isPastYear == NO && isMissingDetails == NO && isUpcomingTalk == NO) {
