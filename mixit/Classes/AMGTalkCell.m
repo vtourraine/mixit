@@ -3,7 +3,7 @@
 //  mixit
 //
 //  Created by Vincent Tourraine on 01/05/14.
-//  Copyright (c) 2014-2017 Studio AMANgA. All rights reserved.
+//  Copyright (c) 2014-2019 Studio AMANgA. All rights reserved.
 //
 
 #import "AMGTalkCell.h"
@@ -76,10 +76,10 @@
     timeDateFormatter.timeStyle = NSDateFormatterShortStyle;
 
     BOOL isUpcomingTalk = (talk.endDate != nil && [talk.endDate timeIntervalSinceNow] > 0);
-    // BOOL isUpcomingTalk = YES; // Next year schedule isn’t available yet, so we keep all talks “active”
     BOOL isMissingDetails = (talk.room == nil && talk.startDate == nil && talk.endDate == nil);
+    BOOL isInMaintenanceModeInBetweenEditions = YES; // Next year schedule isn’t available yet, so we keep all talks “active”
 
-    if (isPastYear == NO && isMissingDetails == NO && isUpcomingTalk == NO) {
+    if (isPastYear == NO && isMissingDetails == NO && isUpcomingTalk == NO && isInMaintenanceModeInBetweenEditions == NO) {
         self.textLabel.textColor = [UIColor lightGrayColor];
     }
     else {
