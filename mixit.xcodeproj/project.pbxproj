@@ -372,7 +372,7 @@
 			};
 			buildConfigurationList = 1FA55BC21911A5D2000260B3 /* Build configuration list for PBXProject "mixit" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
