@@ -98,7 +98,7 @@ NS_ENUM(NSUInteger, AMGMapRows) {
     dateLabel.numberOfLines = 2;
     dateLabel.text = NSLocalizedString(@"May 23 and 24, 2019\nLyon, France", nil);
     dateLabel.textAlignment = NSTextAlignmentCenter;
-    dateLabel.textColor = [UIColor mixitPurple];
+    dateLabel.textColor = [UIColor mixitActionColor];
     dateLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     [headerView addSubview:dateLabel];
 
@@ -117,9 +117,14 @@ NS_ENUM(NSUInteger, AMGMapRows) {
     [headerView addSubview:mapView];
     self.mapView = mapView;
 
-    UIView *topBorder = [[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetMinY(mapView.frame),
-                                                                 CGRectGetWidth(headerView.frame), 1/[UIScreen mainScreen].scale)];
-    topBorder.backgroundColor = [UIColor colorWithWhite:0.75 alpha:1];
+    UIView *topBorder = [[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetMinY(mapView.frame), CGRectGetWidth(headerView.frame), 1/[UIScreen mainScreen].scale)];
+
+    if (@available(iOS 13.0, *)) {
+        topBorder.backgroundColor = [UIColor separatorColor];
+    }
+    else {
+        topBorder.backgroundColor = [UIColor colorWithWhite:0.75 alpha:1];
+    }
     topBorder.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     [headerView addSubview:topBorder];
 
@@ -130,9 +135,9 @@ NS_ENUM(NSUInteger, AMGMapRows) {
 - (void)loadFooterView {
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame), 150)];
     label.numberOfLines = 0;
-    label.textColor = [UIColor lightGrayColor];
+    label.textColor = [UIColor mixitDisabledLabelColor];
     label.textAlignment = NSTextAlignmentCenter;
-    label.font = [UIFont systemFontOfSize:13];
+    label.font = [UIFont preferredFontForTextStyle:UIFontTextStyleFootnote];
     label.userInteractionEnabled = YES;
     label.text = NSLocalizedString(@"This app isn’t affiliated with the MiXiT team.\n"
                                    @"Made by @vtourraine.", nil);
@@ -234,8 +239,8 @@ NS_ENUM(NSUInteger, AMGMapRows) {
 
 - (void)configureCell:(nonnull UITableViewCell *)cell forPastYearAtRow:(NSInteger)row {
     cell.textLabel.textAlignment = NSTextAlignmentLeft;
-    cell.textLabel.font = [UIFont systemFontOfSize:17];
-    cell.textLabel.textColor = [UIColor darkTextColor];
+    cell.textLabel.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
+    cell.textLabel.textColor = [UIColor mixitLabelColor];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 
     if ([self.pastYears[row] integerValue] < 2017) {
@@ -249,7 +254,7 @@ NS_ENUM(NSUInteger, AMGMapRows) {
 - (void)configureCell:(nonnull UITableViewCell *)cell forActionWithTitle:(nonnull NSString *)title {
     cell.textLabel.textAlignment = NSTextAlignmentCenter;
     cell.textLabel.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
-    cell.textLabel.textColor = [UIColor mixitPurple];
+    cell.textLabel.textColor = [UIColor mixitActionColor];
     cell.textLabel.text = title;
 
     cell.accessoryType = UITableViewCellAccessoryNone;

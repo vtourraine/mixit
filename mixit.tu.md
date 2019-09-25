@@ -2,6 +2,11 @@
 
 ## Roadmap
 
+## 5.1 (work in progress)
+
+- Dark Mode support (iOS 13)
+
+
 ## 5.0.1
 
 - Clean up

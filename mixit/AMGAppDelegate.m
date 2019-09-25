@@ -23,16 +23,34 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.window.backgroundColor = [UIColor whiteColor];
 
-    UIColor *purple = [UIColor mixitPurple];
-    UIColor *orange = [UIColor mixitOrange];
+    if (@available(iOS 13.0, *)) {
+        UINavigationBarAppearance *appearance = [[UINavigationBarAppearance alloc] init];
+        [appearance configureWithOpaqueBackground];
+        appearance.titleTextAttributes = @{NSForegroundColorAttributeName : UIColor.whiteColor};
+        NSMutableDictionary *largeTitleTextAttributes = [appearance.largeTitleTextAttributes mutableCopy];
+        largeTitleTextAttributes[NSFontAttributeName] = [UIFont boldSystemFontOfSize:34];
+        largeTitleTextAttributes[NSForegroundColorAttributeName] = UIColor.whiteColor;
+        appearance.largeTitleTextAttributes = largeTitleTextAttributes;
+        appearance.backgroundColor = [UIColor mixitPurple];
 
-    [[UINavigationBar appearance] setTintColor:orange];
-    [[UINavigationBar appearance] setBarTintColor:purple];
-    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor]}];
+        [[UINavigationBar appearance] setTintColor:[UIColor mixitOrange]];
+        [[UINavigationBar appearance] setScrollEdgeAppearance:appearance];
+        [[UINavigationBar appearance] setStandardAppearance:appearance];
+    }
+    else {
+        [[UINavigationBar appearance] setTintColor:[UIColor mixitOrange]];
+        [[UINavigationBar appearance] setBarTintColor:[UIColor mixitPurple]];
+        NSDictionary *titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor]};
+        [[UINavigationBar appearance] setTitleTextAttributes:titleTextAttributes];
+
+        if (@available(iOS 11.0, *)) {
+            [[UINavigationBar appearance] setLargeTitleTextAttributes:titleTextAttributes];
+        }
+    }
     [[UINavigationBar appearance] setBarStyle:UIBarStyleBlack];
-    self.window.tintColor = purple;
+
+    self.window.tintColor = [UIColor mixitPurple];
 
     [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
 

@@ -7,6 +7,7 @@
 //
 
 #import "AMGTalkCell.h"
+#import "UIColor+MiXiT.h"
 
 @interface AMGTalkCell ()
 
@@ -29,7 +30,7 @@
 
         UIImageView *favoritedImageView = ({
             UIImageView *imageView = [[UIImageView alloc] init];
-            imageView.tintColor = [UIColor orangeColor];
+            imageView.tintColor = [UIColor mixitOrange];
             imageView;
         });
 
@@ -80,18 +81,18 @@
     BOOL isInMaintenanceModeInBetweenEditions = YES; // Next year schedule isn’t available yet, so we keep all talks “active”
 
     if (isPastYear == NO && isMissingDetails == NO && isUpcomingTalk == NO && isInMaintenanceModeInBetweenEditions == NO) {
-        self.textLabel.textColor = [UIColor lightGrayColor];
+        self.textLabel.textColor = [UIColor mixitDisabledLabelColor];
     }
     else {
-        self.textLabel.textColor = [UIColor blackColor];
+        self.textLabel.textColor = [UIColor mixitLabelColor];
     }
 
-    if (isPastYear == NO && (isUpcomingTalk == NO || isMissingDetails)) {
-        self.detailTextLabel.textColor = [UIColor lightGrayColor];
+    if (isPastYear == NO && (isUpcomingTalk == NO || isMissingDetails) && isInMaintenanceModeInBetweenEditions == NO) {
+        self.detailTextLabel.textColor = [UIColor mixitDisabledLabelColor];
         self.detailTextLabel.font = [UIFont italicSystemFontOfSize:self.detailTextLabel.font.pointSize];
     }
     else {
-        self.detailTextLabel.textColor = [UIColor blackColor];
+        self.detailTextLabel.textColor = [UIColor mixitSecondaryLabelColor];
         self.detailTextLabel.font = [UIFont systemFontOfSize:self.detailTextLabel.font.pointSize];
     }
 

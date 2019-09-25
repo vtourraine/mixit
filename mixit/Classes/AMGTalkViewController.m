@@ -3,7 +3,7 @@
 //  mixit
 //
 //  Created by Vincent Tourraine on 01/05/14.
-//  Copyright (c) 2014-2017 Studio AMANgA. All rights reserved.
+//  Copyright (c) 2014-2019 Studio AMANgA. All rights reserved.
 //
 
 #import "AMGTalkViewController.h"
@@ -11,8 +11,8 @@
 #import "AMGTalk.h"
 #import "AMGMember.h"
 #import "AMGMixITClient.h"
-
 #import "AMGPlansViewController.h"
+#import "UIColor+MiXiT.h"
 
 #import <AFNetworking/UIImageView+AFNetworking.h>
 
@@ -40,7 +40,7 @@
 
 - (void)loadView {
     UIView *view = [[UIView alloc] initWithFrame:CGRectZero];
-    view.backgroundColor = [UIColor whiteColor];
+    view.backgroundColor = [UIColor mixitBackgroundColor];
     self.view = view;
 }
 
@@ -93,6 +93,7 @@
         UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
         imageView.translatesAutoresizingMaskIntoConstraints = NO;
         imageView.contentMode = UIViewContentModeScaleAspectFit;
+        imageView.tintColor = [UIColor mixitLabelColor];
         imageView;
     });
 
@@ -107,12 +108,12 @@
         label.translatesAutoresizingMaskIntoConstraints = NO;
         label.numberOfLines = 0;
         if (self.talk.room) {
-            label.textColor = [UIColor blackColor];
+            label.textColor = [UIColor mixitLabelColor];
             label.font = [UIFont systemFontOfSize:infoLabelFontSize];
             label.text = NSLocalizedStringFromTable([self.talk.room lowercaseString], @"Rooms", nil);
         }
         else {
-            label.textColor = [UIColor lightGrayColor];
+            label.textColor = [UIColor mixitDisabledLabelColor];
             label.font = [UIFont italicSystemFontOfSize:infoLabelFontSize];
             label.text = NSLocalizedString(@"Not announced yet", nil);
         }
@@ -132,6 +133,7 @@
         UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
         imageView.translatesAutoresizingMaskIntoConstraints = NO;
         imageView.contentMode = UIViewContentModeScaleAspectFit;
+        imageView.tintColor = [UIColor mixitLabelColor];
         imageView;
     });
 
@@ -144,7 +146,7 @@
         label.translatesAutoresizingMaskIntoConstraints = NO;
         label.numberOfLines = 0;
         if (self.talk.startDate && self.talk.endDate) {
-            label.textColor = [UIColor blackColor];
+            label.textColor = [UIColor mixitLabelColor];
             label.font = [UIFont systemFontOfSize:infoLabelFontSize];
             label.text = [NSString stringWithFormat:
                           NSLocalizedString(@"%@, %@ to %@", nil),
@@ -153,7 +155,7 @@
                           [timeDateFormatter stringFromDate:self.talk.endDate]];
         }
         else {
-            label.textColor = [UIColor lightGrayColor];
+            label.textColor = [UIColor mixitDisabledLabelColor];
             label.font = [UIFont italicSystemFontOfSize:infoLabelFontSize];
             label.text = NSLocalizedString(@"Not announced yet", nil);
         }
@@ -294,7 +296,7 @@
     }
 
     UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:iconName] style:UIBarButtonItemStylePlain target:self action:@selector(toggleFavorited:)];
-    item.tintColor = [UIColor orangeColor];
+    item.tintColor = [UIColor mixitOrange];
 
     self.navigationItem.rightBarButtonItem = item;
 }
