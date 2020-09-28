@@ -2,9 +2,11 @@
 
 ## Roadmap
 
-## 5.1 (work in progress)
+## 6.0 (work in progress)
 
+- Mac version
 - Dark Mode support (iOS 13)
+- Update for iOS 14
 
 
 ## 5.0.1

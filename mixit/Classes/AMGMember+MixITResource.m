@@ -35,7 +35,7 @@
 
 + (nullable NSURLSessionDataTask *)fetchUsersWithClient:(nonnull AMGMixITClient *)client
                                                   block:(nullable void (^)(NSArray * __nonnull speakers, NSError * __nullable error))block {
-    return [client GET:@"user/" parameters:nil success:^(NSURLSessionDataTask * __unused task, id JSON) {
+    return [client GET:@"user/" parameters:nil headers:nil progress:nil success:^(NSURLSessionDataTask * __unused task, id JSON) {
         if (![JSON isKindOfClass:NSArray.class]) {
             if (block) {
                 block(@[], nil);
