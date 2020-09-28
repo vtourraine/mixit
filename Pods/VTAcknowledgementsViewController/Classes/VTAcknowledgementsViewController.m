@@ -1,7 +1,7 @@
 //
 // VTAcknowledgementsViewController.m
 //
-// Copyright (c) 2013-2018 Vincent Tourraine (http://www.vtourraine.net)
+// Copyright (c) 2013-2020 Vincent Tourraine (http://www.vtourraine.net)
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -169,6 +169,14 @@ static const CGFloat VTFooterBottomMargin = 20;
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+#if TARGET_OS_TV
+    self.view.layoutMargins = UIEdgeInsetsMake(60.0, 90.0, 60.0, 90.0); // Margins from tvOS HIG
+#endif
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+
     if (self.headerText) {
         [self configureHeaderView];
     }
@@ -176,105 +184,6 @@ static const CGFloat VTFooterBottomMargin = 20;
     if (self.footerText) {
         [self configureFooterView];
     }
-
-#if TARGET_OS_TV
-    self.view.layoutMargins = UIEdgeInsetsMake(60.0, 90.0, 60.0, 90.0); // Margins from tvOS HIG
-#endif
-}
-
-- (UIFont *)headerFooterFont {
-    if ([UIFont respondsToSelector:@selector(preferredFontForTextStyle:)]) {
-        return [UIFont preferredFontForTextStyle:UIFontTextStyleFootnote];
-    }
-    else {
-        return [UIFont systemFontOfSize:12];
-    }
-}
-
-- (void)configureHeaderView {
-    UIFont *font = [self headerFooterFont];
-    CGFloat labelWidth = CGRectGetWidth(self.view.frame) - 2 * VTLabelMargin;
-    CGFloat labelHeight = [self heightForLabelWithText:self.headerText andWidth:labelWidth];
-
-    CGRect labelFrame = CGRectMake(VTLabelMargin, VTLabelMargin, labelWidth, labelHeight);
-
-    UILabel *label = [[UILabel alloc] initWithFrame:labelFrame];
-    label.text = self.headerText;
-    label.font = font;
-    label.textColor = [UIColor grayColor];
-    label.backgroundColor = [UIColor clearColor];
-    label.numberOfLines = 0;
-    label.textAlignment = NSTextAlignmentCenter;
-    label.autoresizingMask = (UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin);
-    if (@available(iOS 10.0, *)) {
-        label.adjustsFontForContentSizeCategory = YES;
-    }
-
-    CGRect headerFrame = CGRectMake(0, 0, CGRectGetWidth(self.view.frame), CGRectGetHeight(label.frame) + 2 * VTLabelMargin);
-    UIView *headerView = [[UIView alloc] initWithFrame:headerFrame];
-    [headerView addSubview:label];
-    self.tableView.tableHeaderView = headerView;
-}
-
-- (void)configureFooterView {
-    UIFont *font = [self headerFooterFont];
-    CGFloat labelWidth = CGRectGetWidth(self.view.frame) - 2 * VTLabelMargin;
-    CGFloat labelHeight = [self heightForLabelWithText:self.footerText andWidth:labelWidth];
-
-    CGRect labelFrame = CGRectMake(VTLabelMargin, 0, labelWidth, labelHeight);
-
-    UILabel *label = [[UILabel alloc] initWithFrame:labelFrame];
-    label.text = self.footerText;
-    label.font = font;
-    label.textColor = [UIColor grayColor];
-    label.backgroundColor = [UIColor clearColor];
-    label.numberOfLines = 0;
-    label.textAlignment = NSTextAlignmentCenter;
-    label.autoresizingMask = (UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin);
-    label.userInteractionEnabled = YES;
-    if (@available(iOS 10.0, *)) {
-        label.adjustsFontForContentSizeCategory = YES;
-    }
-
-    if ([self.footerText rangeOfString:[NSURL URLWithString:VTCocoaPodsURLString].host].location != NSNotFound) {
-        UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(openCocoaPodsWebsite:)];
-        [label addGestureRecognizer:tapGestureRecognizer];
-    }
-
-    CGRect footerFrame = CGRectMake(0, 0, CGRectGetWidth(label.frame), CGRectGetHeight(label.frame) + VTFooterBottomMargin);
-    UIView *footerView = [[UIView alloc] initWithFrame:footerFrame];
-    footerView.userInteractionEnabled = YES;
-    [footerView addSubview:label];
-    label.frame = CGRectMake(0, 0, CGRectGetWidth(label.frame), CGRectGetHeight(label.frame));
-    self.tableView.tableFooterView = footerView;
-}
-
-- (CGFloat)heightForLabelWithText:(NSString *)labelText andWidth:(CGFloat)labelWidth {
-    UIFont *font = self.headerFooterFont;
-    CGFloat labelHeight;
-
-    if ([labelText respondsToSelector:@selector(boundingRectWithSize:options:attributes:context:)]) {
-        NSStringDrawingOptions options = (NSLineBreakByWordWrapping | NSStringDrawingUsesLineFragmentOrigin);
-        CGRect labelBounds = [labelText boundingRectWithSize:CGSizeMake(labelWidth, CGFLOAT_MAX) options:options attributes:@{NSFontAttributeName: font} context:nil];
-        labelHeight = CGRectGetHeight(labelBounds);
-    }
-    else {
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#if !TARGET_OS_TV
-        CGSize size = [labelText sizeWithFont:font constrainedToSize:(CGSize){labelWidth, CGFLOAT_MAX}];
-#else
-        CGSize size = CGSizeMake(labelWidth, font.pointSize); // This is probably wrong logically, but it works/looks fine on tvOS
-#endif
-#pragma GCC diagnostic pop
-        labelHeight = size.height;
-    }
-
-    return ceilf(labelHeight);
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
 
     if (self.presentingViewController && self == [self.navigationController.viewControllers firstObject]) {
         UIBarButtonItem *doneItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(dismissViewController:)];
@@ -314,6 +223,84 @@ static const CGFloat VTFooterBottomMargin = 20;
             [self configureFooterView];
         }
     }];
+}
+
+- (UIFont *)headerFooterFont {
+    return [UIFont preferredFontForTextStyle:UIFontTextStyleFootnote];
+}
+
+- (UILabel *)headerFooterLabelWithText:(NSString *)text {
+    UIFont *font = self.headerFooterFont;
+    CGFloat width = CGRectGetWidth(self.view.frame) - 2 * VTLabelMargin;
+    CGFloat height = [self heightForLabelWithText:text andWidth:width];
+    CGRect frame = CGRectMake(VTLabelMargin, VTLabelMargin, width, height);
+
+    UILabel *label = [[UILabel alloc] initWithFrame:frame];
+    label.text = text;
+    label.font = font;
+    if (@available(iOS 13.0, tvOS 13.0, *)) {
+        label.textColor = [UIColor secondaryLabelColor];
+    }
+    else {
+        label.textColor = [UIColor grayColor];
+    }
+    label.numberOfLines = 0;
+    label.textAlignment = NSTextAlignmentCenter;
+    label.autoresizingMask = (UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin);
+    if (@available(iOS 10.0, *)) {
+        label.adjustsFontForContentSizeCategory = YES;
+    }
+
+    return label;
+}
+
+- (void)configureHeaderView {
+    UILabel *label = [self headerFooterLabelWithText:self.headerText];
+    CGRect headerFrame = CGRectMake(0, 0, CGRectGetWidth(self.view.frame), CGRectGetHeight(label.frame) + 2 * VTLabelMargin);
+    UIView *headerView = [[UIView alloc] initWithFrame:headerFrame];
+    [headerView addSubview:label];
+    self.tableView.tableHeaderView = headerView;
+}
+
+- (void)configureFooterView {
+    UILabel *label = [self headerFooterLabelWithText:self.footerText];
+
+    if ([self.footerText rangeOfString:[NSURL URLWithString:VTCocoaPodsURLString].host].location != NSNotFound) {
+        UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(openCocoaPodsWebsite:)];
+        [label addGestureRecognizer:tapGestureRecognizer];
+        label.userInteractionEnabled = YES;
+    }
+
+    CGRect footerFrame = CGRectMake(0, 0, CGRectGetWidth(label.frame), CGRectGetHeight(label.frame) + VTFooterBottomMargin);
+    UIView *footerView = [[UIView alloc] initWithFrame:footerFrame];
+    footerView.userInteractionEnabled = YES;
+    [footerView addSubview:label];
+    label.frame = CGRectMake(0, 0, CGRectGetWidth(label.frame), CGRectGetHeight(label.frame));
+    self.tableView.tableFooterView = footerView;
+}
+
+- (CGFloat)heightForLabelWithText:(NSString *)labelText andWidth:(CGFloat)labelWidth {
+    UIFont *font = self.headerFooterFont;
+    CGFloat labelHeight;
+
+    if ([labelText respondsToSelector:@selector(boundingRectWithSize:options:attributes:context:)]) {
+        NSStringDrawingOptions options = (NSLineBreakByWordWrapping | NSStringDrawingUsesLineFragmentOrigin);
+        CGRect labelBounds = [labelText boundingRectWithSize:CGSizeMake(labelWidth, CGFLOAT_MAX) options:options attributes:@{NSFontAttributeName: font} context:nil];
+        labelHeight = CGRectGetHeight(labelBounds);
+    }
+    else {
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#if !TARGET_OS_TV
+        CGSize size = [labelText sizeWithFont:font constrainedToSize:(CGSize){labelWidth, CGFLOAT_MAX}];
+#else
+        CGSize size = CGSizeMake(labelWidth, font.pointSize); // This is probably wrong logically, but it works/looks fine on tvOS
+#endif
+#pragma GCC diagnostic pop
+        labelHeight = size.height;
+    }
+
+    return ceilf(labelHeight);
 }
 
 #pragma mark - Actions
