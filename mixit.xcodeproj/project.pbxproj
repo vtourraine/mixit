@@ -356,7 +356,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = AMG;
-				LastUpgradeCheck = 1200;
+				LastUpgradeCheck = 1210;
 				ORGANIZATIONNAME = "Studio AMANgA";
 				TargetAttributes = {
 					1FA55BC61911A5D2000260B3 = {

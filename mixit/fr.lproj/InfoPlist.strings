@@ -1,3 +1,6 @@
 /* Localized versions of Info.plist keys */
 
+"CFBundleDisplayName" = "MiXiT";
+"CFBundleName" = "MiXiT";
+
 "NSLocationWhenInUseUsageDescription" = "Votre position sera affichée sur la carte.";
