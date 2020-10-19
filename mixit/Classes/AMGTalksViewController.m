@@ -83,7 +83,14 @@ static NSString * const AMGTalkCellIdentifier = @"Cell";
     }
 
     if (self.year == nil) {
-        UIBarButtonItem *infoItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"IconInfo"] style:UIBarButtonItemStylePlain target:self action:@selector(presentInfoViewController:)];
+        UIImage *image = nil;
+        if (@available(iOS 13.0, *)) {
+            image = [UIImage systemImageNamed:@"info.circle"];
+        } else {
+            image = [UIImage imageNamed:@"IconInfo"];
+        }
+
+        UIBarButtonItem *infoItem = [[UIBarButtonItem alloc] initWithImage:image style:UIBarButtonItemStylePlain target:self action:@selector(presentInfoViewController:)];
         self.navigationItem.leftBarButtonItem = infoItem;
     }
 }

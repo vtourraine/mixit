@@ -120,7 +120,13 @@
     });
 
     if (talk.isFavorited) {
-        self.favoritedImageView.image = [[UIImage imageNamed:@"IconStarSelected"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+        UIImage *image = nil;
+        if (@available(iOS 13.0, *)) {
+            image = [UIImage systemImageNamed:@"star.fill"];
+        } else {
+            image = [[UIImage imageNamed:@"IconStarSelected"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+        }
+        self.favoritedImageView.image = image;
     }
     else {
         self.favoritedImageView.image = nil;

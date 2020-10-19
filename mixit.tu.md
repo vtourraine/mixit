@@ -7,6 +7,7 @@
 - Mac version
 - Dark Mode support (iOS 13)
 - Update for iOS 14
+- Update in-app icons (SF Symbols)
 
 
 ## 5.0.1

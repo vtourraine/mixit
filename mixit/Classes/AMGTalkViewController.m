@@ -89,7 +89,12 @@
     [scrollView addSubview:formatLabel];
 
     UIImageView *locationImageView = ({
-        UIImage *image = [[UIImage imageNamed:@"IconMapLocation"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+        UIImage *image = nil;
+        if (@available(iOS 13.0, *)) {
+            image = [UIImage systemImageNamed:@"map"];
+        } else {
+            image = [[UIImage imageNamed:@"IconMapLocation"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+        }
         UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
         imageView.translatesAutoresizingMaskIntoConstraints = NO;
         imageView.contentMode = UIViewContentModeScaleAspectFit;
@@ -129,7 +134,12 @@
     }
 
     UIImageView *timeImageView = ({
-        UIImage *image = [[UIImage imageNamed:@"IconClock2"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+        UIImage *image = nil;
+        if (@available(iOS 13.0, *)) {
+            image = [UIImage systemImageNamed:@"clock"];
+        } else {
+            image = [[UIImage imageNamed:@"IconClock2"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+        }
         UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
         imageView.translatesAutoresizingMaskIntoConstraints = NO;
         imageView.contentMode = UIViewContentModeScaleAspectFit;
@@ -169,7 +179,13 @@
     AMGMember *speaker = self.talk.fetchSpeakers.firstObject;
 
     UIImageView *speakerImageView = ({
-        UIImage *image = [UIImage imageNamed:@"IconPerson"];
+        UIImage *image = nil;
+        if (@available(iOS 13.0, *)) {
+            image = [UIImage systemImageNamed:@"person.circle"];
+        } else {
+            image = [UIImage imageNamed:@"IconPerson"];
+        }
+
         UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
         imageView.translatesAutoresizingMaskIntoConstraints = NO;
         imageView.contentMode = UIViewContentModeScaleAspectFit;
@@ -290,12 +306,22 @@
 }
 
 - (void)loadBarButtonItems {
-    NSString *iconName = @"IconStar";
-    if (self.talk.isFavorited) {
-        iconName = @"IconStarSelected";
+    UIImage *image = nil;
+    if (@available(iOS 13.0, *)) {
+        NSString *iconName = @"star";
+        if (self.talk.isFavorited) {
+            iconName = @"star.fill";
+        }
+        image = [UIImage systemImageNamed:iconName];
+    } else {
+        NSString *iconName = @"IconStar";
+        if (self.talk.isFavorited) {
+            iconName = @"IconStarSelected";
+        }
+        image = [UIImage imageNamed:iconName];
     }
 
-    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:iconName] style:UIBarButtonItemStylePlain target:self action:@selector(toggleFavorited:)];
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithImage:image style:UIBarButtonItemStylePlain target:self action:@selector(toggleFavorited:)];
     item.tintColor = [UIColor mixitOrange];
 
     self.navigationItem.rightBarButtonItem = item;
