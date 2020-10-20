@@ -31,6 +31,7 @@
         UIImageView *favoritedImageView = ({
             UIImageView *imageView = [[UIImageView alloc] init];
             imageView.tintColor = [UIColor mixitOrange];
+            imageView.contentMode = UIViewContentModeScaleAspectFit;
             imageView;
         });
 
@@ -54,13 +55,13 @@
     NSStringDrawingOptions drawingOptions = (NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading);
     NSDictionary *titleAttributes = @{NSFontAttributeName: self.textLabel.font};
 
-    CGRect titleSize   = [self.textLabel.text boundingRectWithSize:labelsMaxSize options:drawingOptions attributes:titleAttributes context:nil];
+    CGRect titleSize = [self.textLabel.text boundingRectWithSize:labelsMaxSize options:drawingOptions attributes:titleAttributes context:nil];
 
     self.textLabel.frame = CGRectMake(nameLabelOriginX, 5, titleSize.size.width, 44);
     self.detailTextLabel.frame = CGRectMake(nameLabelOriginX, CGRectGetMaxY(self.contentView.frame) - 24, labelMaxWidth, 20);
 
     CGRect favoritedImageViewFrame = CGRectMake(0, 0, 20, 20);
-    favoritedImageViewFrame.origin.x = CGRectGetWidth(self.contentView.frame) - 27;
+    favoritedImageViewFrame.origin.x = CGRectGetWidth(self.contentView.frame) - CGRectGetWidth(favoritedImageViewFrame) - self.contentView.layoutMargins.right;
     favoritedImageViewFrame.origin.y = CGRectGetMidY(self.contentView.frame) - CGRectGetMidY(favoritedImageViewFrame);
     self.favoritedImageView.frame = favoritedImageViewFrame;
 }
