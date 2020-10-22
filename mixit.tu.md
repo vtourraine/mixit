@@ -2,6 +2,9 @@
 
 ## Roadmap
 
+- Add “Show Location” button next to the map in About screen, to only ask for location when the user asks for it
+
+
 ## 5.1 (work in progress)
 
 - Mac version
