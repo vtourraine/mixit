@@ -2,3 +2,5 @@
 
 "CFBundleDisplayName" = "MiXiT";
 "CFBundleName" = "MiXiT";
+
+"NSLocationWhenInUseUsageDescription" = "Your current location will be displayed on the map for the “About” screen, to help you find your way to the conference.";
