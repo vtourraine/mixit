@@ -2,9 +2,17 @@
 
 ## Roadmap
 
-## 5.1 (work in progress)
+## 6.0 (work in progress)
+
+- Update for 2021 edition
+
+
+## 5.1
+
+2020-10-22
 
 - Dark Mode support (iOS 13)
+- Optimized for iOS 14
 
 
 ## 5.0.1

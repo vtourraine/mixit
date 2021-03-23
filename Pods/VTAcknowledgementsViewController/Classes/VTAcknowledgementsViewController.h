@@ -1,7 +1,7 @@
 //
 // VTAcknowledgementsViewController.h
 //
-// Copyright (c) 2013-2018 Vincent Tourraine (http://www.vtourraine.net)
+// Copyright (c) 2013-2021 Vincent Tourraine (http://www.vtourraine.net)
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -27,12 +27,13 @@
 #import <UIKit/UIKit.h>
 #endif
 
-#import "VTAcknowledgementsParser.h"
-#import "VTAcknowledgement.h"
+#import <VTParser.h>
+#import <VTAcknowledgement.h>
+
+NS_ASSUME_NONNULL_BEGIN
 
 /**
- `VTAcknowledgementsViewController` is a subclass of `UITableViewController` that displays
- a list of acknowledgements.
+ `VTAcknowledgementsViewController` is a subclass of `UITableViewController` that displays a list of acknowledgements.
  */
 @interface VTAcknowledgementsViewController : UITableViewController
 
@@ -60,32 +61,31 @@
  */
 @property (nonatomic, copy, nullable) IBInspectable NSString *acknowledgementsPlistName;
 
-
 /**
- Creates an acknowledgements view controller with the content of the `Pods-acknowledgements.plist`.
+ Creates an acknowledgements view controller with the content of the `Pods-#target#-acknowledgements.plist`.
 
  @return A newly created `VTAcknowledgementsViewController` instance.
  */
-+ (nullable instancetype)acknowledgementsViewController NS_SWIFT_NAME(acknowledgementsViewController());
++ (instancetype)acknowledgementsViewController NS_SWIFT_NAME(acknowledgementsViewController());
 
 /**
- The localized version of “Acknowledgements”.
- You can use this value for the button presenting the `VTAcknowledgementsViewController`, for instance.
+ Initializes an acknowledgements view controller with an array of acknowledgements.
 
- @return The localized title.
- */
-+ (nonnull NSString *)localizedTitle;
-
-/**
- **Deprecated** Initializes an acknowledgements view controller with the content of an acknowledgements file (by its path).
-
- @param acknowledgementsPlistPath The path to the acknowledgements `.plist` file.
+ @param acknowledgements The array of `VTAcknowledgement`.
 
  @return A newly created `VTAcknowledgementsViewController` instance.
-
- @see -initWithPlistPath:
  */
-- (nullable instancetype)initWithAcknowledgementsPlistPath:(nullable NSString *)acknowledgementsPlistPath DEPRECATED_MSG_ATTRIBUTE("use -initWithPath: method instead");
+- (instancetype)initWithAcknowledgements:(NSArray <VTAcknowledgement *> *)acknowledgements;
+
+/**
+ Initializes an acknowledgements view controller with an array of acknowledgements and a custom table view style.
+
+ @param acknowledgements The array of `VTAcknowledgement`.
+ @param style A constant that specifies the style of table view that the controller object is to manage.
+
+ @return A newly created `VTAcknowledgementsViewController` instance.
+ */
+- (instancetype)initWithAcknowledgements:(NSArray <VTAcknowledgement *> *)acknowledgements style:(UITableViewStyle)style NS_DESIGNATED_INITIALIZER;
 
 /**
  Initializes an acknowledgements view controller with the content of an acknowledgements file (by its path).
@@ -94,18 +94,17 @@
 
  @return A newly created `VTAcknowledgementsViewController` instance.
  */
-- (nullable instancetype)initWithPath:(nullable NSString *)acknowledgementsPlistPath;
+- (instancetype)initWithPath:(nullable NSString *)acknowledgementsPlistPath;
 
 /**
- **Deprecated** Initializes an acknowledgements view controller with the content of an acknowledgements file (by its name).
+ Initializes an acknowledgements view controller with the content of an acknowledgements file (by its path) and a custom table view style.
 
- @param acknowledgementsFileName The file name for the acknowledgements `.plist` file from the main bundle.
+ @param acknowledgementsPlistPath The path to the acknowledgements `.plist` file.
+ @param style A constant that specifies the style of table view that the controller object is to manage.
 
  @return A newly created `VTAcknowledgementsViewController` instance.
-
- @see -initWithFileNamed:
  */
-- (nullable instancetype)initWithAcknowledgementsFileNamed:(nullable NSString *)acknowledgementsFileName DEPRECATED_MSG_ATTRIBUTE("use -initWithFileNamed: method instead");
+- (instancetype)initWithPath:(nullable NSString *)acknowledgementsPlistPath style:(UITableViewStyle)style;
 
 /**
  Initializes an acknowledgements view controller with the content of an acknowledgements file (by its name).
@@ -114,6 +113,8 @@
 
  @return A newly created `VTAcknowledgementsViewController` instance.
  */
-- (nullable instancetype)initWithFileNamed:(nonnull NSString *)acknowledgementsFileName;
+- (instancetype)initWithFileNamed:(NSString *)acknowledgementsFileName;
 
 @end
+
+NS_ASSUME_NONNULL_END

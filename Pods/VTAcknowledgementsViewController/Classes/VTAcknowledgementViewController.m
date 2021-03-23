@@ -1,7 +1,7 @@
 //
 // VTAcknowledgementViewController.m
 //
-// Copyright (c) 2013-2018 Vincent Tourraine (http://www.vtourraine.net)
+// Copyright (c) 2013-2021 Vincent Tourraine (http://www.vtourraine.net)
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -50,12 +50,7 @@ const CGFloat VTLeftRightDefaultMargin = 10;
     [super viewDidLoad];
 
     UITextView *textView = [[UITextView alloc] initWithFrame:self.view.bounds];
-    if ([UIFont respondsToSelector:@selector(preferredFontForTextStyle:)]) {
-        textView.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
-    }
-    else {
-        textView.font = [UIFont systemFontOfSize:17];
-    }
+    textView.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
     textView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     textView.alwaysBounceVertical = YES;
 #if !TARGET_OS_TV
@@ -68,7 +63,6 @@ const CGFloat VTLeftRightDefaultMargin = 10;
     textView.panGestureRecognizer.allowedTouchTypes = @[@(UITouchTypeIndirect)];
 #endif
     textView.textContainerInset = UIEdgeInsetsMake(VTTopBottomDefaultMargin, VTLeftRightDefaultMargin, VTTopBottomDefaultMargin, VTLeftRightDefaultMargin);
-    self.view.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:textView];
 
     self.textView = textView;

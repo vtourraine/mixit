@@ -1,5 +1,5 @@
 //
-// VTAcknowledgementViewController.h
+// VTParser.h
 //
 // Copyright (c) 2013-2021 Vincent Tourraine (http://www.vtourraine.net)
 //
@@ -22,30 +22,48 @@
 // THE SOFTWARE.
 
 #if __has_feature(modules)
-@import UIKit;
+@import Foundation;
 #else
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 #endif
 
 NS_ASSUME_NONNULL_BEGIN
 
-/**
- `VTAcknowledgementViewController` is a subclass of `UIViewController` that displays a single acknowledgement.
- */
-@interface VTAcknowledgementViewController : UIViewController
+@class VTAcknowledgement;
 
-/// The main text view.
-@property (nonatomic, weak, nullable) UITextView *textView;
 
 /**
- Initializes an acknowledgement view controller with a title and a body text.
-
- @param title The acknowledgement title.
- @param text The acknowledgement body text.
-
- @return A newly created `VTAcknowledgementViewController` instance.
+ `VTParser` is a subclass of `NSObject` that parses a CocoaPods acknowledgements plist file.
  */
-- (instancetype)initWithTitle:(NSString *)title text:(NSString *)text;
+@interface VTParser : NSObject
+
+/// The header parsed from the plist file.
+@property (readonly, copy, nullable) NSString *header;
+
+/// The footer parsed from the plist file.
+@property (readonly, copy, nullable) NSString *footer;
+
+/// The acknowledgements parsed from the plist file.
+@property (readonly, copy, nullable) NSArray <VTAcknowledgement *> *acknowledgements;
+
+
+/**
+ Initializes a parser and parses the content of an acknowledgements plist file.
+
+ @param acknowledgementsPlistPath The path to the acknowledgements plist file.
+
+ @return A newly created `VTAcknowledgementsParser` instance.
+ */
+- (instancetype)initWithAcknowledgementsPlistPath:(NSString *)acknowledgementsPlistPath NS_DESIGNATED_INITIALIZER;
+
+/**
+ Finds the first link (URL) in a given string.
+
+ @param text The string to parse.
+
+ @return The first link found, or `nil` if no link can be found.
+ */
++ (nullable NSURL *)firstLinkInText:(nonnull NSString *)text;
 
 @end
 

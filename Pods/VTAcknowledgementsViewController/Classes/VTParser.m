@@ -1,7 +1,7 @@
 //
-// VTAcknowledgementsParser.m
+// VTParser.m
 //
-// Copyright (c) 2013-2018 Vincent Tourraine (http://www.vtourraine.net)
+// Copyright (c) 2013-2021 Vincent Tourraine (http://www.vtourraine.net)
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -21,11 +21,11 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#import "VTAcknowledgementsParser.h"
+#import "VTParser.h"
 #import "VTAcknowledgement.h"
 
 
-@interface VTAcknowledgementsParser ()
+@interface VTParser ()
 
 @property (nonatomic, copy, readwrite, nullable) NSString *header;
 @property (nonatomic, copy, readwrite, nullable) NSString *footer;
@@ -36,7 +36,7 @@
 @end
 
 
-@implementation VTAcknowledgementsParser
+@implementation VTParser
 
 - (instancetype)init {
     @throw nil;
@@ -62,7 +62,7 @@
 
         NSMutableArray <VTAcknowledgement *> *acknowledgements = [NSMutableArray array];
         for (NSDictionary *preferenceSpecifier in preferenceSpecifiers) {
-            VTAcknowledgement *acknowledgement = [VTAcknowledgementsParser acknowledgementFromPreferenceSpecifier:preferenceSpecifier];
+            VTAcknowledgement *acknowledgement = [VTParser acknowledgementFromPreferenceSpecifier:preferenceSpecifier];
             [acknowledgements addObject:acknowledgement];
         }
 
@@ -76,7 +76,7 @@
 
 + (nonnull VTAcknowledgement *)acknowledgementFromPreferenceSpecifier:(nonnull NSDictionary *)preferenceSpecifier {
     NSString *title = preferenceSpecifier[@"Title"];
-    NSString *text = [VTAcknowledgementsParser stringByFilteringOutPrematureLineBreaksFromString:preferenceSpecifier[@"FooterText"]];
+    NSString *text = [VTParser stringByFilteringOutPrematureLineBreaksFromString:preferenceSpecifier[@"FooterText"]];
     NSString *license = preferenceSpecifier[@"License"];
     return [[VTAcknowledgement alloc] initWithTitle:title text:text license:license];
 }
@@ -98,6 +98,12 @@
     NSRegularExpression *singleNewLineFinder = [[NSRegularExpression alloc] initWithPattern:@"(?<=.)(\\h)*(\\R)(\\h)*(?=.)" options:kNilOptions error:nil];
 
     return [singleNewLineFinder stringByReplacingMatchesInString:string options:kNilOptions range:NSMakeRange(0, string.length) withTemplate:@" "];
+}
+
++ (nullable NSURL *)firstLinkInText:(nonnull NSString *)text {
+    NSDataDetector *linkDetector = [NSDataDetector dataDetectorWithTypes:NSTextCheckingTypeLink error:nil];
+    NSTextCheckingResult *firstLink = [linkDetector firstMatchInString:text options:kNilOptions range:NSMakeRange(0, text.length)];
+    return firstLink.URL;
 }
 
 @end
