@@ -5,6 +5,7 @@
 ## 6.0 (work in progress)
 
 - Update for 2021 edition
+- Hide room info for 2021 online edition
 
 
 ## 5.1

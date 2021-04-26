@@ -3,7 +3,7 @@
 //  mixit
 //
 //  Created by Vincent Tourraine on 01/05/14.
-//  Copyright (c) 2014-2019 Studio AMANgA. All rights reserved.
+//  Copyright (c) 2014-2021 Studio AMANgA. All rights reserved.
 //
 
 #import "AMGTalkCell.h"
@@ -79,6 +79,7 @@
     BOOL isUpcomingTalk = (talk.endDate != nil && [talk.endDate timeIntervalSinceNow] > 0);
     BOOL isMissingDetails = (talk.room == nil && talk.startDate == nil && talk.endDate == nil);
     BOOL isInMaintenanceModeInBetweenEditions = YES; // Next year schedule isn’t available yet, so we keep all talks “active”
+    BOOL isOnlineEdition = (isPastYear == NO);
 
     if (isPastYear == NO && isMissingDetails == NO && isUpcomingTalk == NO && isInMaintenanceModeInBetweenEditions == NO) {
         self.textLabel.textColor = [UIColor mixitDisabledLabelColor];
@@ -101,18 +102,25 @@
         NSString *text = [NSString stringWithFormat:NSLocalizedString(@"%@%@%@", nil), talk.emojiForLanguage, talk.emojiForLanguage ? @" " : @"", [talk.format capitalizedStringWithLocale:[NSLocale currentLocale]]];
 
         if (isPastYear == NO) {
-            text = [text stringByAppendingString:NSLocalizedString(@", ", nil)];
-
-            if (talk.room == nil && (talk.startDate == nil || talk.endDate == nil)) {
-                text = [text stringByAppendingFormat:NSLocalizedString(@"Time and place not announced yet", nil), talk.room];
+            if (isOnlineEdition) {
+                if (talk.startDate && talk.endDate) {
+                    text = [text stringByAppendingFormat:NSLocalizedString(@", %@ to %@", nil), [timeDateFormatter stringFromDate:talk.startDate], [timeDateFormatter stringFromDate:talk.endDate]];
+                }
             }
+            else {
+                text = [text stringByAppendingString:NSLocalizedString(@", ", nil)];
 
-            if (talk.room) {
-                text = [text stringByAppendingString:NSLocalizedStringFromTable([talk.room lowercaseString], @"Rooms", nil)];
-            }
+                if (talk.room == nil && (talk.startDate == nil || talk.endDate == nil)) {
+                    text = [text stringByAppendingFormat:NSLocalizedString(@"Time and place not announced yet", nil), talk.room];
+                }
 
-            if (talk.startDate && talk.endDate) {
-                text = [text stringByAppendingFormat:NSLocalizedString(@", %@ to %@", nil), [timeDateFormatter stringFromDate:talk.startDate], [timeDateFormatter stringFromDate:talk.endDate]];
+                if (talk.room) {
+                    text = [text stringByAppendingString:NSLocalizedStringFromTable([talk.room lowercaseString], @"Rooms", nil)];
+                }
+
+                if (talk.startDate && talk.endDate) {
+                    text = [text stringByAppendingFormat:NSLocalizedString(@", %@ to %@", nil), [timeDateFormatter stringFromDate:talk.startDate], [timeDateFormatter stringFromDate:talk.endDate]];
+                }
             }
         }
 

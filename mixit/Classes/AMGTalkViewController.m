@@ -3,7 +3,7 @@
 //  mixit
 //
 //  Created by Vincent Tourraine on 01/05/14.
-//  Copyright (c) 2014-2019 Studio AMANgA. All rights reserved.
+//  Copyright (c) 2014-2021 Studio AMANgA. All rights reserved.
 //
 
 #import "AMGTalkViewController.h"
@@ -54,6 +54,7 @@
     [self loadBarButtonItems];
 
     BOOL isPastYear = (self.talk.year != nil && [[AMGMixITClient currentYear] isEqualToNumber:self.talk.year] == NO);
+    BOOL isOnlineEdition = (isPastYear == NO);
 
     UIScrollView *scrollView = [[UIScrollView alloc] init];
     scrollView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
@@ -97,7 +98,7 @@
         imageView;
     });
 
-    if (isPastYear == NO) {
+    if (isPastYear == NO && isOnlineEdition == NO) {
         [scrollView addSubview:locationImageView];
     }
 
@@ -120,7 +121,7 @@
         label;
     });
 
-    if (isPastYear == NO) {
+    if (isPastYear == NO && isOnlineEdition == NO) {
         [scrollView addSubview:locationLabel];
 
         // UITapGestureRecognizer *recognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(presentPlansViewController:)];
@@ -257,7 +258,10 @@
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"[speakerImageView]-[speakerLabel]" options:NSLayoutFormatAlignAllCenterY metrics:@{} views:views]];
 
     NSString *verticalFormat = nil;
-    if (isPastYear == NO) {
+    if (isOnlineEdition && !isPastYear) {
+        verticalFormat = @"V:|-20-[titleLabel]-20-[speakerImageView]-20-[formatLabel]-5-[timeImageView]-40-[summaryLabel]-20-[descLabel]-40-|";
+    }
+    else if (isPastYear == NO) {
         verticalFormat = @"V:|-20-[titleLabel]-20-[speakerImageView]-20-[formatLabel]-5-[locationImageView]-2-[timeImageView]-40-[summaryLabel]-20-[descLabel]-40-|";
     }
     else {
@@ -278,12 +282,16 @@
     [[layoutGuide.leadingAnchor constraintEqualToAnchor:speakerImageView.leadingAnchor] setActive:YES];
     [[layoutGuide.trailingAnchor constraintEqualToAnchor:speakerLabel.trailingAnchor] setActive:YES];
 
-    if (isPastYear == NO) {
+    if (isOnlineEdition == NO && !isPastYear) {
         [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[locationImageView(==20)]-[locationLabel]" options:NSLayoutFormatAlignAllCenterY metrics:@{} views:views]];
-        [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[timeImageView(==20)]-[timeLabel]" options:NSLayoutFormatAlignAllCenterY metrics:@{} views:views]];
 
         [[layoutGuide.leadingAnchor constraintEqualToAnchor:locationImageView.leadingAnchor] setActive:YES];
         [[layoutGuide.trailingAnchor constraintEqualToAnchor:locationLabel.trailingAnchor] setActive:YES];
+    }
+
+    if (isPastYear == NO) {
+        [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[timeImageView(==20)]-[timeLabel]" options:NSLayoutFormatAlignAllCenterY metrics:@{} views:views]];
+
         [[layoutGuide.leadingAnchor constraintEqualToAnchor:timeImageView.leadingAnchor] setActive:YES];
         [[layoutGuide.trailingAnchor constraintEqualToAnchor:timeLabel.trailingAnchor] setActive:YES];
     }
