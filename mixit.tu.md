@@ -5,7 +5,6 @@
 ## 6.1 (work in progress)
 
 - Mac version (not distributed)
-- Update for iOS 14
 - Update in-app icons (SF Symbols)
 - Remove Twitter framework integration
 
