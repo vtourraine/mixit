@@ -1,3 +1,6 @@
 /* Localized versions of Info.plist keys */
 
-"NSLocationWhenInUseUsageDescription" = "Votre position sera affichée sur la carte.";
+"CFBundleDisplayName" = "MiXiT";
+"CFBundleName" = "MiXiT";
+
+"NSLocationWhenInUseUsageDescription" = "Votre emplacement actuel sera affiché sur la carte de l’écran « À propos », afin de vous aider à trouver votre chemin vers la conférence.";

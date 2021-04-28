@@ -2,7 +2,17 @@
 
 ## Roadmap
 
-## 6.0 (work in progress)
+## 6.1 (work in progress)
+
+- Mac version (not distributed)
+- Update for iOS 14
+- Update in-app icons (SF Symbols)
+- Remove Twitter framework integration
+
+
+## 6.0
+
+2021-04-28
 
 - Update for 2021 edition
 - Hide room info for 2021 online edition

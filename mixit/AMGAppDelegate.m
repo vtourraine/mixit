@@ -24,6 +24,10 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 
+#if TARGET_OS_MACCATALYST
+    self.window.windowScene.titlebar.titleVisibility = UITitlebarTitleVisibilityHidden;
+#endif
+
     if (@available(iOS 13.0, *)) {
         UINavigationBarAppearance *appearance = [[UINavigationBarAppearance alloc] init];
         [appearance configureWithOpaqueBackground];
@@ -73,6 +77,17 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
     [self saveContext];
 }
+
+#if TARGET_OS_MACCATALYST
+- (void)buildMenuWithBuilder:(id<UIMenuBuilder>)builder {
+    [super buildMenuWithBuilder:builder];
+
+    [builder removeMenuForIdentifier:UIMenuServices];
+    [builder removeMenuForIdentifier:UIMenuFormat];
+    [builder removeMenuForIdentifier:UIMenuToolbar];
+    [builder removeMenuForIdentifier:UIMenuHelp];
+}
+#endif
 
 - (void)saveContext {
     NSError *error = nil;

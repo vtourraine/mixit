@@ -3,7 +3,7 @@
 //  mixit
 //
 //  Created by Vincent Tourraine on 01/05/14.
-//  Copyright (c) 2014-2018 Studio AMANgA. All rights reserved.
+//  Copyright (c) 2014-2021 Studio AMANgA. All rights reserved.
 //
 
 #import "AMGTalksViewController.h"
@@ -22,7 +22,6 @@
 #import "AMGAboutViewController.h"
 
 #import "UIColor+MiXiT.h"
-#import "UIViewController+AMGTwitterManager.h"
 
 static NSString * const AMGTalkCellIdentifier = @"Cell";
 
@@ -77,13 +76,14 @@ static NSString * const AMGTalkCellIdentifier = @"Cell";
 }
 
 - (void)loadBarButtonItems {
-    if (self.canTweet) {
-        UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"IconTwitter"] style:UIBarButtonItemStylePlain target:self action:@selector(presentTweetComposer)];
-        self.navigationItem.rightBarButtonItem = item;
-    }
-
     if (self.year == nil) {
-        UIBarButtonItem *infoItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"IconInfo"] style:UIBarButtonItemStylePlain target:self action:@selector(presentInfoViewController:)];
+        UIImage *image = nil;
+        if (@available(iOS 13.0, *)) {
+            image = [UIImage systemImageNamed:@"info.circle"];
+        } else {
+            image = [UIImage imageNamed:@"IconInfo"];
+        }
+        UIBarButtonItem *infoItem = [[UIBarButtonItem alloc] initWithImage:image style:UIBarButtonItemStylePlain target:self action:@selector(presentInfoViewController:)];
         self.navigationItem.leftBarButtonItem = infoItem;
     }
 }

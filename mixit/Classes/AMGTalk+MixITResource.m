@@ -35,7 +35,7 @@
 + (nullable NSURLSessionDataTask *)fetchTalksWithClient:(nonnull AMGMixITClient *)client forYear:(nonnull NSNumber *)year block:(nullable void (^)(NSArray * __nonnull talks, NSError * __nullable error))block {
     NSString *path = [NSString stringWithFormat:@"%@/talk", year];
 
-    return [client GET:path parameters:nil success:^(NSURLSessionDataTask * __unused task, id JSON) {
+    return [client GET:path parameters:nil headers:nil progress:nil success:^(NSURLSessionDataTask * __unused task, id JSON) {
         if (![JSON isKindOfClass:NSArray.class]) {
             if (block) {
                 block(@[], nil);

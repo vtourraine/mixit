@@ -4,7 +4,7 @@ platform :ios, '9.0'
 
 target 'mixit' do
   pod 'SVProgressHUD'
-  pod 'AFNetworking', '~> 2'
+  pod 'AFNetworking', '~> 4'
   pod 'ISO8601DateFormatter'
   pod 'VTAcknowledgementsViewController'
 end

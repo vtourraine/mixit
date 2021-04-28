@@ -31,6 +31,7 @@
         UIImageView *favoritedImageView = ({
             UIImageView *imageView = [[UIImageView alloc] init];
             imageView.tintColor = [UIColor mixitOrange];
+            imageView.contentMode = UIViewContentModeScaleAspectFit;
             imageView;
         });
 
@@ -60,7 +61,7 @@
     self.detailTextLabel.frame = CGRectMake(nameLabelOriginX, CGRectGetMaxY(self.contentView.frame) - 24, labelMaxWidth, 20);
 
     CGRect favoritedImageViewFrame = CGRectMake(0, 0, 20, 20);
-    favoritedImageViewFrame.origin.x = CGRectGetWidth(self.contentView.frame) - 27;
+    favoritedImageViewFrame.origin.x = MIN( self.readableContentGuide.layoutFrame.origin.x + self.readableContentGuide.layoutFrame.size.width - CGRectGetWidth(favoritedImageViewFrame), CGRectGetWidth(self.contentView.frame) - self.layoutMargins.right);
     favoritedImageViewFrame.origin.y = CGRectGetMidY(self.contentView.frame) - CGRectGetMidY(favoritedImageViewFrame);
     self.favoritedImageView.frame = favoritedImageViewFrame;
 }
@@ -128,7 +129,13 @@
     });
 
     if (talk.isFavorited) {
-        self.favoritedImageView.image = [[UIImage imageNamed:@"IconStarSelected"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+        UIImage *image = nil;
+        if (@available(iOS 13.0, *)) {
+            image = [UIImage systemImageNamed:@"star.fill"];
+        } else {
+            image = [[UIImage imageNamed:@"IconStarSelected"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+        }
+        self.favoritedImageView.image = image;
     }
     else {
         self.favoritedImageView.image = nil;
