@@ -9,7 +9,9 @@
 - [x] Fix launch screen Dark Mode support
 
 
-## 6.1 (work in progress)
+## 6.1
+
+2021-04-29
 
 - Mac version (not distributed)
 - Update in-app icons (SF Symbols)
