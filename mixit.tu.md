@@ -4,7 +4,8 @@
 
 ## 6.2 (work in progress)
 
-- [x] Share Talk
+- [x] Add Session to Calendar
+- [x] Share Session
 - [x] Fix launch screen Dark Mode support
 
 

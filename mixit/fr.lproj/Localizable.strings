@@ -3,7 +3,7 @@
   mixit
 
   Created by Vincent Tourraine on 01/04/15.
-  Copyright (c) 2015-2017 Studio AMANgA. All rights reserved.
+  Copyright (c) 2015-2021 Studio AMANgA. All rights reserved.
 */
 
 "MiXiT" = "MiXiT";
@@ -39,3 +39,5 @@
 "Remove from Favorites" = "Retirer des Favoris";
 
 "Plans" = "Plans";
+"Cannot Add Session to Calendar" = "Ajout de la session au calendrier impossible";
+"You need to allow calendar access from the Settings app first." = "Vous devez d’abord donner accès à vos calendriers depuis l’application Réglages.";

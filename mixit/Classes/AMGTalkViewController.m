@@ -38,6 +38,10 @@
     return self;
 }
 
+- (BOOL)isPastYear {
+    return (self.talk.year != nil && [[AMGMixITClient currentYear] isEqualToNumber:self.talk.year] == NO);
+}
+
 - (void)loadView {
     UIView *view = [[UIView alloc] initWithFrame:CGRectZero];
     view.backgroundColor = [UIColor mixitBackgroundColor];
@@ -53,7 +57,7 @@
     
     [self loadBarButtonItems];
 
-    BOOL isPastYear = (self.talk.year != nil && [[AMGMixITClient currentYear] isEqualToNumber:self.talk.year] == NO);
+    BOOL isPastYear = [self isPastYear];
     BOOL isOnlineEdition = (isPastYear == NO);
 
     UIScrollView *scrollView = [[UIScrollView alloc] init];
@@ -334,7 +338,20 @@
     UIBarButtonItem *shareItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(shareTalk:)];
     shareItem.tintColor = [UIColor mixitOrange];
 
-    self.navigationItem.rightBarButtonItems = @[shareItem, starItem];
+    NSMutableArray *items = [NSMutableArray array];
+    [items addObject:shareItem];
+    [items addObject:starItem];
+
+    if (![self isPastYear]) {
+        if (@available(iOS 13.0, *)) {
+            UIBarButtonItem *calendarItem = [[UIBarButtonItem alloc] initWithImage:[UIImage systemImageNamed:@"calendar.badge.plus"] style:UIBarButtonItemStylePlain target:self action:@selector(createEventInCalendar:)];
+            calendarItem.tintColor = [UIColor mixitOrange];
+
+            [items addObject:calendarItem];
+        }
+    }
+
+    self.navigationItem.rightBarButtonItems = items;
 }
 
 - (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
@@ -373,6 +390,33 @@
     [self presentViewController:viewController animated:YES completion:nil];
 }
 
+- (IBAction)createEventInCalendar:(nullable UIBarButtonItem *)sender {
+    EKEventStore *store = [[EKEventStore alloc] init];
+    [store requestAccessToEntityType:EKEntityTypeEvent completion:^(BOOL granted, NSError * _Nullable error) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (!granted) {
+                UIAlertController *alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Cannot Add Session to Calendar", nil) message:NSLocalizedString(@"You need to allow calendar access from the Settings app first.", nil) preferredStyle:UIAlertControllerStyleAlert];
+                [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"OK", nil) style:UIAlertActionStyleCancel handler:nil]];
+                [self presentViewController:alertController animated:YES completion:nil];
+                return;
+            }
+
+            EKEventEditViewController *viewController = [[EKEventEditViewController alloc] init];
+            viewController.editViewDelegate = self;
+            EKEvent *event = [EKEvent eventWithEventStore:store];
+            event.title = self.talk.title;
+            event.location = NSLocalizedString(@"MiXiT", nil);
+            event.notes = self.talk.summary;
+            event.URL = [NSURL URLWithString:@"https://mixitconf.org/"];
+            event.startDate = self.talk.startDate;
+            event.endDate = self.talk.endDate;
+            viewController.event = event;
+
+            [self presentViewController:viewController animated:YES completion:nil];
+        });
+    }];
+}
+
 #pragma mark - 3D Touch preview actions
 
 - (NSArray <id <UIPreviewActionItem>> *)previewActionItems {
@@ -387,6 +431,12 @@
     }
 
     return @[self.toggleFavoritesPreviewAction];
+}
+
+#pragma mark - EKEventEditViewDelegate
+
+- (void)eventEditViewController:(EKEventEditViewController *)controller didCompleteWithAction:(EKEventEditViewAction)action {
+    [controller dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end
