@@ -403,6 +403,7 @@
 
             EKEventEditViewController *viewController = [[EKEventEditViewController alloc] init];
             viewController.editViewDelegate = self;
+            viewController.eventStore = store;
             EKEvent *event = [EKEvent eventWithEventStore:store];
             event.title = self.talk.title;
             event.location = NSLocalizedString(@"MiXiT", nil);
