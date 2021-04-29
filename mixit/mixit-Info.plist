@@ -57,6 +57,8 @@
 	</dict>
 	<key>NSCalendarsUsageDescription</key>
 	<string>Add talks to your calendar.</string>
+	<key>NSLocationUsageDescription</key>
+	<string>Your current location will be displayed on maps.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Your current location will be displayed on maps.</string>
 	<key>UILaunchStoryboardName</key>
