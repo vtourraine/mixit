@@ -2,6 +2,12 @@
 
 ## Roadmap
 
+## 6.2 (work in progress)
+
+- [ ] Share Talk
+- [x] Fix launch screen Dark Mode support
+
+
 ## 6.1 (work in progress)
 
 - Mac version (not distributed)
