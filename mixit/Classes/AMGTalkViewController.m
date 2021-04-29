@@ -328,10 +328,13 @@
         image = [UIImage imageNamed:iconName];
     }
     
-    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithImage:image style:UIBarButtonItemStylePlain target:self action:@selector(toggleFavorited:)];
-    item.tintColor = [UIColor mixitOrange];
+    UIBarButtonItem *starItem = [[UIBarButtonItem alloc] initWithImage:image style:UIBarButtonItemStylePlain target:self action:@selector(toggleFavorited:)];
+    starItem.tintColor = [UIColor mixitOrange];
 
-    self.navigationItem.rightBarButtonItem = item;
+    UIBarButtonItem *shareItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(shareTalk:)];
+    shareItem.tintColor = [UIColor mixitOrange];
+
+    self.navigationItem.rightBarButtonItems = @[shareItem, starItem];
 }
 
 - (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
@@ -356,6 +359,19 @@
     [self.navigationController pushViewController:viewController animated:YES];
 }
 
+- (IBAction)shareTalk:(nullable UIBarButtonItem *)sender {
+    if (self.talk.title == nil || self.talk.year == nil) {
+        return;
+    }
+
+    NSString *urlString = [NSString stringWithFormat:@"https://mixitconf.org/fr/%@", self.talk.year];
+    NSURL *url = [NSURL URLWithString:urlString];
+    NSArray *items = @[self.talk.title, url];
+
+    UIActivityViewController *viewController = [[UIActivityViewController alloc] initWithActivityItems:items applicationActivities:nil];
+    viewController.popoverPresentationController.barButtonItem = sender;
+    [self presentViewController:viewController animated:YES completion:nil];
+}
 
 #pragma mark - 3D Touch preview actions
 

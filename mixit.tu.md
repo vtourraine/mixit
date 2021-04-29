@@ -4,7 +4,7 @@
 
 ## 6.2 (work in progress)
 
-- [ ] Share Talk
+- [x] Share Talk
 - [x] Fix launch screen Dark Mode support
 
 
