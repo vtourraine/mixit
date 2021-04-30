@@ -416,6 +416,8 @@
             event.calendar = [store defaultCalendarForNewEvents];
 
 #if TARGET_OS_MACCATALYST
+            // The EKEventEditViewController is crashing on macOS 11 when tapping the “Add attachment” button.
+
             NSError *saveError = nil;
             BOOL result = [store saveEvent:event span:EKSpanThisEvent commit:YES error:&saveError];
             if (result) {
