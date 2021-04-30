@@ -41,3 +41,4 @@
 "Plans" = "Plans";
 "Cannot Add Session to Calendar" = "Ajout de la session au calendrier impossible";
 "You need to allow calendar access from the Settings app first." = "Vous devez d’abord donner accès à vos calendriers depuis l’application Réglages.";
+"Session Added to Calendar" = "Session ajoutée au calendrier";

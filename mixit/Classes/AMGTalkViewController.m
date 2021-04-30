@@ -390,20 +390,22 @@
     [self presentViewController:viewController animated:YES completion:nil];
 }
 
+- (void)showAlertTitle:(NSString *)title message:(NSString *)message {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
+    [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"OK", nil) style:UIAlertActionStyleCancel handler:nil]];
+
+    [self presentViewController:alertController animated:YES completion:nil];
+}
+
 - (IBAction)createEventInCalendar:(nullable UIBarButtonItem *)sender {
     EKEventStore *store = [[EKEventStore alloc] init];
     [store requestAccessToEntityType:EKEntityTypeEvent completion:^(BOOL granted, NSError * _Nullable error) {
         dispatch_async(dispatch_get_main_queue(), ^{
             if (!granted) {
-                UIAlertController *alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Cannot Add Session to Calendar", nil) message:NSLocalizedString(@"You need to allow calendar access from the Settings app first.", nil) preferredStyle:UIAlertControllerStyleAlert];
-                [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"OK", nil) style:UIAlertActionStyleCancel handler:nil]];
-                [self presentViewController:alertController animated:YES completion:nil];
+                [self showAlertTitle:NSLocalizedString(@"Cannot Add Session to Calendar", nil) message:NSLocalizedString(@"You need to allow calendar access from the Settings app first.", nil)];
                 return;
             }
 
-            EKEventEditViewController *viewController = [[EKEventEditViewController alloc] init];
-            viewController.editViewDelegate = self;
-            viewController.eventStore = store;
             EKEvent *event = [EKEvent eventWithEventStore:store];
             event.title = self.talk.title;
             event.location = NSLocalizedString(@"MiXiT", nil);
@@ -411,9 +413,25 @@
             event.URL = [NSURL URLWithString:@"https://mixitconf.org/"];
             event.startDate = self.talk.startDate;
             event.endDate = self.talk.endDate;
+            event.calendar = [store defaultCalendarForNewEvents];
+
+#if TARGET_OS_MACCATALYST
+            NSError *saveError = nil;
+            BOOL result = [store saveEvent:event span:EKSpanThisEvent commit:YES error:&saveError];
+            if (result) {
+                [self showAlertTitle:NSLocalizedString(@"Session Added to Calendar", nil) message:nil];
+            }
+            else {
+                [self showAlertTitle:NSLocalizedString(@"Cannot Add Session to Calendar", nil) message:saveError.localizedDescription];
+            }
+#else
+            EKEventEditViewController *viewController = [[EKEventEditViewController alloc] init];
+            viewController.editViewDelegate = self;
+            viewController.eventStore = store;
             viewController.event = event;
 
             [self presentViewController:viewController animated:YES completion:nil];
+#endif
         });
     }];
 }
