@@ -2,18 +2,20 @@
 
 ## Roadmap
 
-## 6.2 (work in progress)
+## 6.2
 
-- [x] Add Session to Calendar
-- [x] Share Session
-- [x] Fix launch screen Dark Mode support
+2021-04-30
+
+- **Mac version**
+- Add Session to Calendar
+- Share Session
+- Fix launch screen Dark Mode support
 
 
 ## 6.1
 
 2021-04-29
 
-- Mac version (not distributed)
 - Update in-app icons (SF Symbols)
 - Remove Twitter framework integration
 
