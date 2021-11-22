@@ -2,6 +2,12 @@
 
 ## Roadmap
 
+
+## 6.3
+
+- Optimized for iOS 15 and iPadOS 15
+
+
 ## 6.2
 
 2021-04-30
