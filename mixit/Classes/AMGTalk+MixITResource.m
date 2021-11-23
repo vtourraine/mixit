@@ -3,7 +3,7 @@
 //  mixit
 //
 //  Created by Vincent Tourraine on 01/05/14.
-//  Copyright (c) 2014-2018 Studio AMANgA. All rights reserved.
+//  Copyright (c) 2014-2021 Studio AMANgA. All rights reserved.
 //
 
 #import "AMGTalk+MixITResource.h"
@@ -63,12 +63,18 @@
         }
 
         NSString *identifier = [NSString stringWithFormat:@"%@", object[@"id"]];
-        NSPredicate *predicate  = [NSPredicate predicateWithFormat:@"identifier == %@", identifier];
-        AMGTalk *talk = [existingTalks filteredArrayUsingPredicate:predicate].lastObject;
+        NSUInteger index = [existingTalks indexOfObjectPassingTest:^BOOL(id _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            return [[obj identifier] isEqualToString:identifier];
+        }];
 
-        if (!talk) {
+        AMGTalk *talk = nil;
+
+        if (index == NSNotFound) {
             talk = (AMGTalk *)[NSEntityDescription insertNewObjectForEntityForName:AMGTalk.entityName inManagedObjectContext:context];
             talk.identifier = identifier;
+        }
+        else {
+            talk = existingTalks[index];
         }
 
         [talk updateWithAttributes:object];
