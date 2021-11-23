@@ -5,6 +5,8 @@
 
 ## 6.3
 
+2021-11-23
+
 - Optimized for iOS 15 and iPadOS 15
 
 
