@@ -187,7 +187,7 @@ NS_ENUM(NSUInteger, AMGMapRows) {
         [self presentViewController:viewController animated:YES completion:nil];
     }
     else {
-        [[UIApplication sharedApplication] openURL:URL];
+        [[UIApplication sharedApplication] openURL:URL options:@{} completionHandler:nil];
     }
 }
 
