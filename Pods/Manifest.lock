@@ -14,29 +14,25 @@ PODS:
   - AFNetworking/Serialization (4.0.1)
   - AFNetworking/UIKit (4.0.1):
     - AFNetworking/NSURLSession
-  - ISO8601DateFormatter (0.8)
   - SVProgressHUD (2.2.5)
   - VTAcknowledgementsViewController (2.0.1)
 
 DEPENDENCIES:
   - AFNetworking (~> 4)
-  - ISO8601DateFormatter
   - SVProgressHUD
   - VTAcknowledgementsViewController
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - AFNetworking
-    - ISO8601DateFormatter
     - SVProgressHUD
     - VTAcknowledgementsViewController
 
 SPEC CHECKSUMS:
   AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
-  ISO8601DateFormatter: 4551b6ce4f83185425f583b0b3feb3c7b59b942c
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   VTAcknowledgementsViewController: 2cae5539fb84081196ab00d267caad390f418ce6
 
-PODFILE CHECKSUM: 6d0a0571ee6f0d47c055afbd90fbb0b8b5d064fd
+PODFILE CHECKSUM: 398d1fc3c67abcdc3a2073669cae05225344449f
 
 COCOAPODS: 1.10.1

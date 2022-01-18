@@ -3,15 +3,13 @@
 //  mixit
 //
 //  Created by Vincent Tourraine on 01/05/14.
-//  Copyright (c) 2014-2021 Studio AMANgA. All rights reserved.
+//  Copyright (c) 2014-2022 Studio AMANgA. All rights reserved.
 //
 
 #import "AMGTalk+MixITResource.h"
 
 #import "AMGMixITClient.h"
 #import "NSObject+AMGParsing.h"
-
-#import <ISO8601DateFormatter.h>
 
 @implementation AMGTalk (MixITResource)
 
@@ -82,8 +80,11 @@
 }
 
 + (NSDate *)dateFromString:(NSString *)dateString {
-    ISO8601DateFormatter *dateFormatter = [[ISO8601DateFormatter alloc] init];
-    return [dateFormatter dateFromString:dateString];
+    NSISO8601DateFormatter *dateFormatter = [[NSISO8601DateFormatter alloc] init];
+    dateFormatter.formatOptions = NSISO8601DateFormatWithFullDate | NSISO8601DateFormatWithTime | NSISO8601DateFormatWithColonSeparatorInTime;
+    NSDate *date = [dateFormatter dateFromString:dateString];
+#warning Check time zone
+    return date;
 }
 
 @end
