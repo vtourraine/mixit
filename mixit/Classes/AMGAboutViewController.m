@@ -80,6 +80,7 @@ NS_ENUM(NSUInteger, AMGMapRows) {
 }
 
 - (void)loadNavigationItems {
+    // UIBarButtonSystemItemClose doesn’t render well with the dark navigation bar
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Close", nil) style:UIBarButtonItemStylePlain target:self action:@selector(dismiss:)];
 }
 
