@@ -5,6 +5,7 @@
 ## 7.0 (work in progress)
 
 - Update for 2022 edition
+- Require iOS 10
 
 
 ## 6.3
