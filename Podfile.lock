@@ -16,7 +16,7 @@ PODS:
     - AFNetworking/NSURLSession
   - ISO8601DateFormatter (0.8)
   - SVProgressHUD (2.2.5)
-  - VTAcknowledgementsViewController (2.0.0)
+  - VTAcknowledgementsViewController (2.0.1)
 
 DEPENDENCIES:
   - AFNetworking (~> 4)
@@ -35,8 +35,8 @@ SPEC CHECKSUMS:
   AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
   ISO8601DateFormatter: 4551b6ce4f83185425f583b0b3feb3c7b59b942c
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
-  VTAcknowledgementsViewController: 0a1eb608fcc5948b6bd5d4ac2f3c7dffef4aa11d
+  VTAcknowledgementsViewController: 2cae5539fb84081196ab00d267caad390f418ce6
 
 PODFILE CHECKSUM: dcfe68b21987bc9051af2fde620a2ca341992505
 
-COCOAPODS: 1.10.0
+COCOAPODS: 1.10.1

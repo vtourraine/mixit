@@ -2,6 +2,10 @@
 
 ## Roadmap
 
+## 7.0 (work in progress)
+
+- Update for 2022 edition
+
 
 ## 6.3
 
