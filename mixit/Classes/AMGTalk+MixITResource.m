@@ -82,8 +82,8 @@
 + (NSDate *)dateFromString:(NSString *)dateString {
     NSISO8601DateFormatter *dateFormatter = [[NSISO8601DateFormatter alloc] init];
     dateFormatter.formatOptions = NSISO8601DateFormatWithFullDate | NSISO8601DateFormatWithTime | NSISO8601DateFormatWithColonSeparatorInTime;
+    dateFormatter.timeZone = [NSTimeZone timeZoneWithAbbreviation:@"CET"];
     NSDate *date = [dateFormatter dateFromString:dateString];
-#warning Check time zone
     return date;
 }
 

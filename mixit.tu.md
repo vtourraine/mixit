@@ -6,7 +6,7 @@
 
 - Update for 2022 edition
 - Require iOS 10
-- Remove ISO8601DateFormatter (TODO: check time zone)
+- Remove ISO8601DateFormatter
 
 
 ## 6.3

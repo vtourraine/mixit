@@ -3,7 +3,7 @@
 //  mixit
 //
 //  Created by Vincent Tourraine on 01/05/14.
-//  Copyright (c) 2014-2021 Studio AMANgA. All rights reserved.
+//  Copyright (c) 2014-2022 Studio AMANgA. All rights reserved.
 //
 
 #import "AMGTalk.h"
@@ -15,6 +15,8 @@
 @interface AMGTalk (MixITResource)
 
 - (BOOL)updateWithAttributes:(nonnull NSDictionary *)attributes;
+
++ (NSDate *)dateFromString:(NSString *)dateString;
 
 + (nullable NSURLSessionDataTask *)fetchTalksWithClient:(nonnull AMGMixITClient *)client
                                                 forYear:(nonnull NSNumber *)year
