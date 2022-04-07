@@ -181,13 +181,36 @@
         [scrollView addSubview:timeLabel];
     }
 
-    AMGMember *speaker = self.talk.fetchSpeakers.firstObject;
+    UILayoutGuide *layoutGuide = self.view.readableContentGuide;
     const CGFloat speakerImageSize = 60;
-    UIImageView *speakerImageView = [self speakerImageViewWithSpeaker:speaker imageSize:speakerImageSize];
-    [scrollView addSubview:speakerImageView];
+    UIView *firstSpeakerView = nil;
+    UIView *lastSpeakerView = nil;
+    
+    for (AMGMember *speaker in self.talk.fetchSpeakers) {
+        UIImageView *speakerImageView = [self speakerImageViewWithSpeaker:speaker imageSize:speakerImageSize];
+        [scrollView addSubview:speakerImageView];
 
-    UILabel *speakerLabel = [self speakerLabelWithSpeaker:speaker infoLabelFontSize:infoLabelFontSize];
-    [scrollView addSubview:speakerLabel];
+        UILabel *speakerLabel = [self speakerLabelWithSpeaker:speaker infoLabelFontSize:infoLabelFontSize];
+        [scrollView addSubview:speakerLabel];
+
+        [[speakerImageView.widthAnchor constraintEqualToConstant:speakerImageSize] setActive:YES];
+        [[speakerImageView.heightAnchor constraintEqualToConstant:speakerImageSize] setActive:YES];
+
+        NSDictionary *speakerViews = NSDictionaryOfVariableBindings(self.view, speakerImageView, speakerLabel);
+        [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"[speakerImageView]-[speakerLabel]" options:NSLayoutFormatAlignAllCenterY metrics:@{} views:speakerViews]];
+        
+        [[layoutGuide.leadingAnchor constraintEqualToAnchor:speakerImageView.leadingAnchor] setActive:YES];
+        [[layoutGuide.trailingAnchor constraintEqualToAnchor:speakerLabel.trailingAnchor] setActive:YES];
+
+        if (firstSpeakerView == nil) {
+            firstSpeakerView = speakerImageView;
+        }
+        else {
+            [speakerImageView.topAnchor constraintEqualToAnchor:lastSpeakerView.bottomAnchor constant:8].active = YES;
+        }
+        
+        lastSpeakerView = speakerImageView;
+    }
 
     UILabel *summaryLabel = ({
         UILabel *label = [[UILabel alloc] init];
@@ -217,8 +240,8 @@
                                                          locationLabel,
                                                          timeImageView,
                                                          timeLabel,
-                                                         speakerImageView,
-                                                         speakerLabel,
+                                                         firstSpeakerView,
+                                                         lastSpeakerView,
                                                          summaryLabel,
                                                          descLabel);
 
@@ -240,25 +263,23 @@
     }
     [self.view addConstraints:equalWidthConstraints];
 
-    [[speakerImageView.widthAnchor constraintEqualToConstant:speakerImageSize] setActive:YES];
-    [[speakerImageView.heightAnchor constraintEqualToConstant:speakerImageSize] setActive:YES];
-
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"[speakerImageView]-[speakerLabel]" options:NSLayoutFormatAlignAllCenterY metrics:@{} views:views]];
-
+    
+    NSString *verticalFormatStart = @"V:|-20-[titleLabel]-20-[firstSpeakerView]";
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:verticalFormatStart options:kNilOptions metrics:@{} views:views]];
+    
     NSString *verticalFormat = nil;
     if (isOnlineEdition && !isPastYear) {
-        verticalFormat = @"V:|-20-[titleLabel]-20-[speakerImageView]-20-[formatLabel]-5-[timeImageView]-40-[summaryLabel]-20-[descLabel]-40-|";
+        verticalFormat = @"V:[lastSpeakerView]-20-[formatLabel]-5-[timeImageView]-40-[summaryLabel]-20-[descLabel]-40-|";
     }
     else if (isPastYear == NO) {
-        verticalFormat = @"V:|-20-[titleLabel]-20-[speakerImageView]-20-[formatLabel]-5-[locationImageView]-2-[timeImageView]-40-[summaryLabel]-20-[descLabel]-40-|";
+        verticalFormat = @"V:[lastSpeakerView]-20-[formatLabel]-5-[locationImageView]-2-[timeImageView]-40-[summaryLabel]-20-[descLabel]-40-|";
     }
     else {
-        verticalFormat = @"V:|-20-[titleLabel]-20-[speakerImageView]-20-[formatLabel]-40-[summaryLabel]-20-[descLabel]-40-|";
+        verticalFormat = @"V:[lastSpeakerView]-20-[formatLabel]-40-[summaryLabel]-20-[descLabel]-40-|";
     }
 
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:verticalFormat options:kNilOptions metrics:@{} views:views]];
 
-    UILayoutGuide *layoutGuide = self.view.readableContentGuide;
     [[layoutGuide.leadingAnchor constraintEqualToAnchor:titleLabel.leadingAnchor] setActive:YES];
     [[layoutGuide.trailingAnchor constraintEqualToAnchor:titleLabel.trailingAnchor] setActive:YES];
     [[layoutGuide.leadingAnchor constraintEqualToAnchor:formatLabel.leadingAnchor] setActive:YES];
@@ -267,8 +288,6 @@
     [[layoutGuide.trailingAnchor constraintEqualToAnchor:summaryLabel.trailingAnchor] setActive:YES];
     [[layoutGuide.leadingAnchor constraintEqualToAnchor:descLabel.leadingAnchor] setActive:YES];
     [[layoutGuide.trailingAnchor constraintEqualToAnchor:descLabel.trailingAnchor] setActive:YES];
-    [[layoutGuide.leadingAnchor constraintEqualToAnchor:speakerImageView.leadingAnchor] setActive:YES];
-    [[layoutGuide.trailingAnchor constraintEqualToAnchor:speakerLabel.trailingAnchor] setActive:YES];
 
     if (isOnlineEdition == NO && !isPastYear) {
         [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[locationImageView(==20)]-[locationLabel]" options:NSLayoutFormatAlignAllCenterY metrics:@{} views:views]];

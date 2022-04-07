@@ -5,7 +5,7 @@
 
 ## 7.1 (work in progress)
 
-- [ ] Support multiple speakers
+- [x] Support multiple speakers
 - [x] Restore map
 
 
