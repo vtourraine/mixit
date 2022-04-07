@@ -2,6 +2,13 @@
 
 ## Roadmap
 
+
+## 7.1 (work in progress)
+
+- [ ] Support multiple speakers
+- [x] Restore map
+
+
 ## 7.0 (work in progress)
 
 - Update for 2022 edition

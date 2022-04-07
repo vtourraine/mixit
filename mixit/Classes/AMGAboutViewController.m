@@ -3,7 +3,7 @@
 //  mixit
 //
 //  Created by Vincent Tourraine on 26/03/15.
-//  Copyright (c) 2015-2021 Studio AMANgA. All rights reserved.
+//  Copyright (c) 2015-2022 Studio AMANgA. All rights reserved.
 //
 
 #import "AMGAboutViewController.h"
@@ -21,18 +21,18 @@
 static NSString * const AMGButtonCellIdentifier = @"Cell";
 
 
-@interface AMGAboutViewController () <CLLocationManagerDelegate>
+@interface AMGAboutViewController ()//  <CLLocationManagerDelegate>
 
 @property (nonatomic, assign) CLLocationCoordinate2D coordinates;
 @property (nonatomic, strong) MKMapView *mapView;
-@property (nonatomic, strong) CLLocationManager *locationManager;
+// @property (nonatomic, strong) CLLocationManager *locationManager;
 @property (nonatomic, strong, nullable) NSArray <NSNumber *> *pastYears;
 
 @end
 
 
 NS_ENUM(NSUInteger, AMGAboutSections) {
-    // AMGAboutMapSection, // Hidden
+    AMGAboutMapSection,
     AMGAboutLinksSection,
     AMGAboutPastYearsSection
 };
@@ -102,7 +102,6 @@ NS_ENUM(NSUInteger, AMGMapRows) {
     dateLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     [headerView addSubview:dateLabel];
 
-    /*
     // CPE coordinates : 45.78392, 4.869014
     // Manufacture des Tabacs coordinates: 45.7481118, 4.8602011
     self.coordinates = CLLocationCoordinate2DMake(45.7481118, 4.8602011);
@@ -128,11 +127,8 @@ NS_ENUM(NSUInteger, AMGMapRows) {
     }
     topBorder.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     [headerView addSubview:topBorder];
-*/
 
-    // headerView.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.frame), CGRectGetMaxY(mapView.frame));
-    headerView.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.frame), CGRectGetMaxY(dateLabel.frame));
-
+    headerView.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.frame), CGRectGetMaxY(mapView.frame));
     self.tableView.tableHeaderView = headerView;
 }
 
@@ -194,13 +190,13 @@ NS_ENUM(NSUInteger, AMGMapRows) {
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 2;
+    return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     switch (section) {
-            // case AMGAboutMapSection:
-            // return 1;
+        case AMGAboutMapSection:
+            return 1;
 
         case AMGAboutLinksSection:
             return 1;
@@ -216,8 +212,7 @@ NS_ENUM(NSUInteger, AMGMapRows) {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:AMGButtonCellIdentifier forIndexPath:indexPath];
 
     switch (indexPath.section) {
-        /*
-         case AMGAboutMapSection: {
+        case AMGAboutMapSection: {
             switch (indexPath.row) {
                 case AMGMapOpenInMapsRow:
                     [self configureCell:cell forActionWithTitle:NSLocalizedString(@"Open in Maps", nil)];
@@ -229,7 +224,6 @@ NS_ENUM(NSUInteger, AMGMapRows) {
             }
             break;
         }
-         */
 
         case AMGAboutLinksSection:
             [self configureCell:cell forActionWithTitle:NSLocalizedString(@"Open MiXiT website", nil)];
@@ -270,8 +264,7 @@ NS_ENUM(NSUInteger, AMGMapRows) {
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.section) {
-        /*
-         case AMGAboutMapSection:
+        case AMGAboutMapSection:
             switch (indexPath.row) {
                 case AMGMapOpenInMapsRow:
                     [self openInMaps:nil];
@@ -282,7 +275,6 @@ NS_ENUM(NSUInteger, AMGMapRows) {
                     break;
             }
             break;
-         */
 
         case AMGAboutLinksSection:
             [self openInSafari:nil];
@@ -310,6 +302,7 @@ NS_ENUM(NSUInteger, AMGMapRows) {
     [self.navigationController pushViewController:viewController animated:YES];
 }
 
+/*
 #pragma mark - Location manager delegate
 
 - (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
@@ -317,5 +310,6 @@ NS_ENUM(NSUInteger, AMGMapRows) {
         self.mapView.showsUserLocation = YES;
     }
 }
+ */
 
 @end
