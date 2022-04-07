@@ -182,39 +182,11 @@
     }
 
     AMGMember *speaker = self.talk.fetchSpeakers.firstObject;
-
-    UIImageView *speakerImageView = ({
-        UIImage *image = nil;
-        if (@available(iOS 13.0, *)) {
-            image = [UIImage systemImageNamed:@"person.circle"];
-        } else {
-            image = [UIImage imageNamed:@"IconPerson"];
-        }
-        UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
-        imageView.translatesAutoresizingMaskIntoConstraints = NO;
-        imageView.contentMode = UIViewContentModeScaleAspectFit;
-        imageView;
-    });
-
-    if (speaker.photoURLString) {
-        [speakerImageView setImageWithURL:[NSURL URLWithString:speaker.photoURLString]];
-    }
-
+    const CGFloat speakerImageSize = 60;
+    UIImageView *speakerImageView = [self speakerImageViewWithSpeaker:speaker imageSize:speakerImageSize];
     [scrollView addSubview:speakerImageView];
 
-    UILabel *speakerLabel = ({
-        UILabel *label = [[UILabel alloc] init];
-        label.translatesAutoresizingMaskIntoConstraints = NO;
-        label.font = [UIFont systemFontOfSize:infoLabelFontSize];
-        label.numberOfLines = 0;
-        NSMutableAttributedString *text = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@ %@", speaker.firstName ?: @"", speaker.lastName ?: @""]];
-        if (speaker.company.length > 0) {
-            [text appendAttributedString:[[NSAttributedString alloc] initWithString:@"\n"]];
-            [text appendAttributedString:[[NSAttributedString alloc] initWithString:speaker.company attributes:@{NSFontAttributeName: [UIFont italicSystemFontOfSize:16]}]];
-        }
-        label.attributedText = text;
-        label;
-    });
+    UILabel *speakerLabel = [self speakerLabelWithSpeaker:speaker infoLabelFontSize:infoLabelFontSize];
     [scrollView addSubview:speakerLabel];
 
     UILabel *summaryLabel = ({
@@ -268,9 +240,6 @@
     }
     [self.view addConstraints:equalWidthConstraints];
 
-    const CGFloat speakerImageSize = 60;
-    speakerImageView.layer.cornerRadius = speakerImageSize / 2;
-    speakerImageView.clipsToBounds = YES;
     [[speakerImageView.widthAnchor constraintEqualToConstant:speakerImageSize] setActive:YES];
     [[speakerImageView.heightAnchor constraintEqualToConstant:speakerImageSize] setActive:YES];
 
@@ -314,6 +283,47 @@
         [[layoutGuide.leadingAnchor constraintEqualToAnchor:timeImageView.leadingAnchor] setActive:YES];
         [[layoutGuide.trailingAnchor constraintEqualToAnchor:timeLabel.trailingAnchor] setActive:YES];
     }
+}
+
+- (UIImageView *)speakerImageViewWithSpeaker:(AMGMember *)speaker imageSize:(CGFloat)imageSize {
+    UIImage *image = nil;
+    if (@available(iOS 13.0, *)) {
+        image = [UIImage systemImageNamed:@"person.circle"];
+    } else {
+        image = [UIImage imageNamed:@"IconPerson"];
+    }
+     
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
+    imageView.translatesAutoresizingMaskIntoConstraints = NO;
+    imageView.contentMode = UIViewContentModeScaleAspectFit;
+    imageView.layer.cornerRadius = imageSize / 2;
+    imageView.clipsToBounds = YES;
+    
+    if (speaker.photoURLString) {
+        [imageView setImageWithURL:[NSURL URLWithString:speaker.photoURLString]];
+    }
+    
+    return imageView;
+}
+
+- (UILabel *)speakerLabelWithSpeaker:(AMGMember *)speaker infoLabelFontSize:(CGFloat)infoLabelFontSize  {
+    UILabel *label = [[UILabel alloc] init];
+    label.translatesAutoresizingMaskIntoConstraints = NO;
+    label.font = [UIFont systemFontOfSize:infoLabelFontSize];
+    label.numberOfLines = 0;
+
+    NSPersonNameComponents *components = [[NSPersonNameComponents alloc] init];
+    components.familyName = speaker.lastName;
+    components.givenName = speaker.firstName;
+    NSString *formattedName = [NSPersonNameComponentsFormatter localizedStringFromPersonNameComponents:components style:NSPersonNameComponentsFormatterStyleLong options:kNilOptions];
+    NSMutableAttributedString *text = [[NSMutableAttributedString alloc] initWithString:formattedName];
+    if (speaker.company.length > 0) {
+        [text appendAttributedString:[[NSAttributedString alloc] initWithString:@"\n"]];
+        [text appendAttributedString:[[NSAttributedString alloc] initWithString:speaker.company attributes:@{NSFontAttributeName: [UIFont italicSystemFontOfSize:16]}]];
+    }
+    label.attributedText = text;
+    
+    return label;
 }
 
 - (void)loadBarButtonItems {
