@@ -9,7 +9,9 @@
 - [x] Restore map
 
 
-## 7.0 (work in progress)
+## 7.0
+
+2022-04-08
 
 - Update for 2022 edition
 - Require iOS 10
