@@ -79,7 +79,7 @@
 
     BOOL isUpcomingTalk = (talk.endDate != nil && [talk.endDate timeIntervalSinceNow] > 0);
     BOOL isMissingDetails = (talk.room == nil && talk.startDate == nil && talk.endDate == nil);
-    BOOL isInMaintenanceModeInBetweenEditions = YES; // Next year schedule isn’t available yet, so we keep all talks “active”
+    BOOL isInMaintenanceModeInBetweenEditions = NO; // Next year schedule isn’t available yet, so we keep all talks “active”
     BOOL isOnlineEdition = (isPastYear == NO);
 
     if (isPastYear == NO && isMissingDetails == NO && isUpcomingTalk == NO && isInMaintenanceModeInBetweenEditions == NO) {
