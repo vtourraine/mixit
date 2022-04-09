@@ -7,6 +7,7 @@
 
 - [x] Support multiple speakers
 - [x] Restore map
+- [x] Improve name formatting
 
 
 ## 7.0

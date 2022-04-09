@@ -307,7 +307,7 @@
 - (UIImageView *)speakerImageViewWithSpeaker:(AMGMember *)speaker imageSize:(CGFloat)imageSize {
     UIImage *image = nil;
     if (@available(iOS 13.0, *)) {
-        image = [UIImage systemImageNamed:@"person.circle"];
+        image = [UIImage systemImageNamed:@"person.crop.circle"];
     } else {
         image = [UIImage imageNamed:@"IconPerson"];
     }
@@ -332,8 +332,8 @@
     label.numberOfLines = 0;
 
     NSPersonNameComponents *components = [[NSPersonNameComponents alloc] init];
-    components.familyName = speaker.lastName;
-    components.givenName = speaker.firstName;
+    components.familyName = [speaker.lastName stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    components.givenName = [speaker.firstName stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
     NSString *formattedName = [NSPersonNameComponentsFormatter localizedStringFromPersonNameComponents:components style:NSPersonNameComponentsFormatterStyleLong options:kNilOptions];
     NSMutableAttributedString *text = [[NSMutableAttributedString alloc] initWithString:formattedName];
     if (speaker.company.length > 0) {
