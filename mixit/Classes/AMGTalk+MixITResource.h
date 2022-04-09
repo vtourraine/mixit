@@ -16,7 +16,7 @@
 
 - (BOOL)updateWithAttributes:(nonnull NSDictionary *)attributes;
 
-+ (NSDate *)dateFromString:(NSString *)dateString;
++ (nullable NSDate *)dateFromString:(nonnull NSString *)dateString;
 
 + (nullable NSURLSessionDataTask *)fetchTalksWithClient:(nonnull AMGMixITClient *)client
                                                 forYear:(nonnull NSNumber *)year
