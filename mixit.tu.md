@@ -3,11 +3,13 @@
 ## Roadmap
 
 
-## 7.1 (work in progress)
+## 7.1
 
-- [x] Support multiple speakers
-- [x] Restore map
-- [x] Improve name formatting
+2022-04-11
+
+- Support multiple speakers
+- Restore map
+- Improve name formatting
 
 
 ## 7.0
