@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "1FA55BC61911A5D2000260B3"
-               BuildableName = "mixit.app"
-               BlueprintName = "mixit"
+               BuildableName = "mixitLegacy.app"
+               BlueprintName = "mixitLegacy"
                ReferencedContainer = "container:mixit.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -31,8 +31,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1FA55BC61911A5D2000260B3"
-            BuildableName = "mixit.app"
-            BlueprintName = "mixit"
+            BuildableName = "mixitLegacy.app"
+            BlueprintName = "mixitLegacy"
             ReferencedContainer = "container:mixit.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -64,8 +64,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1FA55BC61911A5D2000260B3"
-            BuildableName = "mixit.app"
-            BlueprintName = "mixit"
+            BuildableName = "mixitLegacy.app"
+            BlueprintName = "mixitLegacy"
             ReferencedContainer = "container:mixit.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -81,8 +81,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1FA55BC61911A5D2000260B3"
-            BuildableName = "mixit.app"
-            BlueprintName = "mixit"
+            BuildableName = "mixitLegacy.app"
+            BlueprintName = "mixitLegacy"
             ReferencedContainer = "container:mixit.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

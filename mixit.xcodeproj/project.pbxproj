@@ -33,7 +33,7 @@
 		1FB9FE471CB6D88D0091374B /* AMGPlansViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FB9FE461CB6D88D0091374B /* AMGPlansViewController.m */; };
 		1FF320FB1AC4A0B000D1D4F6 /* AMGAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FF320FA1AC4A0B000D1D4F6 /* AMGAboutViewController.m */; };
 		1FF320FE1AC4A74400D1D4F6 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FF320FD1AC4A74400D1D4F6 /* MapKit.framework */; };
-		ABD106F7A55ADA9C8B5B2639 /* libPods-mixit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ABD96DC4BBE3A313840B8470 /* libPods-mixit.a */; };
+		808B71E45B11617513A607CE /* libPods-mixitLegacy.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F2C635512A5A43BC703D5D12 /* libPods-mixitLegacy.a */; };
 		D72338DA1F78F099006877C5 /* AMGTalksSearchResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D72338D91F78F099006877C5 /* AMGTalksSearchResultsViewController.m */; };
 		D72DB4571E5F451A0036EBEC /* UIColor+MiXiT.m in Sources */ = {isa = PBXBuildFile; fileRef = D72DB4561E5F451A0036EBEC /* UIColor+MiXiT.m */; };
 		D7F583F81E926BB800834740 /* Rooms.strings in Resources */ = {isa = PBXBuildFile; fileRef = D7F583FA1E926BB800834740 /* Rooms.strings */; };
@@ -50,6 +50,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		060ACA1AFA20284176B8A110 /* Pods-mixitLegacy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mixitLegacy.debug.xcconfig"; path = "Pods/Target Support Files/Pods-mixitLegacy/Pods-mixitLegacy.debug.xcconfig"; sourceTree = "<group>"; };
 		14727F3C1CB6B02D00C799E0 /* MapGeneral-1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "MapGeneral-1.jpg"; path = "Resources/MapGeneral-1.jpg"; sourceTree = "<group>"; };
 		14727F3D1CB6B02D00C799E0 /* MapGeneral.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = MapGeneral.jpg; path = Resources/MapGeneral.jpg; sourceTree = "<group>"; };
 		14727F3E1CB6B02D00C799E0 /* MapGeneral1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = MapGeneral1.jpg; path = Resources/MapGeneral1.jpg; sourceTree = "<group>"; };
@@ -77,7 +78,7 @@
 		1F5F2E201AD951660086ADFB /* mixit.tu.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = mixit.tu.md; sourceTree = SOURCE_ROOT; };
 		1F7F929F1CB01DFF009FA028 /* mixit-2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "mixit-2.xcdatamodel"; sourceTree = "<group>"; };
 		1FA12DEC220B4F390039A3DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		1FA55BC71911A5D2000260B3 /* mixit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mixit.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1FA55BC71911A5D2000260B3 /* mixitLegacy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mixitLegacy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FA55BD41911A5D3000260B3 /* mixit-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "mixit-Info.plist"; sourceTree = "<group>"; };
 		1FA55BD61911A5D3000260B3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1FA55BD81911A5D3000260B3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = main.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
@@ -99,9 +100,9 @@
 		1FF320F91AC4A0B000D1D4F6 /* AMGAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMGAboutViewController.h; path = Classes/AMGAboutViewController.h; sourceTree = "<group>"; };
 		1FF320FA1AC4A0B000D1D4F6 /* AMGAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMGAboutViewController.m; path = Classes/AMGAboutViewController.m; sourceTree = "<group>"; };
 		1FF320FD1AC4A74400D1D4F6 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		22D90C668B474B8DC2C5345B /* Pods-mixitLegacy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mixitLegacy.release.xcconfig"; path = "Pods/Target Support Files/Pods-mixitLegacy/Pods-mixitLegacy.release.xcconfig"; sourceTree = "<group>"; };
 		4B0AAF2D1FF122ED6BB98169 /* Pods-mixit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mixit.release.xcconfig"; path = "Pods/Target Support Files/Pods-mixit/Pods-mixit.release.xcconfig"; sourceTree = "<group>"; };
 		7F3F4EF32F91A53795BFC335 /* Pods-mixit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mixit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-mixit/Pods-mixit.debug.xcconfig"; sourceTree = "<group>"; };
-		ABD96DC4BBE3A313840B8470 /* libPods-mixit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-mixit.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D72338D81F78F099006877C5 /* AMGTalksSearchResultsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AMGTalksSearchResultsViewController.h; path = Classes/AMGTalksSearchResultsViewController.h; sourceTree = "<group>"; };
 		D72338D91F78F099006877C5 /* AMGTalksSearchResultsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AMGTalksSearchResultsViewController.m; path = Classes/AMGTalksSearchResultsViewController.m; sourceTree = "<group>"; };
 		D72DB4551E5F451A0036EBEC /* UIColor+MiXiT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+MiXiT.h"; path = "Classes/UIColor+MiXiT.h"; sourceTree = "<group>"; };
@@ -111,6 +112,7 @@
 		D7F583F91E926BB800834740 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Rooms.strings; sourceTree = "<group>"; };
 		D7F583FB1E926C2500834740 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Rooms.strings; sourceTree = "<group>"; };
 		D7FAF76B260A2DAB00DC6B7C /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
+		F2C635512A5A43BC703D5D12 /* libPods-mixitLegacy.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-mixitLegacy.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,7 +121,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1FF320FE1AC4A74400D1D4F6 /* MapKit.framework in Frameworks */,
-				ABD106F7A55ADA9C8B5B2639 /* libPods-mixit.a in Frameworks */,
+				808B71E45B11617513A607CE /* libPods-mixitLegacy.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,7 +203,7 @@
 		1FA55BBE1911A5D2000260B3 = {
 			isa = PBXGroup;
 			children = (
-				1FA55BD21911A5D3000260B3 /* mixit */,
+				1FA55BD21911A5D3000260B3 /* mixitLegacy */,
 				1FA55BEF1911A5D4000260B3 /* mixitTests */,
 				1FA55BC91911A5D2000260B3 /* Frameworks */,
 				1FA55BC81911A5D2000260B3 /* Products */,
@@ -212,7 +214,7 @@
 		1FA55BC81911A5D2000260B3 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1FA55BC71911A5D2000260B3 /* mixit.app */,
+				1FA55BC71911A5D2000260B3 /* mixitLegacy.app */,
 				1FA55BE71911A5D4000260B3 /* mixitTests.xctest */,
 			);
 			name = Products;
@@ -222,12 +224,12 @@
 			isa = PBXGroup;
 			children = (
 				1FF320FD1AC4A74400D1D4F6 /* MapKit.framework */,
-				ABD96DC4BBE3A313840B8470 /* libPods-mixit.a */,
+				F2C635512A5A43BC703D5D12 /* libPods-mixitLegacy.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		1FA55BD21911A5D3000260B3 /* mixit */ = {
+		1FA55BD21911A5D3000260B3 /* mixitLegacy */ = {
 			isa = PBXGroup;
 			children = (
 				D7F5094D2639411500C0C526 /* mixit.entitlements */,
@@ -244,7 +246,7 @@
 				1F7F929C1CAFBD45009FA028 /* LaunchScreen.storyboard */,
 				1FA55BD31911A5D3000260B3 /* Supporting Files */,
 			);
-			path = mixit;
+			path = mixitLegacy;
 			sourceTree = "<group>";
 		};
 		1FA55BD31911A5D3000260B3 /* Supporting Files */ = {
@@ -294,6 +296,8 @@
 			children = (
 				7F3F4EF32F91A53795BFC335 /* Pods-mixit.debug.xcconfig */,
 				4B0AAF2D1FF122ED6BB98169 /* Pods-mixit.release.xcconfig */,
+				060ACA1AFA20284176B8A110 /* Pods-mixitLegacy.debug.xcconfig */,
+				22D90C668B474B8DC2C5345B /* Pods-mixitLegacy.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -301,9 +305,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1FA55BC61911A5D2000260B3 /* mixit */ = {
+		1FA55BC61911A5D2000260B3 /* mixitLegacy */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1FA55BF91911A5D4000260B3 /* Build configuration list for PBXNativeTarget "mixit" */;
+			buildConfigurationList = 1FA55BF91911A5D4000260B3 /* Build configuration list for PBXNativeTarget "mixitLegacy" */;
 			buildPhases = (
 				3E680C329DB26D4AFA170E88 /* [CP] Check Pods Manifest.lock */,
 				1FA55BC31911A5D2000260B3 /* Sources */,
@@ -315,9 +319,9 @@
 			);
 			dependencies = (
 			);
-			name = mixit;
+			name = mixitLegacy;
 			productName = mixit;
-			productReference = 1FA55BC71911A5D2000260B3 /* mixit.app */;
+			productReference = 1FA55BC71911A5D2000260B3 /* mixitLegacy.app */;
 			productType = "com.apple.product-type.application";
 		};
 		1FA55BE61911A5D4000260B3 /* mixitTests */ = {
@@ -375,7 +379,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				1FA55BC61911A5D2000260B3 /* mixit */,
+				1FA55BC61911A5D2000260B3 /* mixitLegacy */,
 				1FA55BE61911A5D4000260B3 /* mixitTests */,
 			);
 		};
@@ -420,7 +424,7 @@
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-mixit-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-mixitLegacy-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -433,7 +437,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-mixit/Pods-mixit-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-mixitLegacy/Pods-mixitLegacy-resources.sh",
 				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
 				"${PODS_ROOT}/VTAcknowledgementsViewController/VTAcknowledgementsViewController.bundle",
 			);
@@ -444,7 +448,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-mixit/Pods-mixit-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-mixitLegacy/Pods-mixitLegacy-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -487,7 +491,7 @@
 /* Begin PBXTargetDependency section */
 		1FA55BEE1911A5D4000260B3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 1FA55BC61911A5D2000260B3 /* mixit */;
+			target = 1FA55BC61911A5D2000260B3 /* mixitLegacy */;
 			targetProxy = 1FA55BED1911A5D4000260B3 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -645,16 +649,16 @@
 		};
 		1FA55BFA1911A5D4000260B3 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7F3F4EF32F91A53795BFC335 /* Pods-mixit.debug.xcconfig */;
+			baseConfigurationReference = 060ACA1AFA20284176B8A110 /* Pods-mixitLegacy.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = mixit/mixit.entitlements;
+				CODE_SIGN_ENTITLEMENTS = mixitLegacy/mixit.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 43;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "mixit/mixit-Prefix.pch";
-				INFOPLIST_FILE = "mixit/mixit-Info.plist";
+				GCC_PREFIX_HEADER = "mixitLegacy/mixit-Prefix.pch";
+				INFOPLIST_FILE = "mixitLegacy/mixit-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MARKETING_VERSION = 7.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.studioamanga.$(PRODUCT_NAME:rfc1034identifier)";
@@ -668,16 +672,16 @@
 		};
 		1FA55BFB1911A5D4000260B3 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4B0AAF2D1FF122ED6BB98169 /* Pods-mixit.release.xcconfig */;
+			baseConfigurationReference = 22D90C668B474B8DC2C5345B /* Pods-mixitLegacy.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = mixit/mixit.entitlements;
+				CODE_SIGN_ENTITLEMENTS = mixitLegacy/mixit.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 43;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "mixit/mixit-Prefix.pch";
-				INFOPLIST_FILE = "mixit/mixit-Info.plist";
+				GCC_PREFIX_HEADER = "mixitLegacy/mixit-Prefix.pch";
+				INFOPLIST_FILE = "mixitLegacy/mixit-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MARKETING_VERSION = 7.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.studioamanga.$(PRODUCT_NAME:rfc1034identifier)";
@@ -692,13 +696,12 @@
 		1FA55BFD1911A5D4000260B3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/mixit.app/mixit";
+				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "mixit/mixit-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -706,7 +709,7 @@
 				INFOPLIST_FILE = "mixitTests/mixitTests-Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.studioamanga.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/mixitLegacy.app/mixitLegacy";
 				WRAPPER_EXTENSION = xctest;
 			};
 			name = Debug;
@@ -714,17 +717,16 @@
 		1FA55BFE1911A5D4000260B3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/mixit.app/mixit";
+				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "mixit/mixit-Prefix.pch";
 				INFOPLIST_FILE = "mixitTests/mixitTests-Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.studioamanga.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/mixitLegacy.app/mixitLegacy";
 				WRAPPER_EXTENSION = xctest;
 			};
 			name = Release;
@@ -741,7 +743,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1FA55BF91911A5D4000260B3 /* Build configuration list for PBXNativeTarget "mixit" */ = {
+		1FA55BF91911A5D4000260B3 /* Build configuration list for PBXNativeTarget "mixitLegacy" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1FA55BFA1911A5D4000260B3 /* Debug */,
