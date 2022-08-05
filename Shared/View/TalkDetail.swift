@@ -104,8 +104,10 @@ struct TalkDetail: View {
                 Button(action: { }) {
                     Label("Add to Calendar", systemImage: "calendar.badge.plus")
                 }
-                Button(action: { }) {
-                    Label("Add to Favorites", systemImage: "star")
+                Button(action: {
+                    talk.toggleFavorited()
+                }) {
+                    Label("Add to Favorites", systemImage: (talk.favorited?.boolValue ?? false) ? "star.fill" : "star")
                 }
                 Button(action: {
                     self.isSharePresented = true
@@ -126,8 +128,10 @@ struct TalkDetail: View {
                 }
             }
             ToolbarItem {
-                Button(action: { }) {
-                    Label("Add to Favorites", systemImage: "star")
+                Button(action: {
+                    talk.toggleFavorited()
+                }) {
+                    Label("Add to Favorites", systemImage: (talk.favorited?.boolValue ?? false) ? "star.fill" : "star")
                 }
             }
             ToolbarItem {

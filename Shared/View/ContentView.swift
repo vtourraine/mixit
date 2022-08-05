@@ -12,6 +12,8 @@ import CoreData
 struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext
 
+    @State private var showingInfo = false
+
     @SectionedFetchRequest<String, Talk>(
       // entity: Talk.entity(),
       sectionIdentifier: \.startDateString,
@@ -40,8 +42,25 @@ struct ContentView: View {
             .navigationTitle("MiXiT Schedule")
             .toolbar {
                 ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
+                    Button(action: {
+                        showingInfo.toggle()
+                    }, label: {
+                        Label("Info", systemImage: "info.circle")
+                    })
+                    .sheet(isPresented: $showingInfo) {
+                        NavigationView {
+                            VStack {
+                                InfoView()
+                            }
+                            .navigationTitle("About MiXiT")
+                            .toolbar {
+                                ToolbarItem {
+                                    Button("Close", action: {
+                                        showingInfo = false
+                                    })
+                                }
+                            }
+                        }
                     }
                 }
             }

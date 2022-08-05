@@ -82,21 +82,11 @@ extension Talk {
         }
 
         return speakers
-        /*
-        NSArray *identifiers = self.speakersIdentifiersArray;
-        NSMutableArray *speakers = [NSMutableArray arrayWithCapacity:identifiers.count];
+    }
 
-        for (NSString *identifier in identifiers) {
-            NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:AMGMember.entityName];
-            request.predicate = [NSPredicate predicateWithFormat:@"login == %@", identifier];
-            AMGMember *member = [self.managedObjectContext executeFetchRequest:request error:nil].lastObject;
-
-            if (member) {
-                [speakers addObject:member];
-            }
+    func toggleFavorited() {
+        if let favorited = favorited {
+            self.favorited = NSNumber(booleanLiteral: !favorited.boolValue)
         }
-
-        return speakers;
-         */
     }
 }

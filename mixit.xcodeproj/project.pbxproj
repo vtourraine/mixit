@@ -44,6 +44,10 @@
 		D7207A3B289D32A800D36F4A /* MemberHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7207A39289D32A800D36F4A /* MemberHelpers.swift */; };
 		D7207A3D289D32B200D36F4A /* UserResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7207A3C289D32B200D36F4A /* UserResource.swift */; };
 		D7207A3E289D32B200D36F4A /* UserResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7207A3C289D32B200D36F4A /* UserResource.swift */; };
+		D7207A43289D634600D36F4A /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7207A42289D634600D36F4A /* InfoView.swift */; };
+		D7207A44289D634600D36F4A /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7207A42289D634600D36F4A /* InfoView.swift */; };
+		D7207A45289D66DC00D36F4A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FA55BE11911A5D3000260B3 /* Images.xcassets */; };
+		D7207A46289D66DD00D36F4A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FA55BE11911A5D3000260B3 /* Images.xcassets */; };
 		D72338DA1F78F099006877C5 /* AMGTalksSearchResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D72338D91F78F099006877C5 /* AMGTalksSearchResultsViewController.m */; };
 		D72DB4571E5F451A0036EBEC /* UIColor+MiXiT.m in Sources */ = {isa = PBXBuildFile; fileRef = D72DB4561E5F451A0036EBEC /* UIColor+MiXiT.m */; };
 		D7683FCB289BE75D0000F388 /* MixitApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7683FB9289BE75C0000F388 /* MixitApp.swift */; };
@@ -130,6 +134,7 @@
 		D7207A36289CFDC000D36F4A /* TalkResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkResource.swift; sourceTree = "<group>"; };
 		D7207A39289D32A800D36F4A /* MemberHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberHelpers.swift; sourceTree = "<group>"; };
 		D7207A3C289D32B200D36F4A /* UserResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserResource.swift; sourceTree = "<group>"; };
+		D7207A42289D634600D36F4A /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
 		D72338D81F78F099006877C5 /* AMGTalksSearchResultsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AMGTalksSearchResultsViewController.h; path = Classes/AMGTalksSearchResultsViewController.h; sourceTree = "<group>"; };
 		D72338D91F78F099006877C5 /* AMGTalksSearchResultsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AMGTalksSearchResultsViewController.m; path = Classes/AMGTalksSearchResultsViewController.m; sourceTree = "<group>"; };
 		D72DB4551E5F451A0036EBEC /* UIColor+MiXiT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+MiXiT.h"; path = "Classes/UIColor+MiXiT.h"; sourceTree = "<group>"; };
@@ -401,6 +406,7 @@
 				D7683FBA289BE75C0000F388 /* ContentView.swift */,
 				D7683FE1289BECE20000F388 /* TalkRow.swift */,
 				D7207A2F289BEF9300D36F4A /* TalkDetail.swift */,
+				D7207A42289D634600D36F4A /* InfoView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -565,6 +571,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D7683FD1289BE75D0000F388 /* Assets.xcassets in Resources */,
+				D7207A46289D66DD00D36F4A /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -573,6 +580,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D7683FD2289BE75D0000F388 /* Assets.xcassets in Resources */,
+				D7207A45289D66DC00D36F4A /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -660,6 +668,7 @@
 				D7207A3A289D32A800D36F4A /* MemberHelpers.swift in Sources */,
 				D7683FCF289BE75D0000F388 /* Persistence.swift in Sources */,
 				D7683FDE289BEC3C0000F388 /* TalkHelpers.swift in Sources */,
+				D7207A43289D634600D36F4A /* InfoView.swift in Sources */,
 				D7683FD9289BE84F0000F388 /* mixit.xcdatamodeld in Sources */,
 				D7207A37289CFDC000D36F4A /* TalkResource.swift in Sources */,
 				D7683FCB289BE75D0000F388 /* MixitApp.swift in Sources */,
@@ -678,6 +687,7 @@
 				D7207A3B289D32A800D36F4A /* MemberHelpers.swift in Sources */,
 				D7683FD0289BE75D0000F388 /* Persistence.swift in Sources */,
 				D7683FDF289BEC3C0000F388 /* TalkHelpers.swift in Sources */,
+				D7207A44289D634600D36F4A /* InfoView.swift in Sources */,
 				D7683FDA289BE8500000F388 /* mixit.xcdatamodeld in Sources */,
 				D7207A38289CFDC000D36F4A /* TalkResource.swift in Sources */,
 				D7683FCC289BE75D0000F388 /* MixitApp.swift in Sources */,
