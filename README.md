@@ -3,6 +3,16 @@
 ![iPhone App](http://www.vtourraine.net/blog/img/2018/mixit-2018/iphone-x-screenshots-v4.png)
 
 
+## SwiftUI rewrite (work in progress)
+
+- [ ] Appearance colors
+- [ ] Search
+- [ ] Favorites
+- [ ] Add to calendar (swipe, toolbar button)
+- [ ] About screen
+- [ ] Localization
+
+
 ## Links
 
 Download the app on the [App Store and Mac App Store](https://apps.apple.com/app/mixit-conference/id982003173).

@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1FA55BC61911A5D2000260B3"
-               BuildableName = "mixitLegacy.app"
-               BlueprintName = "mixitLegacy"
+               BlueprintIdentifier = "D7683FC0289BE75D0000F388"
+               BuildableName = "Mixit.app"
+               BlueprintName = "Mixit (iOS)"
                ReferencedContainer = "container:mixit.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -27,26 +27,7 @@
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "1FA55BC61911A5D2000260B3"
-            BuildableName = "mixitLegacy.app"
-            BlueprintName = "mixitLegacy"
-            ReferencedContainer = "container:mixit.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1FA55BE61911A5D4000260B3"
-               BuildableName = "mixitTests.xctest"
-               BlueprintName = "mixitTests"
-               ReferencedContainer = "container:mixit.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
@@ -63,9 +44,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "1FA55BC61911A5D2000260B3"
-            BuildableName = "mixitLegacy.app"
-            BlueprintName = "mixitLegacy"
+            BlueprintIdentifier = "D7683FC0289BE75D0000F388"
+            BuildableName = "Mixit.app"
+            BlueprintName = "Mixit (iOS)"
             ReferencedContainer = "container:mixit.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -80,9 +61,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "1FA55BC61911A5D2000260B3"
-            BuildableName = "mixitLegacy.app"
-            BlueprintName = "mixitLegacy"
+            BlueprintIdentifier = "D7683FC0289BE75D0000F388"
+            BuildableName = "Mixit.app"
+            BlueprintName = "Mixit (iOS)"
             ReferencedContainer = "container:mixit.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

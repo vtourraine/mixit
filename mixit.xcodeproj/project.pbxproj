@@ -34,8 +34,32 @@
 		1FF320FB1AC4A0B000D1D4F6 /* AMGAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FF320FA1AC4A0B000D1D4F6 /* AMGAboutViewController.m */; };
 		1FF320FE1AC4A74400D1D4F6 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FF320FD1AC4A74400D1D4F6 /* MapKit.framework */; };
 		808B71E45B11617513A607CE /* libPods-mixitLegacy.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F2C635512A5A43BC703D5D12 /* libPods-mixitLegacy.a */; };
+		D7207A30289BEF9300D36F4A /* TalkDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7207A2F289BEF9300D36F4A /* TalkDetail.swift */; };
+		D7207A31289BEF9300D36F4A /* TalkDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7207A2F289BEF9300D36F4A /* TalkDetail.swift */; };
+		D7207A33289CFC6500D36F4A /* MixitClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7207A32289CFC6500D36F4A /* MixitClient.swift */; };
+		D7207A34289CFC6500D36F4A /* MixitClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7207A32289CFC6500D36F4A /* MixitClient.swift */; };
+		D7207A37289CFDC000D36F4A /* TalkResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7207A36289CFDC000D36F4A /* TalkResource.swift */; };
+		D7207A38289CFDC000D36F4A /* TalkResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7207A36289CFDC000D36F4A /* TalkResource.swift */; };
+		D7207A3A289D32A800D36F4A /* MemberHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7207A39289D32A800D36F4A /* MemberHelpers.swift */; };
+		D7207A3B289D32A800D36F4A /* MemberHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7207A39289D32A800D36F4A /* MemberHelpers.swift */; };
+		D7207A3D289D32B200D36F4A /* UserResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7207A3C289D32B200D36F4A /* UserResource.swift */; };
+		D7207A3E289D32B200D36F4A /* UserResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7207A3C289D32B200D36F4A /* UserResource.swift */; };
 		D72338DA1F78F099006877C5 /* AMGTalksSearchResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D72338D91F78F099006877C5 /* AMGTalksSearchResultsViewController.m */; };
 		D72DB4571E5F451A0036EBEC /* UIColor+MiXiT.m in Sources */ = {isa = PBXBuildFile; fileRef = D72DB4561E5F451A0036EBEC /* UIColor+MiXiT.m */; };
+		D7683FCB289BE75D0000F388 /* MixitApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7683FB9289BE75C0000F388 /* MixitApp.swift */; };
+		D7683FCC289BE75D0000F388 /* MixitApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7683FB9289BE75C0000F388 /* MixitApp.swift */; };
+		D7683FCD289BE75D0000F388 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7683FBA289BE75C0000F388 /* ContentView.swift */; };
+		D7683FCE289BE75D0000F388 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7683FBA289BE75C0000F388 /* ContentView.swift */; };
+		D7683FCF289BE75D0000F388 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7683FBB289BE75C0000F388 /* Persistence.swift */; };
+		D7683FD0289BE75D0000F388 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7683FBB289BE75C0000F388 /* Persistence.swift */; };
+		D7683FD1289BE75D0000F388 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D7683FBC289BE75D0000F388 /* Assets.xcassets */; };
+		D7683FD2289BE75D0000F388 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D7683FBC289BE75D0000F388 /* Assets.xcassets */; };
+		D7683FD9289BE84F0000F388 /* mixit.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1FA55BDE1911A5D3000260B3 /* mixit.xcdatamodeld */; };
+		D7683FDA289BE8500000F388 /* mixit.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1FA55BDE1911A5D3000260B3 /* mixit.xcdatamodeld */; };
+		D7683FDE289BEC3C0000F388 /* TalkHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7683FDD289BEC3C0000F388 /* TalkHelpers.swift */; };
+		D7683FDF289BEC3C0000F388 /* TalkHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7683FDD289BEC3C0000F388 /* TalkHelpers.swift */; };
+		D7683FE2289BECE20000F388 /* TalkRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7683FE1289BECE20000F388 /* TalkRow.swift */; };
+		D7683FE3289BECE20000F388 /* TalkRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7683FE1289BECE20000F388 /* TalkRow.swift */; };
 		D7F583F81E926BB800834740 /* Rooms.strings in Resources */ = {isa = PBXBuildFile; fileRef = D7F583FA1E926BB800834740 /* Rooms.strings */; };
 /* End PBXBuildFile section */
 
@@ -101,13 +125,26 @@
 		1FF320FA1AC4A0B000D1D4F6 /* AMGAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMGAboutViewController.m; path = Classes/AMGAboutViewController.m; sourceTree = "<group>"; };
 		1FF320FD1AC4A74400D1D4F6 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		22D90C668B474B8DC2C5345B /* Pods-mixitLegacy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mixitLegacy.release.xcconfig"; path = "Pods/Target Support Files/Pods-mixitLegacy/Pods-mixitLegacy.release.xcconfig"; sourceTree = "<group>"; };
-		4B0AAF2D1FF122ED6BB98169 /* Pods-mixit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mixit.release.xcconfig"; path = "Pods/Target Support Files/Pods-mixit/Pods-mixit.release.xcconfig"; sourceTree = "<group>"; };
-		7F3F4EF32F91A53795BFC335 /* Pods-mixit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mixit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-mixit/Pods-mixit.debug.xcconfig"; sourceTree = "<group>"; };
+		D7207A2F289BEF9300D36F4A /* TalkDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkDetail.swift; sourceTree = "<group>"; };
+		D7207A32289CFC6500D36F4A /* MixitClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixitClient.swift; sourceTree = "<group>"; };
+		D7207A36289CFDC000D36F4A /* TalkResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkResource.swift; sourceTree = "<group>"; };
+		D7207A39289D32A800D36F4A /* MemberHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberHelpers.swift; sourceTree = "<group>"; };
+		D7207A3C289D32B200D36F4A /* UserResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserResource.swift; sourceTree = "<group>"; };
 		D72338D81F78F099006877C5 /* AMGTalksSearchResultsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AMGTalksSearchResultsViewController.h; path = Classes/AMGTalksSearchResultsViewController.h; sourceTree = "<group>"; };
 		D72338D91F78F099006877C5 /* AMGTalksSearchResultsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AMGTalksSearchResultsViewController.m; path = Classes/AMGTalksSearchResultsViewController.m; sourceTree = "<group>"; };
 		D72DB4551E5F451A0036EBEC /* UIColor+MiXiT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+MiXiT.h"; path = "Classes/UIColor+MiXiT.h"; sourceTree = "<group>"; };
 		D72DB4561E5F451A0036EBEC /* UIColor+MiXiT.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+MiXiT.m"; path = "Classes/UIColor+MiXiT.m"; sourceTree = "<group>"; };
 		D759305720809B22007CFAFF /* mixit-3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "mixit-3.xcdatamodel"; sourceTree = "<group>"; };
+		D7683FB9289BE75C0000F388 /* MixitApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixitApp.swift; sourceTree = "<group>"; };
+		D7683FBA289BE75C0000F388 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		D7683FBB289BE75C0000F388 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		D7683FBC289BE75D0000F388 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D7683FC1289BE75D0000F388 /* Mixit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mixit.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D7683FC6289BE75D0000F388 /* Mixit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mixit.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D7683FC8289BE75D0000F388 /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
+		D7683FDC289BE8A80000F388 /* mixit-4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "mixit-4.xcdatamodel"; sourceTree = "<group>"; };
+		D7683FDD289BEC3C0000F388 /* TalkHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkHelpers.swift; sourceTree = "<group>"; };
+		D7683FE1289BECE20000F388 /* TalkRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkRow.swift; sourceTree = "<group>"; };
 		D7F5094D2639411500C0C526 /* mixit.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = mixit.entitlements; sourceTree = "<group>"; };
 		D7F583F91E926BB800834740 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Rooms.strings; sourceTree = "<group>"; };
 		D7F583FB1E926C2500834740 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Rooms.strings; sourceTree = "<group>"; };
@@ -126,6 +163,20 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		1FA55BE41911A5D4000260B3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D7683FBE289BE75D0000F388 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D7683FC3289BE75D0000F388 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -205,6 +256,8 @@
 			children = (
 				1FA55BD21911A5D3000260B3 /* mixitLegacy */,
 				1FA55BEF1911A5D4000260B3 /* mixitTests */,
+				D7683FB6289BE75C0000F388 /* Shared */,
+				D7683FC7289BE75D0000F388 /* macOS */,
 				1FA55BC91911A5D2000260B3 /* Frameworks */,
 				1FA55BC81911A5D2000260B3 /* Products */,
 				6159E7ADE6234583E477CFF1 /* Pods */,
@@ -216,6 +269,8 @@
 			children = (
 				1FA55BC71911A5D2000260B3 /* mixitLegacy.app */,
 				1FA55BE71911A5D4000260B3 /* mixitTests.xctest */,
+				D7683FC1289BE75D0000F388 /* Mixit.app */,
+				D7683FC6289BE75D0000F388 /* Mixit.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -242,7 +297,6 @@
 				1F42189319123DD4001AC572 /* Sync */,
 				1FA55BE11911A5D3000260B3 /* Images.xcassets */,
 				14727F3A1CB6B01E00C799E0 /* Resources */,
-				1FA55BDE1911A5D3000260B3 /* mixit.xcdatamodeld */,
 				1F7F929C1CAFBD45009FA028 /* LaunchScreen.storyboard */,
 				1FA55BD31911A5D3000260B3 /* Supporting Files */,
 			);
@@ -294,12 +348,61 @@
 		6159E7ADE6234583E477CFF1 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				7F3F4EF32F91A53795BFC335 /* Pods-mixit.debug.xcconfig */,
-				4B0AAF2D1FF122ED6BB98169 /* Pods-mixit.release.xcconfig */,
 				060ACA1AFA20284176B8A110 /* Pods-mixitLegacy.debug.xcconfig */,
 				22D90C668B474B8DC2C5345B /* Pods-mixitLegacy.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		D7207A35289CFC6B00D36F4A /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				D7207A32289CFC6500D36F4A /* MixitClient.swift */,
+				D7207A36289CFDC000D36F4A /* TalkResource.swift */,
+				D7207A3C289D32B200D36F4A /* UserResource.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		D7683FB6289BE75C0000F388 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				D7683FB9289BE75C0000F388 /* MixitApp.swift */,
+				D7683FDB289BE8830000F388 /* Model */,
+				D7207A35289CFC6B00D36F4A /* Network */,
+				D7683FE0289BECAF0000F388 /* View */,
+				D7683FBC289BE75D0000F388 /* Assets.xcassets */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		D7683FC7289BE75D0000F388 /* macOS */ = {
+			isa = PBXGroup;
+			children = (
+				D7683FC8289BE75D0000F388 /* macOS.entitlements */,
+			);
+			path = macOS;
+			sourceTree = "<group>";
+		};
+		D7683FDB289BE8830000F388 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D7683FBB289BE75C0000F388 /* Persistence.swift */,
+				D7683FDD289BEC3C0000F388 /* TalkHelpers.swift */,
+				D7207A39289D32A800D36F4A /* MemberHelpers.swift */,
+				1FA55BDE1911A5D3000260B3 /* mixit.xcdatamodeld */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D7683FE0289BECAF0000F388 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D7683FBA289BE75C0000F388 /* ContentView.swift */,
+				D7683FE1289BECE20000F388 /* TalkRow.swift */,
+				D7207A2F289BEF9300D36F4A /* TalkDetail.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -342,6 +445,40 @@
 			productReference = 1FA55BE71911A5D4000260B3 /* mixitTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		D7683FC0289BE75D0000F388 /* Mixit (iOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D7683FD3289BE75D0000F388 /* Build configuration list for PBXNativeTarget "Mixit (iOS)" */;
+			buildPhases = (
+				D7683FBD289BE75D0000F388 /* Sources */,
+				D7683FBE289BE75D0000F388 /* Frameworks */,
+				D7683FBF289BE75D0000F388 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Mixit (iOS)";
+			productName = "Mixit (iOS)";
+			productReference = D7683FC1289BE75D0000F388 /* Mixit.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D7683FC5289BE75D0000F388 /* Mixit (macOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D7683FD6289BE75D0000F388 /* Build configuration list for PBXNativeTarget "Mixit (macOS)" */;
+			buildPhases = (
+				D7683FC2289BE75D0000F388 /* Sources */,
+				D7683FC3289BE75D0000F388 /* Frameworks */,
+				D7683FC4289BE75D0000F388 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Mixit (macOS)";
+			productName = "Mixit (macOS)";
+			productReference = D7683FC6289BE75D0000F388 /* Mixit.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -349,7 +486,8 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = AMG;
-				LastUpgradeCheck = 1330;
+				LastSwiftUpdateCheck = 1340;
+				LastUpgradeCheck = 1340;
 				ORGANIZATIONNAME = "Studio AMANgA";
 				TargetAttributes = {
 					1FA55BC61911A5D2000260B3 = {
@@ -362,6 +500,16 @@
 					};
 					1FA55BE61911A5D4000260B3 = {
 						TestTargetID = 1FA55BC61911A5D2000260B3;
+					};
+					D7683FC0289BE75D0000F388 = {
+						CreatedOnToolsVersion = 13.4.1;
+						DevelopmentTeam = 77S3V3W24J;
+						ProvisioningStyle = Automatic;
+					};
+					D7683FC5289BE75D0000F388 = {
+						CreatedOnToolsVersion = 13.4.1;
+						DevelopmentTeam = 77S3V3W24J;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -381,6 +529,8 @@
 			targets = (
 				1FA55BC61911A5D2000260B3 /* mixitLegacy */,
 				1FA55BE61911A5D4000260B3 /* mixitTests */,
+				D7683FC0289BE75D0000F388 /* Mixit (iOS) */,
+				D7683FC5289BE75D0000F388 /* Mixit (macOS) */,
 			);
 		};
 /* End PBXProject section */
@@ -407,6 +557,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				1FA55BF41911A5D4000260B3 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D7683FBF289BE75D0000F388 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D7683FD1289BE75D0000F388 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D7683FC4289BE75D0000F388 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D7683FD2289BE75D0000F388 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -483,6 +649,42 @@
 			buildActionMask = 2147483647;
 			files = (
 				1FA55BF61911A5D4000260B3 /* mixitTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D7683FBD289BE75D0000F388 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D7207A30289BEF9300D36F4A /* TalkDetail.swift in Sources */,
+				D7207A3A289D32A800D36F4A /* MemberHelpers.swift in Sources */,
+				D7683FCF289BE75D0000F388 /* Persistence.swift in Sources */,
+				D7683FDE289BEC3C0000F388 /* TalkHelpers.swift in Sources */,
+				D7683FD9289BE84F0000F388 /* mixit.xcdatamodeld in Sources */,
+				D7207A37289CFDC000D36F4A /* TalkResource.swift in Sources */,
+				D7683FCB289BE75D0000F388 /* MixitApp.swift in Sources */,
+				D7683FE2289BECE20000F388 /* TalkRow.swift in Sources */,
+				D7207A3D289D32B200D36F4A /* UserResource.swift in Sources */,
+				D7207A33289CFC6500D36F4A /* MixitClient.swift in Sources */,
+				D7683FCD289BE75D0000F388 /* ContentView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D7683FC2289BE75D0000F388 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D7207A31289BEF9300D36F4A /* TalkDetail.swift in Sources */,
+				D7207A3B289D32A800D36F4A /* MemberHelpers.swift in Sources */,
+				D7683FD0289BE75D0000F388 /* Persistence.swift in Sources */,
+				D7683FDF289BEC3C0000F388 /* TalkHelpers.swift in Sources */,
+				D7683FDA289BE8500000F388 /* mixit.xcdatamodeld in Sources */,
+				D7207A38289CFDC000D36F4A /* TalkResource.swift in Sources */,
+				D7683FCC289BE75D0000F388 /* MixitApp.swift in Sources */,
+				D7683FE3289BECE20000F388 /* TalkRow.swift in Sources */,
+				D7207A3E289D32B200D36F4A /* UserResource.swift in Sources */,
+				D7207A34289CFC6500D36F4A /* MixitClient.swift in Sources */,
+				D7683FCE289BE75D0000F388 /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -575,6 +777,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_PREVIEWS = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -592,7 +795,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -631,6 +834,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_PREVIEWS = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -640,8 +844,9 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -659,7 +864,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "mixitLegacy/mixit-Prefix.pch";
 				INFOPLIST_FILE = "mixitLegacy/mixit-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MARKETING_VERSION = 7.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.studioamanga.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -682,7 +887,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "mixitLegacy/mixit-Prefix.pch";
 				INFOPLIST_FILE = "mixitLegacy/mixit-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MARKETING_VERSION = 7.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.studioamanga.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -731,6 +936,159 @@
 			};
 			name = Release;
 		};
+		D7683FD4289BE75D0000F388 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 77S3V3W24J;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.studioamanga.mixit;
+				PRODUCT_NAME = Mixit;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D7683FD5289BE75D0000F388 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 77S3V3W24J;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.studioamanga.mixit;
+				PRODUCT_NAME = Mixit;
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D7683FD7289BE75D0000F388 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 77S3V3W24J;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2022 Studio AMANgA. All rights reserved.";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.studioamanga.mixit;
+				PRODUCT_NAME = Mixit;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		D7683FD8289BE75D0000F388 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 77S3V3W24J;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2022 Studio AMANgA. All rights reserved.";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.studioamanga.mixit;
+				PRODUCT_NAME = Mixit;
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -761,17 +1119,36 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		D7683FD3289BE75D0000F388 /* Build configuration list for PBXNativeTarget "Mixit (iOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D7683FD4289BE75D0000F388 /* Debug */,
+				D7683FD5289BE75D0000F388 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D7683FD6289BE75D0000F388 /* Build configuration list for PBXNativeTarget "Mixit (macOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D7683FD7289BE75D0000F388 /* Debug */,
+				D7683FD8289BE75D0000F388 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
 		1FA55BDE1911A5D3000260B3 /* mixit.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				D7683FDC289BE8A80000F388 /* mixit-4.xcdatamodel */,
 				D759305720809B22007CFAFF /* mixit-3.xcdatamodel */,
 				1F7F929F1CB01DFF009FA028 /* mixit-2.xcdatamodel */,
 				1FA55BDF1911A5D3000260B3 /* mixit.xcdatamodel */,
 			);
-			currentVersion = D759305720809B22007CFAFF /* mixit-3.xcdatamodel */;
+			currentVersion = D7683FDC289BE8A80000F388 /* mixit-4.xcdatamodel */;
 			path = mixit.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
