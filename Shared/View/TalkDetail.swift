@@ -7,8 +7,6 @@
 //
 
 import SwiftUI
-import EventKit
-import EventKitUI
 
 struct TalkDetail: View {
     let nameFormatter = PersonNameComponentsFormatter()

@@ -13,12 +13,28 @@ struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext
 
     @State private var showingInfo = false
+    @State private var searchText = ""
+    var searchQuery: Binding<String> {
+      Binding {
+        searchText
+      } set: { newValue in
+        searchText = newValue
+
+        guard !newValue.isEmpty else {
+          talks.nsPredicate = nil
+          return
+        }
+
+        talks.nsPredicate = NSPredicate(format: "%K contains[cd] %@ OR %K contains[cd] %@", #keyPath(Talk.title), newValue, #keyPath(Talk.summary), newValue)
+      }
+    }
 
     @SectionedFetchRequest<String, Talk>(
       // entity: Talk.entity(),
       sectionIdentifier: \.startDateString,
       sortDescriptors: [SortDescriptor(\.startDate, order: .forward)]
     ) var talks: SectionedFetchResults<String, Talk>
+
     private var dateFormatter = DateFormatter()
 
     var body: some View {
@@ -36,6 +52,7 @@ struct ContentView: View {
                     }
                 }
             }
+            .searchable(text: searchQuery)
 #if os(iOS)
             .listStyle(.plain)
 #endif

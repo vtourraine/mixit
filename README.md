@@ -6,11 +6,11 @@
 ## SwiftUI rewrite (work in progress)
 
 - [ ] Appearance colors
-- [ ] Search
-- [ ] Favorites
-- [ ] Add to calendar (swipe, toolbar button)
+- [x] Search
+- [x] Favorites
 - [ ] About screen
 - [ ] Localization
+- [ ] Add to calendar: unable to implement it at the moment
 
 
 ## Links
