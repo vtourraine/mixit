@@ -2,14 +2,15 @@
 //  TalkRaw.swift
 //  mixit
 //
-//  Created by Tourraine, Vincent (ELS-HBE) on 04/08/2022.
+//  Created by Vincent Tourraine on 04/08/2022.
 //  Copyright © 2022 Studio AMANgA. All rights reserved.
 //
 
 import SwiftUI
 
 struct TalkRow: View {
-    var talk: Talk
+    @ObservedObject var talk: Talk
+
     var subtitle: String {
         get {
             var text = ""

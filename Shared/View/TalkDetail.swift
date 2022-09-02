@@ -2,11 +2,13 @@
 //  TalkDetail.swift
 //  mixit
 //
-//  Created by Tourraine, Vincent (ELS-HBE) on 04/08/2022.
+//  Created by Vincent Tourraine on 04/08/2022.
 //  Copyright © 2022 Studio AMANgA. All rights reserved.
 //
 
 import SwiftUI
+import EventKit
+import EventKitUI
 
 struct TalkDetail: View {
     let nameFormatter = PersonNameComponentsFormatter()
@@ -15,7 +17,9 @@ struct TalkDetail: View {
         formatter.dateStyle = .none
         return formatter
     }()
-    var talk: Talk
+
+    @ObservedObject var talk: Talk
+
     var shareItems: [Any] {
         get {
             if let title = talk.title, let year = talk.year,
@@ -101,9 +105,6 @@ struct TalkDetail: View {
         .toolbar {
 #if os(iOS)
             ToolbarItemGroup(placement: .navigationBarTrailing) {
-                Button(action: { }) {
-                    Label("Add to Calendar", systemImage: "calendar.badge.plus")
-                }
                 Button(action: {
                     talk.toggleFavorited()
                 }) {
@@ -122,11 +123,6 @@ struct TalkDetail: View {
             }
 #endif
 #if os(macOS)
-            ToolbarItem {
-                Button(action: { }) {
-                    Label("Add to Calendar", systemImage: "calendar.badge.plus")
-                }
-            }
             ToolbarItem {
                 Button(action: {
                     talk.toggleFavorited()
@@ -196,11 +192,8 @@ struct SharingsPicker: NSViewRepresentable {
         }
 
         func sharingServicePicker(_ sharingServicePicker: NSSharingServicePicker, didChoose service: NSSharingService?) {
-
-            // do here whatever more needed here with selected service
-
-            sharingServicePicker.delegate = nil   // << cleanup
-            self.owner.isPresented = false        // << dismiss
+            sharingServicePicker.delegate = nil
+            self.owner.isPresented = false
         }
     }
 }

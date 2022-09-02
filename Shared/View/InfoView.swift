@@ -2,7 +2,7 @@
 //  InfoView.swift
 //  mixit
 //
-//  Created by Tourraine, Vincent (ELS-HBE) on 05/08/2022.
+//  Created by Vincent Tourraine on 05/08/2022.
 //  Copyright © 2022 Studio AMANgA. All rights reserved.
 //
 
