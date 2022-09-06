@@ -8,9 +8,10 @@
 - [ ] Appearance colors
 - [x] Search
 - [x] Favorites
-- [ ] About screen
+- [x] About screen
 - [ ] Localization
 - [ ] Add to calendar: unable to implement it at the moment
+- [ ] Previous editions
 
 
 ## Links
