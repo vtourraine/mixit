@@ -57,6 +57,7 @@ class MixitClient {
                 let objects = try self.decoder.decode([TalkResponse].self, from: data)
                 DispatchQueue.main.async {
                     self.context?.update(with: objects)
+                    try? self.context?.save()
                 }
             }
             catch {
@@ -86,6 +87,7 @@ class MixitClient {
                 let objects = try self.decoder.decode([UserResponse].self, from: data)
                 DispatchQueue.main.async {
                     self.context?.update(with: objects)
+                    try? self.context?.save()
                 }
             }
             catch {

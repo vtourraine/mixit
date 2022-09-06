@@ -67,6 +67,8 @@
 		D7FAFABD28C785EB0010D0C2 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FAFABB28C785EB0010D0C2 /* Color.swift */; };
 		D7FAFAC128C78F0A0010D0C2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D7FAFAC428C78F0A0010D0C2 /* Localizable.strings */; };
 		D7FAFAC228C78F0A0010D0C2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D7FAFAC428C78F0A0010D0C2 /* Localizable.strings */; };
+		D7FAFAC928C798B70010D0C2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D7FAFACC28C798B70010D0C2 /* InfoPlist.strings */; };
+		D7FAFACA28C798B70010D0C2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D7FAFACC28C798B70010D0C2 /* InfoPlist.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -147,7 +149,7 @@
 		D7683FBB289BE75C0000F388 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		D7683FBC289BE75D0000F388 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D7683FC1289BE75D0000F388 /* Mixit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mixit.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		D7683FC6289BE75D0000F388 /* Mixit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mixit.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D7683FC6289BE75D0000F388 /* MiXiT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiXiT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7683FC8289BE75D0000F388 /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
 		D7683FDC289BE8A80000F388 /* mixit-4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "mixit-4.xcdatamodel"; sourceTree = "<group>"; };
 		D7683FDD289BEC3C0000F388 /* TalkHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkHelpers.swift; sourceTree = "<group>"; };
@@ -159,6 +161,8 @@
 		D7FAFABB28C785EB0010D0C2 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		D7FAFAC328C78F0A0010D0C2 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D7FAFAC528C78F1A0010D0C2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D7FAFACB28C798B70010D0C2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D7FAFACD28C798BD0010D0C2 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		F2C635512A5A43BC703D5D12 /* libPods-mixitLegacy.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-mixitLegacy.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -280,7 +284,7 @@
 				1FA55BC71911A5D2000260B3 /* mixitLegacy.app */,
 				1FA55BE71911A5D4000260B3 /* mixitTests.xctest */,
 				D7683FC1289BE75D0000F388 /* Mixit.app */,
-				D7683FC6289BE75D0000F388 /* Mixit.app */,
+				D7683FC6289BE75D0000F388 /* MiXiT.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -383,6 +387,7 @@
 				D7683FE0289BECAF0000F388 /* View */,
 				D7683FBC289BE75D0000F388 /* Assets.xcassets */,
 				D7FAFAC428C78F0A0010D0C2 /* Localizable.strings */,
+				D7FAFACC28C798B70010D0C2 /* InfoPlist.strings */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -489,7 +494,7 @@
 			);
 			name = "Mixit (macOS)";
 			productName = "Mixit (macOS)";
-			productReference = D7683FC6289BE75D0000F388 /* Mixit.app */;
+			productReference = D7683FC6289BE75D0000F388 /* MiXiT.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -578,6 +583,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D7683FD1289BE75D0000F388 /* Assets.xcassets in Resources */,
+				D7FAFAC928C798B70010D0C2 /* InfoPlist.strings in Resources */,
 				D7FAFAC128C78F0A0010D0C2 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -587,6 +593,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D7683FD2289BE75D0000F388 /* Assets.xcassets in Resources */,
+				D7FAFACA28C798B70010D0C2 /* InfoPlist.strings in Resources */,
 				D7FAFAC228C78F0A0010D0C2 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -769,6 +776,15 @@
 				D7FAFAC528C78F1A0010D0C2 /* en */,
 			);
 			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		D7FAFACC28C798B70010D0C2 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D7FAFACB28C798B70010D0C2 /* en */,
+				D7FAFACD28C798BD0010D0C2 /* fr */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -1070,7 +1086,7 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.studioamanga.mixit;
-				PRODUCT_NAME = Mixit;
+				PRODUCT_NAME = MiXiT;
 				SDKROOT = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1109,7 +1125,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.studioamanga.mixit;
-				PRODUCT_NAME = Mixit;
+				PRODUCT_NAME = MiXiT;
 				SDKROOT = macosx;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
