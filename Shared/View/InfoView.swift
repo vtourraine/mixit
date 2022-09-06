@@ -25,10 +25,16 @@ struct InfoView: View {
                     .frame(height: 200)
                 Button("Open in Maps") {
                     openInMaps()
-                }.buttonStyle(.bordered)
+                }
+                .buttonStyle(.borderedProminent)
+                .tint(Color("Orange"))
+                .foregroundColor(Color("Purple"))
                 Button("Open MiXiT website") {
                     openWebsite()
-                }.buttonStyle(.bordered)
+                }
+                .buttonStyle(.borderedProminent)
+                .tint(Color("Orange"))
+                .foregroundColor(Color("Purple"))
                 Spacer()
                 HStack {
                     Text("This app isn’t affiliated with the MiXiT team.\nMade by @vtourraine.")

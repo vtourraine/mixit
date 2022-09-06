@@ -5,7 +5,7 @@
 
 ## SwiftUI rewrite (work in progress)
 
-- [ ] Appearance colors
+- [x] Appearance colors
 - [x] Search
 - [x] Favorites
 - [x] About screen
