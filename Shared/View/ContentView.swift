@@ -48,6 +48,12 @@ struct ContentView: View {
                             } label: {
                                 TalkRow(talk: talk)
                             }
+                            .swipeActions {
+                                Button(talk.isFavorited ? "Remove from Favorites" : "Add to Favorites") {
+                                    talk.toggleFavorited()
+                                }
+                                .tint(.mixitOrange)
+                            }
                         }
                     }
                 }

@@ -106,7 +106,7 @@ struct TalkDetail: View {
                 Button(action: {
                     talk.toggleFavorited()
                 }) {
-                    Label("Add to Favorites", systemImage: (talk.favorited?.boolValue ?? false) ? "star.fill" : "star")
+                    Label(talk.isFavorited ? "Remove from Favorites" : "Add to Favorites", systemImage: talk.isFavorited ? "star.fill" : "star")
                 }
                 Button(action: {
                     self.isSharePresented = true

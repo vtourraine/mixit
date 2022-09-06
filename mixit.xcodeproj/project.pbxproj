@@ -65,6 +65,8 @@
 		D7683FE2289BECE20000F388 /* TalkRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7683FE1289BECE20000F388 /* TalkRow.swift */; };
 		D7683FE3289BECE20000F388 /* TalkRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7683FE1289BECE20000F388 /* TalkRow.swift */; };
 		D7F583F81E926BB800834740 /* Rooms.strings in Resources */ = {isa = PBXBuildFile; fileRef = D7F583FA1E926BB800834740 /* Rooms.strings */; };
+		D7FAFABC28C785EB0010D0C2 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FAFABB28C785EB0010D0C2 /* Color.swift */; };
+		D7FAFABD28C785EB0010D0C2 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FAFABB28C785EB0010D0C2 /* Color.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -154,6 +156,7 @@
 		D7F583F91E926BB800834740 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Rooms.strings; sourceTree = "<group>"; };
 		D7F583FB1E926C2500834740 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Rooms.strings; sourceTree = "<group>"; };
 		D7FAF76B260A2DAB00DC6B7C /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
+		D7FAFABB28C785EB0010D0C2 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		F2C635512A5A43BC703D5D12 /* libPods-mixitLegacy.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-mixitLegacy.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -407,6 +410,7 @@
 				D7683FE1289BECE20000F388 /* TalkRow.swift */,
 				D7207A2F289BEF9300D36F4A /* TalkDetail.swift */,
 				D7207A42289D634600D36F4A /* InfoView.swift */,
+				D7FAFABB28C785EB0010D0C2 /* Color.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -668,6 +672,7 @@
 				D7207A3A289D32A800D36F4A /* MemberHelpers.swift in Sources */,
 				D7683FCF289BE75D0000F388 /* Persistence.swift in Sources */,
 				D7683FDE289BEC3C0000F388 /* TalkHelpers.swift in Sources */,
+				D7FAFABC28C785EB0010D0C2 /* Color.swift in Sources */,
 				D7207A43289D634600D36F4A /* InfoView.swift in Sources */,
 				D7683FD9289BE84F0000F388 /* mixit.xcdatamodeld in Sources */,
 				D7207A37289CFDC000D36F4A /* TalkResource.swift in Sources */,
@@ -687,6 +692,7 @@
 				D7207A3B289D32A800D36F4A /* MemberHelpers.swift in Sources */,
 				D7683FD0289BE75D0000F388 /* Persistence.swift in Sources */,
 				D7683FDF289BEC3C0000F388 /* TalkHelpers.swift in Sources */,
+				D7FAFABD28C785EB0010D0C2 /* Color.swift in Sources */,
 				D7207A44289D634600D36F4A /* InfoView.swift in Sources */,
 				D7683FDA289BE8500000F388 /* mixit.xcdatamodeld in Sources */,
 				D7207A38289CFDC000D36F4A /* TalkResource.swift in Sources */,

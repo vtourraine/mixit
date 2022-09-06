@@ -89,4 +89,8 @@ extension Talk {
             self.favorited = NSNumber(booleanLiteral: !favorited.boolValue)
         }
     }
+
+    var isFavorited: Bool {
+        return favorited?.boolValue ?? false
+    }
 }
