@@ -46,8 +46,6 @@
 		D7207A3E289D32B200D36F4A /* UserResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7207A3C289D32B200D36F4A /* UserResource.swift */; };
 		D7207A43289D634600D36F4A /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7207A42289D634600D36F4A /* InfoView.swift */; };
 		D7207A44289D634600D36F4A /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7207A42289D634600D36F4A /* InfoView.swift */; };
-		D7207A45289D66DC00D36F4A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FA55BE11911A5D3000260B3 /* Images.xcassets */; };
-		D7207A46289D66DD00D36F4A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FA55BE11911A5D3000260B3 /* Images.xcassets */; };
 		D72338DA1F78F099006877C5 /* AMGTalksSearchResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D72338D91F78F099006877C5 /* AMGTalksSearchResultsViewController.m */; };
 		D72DB4571E5F451A0036EBEC /* UIColor+MiXiT.m in Sources */ = {isa = PBXBuildFile; fileRef = D72DB4561E5F451A0036EBEC /* UIColor+MiXiT.m */; };
 		D7683FCB289BE75D0000F388 /* MixitApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7683FB9289BE75C0000F388 /* MixitApp.swift */; };
@@ -67,6 +65,8 @@
 		D7F583F81E926BB800834740 /* Rooms.strings in Resources */ = {isa = PBXBuildFile; fileRef = D7F583FA1E926BB800834740 /* Rooms.strings */; };
 		D7FAFABC28C785EB0010D0C2 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FAFABB28C785EB0010D0C2 /* Color.swift */; };
 		D7FAFABD28C785EB0010D0C2 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FAFABB28C785EB0010D0C2 /* Color.swift */; };
+		D7FAFAC128C78F0A0010D0C2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D7FAFAC428C78F0A0010D0C2 /* Localizable.strings */; };
+		D7FAFAC228C78F0A0010D0C2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D7FAFAC428C78F0A0010D0C2 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -157,6 +157,8 @@
 		D7F583FB1E926C2500834740 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Rooms.strings; sourceTree = "<group>"; };
 		D7FAF76B260A2DAB00DC6B7C /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		D7FAFABB28C785EB0010D0C2 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		D7FAFAC328C78F0A0010D0C2 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D7FAFAC528C78F1A0010D0C2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F2C635512A5A43BC703D5D12 /* libPods-mixitLegacy.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-mixitLegacy.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -380,6 +382,7 @@
 				D7207A35289CFC6B00D36F4A /* Network */,
 				D7683FE0289BECAF0000F388 /* View */,
 				D7683FBC289BE75D0000F388 /* Assets.xcassets */,
+				D7FAFAC428C78F0A0010D0C2 /* Localizable.strings */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -575,7 +578,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D7683FD1289BE75D0000F388 /* Assets.xcassets in Resources */,
-				D7207A46289D66DD00D36F4A /* Images.xcassets in Resources */,
+				D7FAFAC128C78F0A0010D0C2 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -584,7 +587,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D7683FD2289BE75D0000F388 /* Assets.xcassets in Resources */,
-				D7207A45289D66DC00D36F4A /* Images.xcassets in Resources */,
+				D7FAFAC228C78F0A0010D0C2 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -757,6 +760,15 @@
 				D7F583FB1E926C2500834740 /* fr */,
 			);
 			name = Rooms.strings;
+			sourceTree = "<group>";
+		};
+		D7FAFAC428C78F0A0010D0C2 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D7FAFAC328C78F0A0010D0C2 /* fr */,
+				D7FAFAC528C78F1A0010D0C2 /* en */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

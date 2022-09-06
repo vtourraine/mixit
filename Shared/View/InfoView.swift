@@ -17,6 +17,8 @@ struct InfoView: View {
             VStack(alignment: .center, spacing: 20) {
                 Spacer()
                 Image("Logo")
+                    .resizable()
+                    .frame(width: 160, height: 38)
                 Text("May 24 & 25, 2022\nLyon, France")
                     .fixedSize(horizontal: false, vertical: true)
                     .font(.headline)
@@ -26,15 +28,13 @@ struct InfoView: View {
                 Button("Open in Maps") {
                     openInMaps()
                 }
-                .buttonStyle(.borderedProminent)
-                .tint(Color("Orange"))
-                .foregroundColor(Color("Purple"))
+                .buttonStyle(.bordered)
+                .foregroundColor(.mixitPurple)
                 Button("Open MiXiT website") {
                     openWebsite()
                 }
-                .buttonStyle(.borderedProminent)
-                .tint(Color("Orange"))
-                .foregroundColor(Color("Purple"))
+                .buttonStyle(.bordered)
+                .foregroundColor(.mixitPurple)
                 Spacer()
                 HStack {
                     Text("This app isn’t affiliated with the MiXiT team.\nMade by @vtourraine.")

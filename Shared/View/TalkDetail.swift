@@ -75,7 +75,7 @@ struct TalkDetail: View {
                 HStack {
                     Image(systemName: "clock")
                     if let startDate = talk.startDate, let endDate = talk.endDate {
-                        Text("\(Talk.dayFormatter.string(from: startDate)), \(timeIntervalFormatter.string(from: startDate, to: endDate))")
+                        Text("\(Talk.dayFormatter.string(from: startDate).localizedCapitalized), \(timeIntervalFormatter.string(from: startDate, to: endDate))")
                     }
                     else {
                         Text("Not announced yet")
@@ -115,7 +115,6 @@ struct TalkDetail: View {
                     Label("Share", systemImage: "square.and.arrow.up")
                 }
                 .sheet(isPresented: $isSharePresented, onDismiss: {
-                    print("Dismiss")
                 }, content: {
                     ActivityViewController(activityItems: shareItems)
                 })

@@ -9,7 +9,7 @@
 - [x] Search
 - [x] Favorites
 - [x] About screen
-- [ ] Localization
+- [x] Localization
 - [ ] Add to calendar: unable to implement it at the moment
 - [ ] Previous editions
 
