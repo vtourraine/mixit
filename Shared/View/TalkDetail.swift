@@ -99,6 +99,7 @@ struct TalkDetail: View {
                 }
             }
             .padding()
+            .textSelection(.enabled)
         }
         .toolbar {
 #if os(iOS)
