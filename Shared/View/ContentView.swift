@@ -71,6 +71,19 @@ struct ContentView: View {
                         Label("Info", systemImage: "info.circle")
                     })
                     .sheet(isPresented: $showingInfo) {
+#if os(macOS)
+                        InfoView()
+                            .frame(minWidth: 400)
+                            .navigationTitle("About MiXiT")
+                            .toolbar {
+                                ToolbarItem {
+                                    Button("Close", action: {
+                                        showingInfo = false
+                                    })
+                                }
+                            }
+#endif
+#if os(iOS)
                         NavigationView {
                             InfoView()
                                 .navigationTitle("About MiXiT")
@@ -82,8 +95,6 @@ struct ContentView: View {
                                     }
                                 }
                         }
-#if os(macOS)
-                        .frame(width: 400, height: 520)
 #endif
                     }
                 }

@@ -28,20 +28,29 @@ struct InfoView: View {
                 Button("Open in Maps") {
                     openInMaps()
                 }
+                .frame(maxWidth: .infinity)
                 .buttonStyle(.bordered)
-                .foregroundColor(.mixitPurple)
                 Button("Open MiXiT website") {
                     openWebsite()
                 }
+                .frame(maxWidth: .infinity)
                 .buttonStyle(.bordered)
-                .foregroundColor(.mixitPurple)
                 Spacer()
                 HStack {
-                    Text("This app isn’t affiliated with the MiXiT team.\nMade by @vtourraine.")
-                        .fixedSize(horizontal: false, vertical: true)
-                        .multilineTextAlignment(.leading)
+                    VStack(alignment: .leading) {
+                        Text("This app isn’t affiliated with the MiXiT team.")
+                            .fixedSize(horizontal: false, vertical: true)
+                            .multilineTextAlignment(.leading)
+                            .font(.footnote)
+                            .foregroundColor(.secondary)
+                        Spacer()
+                        Button("Made by @vtourraine.") {
+                            let url = URL(string: "https://www.vtourraine.net")!
+                            openWebsite(url)
+                        }
                         .font(.footnote)
                         .foregroundColor(.secondary)
+                    }
                     Spacer()
                 }
                 .padding()
@@ -56,13 +65,17 @@ struct InfoView: View {
         item.openInMaps()
     }
 
-    func openWebsite() {
-        let url = URL(string: "https://mixitconf.org")!
+    func openWebsite(_ url: URL) {
 #if os(iOS)
         UIApplication.shared.open(url, options: [:], completionHandler: nil)
 #elseif os(macOS)
         NSWorkspace.shared.open(url)
 #endif
+    }
+
+    func openWebsite() {
+        let url = URL(string: "https://mixitconf.org")!
+        openWebsite(url)
     }
 }
 
@@ -95,6 +108,10 @@ struct InfoView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             InfoView()
+                .previewDisplayName("Info (EN)")
+            InfoView()
+                .previewDisplayName("Info (FR)")
+                .environment(\.locale, .init(identifier: "fr"))
         }
     }
 }
