@@ -90,8 +90,7 @@
 		1FA55BBE1911A5D2000260B3 = {
 			isa = PBXGroup;
 			children = (
-				D7683FB6289BE75C0000F388 /* Shared */,
-				D7683FC7289BE75D0000F388 /* macOS */,
+				D7683FB6289BE75C0000F388 /* Mixit */,
 				1FA55BC91911A5D2000260B3 /* Frameworks */,
 				1FA55BC81911A5D2000260B3 /* Products */,
 			);
@@ -124,7 +123,7 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
-		D7683FB6289BE75C0000F388 /* Shared */ = {
+		D7683FB6289BE75C0000F388 /* Mixit */ = {
 			isa = PBXGroup;
 			children = (
 				D7683FB9289BE75C0000F388 /* MixitApp.swift */,
@@ -134,16 +133,9 @@
 				D7683FBC289BE75D0000F388 /* Assets.xcassets */,
 				D7FAFAC428C78F0A0010D0C2 /* Localizable.strings */,
 				D7FAFACC28C798B70010D0C2 /* InfoPlist.strings */,
-			);
-			path = Shared;
-			sourceTree = "<group>";
-		};
-		D7683FC7289BE75D0000F388 /* macOS */ = {
-			isa = PBXGroup;
-			children = (
 				D7683FC8289BE75D0000F388 /* macOS.entitlements */,
 			);
-			path = macOS;
+			path = Mixit;
 			sourceTree = "<group>";
 		};
 		D7683FDB289BE8830000F388 /* Model */ = {
@@ -229,7 +221,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 1FA55BC21911A5D2000260B3 /* Build configuration list for PBXProject "mixit" */;
+			buildConfigurationList = 1FA55BC21911A5D2000260B3 /* Build configuration list for PBXProject "Mixit" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -531,7 +523,7 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Mixit/macOS.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -570,7 +562,7 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Mixit/macOS.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -601,7 +593,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1FA55BC21911A5D2000260B3 /* Build configuration list for PBXProject "mixit" */ = {
+		1FA55BC21911A5D2000260B3 /* Build configuration list for PBXProject "Mixit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1FA55BF71911A5D4000260B3 /* Debug */,

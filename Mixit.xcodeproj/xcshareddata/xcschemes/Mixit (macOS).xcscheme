@@ -17,7 +17,7 @@
                BlueprintIdentifier = "D7683FC5289BE75D0000F388"
                BuildableName = "MiXiT.app"
                BlueprintName = "Mixit (macOS)"
-               ReferencedContainer = "container:mixit.xcodeproj">
+               ReferencedContainer = "container:Mixit.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -47,7 +47,7 @@
             BlueprintIdentifier = "D7683FC5289BE75D0000F388"
             BuildableName = "MiXiT.app"
             BlueprintName = "Mixit (macOS)"
-            ReferencedContainer = "container:mixit.xcodeproj">
+            ReferencedContainer = "container:Mixit.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -64,7 +64,7 @@
             BlueprintIdentifier = "D7683FC5289BE75D0000F388"
             BuildableName = "MiXiT.app"
             BlueprintName = "Mixit (macOS)"
-            ReferencedContainer = "container:mixit.xcodeproj">
+            ReferencedContainer = "container:Mixit.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
