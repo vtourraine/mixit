@@ -7,33 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		14727F401CB6B02D00C799E0 /* MapGeneral-1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 14727F3C1CB6B02D00C799E0 /* MapGeneral-1.jpg */; };
-		14727F411CB6B02D00C799E0 /* MapGeneral.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 14727F3D1CB6B02D00C799E0 /* MapGeneral.jpg */; };
-		14727F421CB6B02D00C799E0 /* MapGeneral1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 14727F3E1CB6B02D00C799E0 /* MapGeneral1.jpg */; };
-		14727F441CB6B04700C799E0 /* MapGeneral0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 14727F431CB6B04700C799E0 /* MapGeneral0.jpg */; };
-		1F4217511CA339E30070C6F9 /* NSObject+AMGParsing.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F4217501CA339E30070C6F9 /* NSObject+AMGParsing.m */; };
-		1F42188A19123C6C001AC572 /* AMGTalksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F42188919123C6C001AC572 /* AMGTalksViewController.m */; };
-		1F42188F19123CEC001AC572 /* AMGTalk.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F42188E19123CEC001AC572 /* AMGTalk.m */; };
-		1F42189219123DCD001AC572 /* AMGMixITClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F42189119123DCD001AC572 /* AMGMixITClient.m */; };
-		1F421896191240F6001AC572 /* AMGTalk+MixITResource.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F421895191240F6001AC572 /* AMGTalk+MixITResource.m */; };
-		1F42189919124227001AC572 /* AMGMixITSyncManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F42189819124227001AC572 /* AMGMixITSyncManager.m */; };
-		1F42189C19124EF0001AC572 /* AMGTalkCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F42189B19124EF0001AC572 /* AMGTalkCell.m */; };
-		1F42189F191271AD001AC572 /* AMGTalkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F42189E191271AD001AC572 /* AMGTalkViewController.m */; };
-		1F4218A2191292FE001AC572 /* AMGMember.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F4218A1191292FE001AC572 /* AMGMember.m */; };
-		1F4218A619129578001AC572 /* AMGMember+MixITResource.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F4218A519129578001AC572 /* AMGMember+MixITResource.m */; };
-		1F7F929E1CAFBD45009FA028 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F7F929C1CAFBD45009FA028 /* LaunchScreen.storyboard */; };
-		1FA55BD71911A5D3000260B3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1FA55BD51911A5D3000260B3 /* InfoPlist.strings */; };
-		1FA55BD91911A5D3000260B3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FA55BD81911A5D3000260B3 /* main.m */; };
-		1FA55BDD1911A5D3000260B3 /* AMGAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FA55BDC1911A5D3000260B3 /* AMGAppDelegate.m */; };
-		1FA55BE01911A5D3000260B3 /* mixit.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1FA55BDE1911A5D3000260B3 /* mixit.xcdatamodeld */; };
-		1FA55BE21911A5D3000260B3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FA55BE11911A5D3000260B3 /* Images.xcassets */; };
-		1FA55BF41911A5D4000260B3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1FA55BF21911A5D4000260B3 /* InfoPlist.strings */; };
-		1FA55BF61911A5D4000260B3 /* mixitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FA55BF51911A5D4000260B3 /* mixitTests.m */; };
-		1FB1E0371ACC829200D0FCB3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1FB1E0351ACC829200D0FCB3 /* Localizable.strings */; };
-		1FB9FE471CB6D88D0091374B /* AMGPlansViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FB9FE461CB6D88D0091374B /* AMGPlansViewController.m */; };
-		1FF320FB1AC4A0B000D1D4F6 /* AMGAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FF320FA1AC4A0B000D1D4F6 /* AMGAboutViewController.m */; };
-		1FF320FE1AC4A74400D1D4F6 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FF320FD1AC4A74400D1D4F6 /* MapKit.framework */; };
-		808B71E45B11617513A607CE /* libPods-mixitLegacy.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F2C635512A5A43BC703D5D12 /* libPods-mixitLegacy.a */; };
 		D7207A30289BEF9300D36F4A /* TalkDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7207A2F289BEF9300D36F4A /* TalkDetail.swift */; };
 		D7207A31289BEF9300D36F4A /* TalkDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7207A2F289BEF9300D36F4A /* TalkDetail.swift */; };
 		D7207A33289CFC6500D36F4A /* MixitClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7207A32289CFC6500D36F4A /* MixitClient.swift */; };
@@ -46,8 +19,6 @@
 		D7207A3E289D32B200D36F4A /* UserResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7207A3C289D32B200D36F4A /* UserResource.swift */; };
 		D7207A43289D634600D36F4A /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7207A42289D634600D36F4A /* InfoView.swift */; };
 		D7207A44289D634600D36F4A /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7207A42289D634600D36F4A /* InfoView.swift */; };
-		D72338DA1F78F099006877C5 /* AMGTalksSearchResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D72338D91F78F099006877C5 /* AMGTalksSearchResultsViewController.m */; };
-		D72DB4571E5F451A0036EBEC /* UIColor+MiXiT.m in Sources */ = {isa = PBXBuildFile; fileRef = D72DB4561E5F451A0036EBEC /* UIColor+MiXiT.m */; };
 		D7683FCB289BE75D0000F388 /* MixitApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7683FB9289BE75C0000F388 /* MixitApp.swift */; };
 		D7683FCC289BE75D0000F388 /* MixitApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7683FB9289BE75C0000F388 /* MixitApp.swift */; };
 		D7683FCD289BE75D0000F388 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7683FBA289BE75C0000F388 /* ContentView.swift */; };
@@ -62,7 +33,6 @@
 		D7683FDF289BEC3C0000F388 /* TalkHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7683FDD289BEC3C0000F388 /* TalkHelpers.swift */; };
 		D7683FE2289BECE20000F388 /* TalkRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7683FE1289BECE20000F388 /* TalkRow.swift */; };
 		D7683FE3289BECE20000F388 /* TalkRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7683FE1289BECE20000F388 /* TalkRow.swift */; };
-		D7F583F81E926BB800834740 /* Rooms.strings in Resources */ = {isa = PBXBuildFile; fileRef = D7F583FA1E926BB800834740 /* Rooms.strings */; };
 		D7FAFABC28C785EB0010D0C2 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FAFABB28C785EB0010D0C2 /* Color.swift */; };
 		D7FAFABD28C785EB0010D0C2 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FAFABB28C785EB0010D0C2 /* Color.swift */; };
 		D7FAFAC128C78F0A0010D0C2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D7FAFAC428C78F0A0010D0C2 /* Localizable.strings */; };
@@ -71,78 +41,16 @@
 		D7FAFACA28C798B70010D0C2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D7FAFACC28C798B70010D0C2 /* InfoPlist.strings */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		1FA55BED1911A5D4000260B3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 1FA55BBF1911A5D2000260B3 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 1FA55BC61911A5D2000260B3;
-			remoteInfo = mixit;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
-		060ACA1AFA20284176B8A110 /* Pods-mixitLegacy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mixitLegacy.debug.xcconfig"; path = "Pods/Target Support Files/Pods-mixitLegacy/Pods-mixitLegacy.debug.xcconfig"; sourceTree = "<group>"; };
-		14727F3C1CB6B02D00C799E0 /* MapGeneral-1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "MapGeneral-1.jpg"; path = "Resources/MapGeneral-1.jpg"; sourceTree = "<group>"; };
-		14727F3D1CB6B02D00C799E0 /* MapGeneral.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = MapGeneral.jpg; path = Resources/MapGeneral.jpg; sourceTree = "<group>"; };
-		14727F3E1CB6B02D00C799E0 /* MapGeneral1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = MapGeneral1.jpg; path = Resources/MapGeneral1.jpg; sourceTree = "<group>"; };
-		14727F431CB6B04700C799E0 /* MapGeneral0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = MapGeneral0.jpg; path = Resources/MapGeneral0.jpg; sourceTree = "<group>"; };
-		1F42174F1CA339E30070C6F9 /* NSObject+AMGParsing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+AMGParsing.h"; path = "Classes/NSObject+AMGParsing.h"; sourceTree = "<group>"; };
-		1F4217501CA339E30070C6F9 /* NSObject+AMGParsing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+AMGParsing.m"; path = "Classes/NSObject+AMGParsing.m"; sourceTree = "<group>"; };
-		1F42188819123C6C001AC572 /* AMGTalksViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = AMGTalksViewController.h; path = Classes/AMGTalksViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		1F42188919123C6C001AC572 /* AMGTalksViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = AMGTalksViewController.m; path = Classes/AMGTalksViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		1F42188D19123CEC001AC572 /* AMGTalk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = AMGTalk.h; path = Classes/AMGTalk.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		1F42188E19123CEC001AC572 /* AMGTalk.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = AMGTalk.m; path = Classes/AMGTalk.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		1F42189019123DCD001AC572 /* AMGMixITClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = AMGMixITClient.h; path = Classes/AMGMixITClient.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		1F42189119123DCD001AC572 /* AMGMixITClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = AMGMixITClient.m; path = Classes/AMGMixITClient.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		1F421894191240F6001AC572 /* AMGTalk+MixITResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = "AMGTalk+MixITResource.h"; path = "Classes/AMGTalk+MixITResource.h"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		1F421895191240F6001AC572 /* AMGTalk+MixITResource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = "AMGTalk+MixITResource.m"; path = "Classes/AMGTalk+MixITResource.m"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		1F42189719124227001AC572 /* AMGMixITSyncManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = AMGMixITSyncManager.h; path = Classes/AMGMixITSyncManager.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		1F42189819124227001AC572 /* AMGMixITSyncManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = AMGMixITSyncManager.m; path = Classes/AMGMixITSyncManager.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		1F42189A19124EF0001AC572 /* AMGTalkCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = AMGTalkCell.h; path = Classes/AMGTalkCell.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		1F42189B19124EF0001AC572 /* AMGTalkCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = AMGTalkCell.m; path = Classes/AMGTalkCell.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		1F42189D191271AD001AC572 /* AMGTalkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = AMGTalkViewController.h; path = Classes/AMGTalkViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		1F42189E191271AD001AC572 /* AMGTalkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = AMGTalkViewController.m; path = Classes/AMGTalkViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		1F4218A0191292FE001AC572 /* AMGMember.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = AMGMember.h; path = Classes/AMGMember.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		1F4218A1191292FE001AC572 /* AMGMember.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = AMGMember.m; path = Classes/AMGMember.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		1F4218A419129578001AC572 /* AMGMember+MixITResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = "AMGMember+MixITResource.h"; path = "Classes/AMGMember+MixITResource.h"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		1F4218A519129578001AC572 /* AMGMember+MixITResource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = "AMGMember+MixITResource.m"; path = "Classes/AMGMember+MixITResource.m"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		1F5F2E201AD951660086ADFB /* mixit.tu.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = mixit.tu.md; sourceTree = SOURCE_ROOT; };
 		1F7F929F1CB01DFF009FA028 /* mixit-2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "mixit-2.xcdatamodel"; sourceTree = "<group>"; };
-		1FA12DEC220B4F390039A3DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		1FA55BC71911A5D2000260B3 /* mixitLegacy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mixitLegacy.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		1FA55BD41911A5D3000260B3 /* mixit-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "mixit-Info.plist"; sourceTree = "<group>"; };
-		1FA55BD61911A5D3000260B3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		1FA55BD81911A5D3000260B3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = main.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		1FA55BDA1911A5D3000260B3 /* mixit-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "mixit-Prefix.pch"; sourceTree = "<group>"; };
-		1FA55BDB1911A5D3000260B3 /* AMGAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = AMGAppDelegate.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		1FA55BDC1911A5D3000260B3 /* AMGAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = AMGAppDelegate.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		1FA55BDF1911A5D3000260B3 /* mixit.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = mixit.xcdatamodel; sourceTree = "<group>"; };
-		1FA55BE11911A5D3000260B3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		1FA55BE71911A5D4000260B3 /* mixitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = mixitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		1FA55BF11911A5D4000260B3 /* mixitTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "mixitTests-Info.plist"; sourceTree = "<group>"; };
-		1FA55BF31911A5D4000260B3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		1FA55BF51911A5D4000260B3 /* mixitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = mixitTests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		1FB1E0331ACC827200D0FCB3 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		1FB1E0341ACC827200D0FCB3 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		1FB1E0361ACC829200D0FCB3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		1FB1E0381ACC829500D0FCB3 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
-		1FB9FE451CB6D88D0091374B /* AMGPlansViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMGPlansViewController.h; path = Classes/AMGPlansViewController.h; sourceTree = "<group>"; };
-		1FB9FE461CB6D88D0091374B /* AMGPlansViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMGPlansViewController.m; path = Classes/AMGPlansViewController.m; sourceTree = "<group>"; };
-		1FF320F91AC4A0B000D1D4F6 /* AMGAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMGAboutViewController.h; path = Classes/AMGAboutViewController.h; sourceTree = "<group>"; };
-		1FF320FA1AC4A0B000D1D4F6 /* AMGAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMGAboutViewController.m; path = Classes/AMGAboutViewController.m; sourceTree = "<group>"; };
 		1FF320FD1AC4A74400D1D4F6 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		22D90C668B474B8DC2C5345B /* Pods-mixitLegacy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mixitLegacy.release.xcconfig"; path = "Pods/Target Support Files/Pods-mixitLegacy/Pods-mixitLegacy.release.xcconfig"; sourceTree = "<group>"; };
 		D7207A2F289BEF9300D36F4A /* TalkDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkDetail.swift; sourceTree = "<group>"; };
 		D7207A32289CFC6500D36F4A /* MixitClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixitClient.swift; sourceTree = "<group>"; };
 		D7207A36289CFDC000D36F4A /* TalkResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkResource.swift; sourceTree = "<group>"; };
 		D7207A39289D32A800D36F4A /* MemberHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberHelpers.swift; sourceTree = "<group>"; };
 		D7207A3C289D32B200D36F4A /* UserResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserResource.swift; sourceTree = "<group>"; };
 		D7207A42289D634600D36F4A /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
-		D72338D81F78F099006877C5 /* AMGTalksSearchResultsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AMGTalksSearchResultsViewController.h; path = Classes/AMGTalksSearchResultsViewController.h; sourceTree = "<group>"; };
-		D72338D91F78F099006877C5 /* AMGTalksSearchResultsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AMGTalksSearchResultsViewController.m; path = Classes/AMGTalksSearchResultsViewController.m; sourceTree = "<group>"; };
-		D72DB4551E5F451A0036EBEC /* UIColor+MiXiT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+MiXiT.h"; path = "Classes/UIColor+MiXiT.h"; sourceTree = "<group>"; };
-		D72DB4561E5F451A0036EBEC /* UIColor+MiXiT.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+MiXiT.m"; path = "Classes/UIColor+MiXiT.m"; sourceTree = "<group>"; };
 		D759305720809B22007CFAFF /* mixit-3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "mixit-3.xcdatamodel"; sourceTree = "<group>"; };
 		D7683FB9289BE75C0000F388 /* MixitApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixitApp.swift; sourceTree = "<group>"; };
 		D7683FBA289BE75C0000F388 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -154,35 +62,14 @@
 		D7683FDC289BE8A80000F388 /* mixit-4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "mixit-4.xcdatamodel"; sourceTree = "<group>"; };
 		D7683FDD289BEC3C0000F388 /* TalkHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkHelpers.swift; sourceTree = "<group>"; };
 		D7683FE1289BECE20000F388 /* TalkRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkRow.swift; sourceTree = "<group>"; };
-		D7F5094D2639411500C0C526 /* mixit.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = mixit.entitlements; sourceTree = "<group>"; };
-		D7F583F91E926BB800834740 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Rooms.strings; sourceTree = "<group>"; };
-		D7F583FB1E926C2500834740 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Rooms.strings; sourceTree = "<group>"; };
-		D7FAF76B260A2DAB00DC6B7C /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		D7FAFABB28C785EB0010D0C2 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		D7FAFAC328C78F0A0010D0C2 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D7FAFAC528C78F1A0010D0C2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D7FAFACB28C798B70010D0C2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D7FAFACD28C798BD0010D0C2 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		F2C635512A5A43BC703D5D12 /* libPods-mixitLegacy.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-mixitLegacy.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		1FA55BC41911A5D2000260B3 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				1FF320FE1AC4A74400D1D4F6 /* MapKit.framework in Frameworks */,
-				808B71E45B11617513A607CE /* libPods-mixitLegacy.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		1FA55BE41911A5D4000260B3 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		D7683FBE289BE75D0000F388 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -200,89 +87,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		14727F3A1CB6B01E00C799E0 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				14727F3D1CB6B02D00C799E0 /* MapGeneral.jpg */,
-				14727F3E1CB6B02D00C799E0 /* MapGeneral1.jpg */,
-				14727F431CB6B04700C799E0 /* MapGeneral0.jpg */,
-				14727F3C1CB6B02D00C799E0 /* MapGeneral-1.jpg */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-		};
-		1F42188B19123C9E001AC572 /* App Delegate */ = {
-			isa = PBXGroup;
-			children = (
-				1FA55BDB1911A5D3000260B3 /* AMGAppDelegate.h */,
-				1FA55BDC1911A5D3000260B3 /* AMGAppDelegate.m */,
-				D72DB4551E5F451A0036EBEC /* UIColor+MiXiT.h */,
-				D72DB4561E5F451A0036EBEC /* UIColor+MiXiT.m */,
-			);
-			name = "App Delegate";
-			sourceTree = "<group>";
-		};
-		1F42188C19123CA9001AC572 /* Talks */ = {
-			isa = PBXGroup;
-			children = (
-				1F42188819123C6C001AC572 /* AMGTalksViewController.h */,
-				1F42188919123C6C001AC572 /* AMGTalksViewController.m */,
-				D72338D81F78F099006877C5 /* AMGTalksSearchResultsViewController.h */,
-				D72338D91F78F099006877C5 /* AMGTalksSearchResultsViewController.m */,
-				1F42189A19124EF0001AC572 /* AMGTalkCell.h */,
-				1F42189B19124EF0001AC572 /* AMGTalkCell.m */,
-				1F42189D191271AD001AC572 /* AMGTalkViewController.h */,
-				1F42189E191271AD001AC572 /* AMGTalkViewController.m */,
-				1F42188D19123CEC001AC572 /* AMGTalk.h */,
-				1F42188E19123CEC001AC572 /* AMGTalk.m */,
-				1F421894191240F6001AC572 /* AMGTalk+MixITResource.h */,
-				1F421895191240F6001AC572 /* AMGTalk+MixITResource.m */,
-			);
-			name = Talks;
-			sourceTree = "<group>";
-		};
-		1F42189319123DD4001AC572 /* Sync */ = {
-			isa = PBXGroup;
-			children = (
-				1F42189019123DCD001AC572 /* AMGMixITClient.h */,
-				1F42189119123DCD001AC572 /* AMGMixITClient.m */,
-				1F42189719124227001AC572 /* AMGMixITSyncManager.h */,
-				1F42189819124227001AC572 /* AMGMixITSyncManager.m */,
-				1F42174F1CA339E30070C6F9 /* NSObject+AMGParsing.h */,
-				1F4217501CA339E30070C6F9 /* NSObject+AMGParsing.m */,
-			);
-			name = Sync;
-			sourceTree = "<group>";
-		};
-		1F4218A319129302001AC572 /* Member */ = {
-			isa = PBXGroup;
-			children = (
-				1F4218A0191292FE001AC572 /* AMGMember.h */,
-				1F4218A1191292FE001AC572 /* AMGMember.m */,
-				1F4218A419129578001AC572 /* AMGMember+MixITResource.h */,
-				1F4218A519129578001AC572 /* AMGMember+MixITResource.m */,
-			);
-			name = Member;
-			sourceTree = "<group>";
-		};
 		1FA55BBE1911A5D2000260B3 = {
 			isa = PBXGroup;
 			children = (
-				1FA55BD21911A5D3000260B3 /* mixitLegacy */,
-				1FA55BEF1911A5D4000260B3 /* mixitTests */,
 				D7683FB6289BE75C0000F388 /* Shared */,
 				D7683FC7289BE75D0000F388 /* macOS */,
 				1FA55BC91911A5D2000260B3 /* Frameworks */,
 				1FA55BC81911A5D2000260B3 /* Products */,
-				6159E7ADE6234583E477CFF1 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
 		1FA55BC81911A5D2000260B3 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1FA55BC71911A5D2000260B3 /* mixitLegacy.app */,
-				1FA55BE71911A5D4000260B3 /* mixitTests.xctest */,
 				D7683FC1289BE75D0000F388 /* Mixit.app */,
 				D7683FC6289BE75D0000F388 /* MiXiT.app */,
 			);
@@ -293,79 +110,8 @@
 			isa = PBXGroup;
 			children = (
 				1FF320FD1AC4A74400D1D4F6 /* MapKit.framework */,
-				F2C635512A5A43BC703D5D12 /* libPods-mixitLegacy.a */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		1FA55BD21911A5D3000260B3 /* mixitLegacy */ = {
-			isa = PBXGroup;
-			children = (
-				D7F5094D2639411500C0C526 /* mixit.entitlements */,
-				D7FAF76B260A2DAB00DC6B7C /* README.md */,
-				1F5F2E201AD951660086ADFB /* mixit.tu.md */,
-				1F42188B19123C9E001AC572 /* App Delegate */,
-				1F42188C19123CA9001AC572 /* Talks */,
-				1F4218A319129302001AC572 /* Member */,
-				1FF320FC1AC4A0B900D1D4F6 /* About */,
-				1F42189319123DD4001AC572 /* Sync */,
-				1FA55BE11911A5D3000260B3 /* Images.xcassets */,
-				14727F3A1CB6B01E00C799E0 /* Resources */,
-				1F7F929C1CAFBD45009FA028 /* LaunchScreen.storyboard */,
-				1FA55BD31911A5D3000260B3 /* Supporting Files */,
-			);
-			path = mixitLegacy;
-			sourceTree = "<group>";
-		};
-		1FA55BD31911A5D3000260B3 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				1FA55BD41911A5D3000260B3 /* mixit-Info.plist */,
-				1FA55BD51911A5D3000260B3 /* InfoPlist.strings */,
-				1FA55BD81911A5D3000260B3 /* main.m */,
-				1FA55BDA1911A5D3000260B3 /* mixit-Prefix.pch */,
-				1FB1E0351ACC829200D0FCB3 /* Localizable.strings */,
-				D7F583FA1E926BB800834740 /* Rooms.strings */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		1FA55BEF1911A5D4000260B3 /* mixitTests */ = {
-			isa = PBXGroup;
-			children = (
-				1FA55BF51911A5D4000260B3 /* mixitTests.m */,
-				1FA55BF01911A5D4000260B3 /* Supporting Files */,
-			);
-			path = mixitTests;
-			sourceTree = "<group>";
-		};
-		1FA55BF01911A5D4000260B3 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				1FA55BF11911A5D4000260B3 /* mixitTests-Info.plist */,
-				1FA55BF21911A5D4000260B3 /* InfoPlist.strings */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		1FF320FC1AC4A0B900D1D4F6 /* About */ = {
-			isa = PBXGroup;
-			children = (
-				1FF320F91AC4A0B000D1D4F6 /* AMGAboutViewController.h */,
-				1FF320FA1AC4A0B000D1D4F6 /* AMGAboutViewController.m */,
-				1FB9FE451CB6D88D0091374B /* AMGPlansViewController.h */,
-				1FB9FE461CB6D88D0091374B /* AMGPlansViewController.m */,
-			);
-			name = About;
-			sourceTree = "<group>";
-		};
-		6159E7ADE6234583E477CFF1 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				060ACA1AFA20284176B8A110 /* Pods-mixitLegacy.debug.xcconfig */,
-				22D90C668B474B8DC2C5345B /* Pods-mixitLegacy.release.xcconfig */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 		D7207A35289CFC6B00D36F4A /* Network */ = {
@@ -426,43 +172,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1FA55BC61911A5D2000260B3 /* mixitLegacy */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 1FA55BF91911A5D4000260B3 /* Build configuration list for PBXNativeTarget "mixitLegacy" */;
-			buildPhases = (
-				3E680C329DB26D4AFA170E88 /* [CP] Check Pods Manifest.lock */,
-				1FA55BC31911A5D2000260B3 /* Sources */,
-				1FA55BC41911A5D2000260B3 /* Frameworks */,
-				1FA55BC51911A5D2000260B3 /* Resources */,
-				B5D8987ECE613521EBB4B421 /* [CP] Copy Pods Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = mixitLegacy;
-			productName = mixit;
-			productReference = 1FA55BC71911A5D2000260B3 /* mixitLegacy.app */;
-			productType = "com.apple.product-type.application";
-		};
-		1FA55BE61911A5D4000260B3 /* mixitTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 1FA55BFC1911A5D4000260B3 /* Build configuration list for PBXNativeTarget "mixitTests" */;
-			buildPhases = (
-				1FA55BE31911A5D4000260B3 /* Sources */,
-				1FA55BE41911A5D4000260B3 /* Frameworks */,
-				1FA55BE51911A5D4000260B3 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				1FA55BEE1911A5D4000260B3 /* PBXTargetDependency */,
-			);
-			name = mixitTests;
-			productName = mixitTests;
-			productReference = 1FA55BE71911A5D4000260B3 /* mixitTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 		D7683FC0289BE75D0000F388 /* Mixit (iOS) */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = D7683FD3289BE75D0000F388 /* Build configuration list for PBXNativeTarget "Mixit (iOS)" */;
@@ -505,20 +214,9 @@
 			attributes = {
 				CLASSPREFIX = AMG;
 				LastSwiftUpdateCheck = 1340;
-				LastUpgradeCheck = 1340;
+				LastUpgradeCheck = 1400;
 				ORGANIZATIONNAME = "Studio AMANgA";
 				TargetAttributes = {
-					1FA55BC61911A5D2000260B3 = {
-						DevelopmentTeam = 77S3V3W24J;
-						SystemCapabilities = {
-							com.apple.Maps.iOS = {
-								enabled = 1;
-							};
-						};
-					};
-					1FA55BE61911A5D4000260B3 = {
-						TestTargetID = 1FA55BC61911A5D2000260B3;
-					};
 					D7683FC0289BE75D0000F388 = {
 						CreatedOnToolsVersion = 13.4.1;
 						DevelopmentTeam = 77S3V3W24J;
@@ -545,8 +243,6 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				1FA55BC61911A5D2000260B3 /* mixitLegacy */,
-				1FA55BE61911A5D4000260B3 /* mixitTests */,
 				D7683FC0289BE75D0000F388 /* Mixit (iOS) */,
 				D7683FC5289BE75D0000F388 /* Mixit (macOS) */,
 			);
@@ -554,30 +250,6 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		1FA55BC51911A5D2000260B3 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				1FA55BD71911A5D3000260B3 /* InfoPlist.strings in Resources */,
-				1F7F929E1CAFBD45009FA028 /* LaunchScreen.storyboard in Resources */,
-				14727F441CB6B04700C799E0 /* MapGeneral0.jpg in Resources */,
-				D7F583F81E926BB800834740 /* Rooms.strings in Resources */,
-				14727F421CB6B02D00C799E0 /* MapGeneral1.jpg in Resources */,
-				14727F401CB6B02D00C799E0 /* MapGeneral-1.jpg in Resources */,
-				1FB1E0371ACC829200D0FCB3 /* Localizable.strings in Resources */,
-				14727F411CB6B02D00C799E0 /* MapGeneral.jpg in Resources */,
-				1FA55BE21911A5D3000260B3 /* Images.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		1FA55BE51911A5D4000260B3 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				1FA55BF41911A5D4000260B3 /* InfoPlist.strings in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		D7683FBF289BE75D0000F388 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -600,80 +272,7 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		3E680C329DB26D4AFA170E88 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-mixitLegacy-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B5D8987ECE613521EBB4B421 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-mixitLegacy/Pods-mixitLegacy-resources.sh",
-				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
-				"${PODS_ROOT}/VTAcknowledgementsViewController/VTAcknowledgementsViewController.bundle",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SVProgressHUD.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/VTAcknowledgementsViewController.bundle",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-mixitLegacy/Pods-mixitLegacy-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
-		1FA55BC31911A5D2000260B3 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				1F42189919124227001AC572 /* AMGMixITSyncManager.m in Sources */,
-				1F421896191240F6001AC572 /* AMGTalk+MixITResource.m in Sources */,
-				1F42188F19123CEC001AC572 /* AMGTalk.m in Sources */,
-				1F4218A2191292FE001AC572 /* AMGMember.m in Sources */,
-				1F42189C19124EF0001AC572 /* AMGTalkCell.m in Sources */,
-				1FB9FE471CB6D88D0091374B /* AMGPlansViewController.m in Sources */,
-				D72DB4571E5F451A0036EBEC /* UIColor+MiXiT.m in Sources */,
-				D72338DA1F78F099006877C5 /* AMGTalksSearchResultsViewController.m in Sources */,
-				1FF320FB1AC4A0B000D1D4F6 /* AMGAboutViewController.m in Sources */,
-				1FA55BE01911A5D3000260B3 /* mixit.xcdatamodeld in Sources */,
-				1F4217511CA339E30070C6F9 /* NSObject+AMGParsing.m in Sources */,
-				1F42189219123DCD001AC572 /* AMGMixITClient.m in Sources */,
-				1F42189F191271AD001AC572 /* AMGTalkViewController.m in Sources */,
-				1FA55BDD1911A5D3000260B3 /* AMGAppDelegate.m in Sources */,
-				1F42188A19123C6C001AC572 /* AMGTalksViewController.m in Sources */,
-				1FA55BD91911A5D3000260B3 /* main.m in Sources */,
-				1F4218A619129578001AC572 /* AMGMember+MixITResource.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		1FA55BE31911A5D4000260B3 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				1FA55BF61911A5D4000260B3 /* mixitTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		D7683FBD289BE75D0000F388 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -716,59 +315,7 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		1FA55BEE1911A5D4000260B3 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 1FA55BC61911A5D2000260B3 /* mixitLegacy */;
-			targetProxy = 1FA55BED1911A5D4000260B3 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
 /* Begin PBXVariantGroup section */
-		1F7F929C1CAFBD45009FA028 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1FA12DEC220B4F390039A3DD /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		1FA55BD51911A5D3000260B3 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1FA55BD61911A5D3000260B3 /* en */,
-				1FB1E0331ACC827200D0FCB3 /* fr */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		1FA55BF21911A5D4000260B3 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1FA55BF31911A5D4000260B3 /* en */,
-				1FB1E0341ACC827200D0FCB3 /* fr */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		1FB1E0351ACC829200D0FCB3 /* Localizable.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1FB1E0361ACC829200D0FCB3 /* en */,
-				1FB1E0381ACC829500D0FCB3 /* fr */,
-			);
-			name = Localizable.strings;
-			sourceTree = "<group>";
-		};
-		D7F583FA1E926BB800834740 /* Rooms.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D7F583F91E926BB800834740 /* en */,
-				D7F583FB1E926C2500834740 /* fr */,
-			);
-			name = Rooms.strings;
-			sourceTree = "<group>";
-		};
 		D7FAFAC428C78F0A0010D0C2 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -896,90 +443,6 @@
 			};
 			name = Release;
 		};
-		1FA55BFA1911A5D4000260B3 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 060ACA1AFA20284176B8A110 /* Pods-mixitLegacy.debug.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = mixitLegacy/mixit.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 43;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "mixitLegacy/mixit-Prefix.pch";
-				INFOPLIST_FILE = "mixitLegacy/mixit-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 7.1;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.studioamanga.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				SUPPORTS_MACCATALYST = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				WRAPPER_EXTENSION = app;
-			};
-			name = Debug;
-		};
-		1FA55BFB1911A5D4000260B3 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 22D90C668B474B8DC2C5345B /* Pods-mixitLegacy.release.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = mixitLegacy/mixit.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 43;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "mixitLegacy/mixit-Prefix.pch";
-				INFOPLIST_FILE = "mixitLegacy/mixit-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 7.1;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.studioamanga.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				SUPPORTS_MACCATALYST = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				WRAPPER_EXTENSION = app;
-			};
-			name = Release;
-		};
-		1FA55BFD1911A5D4000260B3 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "mixitTests/mixitTests-Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.studioamanga.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/mixitLegacy.app/mixitLegacy";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Debug;
-		};
-		1FA55BFE1911A5D4000260B3 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				INFOPLIST_FILE = "mixitTests/mixitTests-Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.studioamanga.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/mixitLegacy.app/mixitLegacy";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Release;
-		};
 		D7683FD4289BE75D0000F388 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1073,6 +536,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = 77S3V3W24J;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -1112,6 +576,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 77S3V3W24J;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -1141,24 +606,6 @@
 			buildConfigurations = (
 				1FA55BF71911A5D4000260B3 /* Debug */,
 				1FA55BF81911A5D4000260B3 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		1FA55BF91911A5D4000260B3 /* Build configuration list for PBXNativeTarget "mixitLegacy" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				1FA55BFA1911A5D4000260B3 /* Debug */,
-				1FA55BFB1911A5D4000260B3 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		1FA55BFC1911A5D4000260B3 /* Build configuration list for PBXNativeTarget "mixitTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				1FA55BFD1911A5D4000260B3 /* Debug */,
-				1FA55BFE1911A5D4000260B3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -1,6 +1,0 @@
-/* Localized versions of Info.plist keys */
-
-"CFBundleDisplayName" = "MiXiT";
-"CFBundleName" = "MiXiT";
-
-"NSCalendarsUsageDescription" = "The app can then add this session to your calendar.";
