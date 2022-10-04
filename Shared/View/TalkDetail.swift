@@ -100,6 +100,7 @@ struct TalkDetail: View {
             }
             .padding()
             .textSelection(.enabled)
+            .frame(minWidth: 300, maxWidth: 600, alignment: .leading)
         }
         .toolbar {
 #if os(iOS)
