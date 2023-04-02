@@ -211,6 +211,13 @@
         
         lastSpeakerView = speakerImageView;
     }
+	
+	if (firstSpeakerView == nil) {
+		firstSpeakerView = [[UIView alloc] init];
+		[scrollView addSubview:firstSpeakerView];
+		
+		lastSpeakerView = firstSpeakerView;
+	}
 
     UILabel *summaryLabel = ({
         UILabel *label = [[UILabel alloc] init];
