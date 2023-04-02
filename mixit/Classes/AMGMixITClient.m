@@ -14,11 +14,11 @@ static NSString * const AMGMixITAPIBaseURLString = @"https://mixitconf.org/api/"
 @implementation AMGMixITClient
 
 + (nonnull NSArray <NSNumber *> *)pastYears {
-    return @[@2012, @2013, @2014, @2015, @2016, @2017, @2018, @2019, @2021];
+    return @[@2012, @2013, @2014, @2015, @2016, @2017, @2018, @2019, @2021, @2022];
 }
 
 + (nonnull NSNumber *)currentYear {
-    return @2022;
+    return @2023;
 }
 
 + (instancetype)MixITClient {
