@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1400"
+   LastUpgradeVersion = "1430"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -17,7 +17,7 @@
                BlueprintIdentifier = "D7683FC5289BE75D0000F388"
                BuildableName = "MiXiT.app"
                BlueprintName = "Mixit (macOS)"
-               ReferencedContainer = "container:Mixit.xcodeproj">
+               ReferencedContainer = "container:mixit.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -47,7 +47,7 @@
             BlueprintIdentifier = "D7683FC5289BE75D0000F388"
             BuildableName = "MiXiT.app"
             BlueprintName = "Mixit (macOS)"
-            ReferencedContainer = "container:Mixit.xcodeproj">
+            ReferencedContainer = "container:mixit.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -64,7 +64,7 @@
             BlueprintIdentifier = "D7683FC5289BE75D0000F388"
             BuildableName = "MiXiT.app"
             BlueprintName = "Mixit (macOS)"
-            ReferencedContainer = "container:Mixit.xcodeproj">
+            ReferencedContainer = "container:mixit.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
