@@ -11,6 +11,7 @@ import CoreData
 
 struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext
+    @EnvironmentObject var client: MixitClient
 
     @State private var showingInfo = false
     @State private var searchText = ""
@@ -57,6 +58,10 @@ struct ContentView: View {
                         }
                     }
                 }
+            }
+            .refreshable {
+                client.fetchTalks()
+                // client.fetchUsers()
             }
             .searchable(text: searchQuery)
 #if os(iOS)

@@ -16,13 +16,14 @@ struct MixitApp: App {
     func sync() {
         client.context = persistenceController.container.viewContext
         client.fetchTalks()
-        client.fetchUsers()
+        // client.fetchUsers()
     }
 
     var body: some Scene {
         WindowGroup {
             ContentView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                .environmentObject(client)
                 .onAppear() {
                     sync()
                 }

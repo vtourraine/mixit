@@ -25,13 +25,13 @@ extension JSONDecoder.DateDecodingStrategy {
     }
 }
 
-class MixitClient {
+class MixitClient: ObservableObject {
 
     var context: NSManagedObjectContext?
 
     static let baseURL = URL(string: "https://mixitconf.org/api/")!
-    static let currentYear = 2022
-    static let pastYears = [2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2021]
+    static let currentYear = 2023
+    static let pastYears = [2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2021, 2022]
 
     let decoder: JSONDecoder = {
         let decoder = JSONDecoder()
@@ -52,6 +52,14 @@ class MixitClient {
                 }
                 return
             }
+
+#if DEBUG
+            if #available(iOS 16.0, macOS 13.0, *) {
+                let path = NSTemporaryDirectory().appending("data.json")
+                try? data.write(to: URL(filePath: path))
+                print("Path: \(path)")
+            }
+#endif
 
             do {
                 let objects = try self.decoder.decode([TalkResponse].self, from: data)
@@ -82,6 +90,14 @@ class MixitClient {
                 }
                 return
             }
+
+#if DEBUG
+            if #available(iOS 16.0, macOS 13.0, *) {
+                let path = NSTemporaryDirectory().appending("data.json")
+                try? data.write(to: URL(filePath: path))
+                print("Path: \(path)")
+            }
+#endif
 
             do {
                 let objects = try self.decoder.decode([UserResponse].self, from: data)
