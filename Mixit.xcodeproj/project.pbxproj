@@ -45,8 +45,8 @@
 		1F7F929F1CB01DFF009FA028 /* mixit-2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "mixit-2.xcdatamodel"; sourceTree = "<group>"; };
 		1FA55BDF1911A5D3000260B3 /* mixit.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = mixit.xcdatamodel; sourceTree = "<group>"; };
 		1FF320FD1AC4A74400D1D4F6 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		BB415B4029DB600B0056A8EF /* Mixit--iOS--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Mixit--iOS--Info.plist"; sourceTree = "<group>"; };
-		BB415B4129DB600F0056A8EF /* Mixit--macOS--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Mixit--macOS--Info.plist"; sourceTree = "<group>"; };
+		BB415B4029DB600B0056A8EF /* Mixit-iOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Mixit-iOS-Info.plist"; sourceTree = "<group>"; };
+		BB415B4129DB600F0056A8EF /* Mixit-macOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Mixit-macOS-Info.plist"; sourceTree = "<group>"; };
 		D7207A2F289BEF9300D36F4A /* TalkDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkDetail.swift; sourceTree = "<group>"; };
 		D7207A32289CFC6500D36F4A /* MixitClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixitClient.swift; sourceTree = "<group>"; };
 		D7207A36289CFDC000D36F4A /* TalkResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkResource.swift; sourceTree = "<group>"; };
@@ -138,8 +138,8 @@
 				D7FAFAC428C78F0A0010D0C2 /* Localizable.strings */,
 				D7FAFACC28C798B70010D0C2 /* InfoPlist.strings */,
 				D7683FC8289BE75D0000F388 /* macOS.entitlements */,
-				BB415B4029DB600B0056A8EF /* Mixit--iOS--Info.plist */,
-				BB415B4129DB600F0056A8EF /* Mixit--macOS--Info.plist */,
+				BB415B4029DB600B0056A8EF /* Mixit-iOS-Info.plist */,
+				BB415B4129DB600F0056A8EF /* Mixit-macOS-Info.plist */,
 			);
 			path = Mixit;
 			sourceTree = "<group>";
@@ -462,7 +462,7 @@
 				DEVELOPMENT_TEAM = 77S3V3W24J;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Mixit--iOS--Info.plist";
+				INFOPLIST_FILE = "mixit/Mixit-iOS-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -503,7 +503,7 @@
 				DEVELOPMENT_TEAM = 77S3V3W24J;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Mixit--iOS--Info.plist";
+				INFOPLIST_FILE = "mixit/Mixit-iOS-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -549,7 +549,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Mixit--macOS--Info.plist";
+				INFOPLIST_FILE = "mixit/Mixit-macOS-Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2022 Studio AMANgA. All rights reserved.";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -591,7 +591,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Mixit--macOS--Info.plist";
+				INFOPLIST_FILE = "mixit/Mixit-macOS-Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2022 Studio AMANgA. All rights reserved.";
 				LD_RUNPATH_SEARCH_PATHS = (
