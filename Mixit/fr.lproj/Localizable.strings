@@ -1,0 +1,31 @@
+/* 
+  Localizable.strings
+  mixit
+
+  Created by Vincent Tourraine on 06/09/2022.
+  Copyright © 2022 Studio AMANgA. All rights reserved.
+*/
+
+"MiXiT" = "MiXiT";
+"MiXiT Schedule" = "Programme MiXiT";
+
+"No Talk Selected" = "Aucune session sélectionnée";
+
+// About
+
+"About MiXiT" = "À propos de MiXiT";
+"Close" = "Fermer";
+"Open in Maps" = "Ouvrir avec Plans";
+"Open MiXiT website" = "Ouvrir le site web MiXiT";
+
+"This app isn’t affiliated with the MiXiT team." = "Cette app n’est pas affiliée à l’équipe de MiXiT.";
+"Made by @vtourraine." = "Développée par @vtourraine.";
+
+"April 21 and 22, 2016\nLyon, France" = "21 et 22 avril 2016\nLyon, France";
+"April 16 and 17, 2015\nLyon, France" = "16 et 17 avril 2015\nLyon, France";
+"April 20 and 21, 2017\nLyon, France" = "20 et 21 avril 2017\nLyon, France";
+"April 19 and 20, 2018\nLyon, France" = "19 et 20 avril 2018\nLyon, France";
+"May 23 and 24, 2019\nLyon, France" = "23 et 24 mai 2019\nLyon, France";
+"18, 19 & 20 May 2021" = "18, 19 & 20 mai 2021";
+"May 24 & 25, 2022\nLyon, France" = "24 et 25 mai 2022\nLyon, France";
+"April 13 & 14, 2023\nLyon, France" = "13 et 14 avril 2023\nLyon, France";

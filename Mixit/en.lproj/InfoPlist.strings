@@ -1,0 +1,12 @@
+/* 
+  InfoPlist.strings
+  mixit
+
+  Created by Tourraine, Vincent (ELS-HBE) on 06/09/2022.
+  Copyright © 2022 Studio AMANgA. All rights reserved.
+*/
+
+"CFBundleDisplayName" = "MiXiT";
+"CFBundleName" = "MiXiT";
+
+"NSCalendarsUsageDescription" = "The app can then add this session to your calendar.";

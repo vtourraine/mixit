@@ -3,6 +3,15 @@
 ## Roadmap
 
 
+## 8.0
+
+- [x] Update for 2023 edition
+- [x] Swift/SwiftUI rewrite
+    - Remove “Add to Calendar”
+    - Remove users info (API no longer usable)
+    - Require iOS 15, iPadOS 15, macOS 12
+
+
 ## 7.1
 
 2022-04-11
