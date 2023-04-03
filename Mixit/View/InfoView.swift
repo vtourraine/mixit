@@ -19,7 +19,7 @@ struct InfoView: View {
                 Image("Logo")
                     .resizable()
                     .frame(width: 160, height: 38)
-                Text("May 24 & 25, 2022\nLyon, France")
+                Text("April 13 & 14, 2023\nLyon, France")
                     .fixedSize(horizontal: false, vertical: true)
                     .font(.headline)
                     .multilineTextAlignment(.center)
@@ -82,14 +82,14 @@ struct InfoView: View {
 struct MapView: View {
     // CPE coordinates : 45.78392, 4.869014
     // Manufacture des Tabacs coordinates: 45.7481118, 4.8602011
-    static let mainLocation = CLLocationCoordinate2D(latitude: 45.7481118, longitude: 4.8602011)
+    static let mainLocation = CLLocationCoordinate2D(latitude: 45.78392, longitude: 4.869014)
     struct Annotation: Identifiable {
         let id = UUID()
         let name: String
         let coordinate: CLLocationCoordinate2D
     }
     let annotations = [
-        Annotation(name: "Manufacture des Tabacs", coordinate: mainLocation)]
+        Annotation(name: "CPE", coordinate: mainLocation)]
 
     @State private var region = MKCoordinateRegion(
         center: mainLocation,
