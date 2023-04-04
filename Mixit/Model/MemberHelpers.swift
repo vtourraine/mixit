@@ -19,7 +19,7 @@ extension Member {
             photoURLString = "https://mixitconf.org" + photoURL
         }
         else {
-            photoURLString = nil
+            photoURLString = userResponse.photoUrl
         }
     }
 }

@@ -3,6 +3,11 @@
 ## Roadmap
 
 
+## 8.1
+
+- [x] Restore speakers sync
+
+
 ## 8.0
 
 2023-04-04

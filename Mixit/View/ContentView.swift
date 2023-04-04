@@ -61,7 +61,7 @@ struct ContentView: View {
             }
             .refreshable {
                 client.fetchTalks()
-                // client.fetchUsers()
+                client.fetchUsers()
             }
             .searchable(text: searchQuery)
 #if os(iOS)

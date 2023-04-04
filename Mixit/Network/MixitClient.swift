@@ -78,8 +78,8 @@ class MixitClient: ObservableObject {
     }
 
     @discardableResult
-    func fetchUsers(session: URLSession = .shared) -> URLSessionDataTask {
-        let url = MixitClient.baseURL.appendingPathComponent("user")
+    func fetchUsers(for year: Int = MixitClient.currentYear, session: URLSession = .shared) -> URLSessionDataTask {
+        let url = MixitClient.baseURL.appendingPathComponent("\(year)/speaker")
         let task = session.dataTask(with: url) { data, response, error in
             guard let data = data else {
                 if let error = error {
