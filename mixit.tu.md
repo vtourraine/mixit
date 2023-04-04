@@ -2,6 +2,10 @@
 
 ## Roadmap
 
+- Restore calendar integration
+- Restore past editions
+- Display speaker details
+
 
 ## 8.1
 
