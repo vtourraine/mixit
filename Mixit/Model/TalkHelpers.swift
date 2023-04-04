@@ -38,7 +38,7 @@ extension Talk {
 
     func update(with talkResponse: TalkResponse) {
         desc = talkResponse.description
-        format = talkResponse.format
+        format = talkResponse.format.replacingOccurrences(of: "_", with: " ")
         language = talkResponse.language
         room = talkResponse.room
         summary = talkResponse.summary
