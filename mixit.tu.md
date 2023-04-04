@@ -5,8 +5,10 @@
 
 ## 8.0
 
-- [x] Update for 2023 edition
-- [x] Swift/SwiftUI rewrite
+2023-04-04
+
+- Update for 2023 edition
+- Swift/SwiftUI rewrite
     - Remove “Add to Calendar”
     - Remove users info (API no longer usable)
     - Require iOS 15, iPadOS 15, macOS 12
