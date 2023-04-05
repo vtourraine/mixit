@@ -10,6 +10,8 @@ import SwiftUI
 
 @main
 struct MixitApp: App {
+    @Environment(\.scenePhase) var scenePhase
+
     let persistenceController = PersistenceController.shared
     let client = MixitClient()
 
@@ -17,6 +19,18 @@ struct MixitApp: App {
         client.context = persistenceController.container.viewContext
         client.fetchTalks()
         client.fetchUsers()
+    }
+
+    func save() {
+        let context = persistenceController.container.viewContext
+
+        if context.hasChanges {
+            do {
+                try context.save()
+            } catch {
+                print("Cannot save context: \(error.localizedDescription)")
+            }
+        }
     }
 
     var body: some Scene {
@@ -27,6 +41,9 @@ struct MixitApp: App {
                 .onAppear() {
                     sync()
                 }
+        }
+        .onChange(of: scenePhase) { _ in
+            save()
         }
     }
 }

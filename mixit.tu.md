@@ -10,6 +10,7 @@
 ## 8.1
 
 - [x] Restore speakers
+- [x] Fix saving favorites
 
 
 ## 8.0
