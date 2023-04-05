@@ -99,9 +99,9 @@ extension Talk {
             return false
         }
 
-        let date = Date(timeIntervalSince1970: 1681400976)
-        print("date: \(date.description)")
-        return endDate.timeIntervalSince(date) > 0
-        // return endDate.timeIntervalSinceNow > 0
+        // DEBUG:
+        // let date = Date(timeIntervalSince1970: 1681400976)
+        // return endDate.timeIntervalSince(date) > 0
+        return endDate.timeIntervalSinceNow > 0
     }
 }
