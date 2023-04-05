@@ -41,10 +41,12 @@ struct MixitApp: App {
                 .onAppear() {
                     sync()
                 }
+#if os(macOS)
                 .onReceive(NotificationCenter.default.publisher(for: NSWindow.willCloseNotification)) { _ in
                     // source: https://stackoverflow.com/a/75532645
                     save()
                 }
+#endif
         }
         .onChange(of: scenePhase) { _ in
             save()
