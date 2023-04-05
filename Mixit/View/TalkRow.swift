@@ -50,6 +50,7 @@ struct TalkRow: View {
                     .foregroundColor(.orange)
             }
         }
+        .opacity(talk.isUpcomingTalk ? 1 : 0.5)
     }
 }
 

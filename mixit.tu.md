@@ -10,6 +10,7 @@
 ## 8.1
 
 - [x] Restore speakers
+- [x] Restore gray-out past sessions
 - [x] Fix saving favorites
 
 

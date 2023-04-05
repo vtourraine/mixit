@@ -93,4 +93,15 @@ extension Talk {
     var isFavorited: Bool {
         return favorited?.boolValue ?? false
     }
+
+    var isUpcomingTalk: Bool {
+        guard let endDate else {
+            return false
+        }
+
+        let date = Date(timeIntervalSince1970: 1681400976)
+        print("date: \(date.description)")
+        return endDate.timeIntervalSince(date) > 0
+        // return endDate.timeIntervalSinceNow > 0
+    }
 }
