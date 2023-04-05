@@ -9,7 +9,7 @@
 
 ## 8.1
 
-- [x] Restore speakers sync
+- [x] Restore speakers
 
 
 ## 8.0
