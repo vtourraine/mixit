@@ -33,6 +33,7 @@ extension NSManagedObjectContext {
             else {
                 let newMember = Member(context: self)
                 newMember.login = userResponse.login
+                newMember.identifier = userResponse.login
                 newMember.update(with: userResponse)
             }
         }
