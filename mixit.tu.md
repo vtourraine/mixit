@@ -9,9 +9,11 @@
 
 ## 8.1
 
-- [x] Restore speakers
-- [x] Restore gray-out past sessions
-- [x] Fix saving favorites
+2023-04-05
+
+- Restore speakers
+- Restore gray-out past sessions
+- Fix saving favorites
 
 
 ## 8.0
