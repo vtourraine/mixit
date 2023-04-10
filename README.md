@@ -16,3 +16,4 @@ Learn more about this app on my blog (in French):
 - [MiXiT 2019](https://www.vtourraine.net/blog/2019/mixit-2019)
 - [MiXiT 2021](https://www.vtourraine.net/blog/2021/mixit-2021)
 - [MiXiT 2022](https://www.vtourraine.net/blog/2022/mixit-7)
+- [MiXiT 2023 avec SwiftUI](https://www.vtourraine.net/blog/2023/mixit-swiftui)
