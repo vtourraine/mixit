@@ -72,6 +72,18 @@ struct TalkDetail: View {
                         .frame(maxWidth: .infinity, alignment: .leading)
                     Spacer(minLength: 6)
                 }
+				if
+					let room = talk.room
+				{
+					let formattedRoom = TalkResponse.humanReadableRoomNames[room] ?? room
+					
+					HStack {
+						Image(systemName: "mappin.and.ellipse")
+						Text(formattedRoom)
+					}
+					.frame(maxWidth: .infinity, alignment: .leading)
+					Spacer(minLength: 6)
+				}
                 HStack {
                     Image(systemName: "clock")
                     if let startDate = talk.startDate, let endDate = talk.endDate {
@@ -206,6 +218,7 @@ struct TalkDetail_Previews: PreviewProvider {
         talk.title = "First Talk"
         talk.language = "fr"
         talk.format = "Keynote"
+		talk.room = "AMPHI2"
         talk.startDate = Date()
         talk.endDate = Date().addingTimeInterval(3600)
         talk.desc = "Bla bla bla... Bla bla bla... Bla bla bla..."
