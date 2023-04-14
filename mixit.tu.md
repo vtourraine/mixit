@@ -7,6 +7,11 @@
 - Display speaker details
 
 
+## 8.2
+
+- [x] Add room details
+
+ 
 ## 8.1
 
 2023-04-05

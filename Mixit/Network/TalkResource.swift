@@ -26,17 +26,17 @@ struct TalkResponse: Codable {
     // let photoUrls
     let slug: String
     let id: String
-	
-	static let humanReadableRoomNames = [
-		"AMPHI1": "Amphithéâtre Hamilton",
-		"AMPHI2": "Amphithéâtre Lovelace",
-		"ROOM1": "Salle Gosling (F08)",
-		"ROOM2": "Salle Kare (F02/03)",
-		"ROOM3": "Salle Turing (F06)",
-		"ROOM4": "Salle Nonaka (F07)",
-		"ROOM5": "Salle Dijkstra (F05)",
-		"TWITCH": "Twitch.tv"
-	]
+
+    static let humanReadableRoomNames = [
+        "AMPHI1": "Amphithéâtre Hamilton",
+        "AMPHI2": "Amphithéâtre Lovelace",
+        "ROOM1": "Salle Gosling (F08)",
+        "ROOM2": "Salle Kare (F02/03)",
+        "ROOM3": "Salle Turing (F06)",
+        "ROOM4": "Salle Nonaka (F07)",
+        "ROOM5": "Salle Dijkstra (F05)",
+        "TWITCH": "Twitch.tv"
+    ]
 }
 
 extension NSManagedObjectContext {
