@@ -11,6 +11,8 @@ import SwiftUI
 struct TalkRow: View {
     @ObservedObject var talk: Talk
 
+    let isInMaintenanceModeInBetweenEditions = true // Next year schedule isn’t available yet, so we keep all talks “active”
+
     var subtitle: String {
         get {
             var text = ""
@@ -50,7 +52,7 @@ struct TalkRow: View {
                     .foregroundColor(.orange)
             }
         }
-        .opacity(talk.isUpcomingTalk ? 1 : 0.5)
+        .opacity((isInMaintenanceModeInBetweenEditions || talk.isUpcomingTalk) ? 1 : 0.5)
     }
 }
 
