@@ -74,26 +74,14 @@ struct TalkDetail: View {
                 }
 				if let room = talk.room {
 					let formattedRoom = TalkResponse.humanReadableRoomNames[room] ?? room
-					
-					HStack {
-						Image(systemName: "mappin.and.ellipse")
-						Text(formattedRoom)
-					}
-					.frame(maxWidth: .infinity, alignment: .leading)
-					Spacer(minLength: 6)
+					TalkDetailItem(text: formattedRoom, systemImageName: "mappin.and.ellipse")
 				}
-                HStack {
-                    Image(systemName: "clock")
-                    if let startDate = talk.startDate, let endDate = talk.endDate {
-                        Text("\(Talk.dayFormatter.string(from: startDate).localizedCapitalized), \(timeIntervalFormatter.string(from: startDate, to: endDate))")
-                    }
-                    else {
-                        Text("Not announced yet")
-                            .font(.body)
-                    }
+                if let startDate = talk.startDate, let endDate = talk.endDate {
+                    TalkDetailItem(text: "\(Talk.dayFormatter.string(from: startDate).localizedCapitalized), \(timeIntervalFormatter.string(from: startDate, to: endDate))", systemImageName: "clock")
                 }
-                .frame(maxWidth: .infinity, alignment: .leading)
-                Spacer(minLength: 20)
+                else {
+                    TalkDetailItem(text: "Not announced yet", systemImageName: "clock")
+                }
 
                 if let summary = talk.summary {
                     Text(summary)
