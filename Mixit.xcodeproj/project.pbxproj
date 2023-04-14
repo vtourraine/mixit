@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		BB199B1929E9EB300066E5F8 /* TalkDetailItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB199B1829E9EB300066E5F8 /* TalkDetailItem.swift */; };
 		BB199B1A29E9EB300066E5F8 /* TalkDetailItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB199B1829E9EB300066E5F8 /* TalkDetailItem.swift */; };
+		BB199B1E29E9ECBD0066E5F8 /* Rooms.strings in Resources */ = {isa = PBXBuildFile; fileRef = BB199B2129E9ECBD0066E5F8 /* Rooms.strings */; };
+		BB199B1F29E9ECBD0066E5F8 /* Rooms.strings in Resources */ = {isa = PBXBuildFile; fileRef = BB199B2129E9ECBD0066E5F8 /* Rooms.strings */; };
 		D7207A30289BEF9300D36F4A /* TalkDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7207A2F289BEF9300D36F4A /* TalkDetail.swift */; };
 		D7207A31289BEF9300D36F4A /* TalkDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7207A2F289BEF9300D36F4A /* TalkDetail.swift */; };
 		D7207A33289CFC6500D36F4A /* MixitClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7207A32289CFC6500D36F4A /* MixitClient.swift */; };
@@ -48,6 +50,8 @@
 		1FA55BDF1911A5D3000260B3 /* mixit.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = mixit.xcdatamodel; sourceTree = "<group>"; };
 		1FF320FD1AC4A74400D1D4F6 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		BB199B1829E9EB300066E5F8 /* TalkDetailItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TalkDetailItem.swift; path = mixit/View/TalkDetailItem.swift; sourceTree = SOURCE_ROOT; };
+		BB199B2029E9ECBD0066E5F8 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Rooms.strings; sourceTree = "<group>"; };
+		BB199B2229E9ED5F0066E5F8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Rooms.strings; sourceTree = "<group>"; };
 		BB415B4029DB600B0056A8EF /* Mixit-iOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Mixit-iOS-Info.plist"; sourceTree = "<group>"; };
 		BB415B4129DB600F0056A8EF /* Mixit-macOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Mixit-macOS-Info.plist"; sourceTree = "<group>"; };
 		D7207A2F289BEF9300D36F4A /* TalkDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkDetail.swift; sourceTree = "<group>"; };
@@ -139,6 +143,7 @@
 				D7683FE0289BECAF0000F388 /* View */,
 				D7683FBC289BE75D0000F388 /* Assets.xcassets */,
 				D7FAFAC428C78F0A0010D0C2 /* Localizable.strings */,
+				BB199B2129E9ECBD0066E5F8 /* Rooms.strings */,
 				D7FAFACC28C798B70010D0C2 /* InfoPlist.strings */,
 				D7683FC8289BE75D0000F388 /* macOS.entitlements */,
 				BB415B4029DB600B0056A8EF /* Mixit-iOS-Info.plist */,
@@ -258,6 +263,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D7683FD1289BE75D0000F388 /* Assets.xcassets in Resources */,
+				BB199B1E29E9ECBD0066E5F8 /* Rooms.strings in Resources */,
 				D7FAFAC928C798B70010D0C2 /* InfoPlist.strings in Resources */,
 				D7FAFAC128C78F0A0010D0C2 /* Localizable.strings in Resources */,
 			);
@@ -268,6 +274,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D7683FD2289BE75D0000F388 /* Assets.xcassets in Resources */,
+				BB199B1F29E9ECBD0066E5F8 /* Rooms.strings in Resources */,
 				D7FAFACA28C798B70010D0C2 /* InfoPlist.strings in Resources */,
 				D7FAFAC228C78F0A0010D0C2 /* Localizable.strings in Resources */,
 			);
@@ -321,6 +328,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		BB199B2129E9ECBD0066E5F8 /* Rooms.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BB199B2029E9ECBD0066E5F8 /* fr */,
+				BB199B2229E9ED5F0066E5F8 /* en */,
+			);
+			name = Rooms.strings;
+			path = mixit;
+			sourceTree = SOURCE_ROOT;
+		};
 		D7FAFAC428C78F0A0010D0C2 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (

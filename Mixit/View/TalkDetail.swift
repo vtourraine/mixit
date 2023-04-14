@@ -73,7 +73,7 @@ struct TalkDetail: View {
                     Spacer(minLength: 6)
                 }
 				if let room = talk.room {
-					let formattedRoom = TalkResponse.humanReadableRoomNames[room] ?? room
+					let formattedRoom = NSLocalizedString(room, tableName: "Rooms", comment: "")
 					TalkDetailItem(text: formattedRoom, systemImageName: "mappin.and.ellipse")
 				}
                 if let startDate = talk.startDate, let endDate = talk.endDate {

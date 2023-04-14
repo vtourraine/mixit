@@ -1,0 +1,16 @@
+/* 
+  Rooms.strings
+  mixit
+
+  Created by Vincent Tourraine on 14/04/2023.
+  Copyright © 2023 Studio AMANgA. All rights reserved.
+*/
+
+"AMPHI1" = "Hamilton Amphitheater";
+"AMPHI2" = "Lovelace Amphitheater";
+"ROOM1" = "Gosling Room (F08)";
+"ROOM2" = "Kare Room (F02/03)";
+"ROOM3" = "Turing Room (F06)";
+"ROOM4" = "Nonaka Room (F07)";
+"ROOM5" = "Dijkstra Room (F05)";
+"TWITCH" = "Twitch.tv";
