@@ -30,7 +30,7 @@ class MixitClient: ObservableObject {
     var context: NSManagedObjectContext?
 
     static let baseURL = URL(string: "https://mixitconf.org/api/")!
-    static let currentYear = 2023
+    static let currentYear = 2024
     static let pastYears = [2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2021, 2022]
 
     let decoder: JSONDecoder = {
@@ -43,8 +43,8 @@ class MixitClient: ObservableObject {
     func fetchTalks(for year: Int = MixitClient.currentYear, session: URLSession = .shared) -> URLSessionDataTask {
         let url = MixitClient.baseURL.appendingPathComponent("\(year)/talk")
         let task = session.dataTask(with: url) { data, response, error in
-            guard let data = data else {
-                if let error = error {
+            guard let data else {
+                if let error {
                     print("Error: \(error.localizedDescription)")
                 }
                 else {

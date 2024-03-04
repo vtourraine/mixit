@@ -19,7 +19,7 @@ struct InfoView: View {
                 Image("Logo")
                     .resizable()
                     .frame(width: 160, height: 38)
-                Text("April 13 & 14, 2023\nLyon, France")
+                Text("25 & 26 April, 2024\nLyon, France")
                     .fixedSize(horizontal: false, vertical: true)
                     .font(.headline)
                     .multilineTextAlignment(.center)

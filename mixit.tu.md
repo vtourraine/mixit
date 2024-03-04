@@ -7,8 +7,9 @@
 - Display speaker details
 
 
-## 8.2
+## 9.0
 
+- [x] Update for 2024 edition
 - [x] Add room details
 
  

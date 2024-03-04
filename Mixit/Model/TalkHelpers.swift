@@ -26,7 +26,7 @@ extension Talk {
     }()
 
     @objc var startDateString: String {
-        if let startDate = startDate {
+        if let startDate {
             let timeString = Talk.timeFormatter.string(from: startDate)
             let dateString = Talk.dayFormatter.string(from: startDate).localizedCapitalized
             return "\(dateString), \(timeString)"
@@ -37,12 +37,12 @@ extension Talk {
     }
 
     func update(with talkResponse: TalkResponse) {
-        desc = talkResponse.description
+        desc = talkResponse.description.cleaned()
         format = talkResponse.format.replacingOccurrences(of: "_", with: " ")
         language = talkResponse.language
         room = talkResponse.room
-        summary = talkResponse.summary
-        title = talkResponse.title
+        summary = talkResponse.summary.cleaned()
+        title = talkResponse.title.cleaned()
         startDate = talkResponse.start
         endDate = talkResponse.end
         if let event = Int(talkResponse.event) {
@@ -103,5 +103,11 @@ extension Talk {
         // let date = Date(timeIntervalSince1970: 1681400976)
         // return endDate.timeIntervalSince(date) > 0
         return endDate.timeIntervalSinceNow > 0
+    }
+}
+
+extension String {
+    func cleaned() -> String {
+        return replacingOccurrences(of: "&#39;", with: "’").replacingOccurrences(of: "&#34;", with: "\"")
     }
 }
