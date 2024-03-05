@@ -83,6 +83,8 @@ struct TalkDetail: View {
                     TalkDetailItem(text: "Not announced yet", systemImageName: "clock")
                 }
 
+                Spacer(minLength: 20)
+
                 if let summary = talk.summary {
                     Text(summary)
                         .font(.body).italic()
