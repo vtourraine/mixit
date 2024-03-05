@@ -45,6 +45,7 @@ extension Talk {
         title = talkResponse.title.cleaned()
         startDate = talkResponse.start
         endDate = talkResponse.end
+        event = talkResponse.event
         if let event = Int(talkResponse.event) {
             year = NSNumber(value: event)
         }

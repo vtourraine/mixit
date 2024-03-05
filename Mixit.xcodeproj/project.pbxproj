@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 53;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -60,6 +60,7 @@
 		D7207A39289D32A800D36F4A /* MemberHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberHelpers.swift; sourceTree = "<group>"; };
 		D7207A3C289D32B200D36F4A /* UserResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserResource.swift; sourceTree = "<group>"; };
 		D7207A42289D634600D36F4A /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
+		D74AA97D2B97148900708CB3 /* mixit-5.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "mixit-5.xcdatamodel"; sourceTree = "<group>"; };
 		D74C753E29DB156400A36774 /* mixit.tu.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = mixit.tu.md; sourceTree = "<group>"; };
 		D759305720809B22007CFAFF /* mixit-3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "mixit-3.xcdatamodel"; sourceTree = "<group>"; };
 		D7683FB9289BE75C0000F388 /* MixitApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixitApp.swift; sourceTree = "<group>"; };
@@ -237,7 +238,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 1FA55BC21911A5D2000260B3 /* Build configuration list for PBXProject "mixit" */;
+			buildConfigurationList = 1FA55BC21911A5D2000260B3 /* Build configuration list for PBXProject "Mixit" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -637,7 +638,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1FA55BC21911A5D2000260B3 /* Build configuration list for PBXProject "mixit" */ = {
+		1FA55BC21911A5D2000260B3 /* Build configuration list for PBXProject "Mixit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1FA55BF71911A5D4000260B3 /* Debug */,
@@ -670,12 +671,13 @@
 		1FA55BDE1911A5D3000260B3 /* mixit.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				D74AA97D2B97148900708CB3 /* mixit-5.xcdatamodel */,
 				D7683FDC289BE8A80000F388 /* mixit-4.xcdatamodel */,
 				D759305720809B22007CFAFF /* mixit-3.xcdatamodel */,
 				1F7F929F1CB01DFF009FA028 /* mixit-2.xcdatamodel */,
 				1FA55BDF1911A5D3000260B3 /* mixit.xcdatamodel */,
 			);
-			currentVersion = D7683FDC289BE8A80000F388 /* mixit-4.xcdatamodel */;
+			currentVersion = D74AA97D2B97148900708CB3 /* mixit-5.xcdatamodel */;
 			path = mixit.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

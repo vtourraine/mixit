@@ -15,6 +15,7 @@ struct ContentView: View {
 
     @State private var showingInfo = false
     @State private var searchText = ""
+    static let yearPredicate = NSPredicate(format: "%K == %@", #keyPath(Talk.event), String(MixitClient.currentYear))
     var searchQuery: Binding<String> {
       Binding {
         searchText
@@ -22,18 +23,21 @@ struct ContentView: View {
         searchText = newValue
 
         guard !newValue.isEmpty else {
-          talks.nsPredicate = nil
+            talks.nsPredicate = ContentView.yearPredicate
           return
         }
 
-        talks.nsPredicate = NSPredicate(format: "%K contains[cd] %@ OR %K contains[cd] %@", #keyPath(Talk.title), newValue, #keyPath(Talk.summary), newValue)
+        talks.nsPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [
+            NSPredicate(format: "%K contains[cd] %@ OR %K contains[cd] %@", #keyPath(Talk.title), newValue, #keyPath(Talk.summary), newValue),
+            ContentView.yearPredicate])
       }
     }
 
     @SectionedFetchRequest<String, Talk>(
       // entity: Talk.entity(),
       sectionIdentifier: \.startDateString,
-      sortDescriptors: [SortDescriptor(\.startDate, order: .forward)]
+      sortDescriptors: [SortDescriptor(\.startDate, order: .forward)],
+      predicate: yearPredicate
     ) var talks: SectionedFetchResults<String, Talk>
 
     private var dateFormatter = DateFormatter()
