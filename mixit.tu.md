@@ -7,6 +7,11 @@
 - Display speaker details
 
 
+## 9.0.1
+
+- [x] Re-enabled dimmed rows
+
+
 ## 9.0
 
 2024-03-06
