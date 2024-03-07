@@ -11,7 +11,8 @@ import SwiftUI
 struct TalkRow: View {
     @ObservedObject var talk: Talk
 
-    let isInMaintenanceModeInBetweenEditions = true // Next year schedule isn’t available yet, so we keep all talks “active”
+    // When next year schedule isn’t available yet, we keep all talks “active”
+    let isInMaintenanceModeInBetweenEditions = false
 
     var subtitle: String {
         get {
