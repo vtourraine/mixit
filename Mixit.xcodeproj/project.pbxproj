@@ -37,8 +37,6 @@
 		D7683FDF289BEC3C0000F388 /* TalkHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7683FDD289BEC3C0000F388 /* TalkHelpers.swift */; };
 		D7683FE2289BECE20000F388 /* TalkRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7683FE1289BECE20000F388 /* TalkRow.swift */; };
 		D7683FE3289BECE20000F388 /* TalkRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7683FE1289BECE20000F388 /* TalkRow.swift */; };
-		D7FAFABC28C785EB0010D0C2 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FAFABB28C785EB0010D0C2 /* Color.swift */; };
-		D7FAFABD28C785EB0010D0C2 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FAFABB28C785EB0010D0C2 /* Color.swift */; };
 		D7FAFAC128C78F0A0010D0C2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D7FAFAC428C78F0A0010D0C2 /* Localizable.strings */; };
 		D7FAFAC228C78F0A0010D0C2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D7FAFAC428C78F0A0010D0C2 /* Localizable.strings */; };
 		D7FAFAC928C798B70010D0C2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D7FAFACC28C798B70010D0C2 /* InfoPlist.strings */; };
@@ -73,7 +71,6 @@
 		D7683FDC289BE8A80000F388 /* mixit-4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "mixit-4.xcdatamodel"; sourceTree = "<group>"; };
 		D7683FDD289BEC3C0000F388 /* TalkHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkHelpers.swift; sourceTree = "<group>"; };
 		D7683FE1289BECE20000F388 /* TalkRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkRow.swift; sourceTree = "<group>"; };
-		D7FAFABB28C785EB0010D0C2 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		D7FAFAC328C78F0A0010D0C2 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D7FAFAC528C78F1A0010D0C2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D7FAFACB28C798B70010D0C2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -172,7 +169,6 @@
 				D7207A2F289BEF9300D36F4A /* TalkDetail.swift */,
 				BB199B1829E9EB300066E5F8 /* TalkDetailItem.swift */,
 				D7207A42289D634600D36F4A /* InfoView.swift */,
-				D7FAFABB28C785EB0010D0C2 /* Color.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -223,7 +219,7 @@
 				BuildIndependentTargetsInParallel = YES;
 				CLASSPREFIX = AMG;
 				LastSwiftUpdateCheck = 1340;
-				LastUpgradeCheck = 1430;
+				LastUpgradeCheck = 1520;
 				ORGANIZATIONNAME = "Studio AMANgA";
 				TargetAttributes = {
 					D7683FC0289BE75D0000F388 = {
@@ -238,7 +234,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 1FA55BC21911A5D2000260B3 /* Build configuration list for PBXProject "mixit" */;
+			buildConfigurationList = 1FA55BC21911A5D2000260B3 /* Build configuration list for PBXProject "Mixit" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -293,7 +289,6 @@
 				D7207A3A289D32A800D36F4A /* MemberHelpers.swift in Sources */,
 				D7683FCF289BE75D0000F388 /* Persistence.swift in Sources */,
 				D7683FDE289BEC3C0000F388 /* TalkHelpers.swift in Sources */,
-				D7FAFABC28C785EB0010D0C2 /* Color.swift in Sources */,
 				D7207A43289D634600D36F4A /* InfoView.swift in Sources */,
 				D7683FD9289BE84F0000F388 /* mixit.xcdatamodeld in Sources */,
 				D7207A37289CFDC000D36F4A /* TalkResource.swift in Sources */,
@@ -314,7 +309,6 @@
 				D7207A3B289D32A800D36F4A /* MemberHelpers.swift in Sources */,
 				D7683FD0289BE75D0000F388 /* Persistence.swift in Sources */,
 				D7683FDF289BEC3C0000F388 /* TalkHelpers.swift in Sources */,
-				D7FAFABD28C785EB0010D0C2 /* Color.swift in Sources */,
 				D7207A44289D634600D36F4A /* InfoView.swift in Sources */,
 				D7683FDA289BE8500000F388 /* mixit.xcdatamodeld in Sources */,
 				D7207A38289CFDC000D36F4A /* TalkResource.swift in Sources */,
@@ -364,6 +358,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -395,6 +390,7 @@
 				ENABLE_PREVIEWS = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -422,6 +418,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -453,6 +450,7 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -638,7 +636,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1FA55BC21911A5D2000260B3 /* Build configuration list for PBXProject "mixit" */ = {
+		1FA55BC21911A5D2000260B3 /* Build configuration list for PBXProject "Mixit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1FA55BF71911A5D4000260B3 /* Debug */,

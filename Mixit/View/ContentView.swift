@@ -56,7 +56,7 @@ struct ContentView: View {
                                 Button(talk.isFavorited ? "Remove from Favorites" : "Add to Favorites") {
                                     talk.toggleFavorited()
                                 }
-                                .tint(.mixitOrange)
+                                .tint(Color.mixitOrange)
                             }
                         }
                     }
