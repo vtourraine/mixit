@@ -9,8 +9,10 @@
 
 ## 9.0
 
-- [x] Update for 2024 edition
-- [x] Add room details
+2024-03-06
+
+- Update for 2024 edition
+- Add room details
 
  
 ## 8.1
