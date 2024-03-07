@@ -57,7 +57,7 @@ extension Talk {
 
     var emojiForLanguage: String? {
         get {
-            guard let language = language else {
+            guard let language else {
                 return nil
             }
 
@@ -73,7 +73,7 @@ extension Talk {
     }
 
     func fetchSpeakers() -> [Member] {
-        guard let speakersIdentifiers = speakersIdentifiers else {
+        guard let speakersIdentifiers else {
             return []
         }
 
@@ -86,7 +86,7 @@ extension Talk {
     }
 
     func toggleFavorited() {
-        if let favorited = favorited {
+        if let favorited {
             self.favorited = NSNumber(booleanLiteral: !favorited.boolValue)
         }
     }

@@ -34,7 +34,6 @@ struct ContentView: View {
     }
 
     @SectionedFetchRequest<String, Talk>(
-      // entity: Talk.entity(),
       sectionIdentifier: \.startDateString,
       sortDescriptors: [SortDescriptor(\.startDate, order: .forward)],
       predicate: yearPredicate

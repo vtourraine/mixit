@@ -81,8 +81,8 @@ class MixitClient: ObservableObject {
     func fetchUsers(for year: Int = MixitClient.currentYear, session: URLSession = .shared) -> URLSessionDataTask {
         let url = MixitClient.baseURL.appendingPathComponent("\(year)/speaker")
         let task = session.dataTask(with: url) { data, response, error in
-            guard let data = data else {
-                if let error = error {
+            guard let data else {
+                if let error {
                     print("Error: \(error.localizedDescription)")
                 }
                 else {
