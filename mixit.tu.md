@@ -9,7 +9,9 @@
 
 ## 9.0.1
 
-- [x] Re-enabled dimmed rows
+2024-03-08
+
+- Re-enabled dimmed rows
 
 
 ## 9.0
