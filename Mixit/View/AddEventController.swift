@@ -29,8 +29,12 @@ class AddEventController: UIViewController, EKEventEditViewDelegate {
         let handler: EKEventStoreRequestAccessCompletionHandler = { (granted, error) in
             DispatchQueue.main.async {
                 guard granted && error == nil else {
-                    // MARK: - To do
-                    print("Not granted")
+                    let alert = UIAlertController(title: NSLocalizedString("Cannot Add Event", comment: ""), message: NSLocalizedString("Please allow calendar access in Settings.", comment: ""), preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .cancel) { _ in
+                        self.parent?.dismiss(animated: true, completion: nil)
+                    })
+                    alert.view.tintColor = .mixitOrange
+                    self.present(alert, animated: true)
                     return
                 }
 

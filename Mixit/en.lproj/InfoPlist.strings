@@ -6,8 +6,8 @@
   Copyright © 2022 Studio AMANgA. All rights reserved.
 */
 
-"CFBundleDisplayName" = "MiXiT";
-"CFBundleName" = "MiXiT";
+CFBundleDisplayName = "MiXiT";
+CFBundleName = "MiXiT";
 
-"NSCalendarsUsageDescription" = "The app can then add this session to your calendar.";
-"NSCalendarsWriteOnlyAccessUsageDescription" = "Add talks to your calendar.";
+NSCalendarsUsageDescription = "The app can then add this session to your calendar.";
+NSCalendarsWriteOnlyAccessUsageDescription = "The app can then add this session to your calendar.";
