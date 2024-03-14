@@ -7,6 +7,11 @@
 - Display speaker details
 
 
+## 9.1
+
+- [x] Restore Add to Calendar (iOS/iPadOS only)
+
+
 ## 9.0.1
 
 2024-03-08
