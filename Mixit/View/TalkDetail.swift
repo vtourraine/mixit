@@ -17,6 +17,7 @@ struct TalkDetail: View {
     }()
 
     @ObservedObject var talk: Talk
+    @State var showAddEventModal = false
 
     var shareItems: [Any] {
         get {
@@ -102,9 +103,19 @@ struct TalkDetail: View {
             .textSelection(.enabled)
             .frame(minWidth: 300, maxWidth: 600, alignment: .leading)
         }
+#if os(iOS)
+        .sheet(isPresented: $showAddEventModal){
+            AddEvent(talk: talk)
+        }
+#endif
         .toolbar {
 #if os(iOS)
             ToolbarItemGroup(placement: .navigationBarTrailing) {
+                Button(action: {
+                    showAddEventModal.toggle()
+                }) {
+                    Label("Add to Calendar", systemImage: "calendar.badge.plus")
+                }
                 Button(action: {
                     talk.toggleFavorited()
                 }) {

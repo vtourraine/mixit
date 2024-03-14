@@ -74,8 +74,7 @@ struct InfoView: View {
     }
 
     func openWebsite() {
-        let url = URL(string: "https://mixitconf.org")!
-        openWebsite(url)
+        openWebsite(MixitClient.webURL)
     }
 }
 

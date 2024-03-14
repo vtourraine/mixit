@@ -29,6 +29,7 @@ class MixitClient: ObservableObject {
 
     var context: NSManagedObjectContext?
 
+    static let webURL = URL(string: "https://mixitconf.org")!
     static let baseURL = URL(string: "https://mixitconf.org/api/")!
     static let currentYear = 2024
     static let pastYears = [2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2021, 2022, 2023]

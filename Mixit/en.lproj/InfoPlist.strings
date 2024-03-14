@@ -10,3 +10,4 @@
 "CFBundleName" = "MiXiT";
 
 "NSCalendarsUsageDescription" = "The app can then add this session to your calendar.";
+"NSCalendarsWriteOnlyAccessUsageDescription" = "Add talks to your calendar.";
