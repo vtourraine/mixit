@@ -17,14 +17,19 @@ import EventKitUI
 class AddEventController: UIViewController, EKEventEditViewDelegate {
     let eventStore = EKEventStore()
     var talk: Talk?
+    var isFirstDidAppear = true
 
     func eventEditViewController(_ controller: EKEventEditViewController, didCompleteWith action: EKEventEditViewAction) {
         controller.dismiss(animated: true, completion: nil)
         parent?.dismiss(animated: true, completion: nil)
     }
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        guard isFirstDidAppear else {
+            return
+        }
 
         let handler: EKEventStoreRequestAccessCompletionHandler = { (granted, error) in
             DispatchQueue.main.async {
@@ -67,6 +72,8 @@ class AddEventController: UIViewController, EKEventEditViewDelegate {
         else {
             eventStore.requestAccess(to: .event, completion: handler)
         }
+
+        isFirstDidAppear = false
     }
 }
 
