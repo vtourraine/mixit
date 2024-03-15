@@ -5,7 +5,7 @@
 - Restore calendar integration
 - Restore past editions
 - Display speaker details
-
+- Display sync error dialog
 
 ## 9.1
 
