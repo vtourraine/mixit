@@ -7,9 +7,12 @@
 - Display speaker details
 - Display sync error dialog
 
+
 ## 9.1
 
-- [x] Restore Add to Calendar (iOS/iPadOS only)
+2024-03-17
+
+- Restore Add to Calendar (iOS/iPadOS only)
 
 
 ## 9.0.1
