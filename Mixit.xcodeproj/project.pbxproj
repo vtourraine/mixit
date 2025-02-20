@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BB199B1929E9EB300066E5F8 /* TalkDetailItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB199B1829E9EB300066E5F8 /* TalkDetailItem.swift */; };
-		BB199B1A29E9EB300066E5F8 /* TalkDetailItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB199B1829E9EB300066E5F8 /* TalkDetailItem.swift */; };
 		BB199B1E29E9ECBD0066E5F8 /* Rooms.strings in Resources */ = {isa = PBXBuildFile; fileRef = BB199B2129E9ECBD0066E5F8 /* Rooms.strings */; };
 		BB199B1F29E9ECBD0066E5F8 /* Rooms.strings in Resources */ = {isa = PBXBuildFile; fileRef = BB199B2129E9ECBD0066E5F8 /* Rooms.strings */; };
+		BBE442BF2D67C8D000BD17F6 /* TalkDetailItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE442BE2D67C8D000BD17F6 /* TalkDetailItem.swift */; };
+		BBE442C02D67C8D000BD17F6 /* TalkDetailItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE442BE2D67C8D000BD17F6 /* TalkDetailItem.swift */; };
 		D7207A30289BEF9300D36F4A /* TalkDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7207A2F289BEF9300D36F4A /* TalkDetail.swift */; };
 		D7207A31289BEF9300D36F4A /* TalkDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7207A2F289BEF9300D36F4A /* TalkDetail.swift */; };
 		D7207A33289CFC6500D36F4A /* MixitClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7207A32289CFC6500D36F4A /* MixitClient.swift */; };
@@ -49,11 +49,11 @@
 		1F7F929F1CB01DFF009FA028 /* mixit-2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "mixit-2.xcdatamodel"; sourceTree = "<group>"; };
 		1FA55BDF1911A5D3000260B3 /* mixit.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = mixit.xcdatamodel; sourceTree = "<group>"; };
 		1FF320FD1AC4A74400D1D4F6 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		BB199B1829E9EB300066E5F8 /* TalkDetailItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TalkDetailItem.swift; path = mixit/View/TalkDetailItem.swift; sourceTree = SOURCE_ROOT; };
 		BB199B2029E9ECBD0066E5F8 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Rooms.strings; sourceTree = "<group>"; };
 		BB199B2229E9ED5F0066E5F8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Rooms.strings; sourceTree = "<group>"; };
 		BB415B4029DB600B0056A8EF /* Mixit-iOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Mixit-iOS-Info.plist"; sourceTree = "<group>"; };
 		BB415B4129DB600F0056A8EF /* Mixit-macOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Mixit-macOS-Info.plist"; sourceTree = "<group>"; };
+		BBE442BE2D67C8D000BD17F6 /* TalkDetailItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkDetailItem.swift; sourceTree = "<group>"; };
 		D7207A2F289BEF9300D36F4A /* TalkDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkDetail.swift; sourceTree = "<group>"; };
 		D7207A32289CFC6500D36F4A /* MixitClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixitClient.swift; sourceTree = "<group>"; };
 		D7207A36289CFDC000D36F4A /* TalkResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkResource.swift; sourceTree = "<group>"; };
@@ -171,7 +171,7 @@
 				D7683FBA289BE75C0000F388 /* ContentView.swift */,
 				D7683FE1289BECE20000F388 /* TalkRow.swift */,
 				D7207A2F289BEF9300D36F4A /* TalkDetail.swift */,
-				BB199B1829E9EB300066E5F8 /* TalkDetailItem.swift */,
+				BBE442BE2D67C8D000BD17F6 /* TalkDetailItem.swift */,
 				D7207A42289D634600D36F4A /* InfoView.swift */,
 				D78BC6DE2BA32DC900ED9104 /* AddEventController.swift */,
 				D78BC6E12BA32DEF00ED9104 /* AddEvent.swift */,
@@ -292,10 +292,10 @@
 			files = (
 				D78BC6DF2BA32DC900ED9104 /* AddEventController.swift in Sources */,
 				D7207A30289BEF9300D36F4A /* TalkDetail.swift in Sources */,
-				BB199B1929E9EB300066E5F8 /* TalkDetailItem.swift in Sources */,
 				D7207A3A289D32A800D36F4A /* MemberHelpers.swift in Sources */,
 				D7683FCF289BE75D0000F388 /* Persistence.swift in Sources */,
 				D7683FDE289BEC3C0000F388 /* TalkHelpers.swift in Sources */,
+				BBE442C02D67C8D000BD17F6 /* TalkDetailItem.swift in Sources */,
 				D78BC6E22BA32DEF00ED9104 /* AddEvent.swift in Sources */,
 				D7207A43289D634600D36F4A /* InfoView.swift in Sources */,
 				D7683FD9289BE84F0000F388 /* mixit.xcdatamodeld in Sources */,
@@ -313,7 +313,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D7207A31289BEF9300D36F4A /* TalkDetail.swift in Sources */,
-				BB199B1A29E9EB300066E5F8 /* TalkDetailItem.swift in Sources */,
 				D7207A3B289D32A800D36F4A /* MemberHelpers.swift in Sources */,
 				D7683FD0289BE75D0000F388 /* Persistence.swift in Sources */,
 				D7683FDF289BEC3C0000F388 /* TalkHelpers.swift in Sources */,
@@ -325,6 +324,7 @@
 				D7207A3E289D32B200D36F4A /* UserResource.swift in Sources */,
 				D7207A34289CFC6500D36F4A /* MixitClient.swift in Sources */,
 				D7683FCE289BE75D0000F388 /* ContentView.swift in Sources */,
+				BBE442BF2D67C8D000BD17F6 /* TalkDetailItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
