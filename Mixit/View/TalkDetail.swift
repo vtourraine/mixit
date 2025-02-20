@@ -214,13 +214,25 @@ struct TalkDetail_Previews: PreviewProvider {
     static let talk: Talk = {
         let talk = Talk(context: inMemory.container.viewContext)
         talk.identifier = "1"
-        talk.title = "First Talk"
+        talk.title = "Au-delà des heures : La semaine de 4 jours comme levier d’égalité"
         talk.language = "fr"
-        talk.format = "Keynote"
+        talk.format = "Talk"
         talk.room = "AMPHI2"
         talk.startDate = Date()
         talk.endDate = Date().addingTimeInterval(3600)
-        talk.desc = "Bla bla bla... Bla bla bla... Bla bla bla..."
+        talk.summary =
+			"""
+			L’égalité…vaste sujet n’est ce pas ? 
+
+			Égalité salariale, reconnaissance équitable, évolution dans l’entreprise… Il est temps de briser les barrières de genre ! Allons même plus loin sur la diversité et l’inclusion en offrant une flexibilité accrue aux employé.es ayant des responsabilités familiales, des engagements ou des besoins particuliers.
+
+			Une révolution du travail se profile à l’horizon : la semaine de 4 jours. Un levier puissant pour l’égalité et je vais vous expliquer pourquoi.
+
+			Au cours de cette conférence, nous explorerons en détail les mécanismes par lesquels la semaine de 4 jours contribue à la diminution des inégalités au travail. Des exemples concrets s’appuyant sur des témoignages et des études de cas mettront en lumière les bienfaits de cette approche. 
+
+			Enfin, je vous donnerai les clés pour insuffler cette nouvelle façon de travailler dans votre propre structure. 
+			Saisissez l’opportunité d’initier des transformations positives dès maintenant !
+			"""
         return talk
     }()
 
