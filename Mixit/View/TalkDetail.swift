@@ -35,10 +35,30 @@ struct TalkDetail: View {
 
     var body: some View {
         ScrollView {
-            VStack {
+            VStack(alignment: .leading) {
                 Text(talk.title ?? "")
-                    .font(.title)
+                    .font(.largeTitle).fontWeight(.semibold)
                     .frame(maxWidth: .infinity, alignment: .leading)
+
+                Spacer(minLength: 10)
+
+                if
+                    let language = talk.localizedLanguage,
+                    let languageEmoji = talk.emojiForLanguage,
+                    let format = talk.format
+                {
+
+                    HStack(spacing: 0) {
+                        Text(format.localizedCapitalized)
+                        Text(" • ")
+                        Text("\(languageEmoji) \(language)")
+                    }
+                    .foregroundStyle(.secondary)
+                    .font(.subheadline)
+
+                    Spacer(minLength: 20)
+                }
+
                 ForEach(talk.fetchSpeakers()) { speaker in
                     HStack {
                         if let photoURL = speaker.photoURLString {
@@ -68,11 +88,6 @@ struct TalkDetail: View {
                 }
                 Spacer(minLength: 20)
 
-                if let emoji = talk.emojiForLanguage, let format = talk.format {
-                    Text("\(emoji) \(format.localizedCapitalized)")
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                    Spacer(minLength: 6)
-                }
 				if let room = talk.room {
 					let formattedRoom = NSLocalizedString(room, tableName: "Rooms", comment: "")
 					TalkDetailItem(text: formattedRoom, systemImageName: "mappin.and.ellipse")

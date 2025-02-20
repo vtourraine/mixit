@@ -95,6 +95,23 @@ extension Talk {
         }
     }
 
+    var localizedLanguage: String? {
+        get {
+            guard let language else {
+                return nil
+            }
+
+            if language == "fr" || language == "FRENCH" {
+                return NSLocalizedString("French", comment: "")
+            }
+            else if language == "en" || language == "ENGLISH" {
+                return NSLocalizedString("English", comment: "")
+            }
+
+            return nil
+        }
+    }
+
     func fetchSpeakers() -> [Member] {
         guard let speakersIdentifiers else {
             return []
