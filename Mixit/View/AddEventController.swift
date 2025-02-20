@@ -38,7 +38,7 @@ class AddEventController: UIViewController, EKEventEditViewDelegate {
                     alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .cancel) { _ in
                         self.parent?.dismiss(animated: true, completion: nil)
                     })
-                    alert.view.tintColor = .mixitOrange
+                    alert.view.tintColor = .miXiTOrange
                     self.present(alert, animated: true)
                     return
                 }
