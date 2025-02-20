@@ -7,9 +7,11 @@
 - Display speaker details
 - Display sync error dialog
 
+
 ## 10.0
 
-- Update for 2025 edition
+- [x] Update for 2025 edition
+
 
 ## 9.1
 
