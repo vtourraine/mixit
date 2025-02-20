@@ -36,6 +36,29 @@ extension Talk {
         }
     }
 
+    /// The description if available, or the summary otherwise.
+    var effectiveDescription: String? {
+        guard let desc, desc != "" else {
+            return summary
+        }
+
+        return desc
+    }
+
+    /// The summary if the description is available, otherwise nothing.
+    var effectiveSummary: String? {
+        guard let desc, desc != "" else {
+            return nil
+        }
+
+        return summary
+    }
+
+    @objc
+    var shortestAvailableDescription: String? {
+        effectiveSummary ?? effectiveDescription
+    }
+
     func update(with talkResponse: TalkResponse) {
         desc = talkResponse.description.cleaned()
         format = talkResponse.format.replacingOccurrences(of: "_", with: " ")

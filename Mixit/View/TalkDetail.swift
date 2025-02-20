@@ -86,15 +86,15 @@ struct TalkDetail: View {
 
                 Spacer(minLength: 20)
 
-                if let summary = talk.summary {
-                    Text(summary)
+                if let effectiveSummary = talk.effectiveSummary {
+                    Text(effectiveSummary)
                         .font(.body).italic()
                         .frame(maxWidth: .infinity, alignment: .leading)
                     Spacer(minLength: 20)
                 }
 
-                if let desc = talk.desc {
-                    Text(desc)
+                if let effectiveDescription = talk.effectiveDescription {
+                    Text(effectiveDescription)
                         .font(.body)
                         .frame(maxWidth: .infinity, alignment: .leading)
                 }
