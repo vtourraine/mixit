@@ -66,7 +66,9 @@ struct TalkDetail: View {
                         // Speaker photo
                         if let photoURL = speaker.photoURLString {
                             AsyncImage(url: URL(string: photoURL)) { image in
-                                image.resizable()
+                                image
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fill)
                                     .clipShape(Circle())
                                     .overlay {
                                         Circle()
