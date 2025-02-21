@@ -19,6 +19,8 @@ struct TalkDetail: View {
     @ObservedObject var talk: Talk
     @State var showAddEventModal = false
 
+    @Environment(\.colorScheme) private var colorScheme
+
     var shareItems: [Any] {
         get {
             if let title = talk.title, let year = talk.year,
@@ -60,33 +62,53 @@ struct TalkDetail: View {
                 }
 
                 ForEach(talk.fetchSpeakers()) { speaker in
-                    HStack {
+                    HStack(alignment: .top) {
+                        // Speaker photo
                         if let photoURL = speaker.photoURLString {
                             AsyncImage(url: URL(string: photoURL)) { image in
                                 image.resizable()
                                     .clipShape(Circle())
+                                    .overlay {
+                                        Circle()
+                                            .strokeBorder(
+                                                .primary.opacity(
+                                                    colorScheme == .light
+                                                    ? 0.1
+                                                    : 0.3
+                                                ),
+                                                lineWidth: 1
+                                            )
+                                    }
                             } placeholder: {
                                 Image(systemName: "person.crop.circle")
-                                    .font(.system(size: 32))
+                                    .resizable()
+                                    .font(.system(size: 10))
                             }
-                            .frame(width: 40, height: 40)
+                            .frame(width: 38, height: 38)
                         }
                         else {
                             Image(systemName: "person.crop.circle")
-                                .font(.system(size: 32))
-                                .frame(width: 40, height: 40)
+                                .resizable()
+                                .font(.system(size: 10))
+                                .frame(width: 38, height: 38)
                         }
+
+                        // Speaker info
                         VStack(alignment: .leading) {
                             Text(nameFormatter.string(from: PersonNameComponents(givenName: speaker.firstName, familyName: speaker.lastName)))
-                                .font(.body)
+                                .font(.subheadline.weight(.semibold))
+
                             if let company = speaker.company {
                                 Text(company)
-                                    .font(.body).italic()
+                                    .font(.subheadline).foregroundStyle(.secondary)
                             }
                         }
-                    }.frame(maxWidth: .infinity, alignment: .leading)
+                        .frame(minHeight: 38)
+                    }
+                    .frame(maxWidth: .infinity, alignment: .leading)
+
+                    Spacer(minLength: 20)
                 }
-                Spacer(minLength: 20)
 
 				if let room = talk.room {
 					let formattedRoom = NSLocalizedString(room, tableName: "Rooms", comment: "")
