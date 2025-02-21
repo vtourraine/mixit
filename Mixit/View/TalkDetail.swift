@@ -61,6 +61,21 @@ struct TalkDetail: View {
                     Spacer(minLength: 20)
                 }
 
+                HStack {
+                    if let startDate = talk.startDate, let endDate = talk.endDate {
+                        TalkDetailItem(text: "\(Talk.dayFormatter.string(from: startDate).localizedCapitalized)\n\(timeIntervalFormatter.string(from: startDate, to: endDate))", systemImageName: "clock.circle.fill", imageColor: .blue)
+                    }
+                    if let room = talk.room {
+                        let formattedRoom = NSLocalizedString(room, tableName: "Rooms", comment: "")
+                        TalkDetailItem(text: formattedRoom, systemImageName: "mappin.circle.fill", imageColor: .red)
+                    }
+                    else {
+                        TalkDetailItem(text: "Not announced yet", systemImageName: "ellipsis.circle.fill", imageColor: .gray)
+                    }
+                }
+
+                Spacer(minLength: 20)
+
                 ForEach(talk.fetchSpeakers()) { speaker in
                     HStack(alignment: .top) {
                         // Speaker photo
@@ -111,19 +126,6 @@ struct TalkDetail: View {
 
                     Spacer(minLength: 20)
                 }
-
-				if let room = talk.room {
-					let formattedRoom = NSLocalizedString(room, tableName: "Rooms", comment: "")
-					TalkDetailItem(text: formattedRoom, systemImageName: "mappin.and.ellipse")
-				}
-                if let startDate = talk.startDate, let endDate = talk.endDate {
-                    TalkDetailItem(text: "\(Talk.dayFormatter.string(from: startDate).localizedCapitalized), \(timeIntervalFormatter.string(from: startDate, to: endDate))", systemImageName: "clock")
-                }
-                else {
-                    TalkDetailItem(text: "Not announced yet", systemImageName: "clock")
-                }
-
-                Spacer(minLength: 20)
 
                 if let effectiveSummary = talk.effectiveSummary {
                     Text(effectiveSummary)
