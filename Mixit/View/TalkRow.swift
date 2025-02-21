@@ -17,20 +17,18 @@ struct TalkRow: View {
     var subtitle: String {
         get {
             var text = ""
-            if let emoji = talk.emojiForLanguage {
-                text += emoji + " "
-            }
-
-            if let format = talk.format {
-                text += format.localizedCapitalized
-            }
 
             if let startDate = talk.startDate, let endDate = talk.endDate {
                 let formatter = DateIntervalFormatter()
                 formatter.dateStyle = .none
                 formatter.timeStyle = .short
                 let dateString = formatter.string(from: startDate, to: endDate)
-                text += ", " + dateString
+                text += " • " + dateString
+            }
+
+            if let room = talk.room {
+                let formattedRoom = NSLocalizedString(room, tableName: "Rooms", comment: "")
+                text += " • " + formattedRoom
             }
 
             return text
@@ -42,9 +40,23 @@ struct TalkRow: View {
             VStack(alignment: .leading, spacing: 8) {
                 Spacer(minLength: 2)
                 Text(talk.title ?? "")
-                    .font(.body)
-                Text(subtitle)
-                    .font(.caption)
+                    .font(.body.bold())
+
+                HStack(spacing: 0) {
+                    if let emoji = talk.emojiForLanguage {
+                        Text(emoji + " ")
+                    }
+
+                    if let format = talk.format {
+                        Text(format.localizedCapitalized)
+                            .bold()
+                    }
+
+                    Text(subtitle)
+                }
+                .font(.caption)
+                .foregroundStyle(.secondary)
+
                 Spacer(minLength: 2)
             }
             Spacer()
@@ -65,6 +77,7 @@ struct TalkRow_Previews: PreviewProvider {
         talk.title = "First Talk"
         talk.language = "fr"
         talk.format = "Keynote"
+        talk.room = "AMPHI2"
         talk.startDate = Date()
         talk.endDate = Date().addingTimeInterval(3600)
         return talk
