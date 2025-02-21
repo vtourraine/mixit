@@ -43,10 +43,6 @@ struct TalkRow: View {
                     .font(.body.bold())
 
                 HStack(spacing: 0) {
-                    if let emoji = talk.emojiForLanguage {
-                        Text(emoji + " ")
-                    }
-
                     if let format = talk.format {
                         Text(format.localizedCapitalized)
                             .bold()

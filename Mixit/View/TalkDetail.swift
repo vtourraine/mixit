@@ -46,14 +46,13 @@ struct TalkDetail: View {
 
                 if
                     let language = talk.localizedLanguage,
-                    let languageEmoji = talk.emojiForLanguage,
                     let format = talk.format
                 {
 
                     HStack(spacing: 0) {
                         Text(format.localizedCapitalized)
                         Text(" • ")
-                        Text("\(languageEmoji) \(language)")
+                        Text(language)
                     }
                     .foregroundStyle(.secondary)
                     .font(.subheadline)
