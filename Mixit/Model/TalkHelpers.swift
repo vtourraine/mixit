@@ -149,6 +149,9 @@ extension Talk {
 
 extension String {
     func cleaned() -> String {
-        return replacingOccurrences(of: "&#39;", with: "’").replacingOccurrences(of: "&#34;", with: "\"")
+        return
+            replacingOccurrences(of: "&#39;", with: "'")
+            .replacingOccurrences(of: "&#34;", with: "\"")
+            .replacingOccurrences(of: "&amp;", with: "&")
     }
 }
