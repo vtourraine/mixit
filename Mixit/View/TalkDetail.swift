@@ -19,8 +19,6 @@ struct TalkDetail: View {
     @ObservedObject var talk: Talk
     @State var showAddEventModal = false
 
-    @Environment(\.colorScheme) private var colorScheme
-
     var shareItems: [Any] {
         get {
             if let title = talk.title, let year = talk.year,
@@ -38,24 +36,24 @@ struct TalkDetail: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading) {
-                Text(talk.title ?? "")
-                    .font(.largeTitle).fontWeight(.semibold)
-                    .frame(maxWidth: .infinity, alignment: .leading)
+                if let title = talk.title {
+                    Text(title)
+                        .font(.largeTitle)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                }
 
                 Spacer(minLength: 10)
 
-                if
-                    let language = talk.localizedLanguage,
-                    let format = talk.format
-                {
-
+                if let language = talk.localizedLanguage,
+                   let format = talk.format {
                     HStack(spacing: 0) {
                         Text(format.localizedCapitalized)
+                            .bold()
                         Text(" • ")
                         Text(language)
                     }
                     .foregroundStyle(.secondary)
-                    .font(.subheadline)
+                    .font(.body)
 
                     Spacer(minLength: 20)
                 }
@@ -84,35 +82,22 @@ struct TalkDetail: View {
                                     .resizable()
                                     .aspectRatio(contentMode: .fill)
                                     .clipShape(Circle())
-                                    .overlay {
-                                        Circle()
-                                            .strokeBorder(
-                                                .primary.opacity(
-                                                    colorScheme == .light
-                                                    ? 0.1
-                                                    : 0.3
-                                                ),
-                                                lineWidth: 1
-                                            )
-                                    }
                             } placeholder: {
                                 Image(systemName: "person.crop.circle")
                                     .resizable()
-                                    .font(.system(size: 10))
                             }
                             .frame(width: 38, height: 38)
                         }
                         else {
                             Image(systemName: "person.crop.circle")
                                 .resizable()
-                                .font(.system(size: 10))
                                 .frame(width: 38, height: 38)
                         }
 
                         // Speaker info
                         VStack(alignment: .leading) {
                             Text(nameFormatter.string(from: PersonNameComponents(givenName: speaker.firstName, familyName: speaker.lastName)))
-                                .font(.subheadline.weight(.semibold))
+                                .font(.subheadline)
 
                             if let company = speaker.company {
                                 Text(company)
@@ -252,14 +237,28 @@ struct SharingsPicker: NSViewRepresentable {
 struct TalkDetail_Previews: PreviewProvider {
     static let inMemory = PersistenceController(inMemory: true)
     static let talk: Talk = {
+        let speaker1 = Member(context: inMemory.container.viewContext)
+        speaker1.login = "1"
+        speaker1.firstName = "John"
+        speaker1.lastName = "Doe"
+        speaker1.company = "MegaCorp"
+        speaker1.photoURLString = "https://avatars.githubusercontent.com/u/886053?v=4"
+
+        let speaker2 = Member(context: inMemory.container.viewContext)
+        speaker2.login = "2"
+        speaker2.firstName = "Jane"
+        speaker2.lastName = ""
+        speaker2.company = ""
+
         let talk = Talk(context: inMemory.container.viewContext)
         talk.identifier = "1"
+        talk.speakersIdentifiers = speaker1.login! + Talk.serializationSeparator + speaker2.login!
         talk.title = "Au-delà des heures : La semaine de 4 jours comme levier d’égalité"
         talk.language = "fr"
         talk.format = "Talk"
         talk.room = "AMPHI2"
-        talk.startDate = Date()
-        talk.endDate = Date().addingTimeInterval(3600)
+        talk.startDate = Date.now
+        talk.endDate = Date(timeIntervalSinceNow: 3600)
         talk.summary =
 			"""
 			L’égalité…vaste sujet n’est ce pas ? 
