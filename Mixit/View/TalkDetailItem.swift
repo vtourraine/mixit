@@ -18,6 +18,7 @@ struct TalkDetailItem: View {
             Image(systemName: systemImageName)
                 .font(.title2)
                 .foregroundStyle(imageColor)
+                .padding(.horizontal, 6)
             Text(text)
         }
         .frame(maxWidth: .infinity, alignment: .leading)

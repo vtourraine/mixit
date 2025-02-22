@@ -13,6 +13,8 @@ struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext
     @EnvironmentObject var client: MixitClient
 
+    let dateFormatter: DateIntervalFormatter = TalkRow.defaultDateFormatter()
+
     @State private var showingInfo = false
     @State private var searchText = ""
     static let yearPredicate = NSPredicate(format: "%K == %@", #keyPath(Talk.event), String(MixitClient.currentYear))
@@ -43,8 +45,6 @@ struct ContentView: View {
       predicate: yearPredicate
     ) var talks: SectionedFetchResults<String, Talk>
 
-    private var dateFormatter = DateFormatter()
-
     var body: some View {
         NavigationView {
             List {
@@ -54,7 +54,7 @@ struct ContentView: View {
                             NavigationLink {
                                 TalkDetail(talk: talk)
                             } label: {
-                                TalkRow(talk: talk)
+                                TalkRow(dateFormatter: dateFormatter, talk: talk)
                             }
                             .swipeActions {
                                 Button(talk.isFavorited ? "Remove from Favorites" : "Add to Favorites") {

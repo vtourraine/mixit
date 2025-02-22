@@ -9,21 +9,30 @@
 import SwiftUI
 
 struct TalkRow: View {
+    let dateFormatter: DateIntervalFormatter
+
+    static func defaultDateFormatter() -> DateIntervalFormatter {
+        let formatter = DateIntervalFormatter()
+        formatter.dateStyle = .none
+        formatter.timeStyle = .short
+        return formatter
+    }
+
     @ObservedObject var talk: Talk
 
     // When next year schedule isn’t available yet, we keep all talks “active”
     let isInMaintenanceModeInBetweenEditions = false
 
-    var subtitle: String {
+    var subtitle: LocalizedStringKey {
         get {
             var text = ""
 
+            if let format = talk.format {
+                text += "**" + format.localizedCapitalized + "**"
+            }
+
             if let startDate = talk.startDate, let endDate = talk.endDate {
-                // TODO: Move date formatter initialization to be shared across rows
-                let formatter = DateIntervalFormatter()
-                formatter.dateStyle = .none
-                formatter.timeStyle = .short
-                let dateString = formatter.string(from: startDate, to: endDate)
+                let dateString = dateFormatter.string(from: startDate, to: endDate)
                 text += " • " + dateString
             }
 
@@ -32,7 +41,7 @@ struct TalkRow: View {
                 text += " • " + formattedRoom
             }
 
-            return text
+            return LocalizedStringKey(text)
         }
     }
 
@@ -45,16 +54,9 @@ struct TalkRow: View {
                         .font(.headline)
                 }
 
-                HStack(spacing: 0) {
-                    if let format = talk.format {
-                        Text(format.localizedCapitalized)
-                            .bold()
-                    }
-
-                    Text(subtitle)
-                }
-                .font(.caption)
-                .foregroundStyle(.secondary)
+                Text(subtitle)
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
 
                 Spacer(minLength: 2)
             }
@@ -97,8 +99,8 @@ struct TalkRow_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             List {
-                TalkRow(talk: talk)
-                TalkRow(talk: talkFav)
+                TalkRow(dateFormatter: TalkRow.defaultDateFormatter(), talk: talk)
+                TalkRow(dateFormatter: TalkRow.defaultDateFormatter(), talk: talkFav)
             }
         }
         .previewLayout(.fixed(width: 300, height: 70))

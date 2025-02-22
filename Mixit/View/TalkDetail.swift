@@ -74,40 +74,7 @@ struct TalkDetail: View {
                 Spacer(minLength: 20)
 
                 ForEach(talk.fetchSpeakers()) { speaker in
-                    HStack(alignment: .top) {
-                        // Speaker photo
-                        if let photoURL = speaker.photoURLString {
-                            AsyncImage(url: URL(string: photoURL)) { image in
-                                image
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fill)
-                                    .clipShape(Circle())
-                            } placeholder: {
-                                Image(systemName: "person.crop.circle")
-                                    .resizable()
-                            }
-                            .frame(width: 38, height: 38)
-                        }
-                        else {
-                            Image(systemName: "person.crop.circle")
-                                .resizable()
-                                .frame(width: 38, height: 38)
-                        }
-
-                        // Speaker info
-                        VStack(alignment: .leading) {
-                            Text(nameFormatter.string(from: PersonNameComponents(givenName: speaker.firstName, familyName: speaker.lastName)))
-                                .font(.subheadline)
-
-                            if let company = speaker.company {
-                                Text(company)
-                                    .font(.subheadline).foregroundStyle(.secondary)
-                            }
-                        }
-                        .frame(minHeight: 38)
-                    }
-                    .frame(maxWidth: .infinity, alignment: .leading)
-
+                    SpeakerView(nameFormatter: nameFormatter, speaker: speaker)
                     Spacer(minLength: 20)
                 }
 
