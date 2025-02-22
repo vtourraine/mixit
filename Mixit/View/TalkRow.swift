@@ -59,7 +59,7 @@ struct TalkRow: View {
                 Spacer(minLength: 2)
             }
             Spacer()
-            if talk.favorited?.boolValue ?? false {
+            if talk.isFavorited {
                 Image(systemName: "star.fill")
                     .foregroundColor(.orange)
             }
