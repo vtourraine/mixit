@@ -19,6 +19,7 @@ struct TalkRow: View {
             var text = ""
 
             if let startDate = talk.startDate, let endDate = talk.endDate {
+                // TODO: Move date formatter initialization to be shared across rows
                 let formatter = DateIntervalFormatter()
                 formatter.dateStyle = .none
                 formatter.timeStyle = .short
@@ -39,8 +40,10 @@ struct TalkRow: View {
         HStack {
             VStack(alignment: .leading, spacing: 8) {
                 Spacer(minLength: 2)
-                Text(talk.title ?? "")
-                    .font(.body.bold())
+                if let title = talk.title {
+                    Text(title)
+                        .font(.headline)
+                }
 
                 HStack(spacing: 0) {
                     if let format = talk.format {
@@ -74,14 +77,29 @@ struct TalkRow_Previews: PreviewProvider {
         talk.language = "fr"
         talk.format = "Keynote"
         talk.room = "AMPHI2"
-        talk.startDate = Date()
-        talk.endDate = Date().addingTimeInterval(3600)
+        talk.startDate = Date.now
+        talk.endDate = Date(timeIntervalSinceNow: 3600)
+        return talk
+    }()
+    static let talkFav: Talk = {
+        let talk = Talk(context: inMemory.container.viewContext)
+        talk.identifier = "2"
+        talk.title = "Second Talk"
+        talk.language = "en"
+        talk.format = "Keynote"
+        talk.room = "AMPHI2"
+        talk.startDate = Date.now
+        talk.endDate = Date(timeIntervalSinceNow: 3600)
+        talk.isFavorited = true
         return talk
     }()
 
     static var previews: some View {
         Group {
-            TalkRow(talk: talk)
+            List {
+                TalkRow(talk: talk)
+                TalkRow(talk: talkFav)
+            }
         }
         .previewLayout(.fixed(width: 300, height: 70))
     }

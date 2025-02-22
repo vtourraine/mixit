@@ -132,7 +132,13 @@ extension Talk {
     }
 
     var isFavorited: Bool {
-        return favorited?.boolValue ?? false
+        get {
+            return favorited?.boolValue ?? false
+        }
+
+        set {
+            favorited = NSNumber(booleanLiteral: newValue)
+        }
     }
 
     var isUpcomingTalk: Bool {
