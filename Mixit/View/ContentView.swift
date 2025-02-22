@@ -28,7 +28,11 @@ struct ContentView: View {
         }
 
         talks.nsPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [
-            NSPredicate(format: "%K contains[cd] %@ OR %K contains[cd] %@", #keyPath(Talk.title), newValue, #keyPath(Talk.shortestAvailableDescription), newValue),
+            NSCompoundPredicate(orPredicateWithSubpredicates: [
+                NSPredicate(format: "%K contains[cd] %@", #keyPath(Talk.title), newValue),
+                NSPredicate(format: "%K contains[cd] %@", #keyPath(Talk.summary), newValue),
+                NSPredicate(format: "%K contains[cd] %@", #keyPath(Talk.desc), newValue)
+            ]),
             ContentView.yearPredicate])
       }
     }
