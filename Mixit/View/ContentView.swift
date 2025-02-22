@@ -75,6 +75,13 @@ struct ContentView: View {
             .listStyle(.plain)
 #endif
             .navigationTitle("MiXiT Schedule")
+            .overlay {
+                if #available(iOS 17, macOS 14, *) {
+                    if talks.isEmpty && !searchText.isEmpty {
+                        ContentUnavailableView.search
+                    }
+                }
+            }
             .toolbar {
                 ToolbarItem {
                     Button(action: {
