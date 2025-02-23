@@ -11,6 +11,7 @@
 ## 10.0
 
 - [x] Update for 2025 edition
+- [x] Refresh interface
 
 
 ## 9.1
