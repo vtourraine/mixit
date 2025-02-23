@@ -13,6 +13,8 @@ struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext
     @EnvironmentObject var client: MixitClient
 
+    let dateFormatter: DateIntervalFormatter = TalkRow.defaultDateFormatter()
+
     @State private var showingInfo = false
     @State private var searchText = ""
     static let yearPredicate = NSPredicate(format: "%K == %@", #keyPath(Talk.event), String(MixitClient.currentYear))
@@ -28,7 +30,11 @@ struct ContentView: View {
         }
 
         talks.nsPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [
-            NSPredicate(format: "%K contains[cd] %@ OR %K contains[cd] %@", #keyPath(Talk.title), newValue, #keyPath(Talk.summary), newValue),
+            NSCompoundPredicate(orPredicateWithSubpredicates: [
+                NSPredicate(format: "%K contains[cd] %@", #keyPath(Talk.title), newValue),
+                NSPredicate(format: "%K contains[cd] %@", #keyPath(Talk.summary), newValue),
+                NSPredicate(format: "%K contains[cd] %@", #keyPath(Talk.desc), newValue)
+            ]),
             ContentView.yearPredicate])
       }
     }
@@ -39,8 +45,6 @@ struct ContentView: View {
       predicate: yearPredicate
     ) var talks: SectionedFetchResults<String, Talk>
 
-    private var dateFormatter = DateFormatter()
-
     var body: some View {
         NavigationView {
             List {
@@ -50,7 +54,7 @@ struct ContentView: View {
                             NavigationLink {
                                 TalkDetail(talk: talk)
                             } label: {
-                                TalkRow(talk: talk)
+                                TalkRow(dateFormatter: dateFormatter, talk: talk)
                             }
                             .swipeActions {
                                 Button(talk.isFavorited ? "Remove from Favorites" : "Add to Favorites") {
@@ -71,6 +75,13 @@ struct ContentView: View {
             .listStyle(.plain)
 #endif
             .navigationTitle("MiXiT Schedule")
+            .overlay {
+                if #available(iOS 17, macOS 14, *) {
+                    if talks.isEmpty && !searchText.isEmpty {
+                        ContentUnavailableView.search
+                    }
+                }
+            }
             .toolbar {
                 ToolbarItem {
                     Button(action: {

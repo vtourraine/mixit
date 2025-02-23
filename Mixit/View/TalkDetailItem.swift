@@ -11,10 +11,14 @@ import SwiftUI
 struct TalkDetailItem: View {
     var text: String
     var systemImageName: String
+    var imageColor: Color
 
     var body: some View {
         HStack {
             Image(systemName: systemImageName)
+                .font(.title2)
+                .foregroundStyle(imageColor)
+                .padding(.horizontal, 6)
             Text(text)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
@@ -24,6 +28,7 @@ struct TalkDetailItem: View {
 
 struct TalkDetailItem_Previews: PreviewProvider {
     static var previews: some View {
-        TalkDetailItem(text: "Music", systemImageName: "opticaldisc")
+        TalkDetailItem(text: "Lovelace Amphitheater", systemImageName: "mappin.circle.fill", imageColor: .red)
+            .frame(maxWidth: 150)
     }
 }

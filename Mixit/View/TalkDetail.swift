@@ -35,66 +35,58 @@ struct TalkDetail: View {
 
     var body: some View {
         ScrollView {
-            VStack {
-                Text(talk.title ?? "")
-                    .font(.title)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                ForEach(talk.fetchSpeakers()) { speaker in
-                    HStack {
-                        if let photoURL = speaker.photoURLString {
-                            AsyncImage(url: URL(string: photoURL)) { image in
-                                image.resizable()
-                                    .clipShape(Circle())
-                            } placeholder: {
-                                Image(systemName: "person.crop.circle")
-                                    .font(.system(size: 32))
-                            }
-                            .frame(width: 40, height: 40)
-                        }
-                        else {
-                            Image(systemName: "person.crop.circle")
-                                .font(.system(size: 32))
-                                .frame(width: 40, height: 40)
-                        }
-                        VStack(alignment: .leading) {
-                            Text(nameFormatter.string(from: PersonNameComponents(givenName: speaker.firstName, familyName: speaker.lastName)))
-                                .font(.body)
-                            if let company = speaker.company {
-                                Text(company)
-                                    .font(.body).italic()
-                            }
-                        }
-                    }.frame(maxWidth: .infinity, alignment: .leading)
-                }
-                Spacer(minLength: 20)
-
-                if let emoji = talk.emojiForLanguage, let format = talk.format {
-                    Text("\(emoji) \(format.localizedCapitalized)")
+            VStack(alignment: .leading) {
+                if let title = talk.title {
+                    Text(title)
+                        .font(.largeTitle)
                         .frame(maxWidth: .infinity, alignment: .leading)
-                    Spacer(minLength: 6)
                 }
-				if let room = talk.room {
-					let formattedRoom = NSLocalizedString(room, tableName: "Rooms", comment: "")
-					TalkDetailItem(text: formattedRoom, systemImageName: "mappin.and.ellipse")
-				}
-                if let startDate = talk.startDate, let endDate = talk.endDate {
-                    TalkDetailItem(text: "\(Talk.dayFormatter.string(from: startDate).localizedCapitalized), \(timeIntervalFormatter.string(from: startDate, to: endDate))", systemImageName: "clock")
+
+                Spacer(minLength: 10)
+
+                if let language = talk.localizedLanguage,
+                   let format = talk.format {
+                    HStack(spacing: 0) {
+                        Text(format.localizedCapitalized)
+                            .bold()
+                        Text(" • ")
+                        Text(language)
+                    }
+                    .foregroundStyle(.secondary)
+                    .font(.body)
+
+                    Spacer(minLength: 20)
                 }
-                else {
-                    TalkDetailItem(text: "Not announced yet", systemImageName: "clock")
+
+                HStack {
+                    if let startDate = talk.startDate, let endDate = talk.endDate {
+                        TalkDetailItem(text: "\(Talk.dayFormatter.string(from: startDate).localizedCapitalized)\n\(timeIntervalFormatter.string(from: startDate, to: endDate))", systemImageName: "clock.circle.fill", imageColor: .blue)
+                    }
+                    if let room = talk.room {
+                        let formattedRoom = NSLocalizedString(room, tableName: "Rooms", comment: "")
+                        TalkDetailItem(text: formattedRoom, systemImageName: "mappin.circle.fill", imageColor: .red)
+                    }
+                    else {
+                        TalkDetailItem(text: "Not announced yet", systemImageName: "ellipsis.circle.fill", imageColor: .gray)
+                    }
                 }
 
                 Spacer(minLength: 20)
 
-                if let summary = talk.summary {
-                    Text(summary)
+                ForEach(talk.fetchSpeakers()) { speaker in
+                    SpeakerView(nameFormatter: nameFormatter, speaker: speaker)
+                    Spacer(minLength: 20)
+                }
+
+                if let effectiveSummary = talk.effectiveSummary {
+                    Text(effectiveSummary)
                         .font(.body).italic()
                         .frame(maxWidth: .infinity, alignment: .leading)
                     Spacer(minLength: 20)
                 }
 
-                if let desc = talk.desc {
-                    Text(desc)
+                if let effectiveDescription = talk.effectiveDescription {
+                    Text(effectiveDescription)
                         .font(.body)
                         .frame(maxWidth: .infinity, alignment: .leading)
                 }
@@ -212,15 +204,41 @@ struct SharingsPicker: NSViewRepresentable {
 struct TalkDetail_Previews: PreviewProvider {
     static let inMemory = PersistenceController(inMemory: true)
     static let talk: Talk = {
+        let speaker1 = Member(context: inMemory.container.viewContext)
+        speaker1.login = "1"
+        speaker1.firstName = "John"
+        speaker1.lastName = "Doe"
+        speaker1.company = "MegaCorp"
+        speaker1.photoURLString = "https://avatars.githubusercontent.com/u/886053?v=4"
+
+        let speaker2 = Member(context: inMemory.container.viewContext)
+        speaker2.login = "2"
+        speaker2.firstName = "Jane"
+        speaker2.lastName = ""
+        speaker2.company = ""
+
         let talk = Talk(context: inMemory.container.viewContext)
         talk.identifier = "1"
-        talk.title = "First Talk"
+        talk.speakersIdentifiers = speaker1.login! + Talk.serializationSeparator + speaker2.login!
+        talk.title = "Au-delà des heures : La semaine de 4 jours comme levier d’égalité"
         talk.language = "fr"
-        talk.format = "Keynote"
+        talk.format = "Talk"
         talk.room = "AMPHI2"
-        talk.startDate = Date()
-        talk.endDate = Date().addingTimeInterval(3600)
-        talk.desc = "Bla bla bla... Bla bla bla... Bla bla bla..."
+        talk.startDate = Date.now
+        talk.endDate = Date(timeIntervalSinceNow: 3600)
+        talk.summary =
+			"""
+			L’égalité…vaste sujet n’est ce pas ? 
+
+			Égalité salariale, reconnaissance équitable, évolution dans l’entreprise… Il est temps de briser les barrières de genre ! Allons même plus loin sur la diversité et l’inclusion en offrant une flexibilité accrue aux employé.es ayant des responsabilités familiales, des engagements ou des besoins particuliers.
+
+			Une révolution du travail se profile à l’horizon : la semaine de 4 jours. Un levier puissant pour l’égalité et je vais vous expliquer pourquoi.
+
+			Au cours de cette conférence, nous explorerons en détail les mécanismes par lesquels la semaine de 4 jours contribue à la diminution des inégalités au travail. Des exemples concrets s’appuyant sur des témoignages et des études de cas mettront en lumière les bienfaits de cette approche. 
+
+			Enfin, je vous donnerai les clés pour insuffler cette nouvelle façon de travailler dans votre propre structure. 
+			Saisissez l’opportunité d’initier des transformations positives dès maintenant !
+			"""
         return talk
     }()
 

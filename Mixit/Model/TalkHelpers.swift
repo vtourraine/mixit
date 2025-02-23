@@ -36,6 +36,29 @@ extension Talk {
         }
     }
 
+    /// The description if available, or the summary otherwise.
+    var effectiveDescription: String? {
+        guard let desc, desc != "" else {
+            return summary
+        }
+
+        return desc
+    }
+
+    /// The summary if the description is available, otherwise nothing.
+    var effectiveSummary: String? {
+        guard let desc, desc != "" else {
+            return nil
+        }
+
+        return summary
+    }
+
+    @objc
+    var shortestAvailableDescription: String? {
+        effectiveSummary ?? effectiveDescription
+    }
+
     func update(with talkResponse: TalkResponse) {
         desc = talkResponse.description.cleaned()
         format = talkResponse.format.replacingOccurrences(of: "_", with: " ")
@@ -72,6 +95,23 @@ extension Talk {
         }
     }
 
+    var localizedLanguage: String? {
+        get {
+            guard let language else {
+                return nil
+            }
+
+            if language == "fr" || language == "FRENCH" {
+                return NSLocalizedString("French", comment: "")
+            }
+            else if language == "en" || language == "ENGLISH" {
+                return NSLocalizedString("English", comment: "")
+            }
+
+            return nil
+        }
+    }
+
     func fetchSpeakers() -> [Member] {
         guard let speakersIdentifiers else {
             return []
@@ -92,7 +132,13 @@ extension Talk {
     }
 
     var isFavorited: Bool {
-        return favorited?.boolValue ?? false
+        get {
+            return favorited?.boolValue ?? false
+        }
+
+        set {
+            favorited = NSNumber(booleanLiteral: newValue)
+        }
     }
 
     var isUpcomingTalk: Bool {
@@ -109,6 +155,9 @@ extension Talk {
 
 extension String {
     func cleaned() -> String {
-        return replacingOccurrences(of: "&#39;", with: "’").replacingOccurrences(of: "&#34;", with: "\"")
+        return
+            replacingOccurrences(of: "&#39;", with: "'")
+            .replacingOccurrences(of: "&#34;", with: "\"")
+            .replacingOccurrences(of: "&amp;", with: "&")
     }
 }
