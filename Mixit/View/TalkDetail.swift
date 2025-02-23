@@ -52,31 +52,32 @@ struct TalkDetail: View {
                         Text(" • ")
                         Text(language)
                     }
-                    .foregroundStyle(.secondary)
                     .font(.body)
 
-                    Spacer(minLength: 20)
+                    Spacer(minLength: 30)
                 }
 
                 HStack {
                     if let startDate = talk.startDate, let endDate = talk.endDate {
-                        TalkDetailItem(text: "\(Talk.dayFormatter.string(from: startDate).localizedCapitalized)\n\(timeIntervalFormatter.string(from: startDate, to: endDate))", systemImageName: "clock.circle.fill", imageColor: .blue)
+                        TalkDetailItem(text: "\(Talk.dayFormatter.string(from: startDate).localizedCapitalized)\n\(timeIntervalFormatter.string(from: startDate, to: endDate))", systemImageName: "clock")
                     }
                     if let room = talk.room {
                         let formattedRoom = NSLocalizedString(room, tableName: "Rooms", comment: "")
-                        TalkDetailItem(text: formattedRoom, systemImageName: "mappin.circle.fill", imageColor: .red)
+                        TalkDetailItem(text: formattedRoom, systemImageName: "mappin")
                     }
                     else {
-                        TalkDetailItem(text: "Not announced yet", systemImageName: "ellipsis.circle.fill", imageColor: .gray)
+                        TalkDetailItem(text: "Not announced yet", systemImageName: "ellipsis")
                     }
                 }
 
-                Spacer(minLength: 20)
+                Spacer(minLength: 30)
 
                 ForEach(talk.fetchSpeakers()) { speaker in
                     SpeakerView(nameFormatter: nameFormatter, speaker: speaker)
-                    Spacer(minLength: 20)
+                    Spacer(minLength: 10)
                 }
+
+                Spacer(minLength: 20)
 
                 if let effectiveSummary = talk.effectiveSummary {
                     Text(effectiveSummary)
@@ -103,19 +104,19 @@ struct TalkDetail: View {
         .toolbar {
 #if os(iOS)
             ToolbarItemGroup(placement: .navigationBarTrailing) {
-                Button(action: {
+                Button {
                     showAddEventModal.toggle()
-                }) {
+                } label: {
                     Label("Add to Calendar", systemImage: "calendar.badge.plus")
                 }
-                Button(action: {
+                Button {
                     talk.toggleFavorited()
-                }) {
+                } label: {
                     Label(talk.isFavorited ? "Remove from Favorites" : "Add to Favorites", systemImage: talk.isFavorited ? "star.fill" : "star")
                 }
-                Button(action: {
+                Button {
                     self.isSharePresented = true
-                }) {
+                } label: {
                     Label("Share", systemImage: "square.and.arrow.up")
                 }
                 .sheet(isPresented: $isSharePresented, onDismiss: {
@@ -126,16 +127,16 @@ struct TalkDetail: View {
 #endif
 #if os(macOS)
             ToolbarItem {
-                Button(action: {
+                Button {
                     talk.toggleFavorited()
-                }) {
+                } label: {
                     Label("Add to Favorites", systemImage: (talk.favorited?.boolValue ?? false) ? "star.fill" : "star")
                 }
             }
             ToolbarItem {
-                Button(action: {
+                Button {
                     self.isSharePresented = true
-                }) {
+                } label: {
                     Label("Share", systemImage: "square.and.arrow.up")
                 }
                 .background(SharingsPicker(isPresented: $isSharePresented, sharingItems: shareItems))
