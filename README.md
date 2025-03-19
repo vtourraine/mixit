@@ -1,6 +1,6 @@
 # MiXiT for iOS/macOS
 
-![iPad/iPhone App](https://www.vtourraine.net/blog/img/2023/mixit-swiftui/mixit-devices.jpg)
+![Mac/iPad/iPhone App](https://www.vtourraine.net/blog/img/2025/app-mixit-v10/mixit-v10.jpg)
 
 
 ## Links
@@ -18,3 +18,4 @@ Learn more about this app on my blog (in French):
 - [MiXiT 2022](https://www.vtourraine.net/blog/2022/mixit-7)
 - [MiXiT 2023 avec SwiftUI](https://www.vtourraine.net/blog/2023/mixit-swiftui)
 - [MiXiT 2024](https://www.vtourraine.net/blog/2024/mixit-9)
+- [MiXiT 2025](https://www.vtourraine.net/blog/2025/app-mixit-v10)
