@@ -8,10 +8,17 @@
 - Display sync error dialog
 
 
+## 10.1
+
+- [x] Update list interface (macOS)
+
+
 ## 10.0
 
-- [x] Update for 2025 edition
-- [x] Refresh interface
+2025-03-13
+
+- Update for 2025 edition
+- Refresh interface
 
 
 ## 9.1

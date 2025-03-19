@@ -52,11 +52,13 @@ struct TalkRow: View {
                 if let title = talk.title {
                     Text(title)
                         .font(.headline)
+                        .lineLimit(3) // explicit value necessary for macOS
                 }
 
                 Text(subtitle)
                     .font(.caption)
                     .foregroundStyle(.secondary)
+                    .lineLimit(3) // explicit value necessary for macOS
 
                 Spacer(minLength: 2)
             }
