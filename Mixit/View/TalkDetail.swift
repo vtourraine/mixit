@@ -3,7 +3,7 @@
 //  mixit
 //
 //  Created by Vincent Tourraine on 04/08/2022.
-//  Copyright © 2022 Studio AMANgA. All rights reserved.
+//  Copyright © 2022-2025 Studio AMANgA. All rights reserved.
 //
 
 import SwiftUI
@@ -197,6 +197,20 @@ struct SharingsPicker: NSViewRepresentable {
         func sharingServicePicker(_ sharingServicePicker: NSSharingServicePicker, didChoose service: NSSharingService?) {
             sharingServicePicker.delegate = nil
             self.owner.isPresented = false
+        }
+
+        func sharingServicePicker(_ sharingServicePicker: NSSharingServicePicker, sharingServicesForItems items: [Any], proposedSharingServices proposedServices: [NSSharingService]) -> [NSSharingService] {
+            guard let image = NSImage(systemSymbolName: "link", accessibilityDescription: nil),
+                  let url = items.last as? URL else {
+                return proposedServices
+            }
+
+            let copyService = NSSharingService(title: "Copy Link", image: image, alternateImage: nil) {
+                NSPasteboard.general.clearContents()
+                NSPasteboard.general.setString(url.absoluteString, forType: .string)
+            }
+
+            return [copyService] + proposedServices
         }
     }
 }

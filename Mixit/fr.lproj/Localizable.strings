@@ -3,7 +3,7 @@
   mixit
 
   Created by Vincent Tourraine on 06/09/2022.
-  Copyright © 2022-2024 Studio AMANgA. All rights reserved.
+  Copyright © 2022-2025 Studio AMANgA. All rights reserved.
 */
 
 "MiXiT" = "MiXiT";
@@ -15,6 +15,7 @@
 "Add to Favorites" = "Ajouter aux favoris";
 "Remove from Favorites" = "Retirer des favoris";
 "Share" = "Partager";
+"Copy Link" = "Copier le lien";
 
 "Cannot Add Event" = "Erreur d’ajout de l’évènement";
 "Please allow calendar access in Settings." = "Veuillez autoriser l’accès au calendrier dans les Réglages.";

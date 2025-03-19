@@ -11,6 +11,7 @@
 ## 10.1
 
 - [x] Update list interface (macOS)
+- [x] Add Copy Link item in Share menu (macOS)
 
 
 ## 10.0
