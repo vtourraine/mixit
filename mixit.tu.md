@@ -12,6 +12,7 @@
 
 - [x] Update list interface (macOS)
 - [x] Add Copy Link item in Share menu (macOS)
+- [x] Fix sharing talk URL
 
 
 ## 10.0

@@ -21,8 +21,8 @@ struct TalkDetail: View {
 
     var shareItems: [Any] {
         get {
-            if let title = talk.title, let year = talk.year,
-               let url = URL(string: "https://mixitconf.org/fr/\(year)") {
+            if let title = talk.title, let year = talk.year, let slug = talk.slug,
+               let url = URL(string: "https://mixitconf.org/\(year)/\(slug)") {
                 return [title, url]
             }
             else {
