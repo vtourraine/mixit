@@ -96,9 +96,15 @@ struct ContentView: View {
                             .navigationTitle("About MiXiT")
                             .toolbar {
                                 ToolbarItem {
-                                    Button("Close", action: {
-                                        showingInfo = false
-                                    })
+                                    if #available(iOS 26, macOS 26, *) {
+                                        Button(role: .close) {
+                                            showingInfo = false
+                                        }
+                                    } else {
+                                        Button("Close") {
+                                            showingInfo = false
+                                        }
+                                    }
                                 }
                             }
 #endif
@@ -108,9 +114,15 @@ struct ContentView: View {
                                 .navigationTitle("About MiXiT")
                                 .toolbar {
                                     ToolbarItem {
-                                        Button("Close", action: {
-                                            showingInfo = false
-                                        })
+                                        if #available(iOS 26, macOS 26, *) {
+                                            Button(role: .close) {
+                                                showingInfo = false
+                                            }
+                                        } else {
+                                            Button("Close") {
+                                                showingInfo = false
+                                            }
+                                        }
                                     }
                                 }
                         }

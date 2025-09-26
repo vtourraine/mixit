@@ -48,6 +48,9 @@ struct MixitApp: App {
                 }
 #endif
         }
+        .commands {
+            SidebarCommands()
+        }
         .onChange(of: scenePhase) { _ in
             save()
         }

@@ -8,11 +8,18 @@
 - Display sync error dialog
 
 
+## 10.2
+
+- [x] Optimized for iOS 26, iPadOS 26, and macOS 26
+
+
 ## 10.1
 
-- [x] Update list interface (macOS)
-- [x] Add Copy Link item in Share menu (macOS)
-- [x] Fix sharing talk URL
+2025-03-30
+
+- Update list interface (macOS)
+- Add Copy Link item in Share menu (macOS)
+- Fix sharing talk URL
 
 
 ## 10.0
