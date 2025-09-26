@@ -21,7 +21,7 @@ struct TalkRow: View {
     @ObservedObject var talk: Talk
 
     // When next year schedule isn’t available yet, we keep all talks “active”
-    let isInMaintenanceModeInBetweenEditions = false
+    let isInMaintenanceModeInBetweenEditions = true
 
     var subtitle: LocalizedStringKey {
         get {
