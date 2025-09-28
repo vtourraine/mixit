@@ -130,7 +130,13 @@ struct ContentView: View {
                     }
                 }
             }
-            Text("No Talk Selected")
+            if #available(iOS 17.0, macOS 14.0, *) {
+                ContentUnavailableView {
+                    Text("No Talk Selected")
+                }
+            } else {
+                Text("No Talk Selected")
+            }
         }
     }
 }
