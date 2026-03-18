@@ -16,7 +16,7 @@ struct TalkResponse: Codable {
     let summary: String
     let speakerIds: [String]
     let language: String
-    let addedAt: Date
+    var addedAt: Date? // as of 2026, this field is always empty
     let description: String
     let topic: String
     let video: String?

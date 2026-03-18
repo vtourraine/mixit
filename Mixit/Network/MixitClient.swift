@@ -31,8 +31,8 @@ class MixitClient: ObservableObject {
 
     static let webURL = URL(string: "https://mixitconf.org")!
     static let baseURL = URL(string: "https://mixitconf.org/api/")!
-    static let currentYear = 2025
-    static let pastYears = [2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2021, 2022, 2023, 2024]
+    static let currentYear = 2026
+    static let pastYears = [2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2021, 2022, 2023, 2024, 2025]
 
     let decoder: JSONDecoder = {
         let decoder = JSONDecoder()
@@ -42,7 +42,7 @@ class MixitClient: ObservableObject {
 
     @discardableResult
     func fetchTalks(for year: Int = MixitClient.currentYear, session: URLSession = .shared) -> URLSessionDataTask {
-        let url = MixitClient.baseURL.appendingPathComponent("\(year)/talk")
+        let url = MixitClient.baseURL.appendingPathComponent("\(year)/talks")
         let task = session.dataTask(with: url) { data, response, error in
             guard let data else {
                 if let error {
@@ -80,7 +80,7 @@ class MixitClient: ObservableObject {
 
     @discardableResult
     func fetchUsers(for year: Int = MixitClient.currentYear, session: URLSession = .shared) -> URLSessionDataTask {
-        let url = MixitClient.baseURL.appendingPathComponent("\(year)/speaker")
+        let url = MixitClient.baseURL.appendingPathComponent("\(year)/speakers")
         let task = session.dataTask(with: url) { data, response, error in
             guard let data else {
                 if let error {
