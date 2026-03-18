@@ -42,7 +42,7 @@ class MixitClient: ObservableObject {
 
     @discardableResult
     func fetchTalks(for year: Int = MixitClient.currentYear, session: URLSession = .shared) -> URLSessionDataTask {
-        let url = MixitClient.baseURL.appendingPathComponent("\(year)/talk")
+        let url = MixitClient.baseURL.appendingPathComponent("\(year)/talks")
         let task = session.dataTask(with: url) { data, response, error in
             guard let data else {
                 if let error {
@@ -80,7 +80,7 @@ class MixitClient: ObservableObject {
 
     @discardableResult
     func fetchUsers(for year: Int = MixitClient.currentYear, session: URLSession = .shared) -> URLSessionDataTask {
-        let url = MixitClient.baseURL.appendingPathComponent("\(year)/speaker")
+        let url = MixitClient.baseURL.appendingPathComponent("\(year)/speakers")
         let task = session.dataTask(with: url) { data, response, error in
             guard let data else {
                 if let error {
