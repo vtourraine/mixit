@@ -2,7 +2,6 @@
 
 ## Roadmap
 
-- Restore calendar integration
 - Restore past editions
 - Display speaker details
 - Display sync error dialog
@@ -12,6 +11,7 @@
 
 - Update for 2025 edition
 - Optimized for iOS 26, iPadOS 26, and macOS 26
+  - Update icon
 
 
 ## 10.1
