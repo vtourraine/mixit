@@ -153,6 +153,16 @@ extension Talk {
         // return endDate.timeIntervalSince(date) > 0
         return endDate.timeIntervalSinceNow > 0
     }
+
+    var webURL: URL {
+        guard let year, let slug else {
+            return MixitClient.webURL
+        }
+
+        return MixitClient.webURL
+            .appendingPathComponent(year.stringValue)
+            .appendingPathComponent(slug)
+    }
 }
 
 extension String {

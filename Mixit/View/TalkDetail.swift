@@ -18,19 +18,6 @@ struct TalkDetail: View {
 
     @ObservedObject var talk: Talk
     @State var showAddEventModal = false
-
-    var shareItems: [Any] {
-        get {
-            if let title = talk.title, let year = talk.year, let slug = talk.slug,
-               let url = URL(string: "https://mixitconf.org/\(year)/\(slug)") {
-                return [title, url]
-            }
-            else {
-                return [URL(string: "https://mixitconf.org/")!]
-            }
-        }
-    }
-
     @State private var isSharePresented: Bool = false
 
     var body: some View {
@@ -114,15 +101,20 @@ struct TalkDetail: View {
                 } label: {
                     Label(talk.isFavorited ? "Remove from Favorites" : "Add to Favorites", systemImage: talk.isFavorited ? "star.fill" : "star")
                 }
-                Button {
-                    self.isSharePresented = true
-                } label: {
-                    Label("Share", systemImage: "square.and.arrow.up")
+                if #available(iOS 16.0, *) {
+                    ShareLink(item: talk.webURL) {
+                        Label("Share", systemImage: "square.and.arrow.up")
+                    }
+                } else {
+                    Button {
+                        self.isSharePresented = true
+                    } label: {
+                        Label("Share", systemImage: "square.and.arrow.up")
+                    }
+                    .sheet(isPresented: $isSharePresented) {
+                        ActivityViewController(activityItems: [talk.webURL])
+                    }
                 }
-                .sheet(isPresented: $isSharePresented, onDismiss: {
-                }, content: {
-                    ActivityViewController(activityItems: shareItems)
-                })
             }
 #endif
 #if os(macOS)
@@ -139,7 +131,7 @@ struct TalkDetail: View {
                 } label: {
                     Label("Share", systemImage: "square.and.arrow.up")
                 }
-                .background(SharingsPicker(isPresented: $isSharePresented, sharingItems: shareItems))
+                .background(SharingsPicker(isPresented: $isSharePresented, sharingItems: [talk.webURL]))
             }
 #endif
         }
