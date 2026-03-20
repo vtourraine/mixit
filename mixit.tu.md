@@ -7,6 +7,11 @@
 - Display sync error dialog
 
 
+## 11.0.1
+
+- [x] Update credits in Info screen
+
+
 ## 11.0
 
 2026-03-20
