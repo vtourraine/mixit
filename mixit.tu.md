@@ -9,6 +9,8 @@
 
 ## 11.0
 
+2026-03-20
+
 - Update for 2025 edition
 - Optimized for iOS 26, iPadOS 26, and macOS 26
   - Update icon
