@@ -44,10 +44,7 @@ struct InfoView: View {
                             .font(.footnote)
                             .foregroundColor(.secondary)
                         Spacer()
-                        Button("Made by Vincent.") {
-                            let url = URL(string: "https://www.vtourraine.net")!
-                            openWebsite(url)
-                        }
+                        Text("Made by [Vincent](https://www.vtourraine.net) and [Nathan](https://cykele.ro).")
                         .font(.footnote)
                         .foregroundColor(.secondary)
                     }
