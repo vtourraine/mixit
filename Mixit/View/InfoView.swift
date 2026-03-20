@@ -23,8 +23,10 @@ struct InfoView: View {
                     .fixedSize(horizontal: false, vertical: true)
                     .font(.headline)
                     .multilineTextAlignment(.center)
+
                 MapView()
                     .frame(height: 200)
+
                 Button("Open in Maps") {
                     openInMaps()
                 }
@@ -35,21 +37,21 @@ struct InfoView: View {
                 }
                 .frame(maxWidth: .infinity)
                 .buttonStyle(.bordered)
+
                 Spacer()
+
                 HStack {
                     VStack(alignment: .leading) {
                         Text("This app isn’t affiliated with the MiXiT team.")
                             .fixedSize(horizontal: false, vertical: true)
                             .multilineTextAlignment(.leading)
-                            .font(.footnote)
-                            .foregroundColor(.secondary)
                         Spacer()
                         Text("Made by [Vincent](https://www.vtourraine.net) and [Nathan](https://cykele.ro).")
-                        .font(.footnote)
-                        .foregroundColor(.secondary)
                     }
                     Spacer()
                 }
+                .font(.footnote)
+                .foregroundColor(.secondary)
                 .padding()
             }
         }
@@ -99,15 +101,12 @@ struct MapView: View {
     }
 }
 
-struct InfoView_Previews: PreviewProvider {
+#Preview("EN") {
+    InfoView()
+        .environment(\.locale, .init(identifier: "en"))
+}
 
-    static var previews: some View {
-        Group {
-            InfoView()
-                .previewDisplayName("Info (EN)")
-            InfoView()
-                .previewDisplayName("Info (FR)")
-                .environment(\.locale, .init(identifier: "fr"))
-        }
-    }
+#Preview("FR") {
+    InfoView()
+        .environment(\.locale, .init(identifier: "fr"))
 }
