@@ -23,28 +23,6 @@ struct TalkRow: View {
     // When next year schedule isn’t available yet, we keep all talks “active”
     let isInMaintenanceModeInBetweenEditions = false
 
-    var subtitle: LocalizedStringKey {
-        get {
-            var text = ""
-
-            if let format = talk.format {
-                text += "**" + format.localizedCapitalized + "**"
-            }
-
-            if let startDate = talk.startDate, let endDate = talk.endDate {
-                let dateString = dateFormatter.string(from: startDate, to: endDate)
-                text += " • " + dateString
-            }
-
-            if let room = talk.room {
-                let formattedRoom = NSLocalizedString(room, tableName: "Rooms", comment: "")
-                text += " • " + formattedRoom
-            }
-
-            return LocalizedStringKey(text)
-        }
-    }
-
     var body: some View {
         HStack {
             VStack(alignment: .leading, spacing: 8) {
@@ -55,10 +33,19 @@ struct TalkRow: View {
                         .lineLimit(3) // explicit value necessary for macOS
                 }
 
-                Text(subtitle)
-                    .font(.caption)
-                    .foregroundStyle(.secondary)
-                    .lineLimit(3) // explicit value necessary for macOS
+                HStack {
+                    if let format = talk.format {
+                        Text(format.localizedCapitalized)
+                            .bold()
+                            .foregroundStyle(.miXiTOrange)
+                    }
+
+                    if let room = talk.room {
+                        let formattedRoom = NSLocalizedString(room, tableName: "Rooms", comment: "")
+                        Text(formattedRoom)
+                    }
+                }
+                .font(.caption)
 
                 Spacer(minLength: 2)
             }

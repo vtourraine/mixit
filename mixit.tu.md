@@ -9,7 +9,8 @@
 
 ## 11.0.1
 
-- [x] Update About screen
+- [x] Refresh Schedule screen
+- [x] Refresh About screen
 
 
 ## 11.0
