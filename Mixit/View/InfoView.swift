@@ -27,16 +27,32 @@ struct InfoView: View {
                 MapView()
                     .frame(height: 200)
 
-                Button("Open in Maps") {
-                    openInMaps()
+                VStack {
+                    Button {
+                        openInMaps()
+                    } label: {
+                        Image(systemName: "location.fill")
+                        Text("Open in Maps")
+                            .frame(maxWidth: .infinity, minHeight: 38)
+                        Spacer() // For symmetric layout
+                            .frame(width: 20)
+                    }
+                    .buttonStyle(.bordered)
+
+                    Button {
+                        openWebsite()
+                    } label: {
+                        Image(systemName: "safari.fill")
+                        Text("Open MiXiT website")
+                            .frame(maxWidth: .infinity, minHeight: 38)
+                        Spacer() // For symmetric layout
+                            .frame(width: 20)
+                    }
+                    .buttonStyle(.bordered)
                 }
-                .frame(maxWidth: .infinity)
-                .buttonStyle(.bordered)
-                Button("Open MiXiT website") {
-                    openWebsite()
-                }
-                .frame(maxWidth: .infinity)
-                .buttonStyle(.bordered)
+                .padding(.horizontal)
+                .font(.headline)
+                .tint(.miXiTOrange)
 
                 Spacer()
 

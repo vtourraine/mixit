@@ -111,7 +111,7 @@ struct ContentView: View {
 #if os(iOS)
                         NavigationView {
                             InfoView()
-                                .navigationTitle("About MiXiT")
+                                .navigationTitle("About")
                                 .toolbar {
                                     ToolbarItem {
                                         if #available(iOS 26, macOS 26, *) {

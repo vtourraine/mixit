@@ -9,7 +9,7 @@
 
 ## 11.0.1
 
-- [x] Update credits in Info screen
+- [x] Update Info screen
 
 
 ## 11.0
