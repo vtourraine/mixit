@@ -57,8 +57,15 @@ struct ContentView: View {
                                 TalkRow(dateFormatter: dateFormatter, talk: talk)
                             }
                             .swipeActions {
-                                Button(talk.isFavorited ? "Remove from Favorites" : "Add to Favorites") {
+                                Button {
                                     talk.toggleFavorited()
+                                } label: {
+                                    if talk.isFavorited {
+                                        Label("Remove from Favorites", systemImage: "star.slash.fill")
+                                    }
+                                    else {
+                                        Label("Add to Favorites", systemImage: "star.fill")
+                                    }
                                 }
                                 .tint(.miXiTOrange)
                             }

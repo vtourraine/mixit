@@ -9,7 +9,7 @@
 
 ## 11.0.1
 
-- [x] Update Info screen
+- [x] Update About screen
 
 
 ## 11.0
