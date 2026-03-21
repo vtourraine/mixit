@@ -56,7 +56,7 @@ class MixitClient: ObservableObject {
 
 #if DEBUG
             if #available(iOS 16.0, macOS 13.0, *) {
-                let path = NSTemporaryDirectory().appending("data.json")
+                let path = NSTemporaryDirectory().appending("talks.json")
                 try? data.write(to: URL(filePath: path))
                 print("Path: \(path)")
             }
@@ -94,7 +94,7 @@ class MixitClient: ObservableObject {
 
 #if DEBUG
             if #available(iOS 16.0, macOS 13.0, *) {
-                let path = NSTemporaryDirectory().appending("data.json")
+                let path = NSTemporaryDirectory().appending("speakers.json")
                 try? data.write(to: URL(filePath: path))
                 print("Path: \(path)")
             }
