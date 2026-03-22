@@ -58,6 +58,8 @@ struct InfoView: View {
 
                 HStack {
                     VStack(alignment: .leading) {
+                        Text("Check out the [source code](https://github.com/vtourraine/mixit), contributions are welcome!")
+                        Spacer()
                         Text("This app isn’t affiliated with the MiXiT team.")
                             .fixedSize(horizontal: false, vertical: true)
                             .multilineTextAlignment(.leading)
