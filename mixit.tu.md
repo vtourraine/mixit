@@ -7,10 +7,12 @@
 - Display sync error dialog
 
 
-## 11.0.1
+## 11.1
 
-- [x] Refresh Schedule screen
-- [x] Refresh About screen
+2026-03-23
+
+- Refresh Schedule screen
+- Refresh About screen
 
 
 ## 11.0
