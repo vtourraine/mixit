@@ -7,6 +7,11 @@
 - Display sync error dialog
 
 
+## 11.1.1
+
+- Fix Schedule list coloring (macOS) 
+
+
 ## 11.1
 
 2026-03-23

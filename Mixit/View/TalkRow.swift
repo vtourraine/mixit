@@ -37,7 +37,9 @@ struct TalkRow: View {
                     if let format = talk.format {
                         Text(format.localizedCapitalized)
                             .bold()
+#if os(iOS)
                             .foregroundStyle(.miXiTOrange)
+#endif
                     }
 
                     if let room = talk.room {
