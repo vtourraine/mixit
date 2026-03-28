@@ -9,6 +9,8 @@
 
 ## 11.1.1
 
+2026-03-25
+
 - Fix Schedule list coloring (macOS) 
 
 
