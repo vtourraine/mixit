@@ -1,6 +1,6 @@
 # MiXiT for iOS/macOS
 
-![Mac/iPad/iPhone App](https://www.vtourraine.net/blog/img/2025/app-mixit-v10/mixit-v10.jpg)
+![iPhone App](https://www.vtourraine.net/blog/img/2026/app-mixit-v11/mixit-iphone.jpg)
 
 
 ## Links
